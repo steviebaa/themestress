@@ -24,7 +24,7 @@ const spToRem = (sp: number | string) =>
   typeof sp === 'number' ? sp / 16 : sp;
 
 const variantMapping = {
-	h1: {
+  h1: {
     variant: 'h1',
     lineHeight: 1.2,
     weight: 300,

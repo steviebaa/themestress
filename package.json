@@ -15,7 +15,7 @@
 	"scripts": {
 		"prepare": "npm run build",
 		"prepublishOnly": "npm test && npm run lint",
-		"preversion": "prettier --write \"packages/themestress/src/**/*.{ts,js,tsx,jsx}\" && npm run lint",
+		"preversion": "npm run lint",
 		"version": "npm run format && git add -A src",
 		"postversion": "git push && git push --tags",
 		"build": "cd packages/themestress && npm run build && cd ../..",
