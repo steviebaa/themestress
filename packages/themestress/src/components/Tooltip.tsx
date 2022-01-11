@@ -87,10 +87,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const ref = useRef<HTMLElement>(null);
 
   // Which ever ref is used, it will be accessible by this state
-  const [
-    childRef,
-    setChildRef,
-  ] = useState<MutableRefObject<HTMLElement> | null>(null);
+  const [childRef, setChildRef] =
+    useState<MutableRefObject<HTMLElement> | null>(null);
 
   // The bounds of the child once its been rendered
   const [bounds, setBounds] = useState<DOMRect | null>(null);
