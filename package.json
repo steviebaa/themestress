@@ -1,0 +1,34 @@
+{
+	"name": "themestress",
+	"version": "0.1.0",
+	"description": "A lightweight theme package.",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"author": "Steve Richardson",
+	"license": "MIT",
+	"keywords": [
+		"theme",
+		"react",
+		"emotion",
+		"material"
+	],
+	"scripts": {
+		"build": "",
+		"prepare": "npm run build",
+		"prepublishOnly": "npm test && npm run lint",
+		"preversion": "npm run lint",
+		"version": "npm run format && git add -A src",
+		"postversion": "git push && git push --tags"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/steviebaa/themestress"
+	},
+	"bugs": {
+		"url": "https://github.com/steviebaa/themestress/issues"
+	},
+	"homepage": "https://github.com/steviebaa/themestress",
+	"files": [
+		"lib/**/*"
+	]
+}
