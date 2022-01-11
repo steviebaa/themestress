@@ -1,7 +1,4 @@
 {
-  "name": "themestress",
-  "description": "A lightweight theme package.",
-  "version": "0.0.1",
   "scripts": {
     "test": "jest --config jestconfig.json --coverage",
     "build": "npm run format && npm run lint && tsc",
