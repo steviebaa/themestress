@@ -19,6 +19,12 @@
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/__tests__/*", ".git"]
+  "include": ["src/**/*", "config"],
+  "exclude": ["node_modules", "**/__tests__/*", ".git"],
+  "paths": {
+    "@__tests__/*": ["./src/__tests__/*"],
+    "@components/*": ["./src/components/*"],
+    "@core/*": ["./src/core/*"],
+    "@icons/*": ["./src/components/*"]
+  }
 }

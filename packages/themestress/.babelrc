@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    "jest-mock-external-components/babel",
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "@__tests__": "./src/__tests__",
+          "@components": "./src/components",
+          "@core": "./src/core",
+          "@icons": "./src/icons"
+        }
+      }
+    ]
+  ]
+}

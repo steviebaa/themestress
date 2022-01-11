@@ -1,6 +1,5 @@
 {
 	"name": "themestress",
-	"version": "0.1.0",
 	"description": "A lightweight theme package.",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
@@ -13,12 +12,14 @@
 		"material"
 	],
 	"scripts": {
-		"build": "",
 		"prepare": "npm run build",
 		"prepublishOnly": "npm test && npm run lint",
 		"preversion": "npm run lint",
 		"version": "npm run format && git add -A src",
-		"postversion": "git push && git push --tags"
+		"postversion": "git push && git push --tags",
+		"build": "cd packages/themestress && npm run build && cd ../..",
+		"test": "cd packages/themestress && npm run test && cd ../..",
+		"lint": "cd packages/themestress && npm run lint && cd ../.."
 	},
 	"repository": {
 		"type": "git",
@@ -29,6 +30,7 @@
 	},
 	"homepage": "https://github.com/steviebaa/themestress",
 	"files": [
-		"lib/**/*"
+		"lib/**/*",
+		"README.md"
 	]
 }
