@@ -1,7 +1,7 @@
 {
 	"name": "themestress",
 	"description": "A lightweight theme package.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"author": "Steve Richardson",
