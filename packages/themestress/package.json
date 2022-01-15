@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "jest --config jestconfig.json --coverage",
+    "test": "jest --config jest.config.js --coverage",
     "build": "npm run format && npm run lint && tsc",
     "format": "prettier --write \"src/**/*.{ts,js,tsx,jsx}\"",
     "lint": "eslint . --ext .ts,.tsx",

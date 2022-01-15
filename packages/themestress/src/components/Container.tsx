@@ -15,7 +15,7 @@ type TJustify =
   | 'flex-end';
 
 export interface ContainerProps extends ReactHTMLProps<HTMLDivElement> {
-  maxWidth: TMaxWidth;
+  maxWidth?: TMaxWidth;
   justifyContent?: TJustify;
   alignItems?: TAlign;
   direction?: 'column' | 'row';

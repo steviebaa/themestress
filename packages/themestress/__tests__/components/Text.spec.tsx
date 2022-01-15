@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Text } from '../components';
+import { Text } from '@components/Text';
+import { ThemeProvider } from '@emotion/react';
+import { createTheme } from '@core/themeUtils';
 
 describe('Component Text', () => {
   it('Should render a Text component', () => {
@@ -113,5 +115,23 @@ describe('Component Text', () => {
 
     expect(wrapper.find('p')).toHaveLength(1);
     expect(wrapper.text()).toContain('Test Text');
+  });
+
+  it('Should render a Text component with fontweight and casing', () => {
+    const wrapper = mount(
+      <ThemeProvider theme={createTheme({})}>
+        <Text fontColor={'primary'} weight={500}>
+          Test Text
+        </Text>
+        <Text fontColor={'red'} capitalize>
+          Test Text
+        </Text>
+        <Text fontColor={['shade', 2, 'main']} uppercase>
+          Test Text
+        </Text>
+      </ThemeProvider>,
+    );
+
+    expect(wrapper.find('p')).toHaveLength(3);
   });
 });

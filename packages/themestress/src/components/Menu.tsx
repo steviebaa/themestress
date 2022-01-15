@@ -42,7 +42,7 @@ const StyledMenu = styled(Paper)<MenuProps & { pos?: DOMRect | null }>`
   left: ${({ pos, anchorOrigin, positionOverride }) => {
     if (positionOverride) return positionOverride.x;
 
-    if (!pos || !pos.x) return 0;
+    if (!pos || pos.x === undefined) return 0;
     if (!anchorOrigin) return pos.x;
 
     let x = pos.x;
@@ -54,7 +54,7 @@ const StyledMenu = styled(Paper)<MenuProps & { pos?: DOMRect | null }>`
   top: ${({ pos, anchorOrigin, positionOverride }) => {
     if (positionOverride) return positionOverride.y;
 
-    if (!pos || !pos.y) return 0;
+    if (!pos || pos.y === undefined) return 0;
     if (!anchorOrigin) return pos.y + pos.height;
 
     let y = pos.y;
@@ -94,7 +94,7 @@ const UnorderedList = styled.ul`
 export const Menu: React.FC<MenuProps> = forwardRef(
   ({ children, ...props }: MenuProps, ref: ForwardedRef<HTMLDivElement>) => {
     const menuRef: MutableRefObject<HTMLDivElement> =
-      (ref as MutableRefObject<HTMLDivElement>) ?? useRef<HTMLDivElement>(null);
+      (ref as MutableRefObject<HTMLDivElement>) || useRef<HTMLDivElement>(null);
 
     const handleClickAway = () => {
       if (!props.open || !menuRef || !menuRef.current) return;

@@ -17,14 +17,15 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "@__tests__/*": ["__tests__/*"],
+      "@components/*": ["src/components/*"],
+      "@core/*": ["src/core/*"],
+      "@icons/*": ["src/components/*"]
+    }
   },
-  "include": ["src/**/*", "config"],
-  "exclude": ["node_modules", "**/__tests__/*", ".git"],
-  "paths": {
-    "@__tests__/*": ["./src/__tests__/*"],
-    "@components/*": ["./src/components/*"],
-    "@core/*": ["./src/core/*"],
-    "@icons/*": ["./src/components/*"]
-  }
+  "include": ["src/**/*", "config", "__tests__/**/*", "__tests__"],
+  "exclude": ["node_modules", ".git"]
 }

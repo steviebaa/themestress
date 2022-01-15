@@ -22,7 +22,7 @@ export const NavigationMenuItem: React.FC<NavigationMenuItemProps> = forwardRef(
   (props: NavigationMenuItemProps, ref: ForwardedRef<HTMLButtonElement>) => {
     return (
       <StyledMenuItem
-        className="_MenuItem"
+        className="_NavigationMenuItem"
         ref={ref}
         onClick={() => props.handleClick(ref)}
         disableRipple

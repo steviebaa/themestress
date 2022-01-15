@@ -85,15 +85,21 @@ export const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
       className="_Switch-Track"
       on={props.checked ? 1 : 0}
       onClick={handleClick}
-      // {...props}
+      noIcon={props.noIcon}
+      trackColor={props.trackColor}
     >
-      <Handle className="_Switch-Handle" on={props.checked ? 1 : 0}>
+      <Handle
+        className="_Switch-Handle"
+        on={props.checked ? 1 : 0}
+        noIcon={props.noIcon}
+      >
         {props.noIcon ? null : (
           <Svg
             width="100%"
             height="100%"
             viewBox="0 0 24 24"
             on={props.checked ? 1 : 0}
+            handleColor={props.handleColor}
           >
             {props.checked ? <TickPath /> : <CrossPath />}
           </Svg>

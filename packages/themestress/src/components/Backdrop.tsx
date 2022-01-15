@@ -19,8 +19,7 @@ const styles = (props: BackdropProps): React.CSSProperties => ({
 export const Backdrop: React.FC<BackdropProps> = (props: BackdropProps) => {
   const classes = styles(props);
 
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleClick = () => {
     props.onClick();
   };
 

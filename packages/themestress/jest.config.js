@@ -2,7 +2,7 @@
 const { resolve } = require('path');
 
 module.exports = {
-  setupFilesAfterEnv: ['<rootDir>/config/.enzyme.ts'],
+  setupFilesAfterEnv: ['./config/.enzyme.ts'],
   testEnvironment: 'jsdom',
   transform: { '^.+\\.(t|j)sx?$': 'ts-jest' },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',

@@ -185,7 +185,7 @@ export const Slider: React.FC<SliderProps> = ({
     if (!isHandleDown) return;
 
     const groupPos = sliderGroupRef.current.getBoundingClientRect();
-    const percentage = ((e.x - groupPos.x) / groupPos.width) * 100;
+    const percentage = ((e.clientX - groupPos.x) / groupPos.width) * 100;
     const bounded = percentage < 0 ? 0 : percentage > 100 ? 100 : percentage;
 
     if (!onChange || progress === bounded) return;
