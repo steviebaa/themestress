@@ -20,7 +20,7 @@ describe('Component NavigationMenuItem', () => {
   it('Should click NavigationMenuItem component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
-        <NavigationMenuItem handleClick={() => {}}>
+        <NavigationMenuItem handleClick={() => null}>
           Test NavigationMenuItem
         </NavigationMenuItem>
       </ThemeProvider>,

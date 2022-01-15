@@ -1,11 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState as useStateMock, useRef as useRefMock } from 'react';
 import { mount } from 'enzyme';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@core/themeUtils';
 import { Slider } from '@components/Slider';
 
-let setState = jest.fn();
-
+const setState = jest.fn();
 jest.mock('react', () => ({
   ...jest.requireActual<Record<string, unknown>>('react'),
   useState: jest.fn((init) => [init, setState]),
@@ -18,8 +18,6 @@ describe('Component Slider', () => {
   beforeEach(() => {
     (useStateMock as jest.Mock).mockImplementation((init) => [init, setState]);
   });
-
-  afterEach(() => {});
 
   it('Should render', () => {
     const wrapper = mount(
@@ -112,8 +110,6 @@ describe('Component Slider', () => {
             { label: '22px', value: 22 },
             { label: '24px', value: 24 },
           ]}
-          onChange={() => {}}
-          onChangeCommitted={() => {}}
         >
           Test Slider
         </Slider>
@@ -233,14 +229,13 @@ describe('Component Slider', () => {
             { label: '22px', value: 22 },
             { label: '24px', value: 24 },
           ]}
-          onChange={() => {}}
         >
           Test Slider
         </Slider>
       </ThemeProvider>,
     );
 
-    var event = new MouseEvent('pointermove', {
+    const event = new MouseEvent('pointermove', {
       clientX: 1,
       clientY: 1,
       bubbles: true,

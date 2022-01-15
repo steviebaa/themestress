@@ -5,7 +5,7 @@ import { createTheme } from '@core/themeUtils';
 import { ContextMenu } from '@components/ContextMenu';
 import { MenuItem } from '@components/MenuItem';
 
-let state = false;
+const state = false;
 const setState = jest.fn();
 
 jest.mock('react', () => ({

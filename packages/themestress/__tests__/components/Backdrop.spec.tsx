@@ -8,8 +8,8 @@ describe('Component Avatar', () => {
   it('Should render a backdrop component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
-        <Backdrop zIndex={1000} onClick={() => {}} backgroundColor="black" />
-        <Backdrop onClick={() => {}} />
+        <Backdrop zIndex={1000} onClick={() => null} backgroundColor="black" />
+        <Backdrop onClick={() => null} />
       </ThemeProvider>,
     );
 

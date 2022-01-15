@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { mount } from 'enzyme';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@core/themeUtils';
 import { Ripple } from '@components/Ripple';
 
-let state = [
+const state = [
   { x: 1, y: 1, size: 1 },
   { x: 2, y: 2, size: 2 },
 ];

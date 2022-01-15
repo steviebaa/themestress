@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { mount } from 'enzyme';
 import { ThemeProvider } from '@emotion/react';

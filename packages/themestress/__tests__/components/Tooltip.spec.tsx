@@ -4,8 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@core/themeUtils';
 import { Tooltip } from '@components/Tooltip';
 
-let setState = jest.fn();
-
+const setState = jest.fn();
 jest.mock('react', () => ({
   ...jest.requireActual<Record<string, unknown>>('react'),
   useState: jest.fn(() => [true, setState]),

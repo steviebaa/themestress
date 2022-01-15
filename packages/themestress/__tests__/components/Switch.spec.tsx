@@ -18,8 +18,8 @@ describe('Component Menu', () => {
   it('Should change state', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
-        <Switch checked={true} onChange={() => {}} noIcon />
-        <Switch checked={false} onChange={() => {}} noIcon />
+        <Switch checked={true} onChange={() => null} noIcon />
+        <Switch checked={false} onChange={() => null} noIcon />
       </ThemeProvider>,
     );
 
@@ -33,7 +33,7 @@ describe('Component Menu', () => {
   it('Should render with cross', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
-        <Switch checked={false} onChange={() => {}} />
+        <Switch checked={false} onChange={() => null} />
       </ThemeProvider>,
     );
 
