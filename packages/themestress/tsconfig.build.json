@@ -26,6 +26,6 @@
       "@icons/*": ["src/components/*"]
     }
   },
-  "include": ["src/**/*", "config", "__tests__/**/*"],
-  "exclude": ["node_modules", ".git"]
+  "include": ["src/**/*", "config"],
+  "exclude": ["node_modules", ".git", "__tests__/**/*"]
 }
