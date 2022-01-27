@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+
+    "jsx": "react",
+    "declaration": true,
+    "esModuleInterop": true,
+    "preserveSymlinks": true,
+
+    "outDir": "../../dist",
+    "baseUrl": "./",
+    "types": ["node"]
+  },
+  "exclude": ["node_modules", ".git", "__tests__/**/*"]
+}

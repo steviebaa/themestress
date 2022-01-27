@@ -1,0 +1,23 @@
+{
+  "plugins": [
+    "jest-mock-external-components/babel",
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "@assets": "./src/assets",
+          "@config": "./src/config",
+          "@controllers": "./src/controllers",
+          "@components": "./src/components",
+          "@composites": "./src/composites",
+          "@core": "./src/core",
+          "@pages": "./src/pages",
+          "@stores": "./src/stores",
+          "@themestress": "./src/themestress",
+          "@__mocks__": "./__mocks__"
+        }
+      }
+    ]
+  ]
+}
