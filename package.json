@@ -12,7 +12,7 @@
   "author": "Steve Richardson",
   "license": "MIT",
   "scripts": {
-    "build": "parcel build src/index.html -d dist --no-source-maps",
+    "build": "parcel build src/index.html -d build --no-source-maps",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest --coverage  --collectCoverageFrom=src/**/*.{ts,tsx}",
@@ -21,6 +21,7 @@
     "start": "parcel src/index.html -d ./build --no-source-maps",
     "prune": "ts-prune -i .spec.ts$",
     "format": "prettier --write \"src/**/*.{ts,js,tsx,jsx}\"",
+    "package:build": "parcel build src/index.html -d dist --no-source-maps",
     "package:format": "prettier --write \"src/themestress/**/*.{ts,js,tsx,jsx}\"",
     "package:lint": "eslint ./src/themestress --ext .ts,.tsx",
     "pack": "npm run package:format && npm run package:lint && cd src/themestress && tsc -p tsconfig.build.json && cd ../.."
