@@ -5,7 +5,7 @@ import {createTheme} from '@themestress/core';
 import {SideNavItem} from '@themestress/components';
 
 describe('Component NavMenuItem', () => {
-  it('Should render a NavMenuItem component', () => {
+  it('should render a NavMenuItem component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <SideNavItem>Test NavMenuItem</SideNavItem>
@@ -17,7 +17,7 @@ describe('Component NavMenuItem', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should click NavMenuItem component', () => {
+  it('should click NavMenuItem component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <SideNavItem handleClick={() => null}>Test NavMenuItem</SideNavItem>

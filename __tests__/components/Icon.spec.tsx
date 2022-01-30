@@ -5,7 +5,7 @@ import {createTheme} from '@themestress/core';
 import {Icon} from '@themestress/components';
 
 describe('Component Icon', () => {
-  it('Should render', () => {
+  it('should render', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Icon size="sm" fill="white"></Icon>

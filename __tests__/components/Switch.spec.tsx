@@ -5,7 +5,7 @@ import {createTheme} from '@themestress/core';
 import {Switch} from '@themestress/components';
 
 describe('Component Menu', () => {
-  it('Should render', () => {
+  it('should render', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Switch checked />
@@ -15,7 +15,7 @@ describe('Component Menu', () => {
     expect(wrapper.find(Switch)).toHaveLength(1);
   });
 
-  it('Should change state', () => {
+  it('should change state', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Switch checked={true} onChange={() => null} noIcon />
@@ -30,7 +30,7 @@ describe('Component Menu', () => {
     expect(wrapper.find(Switch)).toHaveLength(2);
   });
 
-  it('Should render with cross', () => {
+  it('should render with cross', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Switch checked={false} onChange={() => null} />
@@ -40,7 +40,7 @@ describe('Component Menu', () => {
     expect(wrapper.find(Switch)).toHaveLength(1);
   });
 
-  it('Should render different colors', () => {
+  it('should render different colors', () => {
     const wrapper = mount(
       <>
         <ThemeProvider theme={createTheme}>

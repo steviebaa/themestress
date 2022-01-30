@@ -5,7 +5,7 @@ import {Backdrop} from '@themestress/components/Backdrop';
 import {createTheme} from '@themestress/core/themeUtils';
 
 describe('Component Avatar', () => {
-  it('Should render a backdrop component', () => {
+  it('should render a backdrop component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Backdrop zIndex={1000} onClick={() => null} bgColor="black" />
@@ -16,7 +16,7 @@ describe('Component Avatar', () => {
     expect(wrapper.find(Backdrop)).toHaveLength(2);
   });
 
-  it('Should click the backdrop component', () => {
+  it('should click the backdrop component', () => {
     const testFn = jest.fn();
 
     const wrapper = mount(

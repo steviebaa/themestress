@@ -19,7 +19,7 @@ jest.mock('react', () => ({
 describe('Component Ripple', () => {
   jest.useFakeTimers();
 
-  it('Should render', () => {
+  it('should render', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <button>
@@ -32,7 +32,7 @@ describe('Component Ripple', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should add a ripple', () => {
+  it('should add a ripple', () => {
     const mockGetBounds = jest.fn(() => ({x: 1, y: 1, width: 2, height: 2}));
 
     const mockEvent = {
@@ -57,7 +57,7 @@ describe('Component Ripple', () => {
     expect(mockGetBounds).toHaveBeenCalledTimes(1);
   });
 
-  it('Should trigger debounce function', () => {
+  it('should trigger debounce function', () => {
     const mockGetBounds = jest.fn(() => ({x: 1, y: 1, width: 3, height: 2}));
 
     const mockEvent = {
@@ -84,7 +84,7 @@ describe('Component Ripple', () => {
     expect(mockGetBounds).toHaveBeenCalledTimes(1);
   });
 
-  it('Should trigger useLayoutEffect cleanup function', () => {
+  it('should trigger useLayoutEffect cleanup function', () => {
     const mockGetBounds = jest.fn(() => ({x: 1, y: 1, width: 3, height: 2}));
 
     const mockEvent = {

@@ -5,7 +5,7 @@ import {createTheme} from '@themestress/core/themeUtils';
 import {Button} from '@themestress/components/Button';
 
 describe('Component Button', () => {
-  it('Should render a Button component', () => {
+  it('should render a Button component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Button
@@ -26,7 +26,7 @@ describe('Component Button', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should render a Button with contained variant', () => {
+  it('should render a Button with contained variant', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Button fontColor={['neutral', 1, 'main']} variant="contained">
@@ -39,7 +39,7 @@ describe('Component Button', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should render a Button with outlined variant', () => {
+  it('should render a Button with outlined variant', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Button variant="outlined">Test Button</Button>
@@ -50,7 +50,7 @@ describe('Component Button', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should render a Button with text variant', () => {
+  it('should render a Button with text variant', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Button variant="text">Test Button</Button>

@@ -11,7 +11,7 @@ jest.mock('react', () => ({
 }));
 
 describe('Component Tooltip', () => {
-  it('Should render', () => {
+  it('should render', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Tooltip tip={'Test Tip'} direction="bottom">
@@ -24,7 +24,7 @@ describe('Component Tooltip', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should render each direction', () => {
+  it('should render each direction', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Tooltip tip={'Test Tip'} direction="top">

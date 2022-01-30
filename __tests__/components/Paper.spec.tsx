@@ -9,7 +9,7 @@ describe('Component Paper', () => {
     jest.clearAllMocks();
   });
 
-  it('Should render', () => {
+  it('should render', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Paper radius={1}>Test Paper</Paper>
@@ -20,7 +20,7 @@ describe('Component Paper', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should error from an out of bounds elevation', () => {
+  it('should error from an out of bounds elevation', () => {
     const mockConsoleError = jest.fn();
     jest.spyOn(console, 'error').mockImplementation(mockConsoleError);
 
@@ -35,7 +35,7 @@ describe('Component Paper', () => {
     expect(mockConsoleError).toHaveBeenCalledTimes(1);
   });
 
-  it('Should render a square corner Paper', () => {
+  it('should render a square corner Paper', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Paper square width={'300px'} margin={1} padding={1}>
@@ -48,7 +48,7 @@ describe('Component Paper', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should render Paper with outlined and elevation variant', () => {
+  it('should render Paper with outlined and elevation variant', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Paper variant="outlined">Test Paper</Paper>

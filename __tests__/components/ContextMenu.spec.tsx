@@ -13,7 +13,7 @@ jest.mock('react', () => ({
 }));
 
 describe('Component ContextMenu', () => {
-  it('Should render a ContextMenu component', () => {
+  it('should render a ContextMenu component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <ContextMenu
@@ -31,7 +31,7 @@ describe('Component ContextMenu', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should close contextmenu', () => {
+  it('should close contextmenu', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <ContextMenu
@@ -49,7 +49,7 @@ describe('Component ContextMenu', () => {
     component.prop('onClose')();
   });
 
-  it('Should open contextmenu', () => {
+  it('should open contextmenu', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <ContextMenu

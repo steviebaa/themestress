@@ -5,7 +5,7 @@ import {createTheme} from '@themestress/core';
 import {Modal} from '@themestress/components';
 
 describe('Component Menu', () => {
-  it('Should render', () => {
+  it('should render', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Modal open>
@@ -17,7 +17,7 @@ describe('Component Menu', () => {
     expect(wrapper.text()).toContain('Test Content');
   });
 
-  it('Should render null', () => {
+  it('should render null', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Modal open={false}>

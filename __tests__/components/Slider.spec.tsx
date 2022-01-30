@@ -19,7 +19,7 @@ describe('Component Slider', () => {
     (useStateMock as jest.Mock).mockImplementation(init => [init, setState]);
   });
 
-  it('Should render', () => {
+  it('should render', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Slider>Test Slider</Slider>
@@ -30,7 +30,7 @@ describe('Component Slider', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should call setIsHandleDown with true', () => {
+  it('should call setIsHandleDown with true', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Slider
@@ -50,7 +50,7 @@ describe('Component Slider', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should set and remove the window event listeners', () => {
+  it('should set and remove the window event listeners', () => {
     const mRef = {current: {}};
 
     jest.fn(useRefMock).mockReturnValueOnce(mRef);
@@ -72,7 +72,7 @@ describe('Component Slider', () => {
     wrapper.unmount();
   });
 
-  it('Should not set the window event listeners due to null handle ref', () => {
+  it('should not set the window event listeners due to null handle ref', () => {
     let mRef = {current: {}};
 
     jest.fn(useRefMock).mockReturnValueOnce(mRef);
@@ -91,7 +91,7 @@ describe('Component Slider', () => {
     wrapper.unmount();
   });
 
-  it('Should invoke handleSliderClick event', () => {
+  it('should invoke handleSliderClick event', () => {
     const mRef1 = {
       current: {
         getBoundingClientRect: () => ({x: 5, width: 5}),
@@ -122,7 +122,7 @@ describe('Component Slider', () => {
     jest.advanceTimersByTime(40);
   });
 
-  it('Should invoke handlePointerUpEvent and return due to isHandleDown = false', () => {
+  it('should invoke handlePointerUpEvent and return due to isHandleDown = false', () => {
     const mRef1 = {
       current: {getBoundingClientRect: () => ({x: 5, width: 5})},
     };
@@ -144,7 +144,7 @@ describe('Component Slider', () => {
     window.dispatchEvent(pointerUp);
   });
 
-  it('Should invoke handlePointerMoveEvent and return due to isHandleDown = false', () => {
+  it('should invoke handlePointerMoveEvent and return due to isHandleDown = false', () => {
     const mRef1 = {
       current: {
         getBoundingClientRect: () => ({x: 5, width: 5}),
@@ -176,7 +176,7 @@ describe('Component Slider', () => {
     window.dispatchEvent(mouseMove);
   });
 
-  it('Should invoke handleMouseMove', () => {
+  it('should invoke handleMouseMove', () => {
     const mRef1 = {
       current: {
         getBoundingClientRect: () => ({x: 5, width: 5}),
@@ -210,7 +210,7 @@ describe('Component Slider', () => {
     window.dispatchEvent(mouseMove);
   });
 
-  it('Should invoke handleMouseMove and call getNearest', () => {
+  it('should invoke handleMouseMove and call getNearest', () => {
     const mRef1 = {
       current: {getBoundingClientRect: () => ({x: 1, width: 1})},
     };
