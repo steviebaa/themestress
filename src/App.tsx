@@ -9,7 +9,7 @@ import {System} from '@controllers/System';
 import {Home} from '@controllers/Home';
 import {Components} from '@controllers/Components';
 import {SnackbarProvider} from '@themestress/components/Snackbar';
-import {ThemeSetter} from '@themestress/core/ThemeSetter';
+import {ThemeVariables} from '@themestress/core/ThemeVariables';
 import {Color} from '@themestress/core/classes/Color';
 import {TonalPalette} from '@themestress/core/classes/TonalPalette';
 
@@ -17,7 +17,7 @@ export const App: React.FC = () => {
   return (
     <SettingsProvider>
       <Theme>
-        <ThemeSetter />
+        <ThemeVariables />
         <SnackbarProvider>
           <Router>
             <Routes>
