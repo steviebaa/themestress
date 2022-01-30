@@ -46,7 +46,8 @@ const StatusBadge = styled.div<AvatarProps>`
     ${({theme, borderColor}) =>
       borderColor
         ? colorFromTheme(theme, borderColor)
-        : theme.palette.neutral[theme.palette.mode === 'light' ? 50 : 850].main};
+        : theme.palette.neutral[theme.palette.mode === 'light' ? 50 : 850]
+            .main};
   display: flex;
   justify-content: center;
 
