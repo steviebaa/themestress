@@ -31,6 +31,8 @@ import {PalettePage} from '@pages/system/PalettePage';
 
 import {Typography, SideNavItem} from '@themestress/components';
 
+import {ButtonElevatedPage} from '@pages/components/ButtonElevatedPage';
+
 export const getPageFromRoute = (
   route: string,
 ): {name: string; page: React.ReactNode} => {
@@ -110,6 +112,7 @@ export const componentsRouteMap = [
       avatar: {name: 'Avatar', page: <AvatarPage />},
       backdrop: {name: 'Backdrop', page: <BackdropPage />},
       button: {name: 'Button', page: <ButtonPage />},
+      buttonelevated: {name: 'ButtonElevated', page: <ButtonElevatedPage />},
       container: {name: 'Container', page: <ContainerPage />},
       contextmenu: {name: 'ContextMenu', page: <ContextMenuPage />},
       divider: {name: 'Divider', page: <DividerPage />},

@@ -1,6 +1,7 @@
 export * from './Avatar';
 export * from './Backdrop';
 export * from './Button';
+export * from './ButtonElevated';
 export * from './Container';
 export * from './ContextMenu';
 export * from './Divider';
