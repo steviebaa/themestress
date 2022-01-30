@@ -1,5 +1,99 @@
 import {ClassAttributes, HTMLAttributes} from 'react';
 
+interface SystemColorToken {
+  role: string;
+  token: string;
+  lightToken: string;
+  darkToken: string;
+  lightColor: string;
+  darkColor: string;
+}
+export interface SystemColorTokens {
+  'md-sys-color-primary': SystemColorToken;
+  'md-sys-color-primary-container': SystemColorToken;
+  'md-sys-color-secondary': SystemColorToken;
+  'md-sys-color-secondary-container': SystemColorToken;
+  'md-sys-color-tertiary': SystemColorToken;
+  'md-sys-color-tertiary-container': SystemColorToken;
+  'md-sys-color-surface': SystemColorToken;
+  'md-sys-color-surface-variant': SystemColorToken;
+  'md-sys-color-background': SystemColorToken;
+  'md-sys-color-error': SystemColorToken;
+  'md-sys-color-error-container': SystemColorToken;
+  'md-sys-color-on-primary': SystemColorToken;
+  'md-sys-color-on-primary-container': SystemColorToken;
+  'md-sys-color-on-secondary': SystemColorToken;
+  'md-sys-color-on-secondary-container': SystemColorToken;
+  'md-sys-color-on-tertiary': SystemColorToken;
+  'md-sys-color-on-tertiary-container': SystemColorToken;
+  'md-sys-color-on-surface': SystemColorToken;
+  'md-sys-color-on-surface-variant': SystemColorToken;
+  'md-sys-color-on-error': SystemColorToken;
+  'md-sys-color-on-error-container': SystemColorToken;
+  'md-sys-color-on-background': SystemColorToken;
+  'md-sys-color-outline': SystemColorToken;
+  'md-sys-color-shadow': SystemColorToken;
+  'md-sys-color-inverse-surface': SystemColorToken;
+  'md-sys-color-inverse-on-surface': SystemColorToken;
+  'md-sys-color-inverse-primary': SystemColorToken;
+}
+
+export interface TypographyTokenPropAttributes {
+  refToken?: string;
+  value?: string | number;
+}
+
+export interface TypographySystemToken {
+  font: TypographyTokenPropAttributes;
+  'line-height': TypographyTokenPropAttributes;
+  size: TypographyTokenPropAttributes;
+  tracking: TypographyTokenPropAttributes;
+  weight: TypographyTokenPropAttributes;
+}
+
+export interface TypographyRefTokens {
+  'md-ref-typeface-brand-regular': string;
+  'md-ref-typeface-weight-regular': string | number;
+  'md-ref-typeface-plain-medium': string;
+  'md-ref-typeface-weight-medium': string | number;
+}
+
+export interface TypographySystemTokens {
+  'md-sys-typescale-display-large': TypographySystemToken;
+  'md-sys-typescale-display-medium': TypographySystemToken;
+  'md-sys-typescale-display-small': TypographySystemToken;
+  'md-sys-typescale-headline-large': TypographySystemToken;
+  'md-sys-typescale-headline-medium': TypographySystemToken;
+  'md-sys-typescale-headline-small': TypographySystemToken;
+  'md-sys-typescale-title-large': TypographySystemToken;
+  'md-sys-typescale-title-medium': TypographySystemToken;
+  'md-sys-typescale-title-small': TypographySystemToken;
+  'md-sys-typescale-label-large': TypographySystemToken;
+  'md-sys-typescale-label-medium': TypographySystemToken;
+  'md-sys-typescale-label-small': TypographySystemToken;
+  'md-sys-typescale-body-large': TypographySystemToken;
+  'md-sys-typescale-body-medium': TypographySystemToken;
+  'md-sys-typescale-body-small': TypographySystemToken;
+}
+
+export interface ElevationToken {
+  role: string;
+  token: string;
+  elevation: number;
+  transform: string;
+}
+export interface ElevationTokens {
+  'md-sys-elevation-level1': ElevationToken;
+  'md-sys-elevation-level2': ElevationToken;
+  'md-sys-elevation-level3': ElevationToken;
+  'md-sys-elevation-level4': ElevationToken;
+  'md-sys-elevation-level5': ElevationToken;
+  'md-sys-elevation-level6': ElevationToken;
+  'md-sys-elevation-level7': ElevationToken;
+  'md-sys-elevation-level8': ElevationToken;
+  'md-sys-elevation-level9': ElevationToken;
+}
+
 export interface Transform {
   vertical?: 'top' | 'center' | 'bottom' | (string & {});
   horizontal?: 'left' | 'center' | 'right' | (string & {});
@@ -22,7 +116,7 @@ export type NeutralColorPath = ['neutral', string | number, TColorDesignation];
 
 export type ReactHTMLProps<T> = ClassAttributes<T> & HTMLAttributes<T>;
 
-export type ThemeString = 'light' | 'dark';
+export type ThemeMode = 'light' | 'dark';
 
 export type TColor =
   | TLimitedColorCategory
