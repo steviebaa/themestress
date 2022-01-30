@@ -19,7 +19,7 @@ export const Theme = ({children}: ThemeProps) => {
       accent: {main: '#BF04DC'},
       error: {main: '#e52a36'},
     },
-    font: {size: 14},
+    typography: {size: 14},
     spacing: 4,
   });
 

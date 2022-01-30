@@ -1,4 +1,5 @@
 import {ClassAttributes, HTMLAttributes} from 'react';
+import {TonalPalette} from './classes/TonalPalette';
 
 interface SystemColorToken {
   role: string;
@@ -133,17 +134,23 @@ interface IColorDesignation {
 }
 type TColorDesignation = keyof IColorDesignation;
 
-export interface IPalette {
+interface KeyColorProps {
+  keyColor: string;
+  tones: TonalPalette;
+}
+export interface PaletteProps {
   mode?: 'light' | 'dark';
-  primary?: IColorDesignation;
-  secondary?: IColorDesignation;
-  accent?: IColorDesignation;
-  success?: IColorDesignation;
-  warning?: IColorDesignation;
-  info?: IColorDesignation;
-  error?: IColorDesignation;
-  neutral?: INeutral;
-  outline?: {light: TColor; dark: TColor};
+
+  primary: KeyColorProps;
+  secondary: KeyColorProps;
+  tertiary: KeyColorProps;
+  neutral: KeyColorProps;
+  neutralVariant: KeyColorProps;
+
+  success?: KeyColorProps;
+  warning?: KeyColorProps;
+  info?: KeyColorProps;
+  error?: KeyColorProps;
 }
 
 export enum ELimitedColorCategory {
@@ -181,9 +188,9 @@ interface INeutral {
 }
 type TNeutral = keyof INeutral;
 
-export interface ITheme {
-  palette?: IPalette;
-  font?: {
+export interface ThemeProps {
+  palette?: PaletteProps;
+  typography?: {
     size?: number;
   };
   spacing?: number;
@@ -205,5 +212,5 @@ export interface ITheme {
 
 declare module '@emotion/react' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface Theme extends ITheme {}
+  interface Theme extends ThemeProps {}
 }

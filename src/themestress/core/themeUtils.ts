@@ -1,9 +1,9 @@
 import {htmlColorMap} from './htmlColorMap';
 import {
   ELimitedColorCategory,
-  ITheme,
+  ThemeProps,
   TColor,
-  IPalette,
+  PaletteProps,
   ColorDesignationPath,
   TypographyColorPath,
   NeutralColorPath,
@@ -122,7 +122,7 @@ function mergeDeep(target: Object, source: Object) {
   return target;
 }
 
-const corePalette: IPalette = {
+const corePalette: PaletteProps = {
   primary: {main: '#448aff', light: '#6fb4ff', dark: '#2a5296'},
   secondary: {main: '#fba91a'},
   accent: {main: '#680ce9'},
@@ -155,7 +155,7 @@ const corePalette: IPalette = {
 };
 
 /** Generate the palette */
-const createPalette = (initialPalette: IPalette) => {
+const createPalette = (initialPalette: PaletteProps) => {
   // Generate "on" colors
   const createOnColors = (value: unknown) => {
     if (!isObject(value) || value['main'] === undefined) return;
@@ -177,16 +177,16 @@ const createPalette = (initialPalette: IPalette) => {
   const defaultPalette = mergeDeep({}, corePalette);
   objDeep(defaultPalette, createOnColors, []);
 
-  const result = mergeDeep(defaultPalette, palette) as IPalette;
+  const result = mergeDeep(defaultPalette, palette) as PaletteProps;
 
   return result;
 };
 
 /** Generate a theme object */
-export const createTheme = (theme: ITheme): ITheme => {
-  const defaultTheme: ITheme = {
+export const createTheme = (theme: ThemeProps): ThemeProps => {
+  const defaultTheme: ThemeProps = {
     palette: {},
-    font: {size: 14},
+    typography: {size: 14},
     spacing: 4,
     zIndex: {
       navbar: 1100,
@@ -204,13 +204,13 @@ export const createTheme = (theme: ITheme): ITheme => {
     },
   };
 
-  const result: ITheme = mergeDeep(defaultTheme, theme);
+  const result: ThemeProps = mergeDeep(defaultTheme, theme);
   result.palette = createPalette(result.palette);
 
   return result;
 };
 
-export const colorFromTheme = (theme: ITheme, color: TColor) => {
+export const colorFromTheme = (theme: ThemeProps, color: TColor) => {
   let _color = 'inherit';
 
   if (Array.isArray(color)) {
@@ -228,7 +228,7 @@ export const colorFromTheme = (theme: ITheme, color: TColor) => {
   return _color;
 };
 
-export const onColorFromTheme = (theme: ITheme, color: TColor) => {
+export const onColorFromTheme = (theme: ThemeProps, color: TColor) => {
   let _color = 'inherit';
 
   if (Array.isArray(color)) {
@@ -251,13 +251,13 @@ export const contrastLegible = (c1: string, c2: string): boolean => {
   return contrastRatio(c1, c2) > 4.5;
 };
 
-export const getBreakpoint = (theme: ITheme, breakpoint: string): string => {
+export const getBreakpoint = (theme: ThemeProps, breakpoint: string): string => {
   const isEnum = Object.keys(BreakPointEnum).includes(breakpoint);
   return isEnum ? theme.breakpoints[breakpoint] : breakpoint;
 };
 
 export const getMarginAndPadding = (props: {
-  theme: ITheme;
+  theme: ThemeProps;
   margin?: number;
   marginLeft?: number;
   marginRight?: number;
