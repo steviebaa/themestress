@@ -7,20 +7,11 @@ module.exports = {
   transform: {
     '\\.svg': '<rootDir>/config/.svgTransform.js',
     '\\.(ts|tsx)$': 'ts-jest',
-    '\\.otf$': '<rootDir>/config/.fileTransform.js',
-    '\\.ttf$': '<rootDir>/config/.fileTransform.js',
-    '\\.woff$': '<rootDir>/config/.fileTransform.js',
-    '\\.woff2$': '<rootDir>/config/.fileTransform.js',
   },
   globals: {
-    'ts-jest': {
-      compiler: 'ttypescript',
-    },
+    'ts-jest': {compiler: 'ttypescript'},
   },
-  setupFiles: [
-    '<rootDir>/config/.tsAutoMock.ts',
-    '<rootDir>/config/.jestEnv.js',
-  ],
+  setupFiles: ['<rootDir>/config/.jestCanvasMock.ts'],
   testRegex: ['/__tests__/.*\\.(ts|tsx)$', '/src/.*\\.spec\\.(ts|tsx)$'],
   setupFilesAfterEnv: ['<rootDir>/config/.enzyme.ts'],
   moduleNameMapper: {
