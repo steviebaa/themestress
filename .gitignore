@@ -65,3 +65,5 @@ build
 .vscode
 
 packages/**/.DS_Store
+
+.DS_Store
