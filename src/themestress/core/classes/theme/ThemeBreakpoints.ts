@@ -3,14 +3,6 @@ export interface BreakPoint {
   unit: string;
 }
 
-export interface ThemeBreakpointsInitializer {
-  xs?: Partial<BreakPoint>;
-  sm?: Partial<BreakPoint>;
-  md?: Partial<BreakPoint>;
-  lg?: Partial<BreakPoint>;
-  xl?: Partial<BreakPoint>;
-}
-
 export interface ThemeBreakpointsProps {
   xs: BreakPoint;
   sm: BreakPoint;
@@ -18,6 +10,8 @@ export interface ThemeBreakpointsProps {
   lg: BreakPoint;
   xl: BreakPoint;
 }
+
+export type ThemeBreakpointsInitializer = Partial<ThemeBreakpointsProps>;
 
 export class ThemeBreakpoints implements ThemeBreakpointsProps {
   public xs: BreakPoint = {size: null, unit: null};

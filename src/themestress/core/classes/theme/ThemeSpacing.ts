@@ -1,12 +1,9 @@
-export interface ThemeSpacingInitializer {
-  size?: number;
-  sizeUnit?: string;
-}
-
 export interface ThemeSpacingProps {
   size: number;
   sizeUnit: string;
 }
+
+export type ThemeSpacingInitializer = Partial<ThemeSpacingProps>;
 
 export class ThemeSpacing implements ThemeSpacingProps {
   public size: number;

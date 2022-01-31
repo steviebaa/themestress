@@ -1,16 +1,11 @@
-export interface ThemeTypographyInitializer {
-  size?: number;
-  sizeUnit?: string;
-  family?: string;
-  familyFallback?: string;
-}
-
 export interface ThemeTypographyProps {
   size: number;
   sizeUnit: string;
   family: string;
   familyFallback: string;
 }
+
+export type ThemeTypographyInitializer = Partial<ThemeTypographyProps>;
 
 export class ThemeTypography implements ThemeTypographyProps {
   public size: number;

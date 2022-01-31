@@ -1,11 +1,3 @@
-export interface ThemeZIndicesInitializer {
-  navbar?: number;
-  backdrop?: number;
-  modal?: number;
-  snackbar?: number;
-  tooltip?: number;
-}
-
 export interface ThemeZIndicesProps {
   navbar: number;
   backdrop: number;
@@ -13,6 +5,8 @@ export interface ThemeZIndicesProps {
   snackbar: number;
   tooltip: number;
 }
+
+export type ThemeZIndicesInitializer = Partial<ThemeZIndicesProps>;
 
 export class ThemeZIndices implements ThemeZIndicesProps {
   public navbar: number;
