@@ -1,4 +1,4 @@
-import {Color} from './base/Color';
+import {Color} from '../base/Color';
 import {ThemePaletteInitializer, ThemePalette} from './ThemePalette';
 
 describe('Class ThemePalette', () => {

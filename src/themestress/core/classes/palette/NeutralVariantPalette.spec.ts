@@ -1,5 +1,5 @@
 import {NeutralVariantPalette} from './NeutralVariantPalette';
-import {Color} from './base/Color';
+import {Color} from '../base/Color';
 
 describe('Class NeutralVariantPalette', () => {
   it('should set the light and dark mode tones', () => {

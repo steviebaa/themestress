@@ -1,5 +1,5 @@
 import {AccentPalette} from './AccentPalette';
-import {Color} from './base/Color';
+import {Color} from '../base/Color';
 
 describe('Class AccentPalette', () => {
   it('should set the light and dark mode tones', () => {

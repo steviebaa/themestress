@@ -1,8 +1,8 @@
-import {ThemeMode} from '../definitions';
-import {AccentPalette} from './AccentPalette';
-import {Color} from './base/Color';
-import {NeutralPalette} from './NeutralPalette';
-import {NeutralVariantPalette} from './NeutralVariantPalette';
+import {ThemeMode} from '../../definitions';
+import {AccentPalette} from '../palette/AccentPalette';
+import {Color} from '../base/Color';
+import {NeutralPalette} from '../palette/NeutralPalette';
+import {NeutralVariantPalette} from '../palette/NeutralVariantPalette';
 
 export interface ThemePaletteInitializer {
   mode?: ThemeMode;

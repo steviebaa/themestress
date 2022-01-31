@@ -1,6 +1,6 @@
-import {ThemeMode} from '..';
-import {Color} from './base/Color';
-import {TonalPalette} from './base/TonalPalette';
+import {ThemeMode} from '../../definitions';
+import {Color} from '../base/Color';
+import {TonalPalette} from '../base/TonalPalette';
 
 export class NeutralVariantPalette extends TonalPalette {
   private _outlineTone = 50;
