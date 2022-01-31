@@ -7,11 +7,11 @@ interface ThemeZIndicesInitializer {
 }
 
 interface ThemeZIndicesProps {
-  navbar?: number;
-  backdrop?: number;
-  modal?: number;
-  snackbar?: number;
-  tooltip?: number;
+  navbar: number;
+  backdrop: number;
+  modal: number;
+  snackbar: number;
+  tooltip: number;
 }
 
 export class ThemeZIndices implements ThemeZIndicesProps {
