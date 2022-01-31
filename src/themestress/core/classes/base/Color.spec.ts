@@ -129,6 +129,13 @@ describe('Class Color', () => {
       color.opacity = -11;
       expect(color.hsla).toEqual('hsl(34deg,30%,28%,0)');
     });
+    it('should manually set the on color', () => {
+      const color = new Color('#448aff');
+      expect(color.on.hex).toEqual('#001333');
+
+      color.on = new Color('#fba91a');
+      expect(color.on.hex).toEqual('#fba818');
+    });
   });
 
   it('should clone the color', () => {

@@ -113,6 +113,10 @@ export class Color {
   set opacity(opacity: number) {
     this.set(hsl.set.opacity(this.hsla, opacity));
   }
+  /** Manually set the on color. */
+  set on(color: Color) {
+    this._on = color;
+  }
 
   /** Set all the class variables */
   private _setAll = (color: string) => {
