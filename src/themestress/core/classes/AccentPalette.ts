@@ -3,8 +3,8 @@ import {Color} from './base/Color';
 import {TonalPalette} from './base/TonalPalette';
 
 export class AccentPalette extends TonalPalette {
-  private _mainTone = 40;
-  private _containerTone = 90;
+  private _mainTone: number;
+  private _containerTone: number;
 
   constructor(props: Color, mode: ThemeMode = 'light') {
     super(props);
