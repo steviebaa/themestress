@@ -2,7 +2,7 @@ import {AccentPalette} from './AccentPalette';
 import {Color} from './base/Color';
 
 describe('Class AccentPalette', () => {
-  it('should set the light mode tones', () => {
+  it('should set the light and dark mode tones', () => {
     const lightPalette = new AccentPalette(new Color('#fba91a'));
     expect(lightPalette['_mainTone']).toEqual(40);
     expect(lightPalette['_containerTone']).toEqual(90);
