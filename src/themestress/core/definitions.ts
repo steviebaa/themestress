@@ -1,5 +1,5 @@
 import {ClassAttributes, HTMLAttributes} from 'react';
-import {TonalPalette} from './classes/TonalPalette';
+import {TonalPalette} from './classes/base/TonalPalette';
 
 interface SystemColorToken {
   role: string;
