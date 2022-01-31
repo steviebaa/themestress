@@ -8,7 +8,6 @@ export class AccentPalette extends TonalPalette {
 
   constructor(props: Color, mode: ThemeMode = 'light') {
     super(props);
-
     this.setTones(mode);
   }
 
