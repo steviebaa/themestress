@@ -58,7 +58,7 @@ export class ThemePalette {
     });
   }
 
-  private _assignInput = (
+  private _assignInput(
     key: string,
     prop:
       | string
@@ -66,7 +66,7 @@ export class ThemePalette {
       | AccentPalette
       | NeutralPalette
       | NeutralVariantPalette,
-  ) => {
+  ) {
     const {cls, fallback: color} = classMap[key];
 
     if (typeof prop === 'string') {
@@ -78,5 +78,5 @@ export class ThemePalette {
     }
 
     this[key] = prop;
-  };
+  }
 }
