@@ -4,7 +4,7 @@ import {Color} from './base/Color';
 import {NeutralPalette} from './NeutralPalette';
 import {NeutralVariantPalette} from './NeutralVariantPalette';
 
-export interface PaletteInitializer {
+export interface ThemePaletteInitializer {
   mode?: ThemeMode;
   /** Can be and instance of Color, AccentPalette or a color string (hex, hsl, rgb, css) */
   primary?: string | Color | AccentPalette;
@@ -50,7 +50,7 @@ export class ThemePalette {
   public info: AccentPalette;
   public error: AccentPalette;
 
-  constructor(palette?: PaletteInitializer) {
+  constructor(palette?: ThemePaletteInitializer) {
     this.mode = palette?.mode ?? 'light';
 
     Object.keys(classMap).forEach(key => {

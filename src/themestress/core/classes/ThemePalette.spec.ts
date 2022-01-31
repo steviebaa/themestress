@@ -1,5 +1,5 @@
 import {Color} from './base/Color';
-import {PaletteInitializer, ThemePalette} from './ThemePalette';
+import {ThemePaletteInitializer, ThemePalette} from './ThemePalette';
 
 describe('Class ThemePalette', () => {
   it('should correctly set the theme prop', () => {
@@ -11,7 +11,7 @@ describe('Class ThemePalette', () => {
     expect(theme3.mode).toEqual('dark');
   });
   it('should initialise with default colors', () => {
-    const initPalette: PaletteInitializer = {
+    const initPalette: ThemePaletteInitializer = {
       mode: 'light',
     };
     const theme = new ThemePalette(initPalette);
@@ -27,7 +27,7 @@ describe('Class ThemePalette', () => {
     expect(theme.error.main.hex).toEqual('#b61621');
   });
   it('should initialise with provided string color', () => {
-    const initPalette: PaletteInitializer = {
+    const initPalette: ThemePaletteInitializer = {
       mode: 'light',
       primary: '#448aff',
       neutral: '#caaaaa',
@@ -38,7 +38,7 @@ describe('Class ThemePalette', () => {
     expect(theme.neutral.background.hex).toEqual('#fdfcfc');
   });
   it('should initialise with provided Color class instance', () => {
-    const initPalette: PaletteInitializer = {
+    const initPalette: ThemePaletteInitializer = {
       mode: 'light',
       primary: new Color('#22aa77'),
     };
