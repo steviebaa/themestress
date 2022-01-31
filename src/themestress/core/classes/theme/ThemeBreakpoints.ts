@@ -1,9 +1,9 @@
-interface BreakPoint {
+export interface BreakPoint {
   size: number;
   unit: string;
 }
 
-interface ThemeBreakpointsInitializer {
+export interface ThemeBreakpointsInitializer {
   xs?: Partial<BreakPoint>;
   sm?: Partial<BreakPoint>;
   md?: Partial<BreakPoint>;
@@ -11,7 +11,7 @@ interface ThemeBreakpointsInitializer {
   xl?: Partial<BreakPoint>;
 }
 
-interface ThemeBreakpointsProps {
+export interface ThemeBreakpointsProps {
   xs: BreakPoint;
   sm: BreakPoint;
   md: BreakPoint;

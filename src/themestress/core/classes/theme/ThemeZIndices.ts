@@ -1,4 +1,4 @@
-interface ThemeZIndicesInitializer {
+export interface ThemeZIndicesInitializer {
   navbar?: number;
   backdrop?: number;
   modal?: number;
@@ -6,7 +6,7 @@ interface ThemeZIndicesInitializer {
   tooltip?: number;
 }
 
-interface ThemeZIndicesProps {
+export interface ThemeZIndicesProps {
   navbar: number;
   backdrop: number;
   modal: number;

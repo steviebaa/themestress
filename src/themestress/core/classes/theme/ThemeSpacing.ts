@@ -1,9 +1,9 @@
-interface ThemeSpacingInitializer {
+export interface ThemeSpacingInitializer {
   size?: number;
   sizeUnit?: string;
 }
 
-interface ThemeSpacingProps {
+export interface ThemeSpacingProps {
   size: number;
   sizeUnit: string;
 }

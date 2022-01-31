@@ -1,11 +1,11 @@
-interface ThemeTypographyInitializer {
+export interface ThemeTypographyInitializer {
   size?: number;
   sizeUnit?: string;
   family?: string;
   familyFallback?: string;
 }
 
-interface ThemeTypographyProps {
+export interface ThemeTypographyProps {
   size: number;
   sizeUnit: string;
   family: string;
