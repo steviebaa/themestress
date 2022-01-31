@@ -24,9 +24,11 @@ export class AccentPalette extends TonalPalette {
   /** Set the tones of the palette to the recommend values */
   public setTones(mode: ThemeMode) {
     const isLight = mode === 'light';
+
     this._mainTone = isLight ? 40 : 60;
-    this._containerTone = isLight ? 90 : 10;
     this.main.on = this.tones[isLight ? 100 : 0];
+
+    this._containerTone = isLight ? 90 : 10;
     this.container.on = this.tones[isLight ? 10 : 90];
   }
 }
