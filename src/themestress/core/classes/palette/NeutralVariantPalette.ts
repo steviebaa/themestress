@@ -3,7 +3,7 @@ import {Color} from '../base/Color';
 import {TonalPalette} from '../base/TonalPalette';
 
 export class NeutralVariantPalette extends TonalPalette {
-  private _outlineTone = 50;
+  private _outlineTone: number;
   private _surfaceTone: number;
 
   constructor(props: Color, mode: ThemeMode = 'light') {
@@ -26,7 +26,9 @@ export class NeutralVariantPalette extends TonalPalette {
   public setTones(mode: ThemeMode) {
     const isLight = mode === 'light';
 
-    this._surfaceTone = isLight ? 90 : 10;
-    this.surface.on = this.tones[isLight ? 30 : 70];
+    this._outlineTone = isLight ? 50 : 60;
+
+    this._surfaceTone = isLight ? 90 : 30;
+    this.surface.on = this.tones[isLight ? 30 : 80];
   }
 }

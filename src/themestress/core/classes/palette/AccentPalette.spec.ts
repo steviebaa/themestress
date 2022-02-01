@@ -8,21 +8,21 @@ describe('Class AccentPalette', () => {
     expect(lightPalette['_containerTone']).toEqual(90);
 
     const darkPalette = new AccentPalette(new Color('#fba91a'), 'dark');
-    expect(darkPalette['_mainTone']).toEqual(60);
-    expect(darkPalette['_containerTone']).toEqual(10);
+    expect(darkPalette['_mainTone']).toEqual(80);
+    expect(darkPalette['_containerTone']).toEqual(30);
   });
   it('should return the correct main color', () => {
     const palette = new AccentPalette(new Color('#fba91a'));
     expect(palette.main.hex).toEqual('#c98003');
 
     palette.setTones('dark');
-    expect(palette.main.hex).toEqual('#fcb336');
+    expect(palette.main.hex).toEqual('#fdd99b');
   });
   it('should return the correct container color', () => {
     const palette = new AccentPalette(new Color('#fba91a'));
     expect(palette.container.hex).toEqual('#feeccd');
 
     palette.setTones('dark');
-    expect(palette.container.hex).toEqual('#322001');
+    expect(palette.container.hex).toEqual('#976002');
   });
 });

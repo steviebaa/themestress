@@ -27,9 +27,9 @@ export class NeutralPalette extends TonalPalette {
     const isLight = mode === 'light';
 
     this._backgroundTone = isLight ? 99 : 10;
-    this.background.on = this.tones[isLight ? 10 : 99];
+    this.background.on = this.tones[isLight ? 10 : 90];
 
     this._surfaceTone = isLight ? 99 : 10;
-    this.surface.on = this.tones[isLight ? 10 : 99];
+    this.surface.on = this.tones[isLight ? 10 : 90];
   }
 }
