@@ -62,11 +62,11 @@ export class ThemePalette {
   }
 
   public setGlobalCssVars() {
-    this._createGlobalRefTokenCssVars();
-    this._createGlobalSystemTokenCssVars();
+    this._setGlobalRefTokenCssVars();
+    this._setGlobalSystemTokenCssVars();
   }
 
-  private _createGlobalRefTokenCssVars = () => {
+  private _setGlobalRefTokenCssVars = () => {
     Object.entries(colorRefTokenStubs()).forEach(([paletteName, stub]) => {
       Object.entries((this[paletteName] as TonalPalette).tones).forEach(
         ([tone, color]) => {
@@ -77,7 +77,7 @@ export class ThemePalette {
     });
   };
 
-  private _createGlobalSystemTokenCssVars = () => {
+  private _setGlobalSystemTokenCssVars = () => {
     Object.entries(systemColorTokens()).forEach(([sysToken, refTokens]) => {
       applyStyleVar(sysToken, refTokens[this.mode], true);
     });

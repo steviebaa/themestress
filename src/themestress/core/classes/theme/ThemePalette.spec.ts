@@ -48,6 +48,7 @@ describe('Class ThemePalette', () => {
   });
   it('should set the ref token global css variables', () => {
     const theme = new ThemePalette();
+    theme.setGlobalCssVars();
 
     const style = document.documentElement.style;
     expect(style['_values']['--md-ref-palette-primary-40']).toEqual(
