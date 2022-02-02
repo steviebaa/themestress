@@ -2,41 +2,11 @@ import {ClassAttributes, HTMLAttributes} from 'react';
 import {TonalPalette} from './classes/base/TonalPalette';
 
 interface SystemColorToken {
-  role: string;
-  token: string;
-  lightToken: string;
-  darkToken: string;
-  lightColor: string;
-  darkColor: string;
+  light: string;
+  dark: string;
 }
 export interface SystemColorTokens {
-  'md-sys-color-primary': SystemColorToken;
-  'md-sys-color-primary-container': SystemColorToken;
-  'md-sys-color-secondary': SystemColorToken;
-  'md-sys-color-secondary-container': SystemColorToken;
-  'md-sys-color-tertiary': SystemColorToken;
-  'md-sys-color-tertiary-container': SystemColorToken;
-  'md-sys-color-surface': SystemColorToken;
-  'md-sys-color-surface-variant': SystemColorToken;
-  'md-sys-color-background': SystemColorToken;
-  'md-sys-color-error': SystemColorToken;
-  'md-sys-color-error-container': SystemColorToken;
-  'md-sys-color-on-primary': SystemColorToken;
-  'md-sys-color-on-primary-container': SystemColorToken;
-  'md-sys-color-on-secondary': SystemColorToken;
-  'md-sys-color-on-secondary-container': SystemColorToken;
-  'md-sys-color-on-tertiary': SystemColorToken;
-  'md-sys-color-on-tertiary-container': SystemColorToken;
-  'md-sys-color-on-surface': SystemColorToken;
-  'md-sys-color-on-surface-variant': SystemColorToken;
-  'md-sys-color-on-error': SystemColorToken;
-  'md-sys-color-on-error-container': SystemColorToken;
-  'md-sys-color-on-background': SystemColorToken;
-  'md-sys-color-outline': SystemColorToken;
-  'md-sys-color-shadow': SystemColorToken;
-  'md-sys-color-inverse-surface': SystemColorToken;
-  'md-sys-color-inverse-on-surface': SystemColorToken;
-  'md-sys-color-inverse-primary': SystemColorToken;
+  [key: string]: SystemColorToken;
 }
 
 export interface TypographyTokenPropAttributes {

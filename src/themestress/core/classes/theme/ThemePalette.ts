@@ -1,8 +1,11 @@
 import {ThemeMode} from '../../definitions';
 import {AccentPalette} from '../palette/AccentPalette';
-import {Color} from '../base/Color';
 import {NeutralPalette} from '../palette/NeutralPalette';
 import {NeutralVariantPalette} from '../palette/NeutralVariantPalette';
+import {Color} from '../base/Color';
+import {TonalPalette} from '../base/TonalPalette';
+import {colorRefTokenStubs, systemColorTokens} from '../../md/color';
+import {applyStyleVar} from '../../utils/helpers';
 
 export interface ThemePaletteInitializer {
   mode?: ThemeMode;
@@ -39,7 +42,7 @@ const classMap = {
 };
 
 export class ThemePalette {
-  public mode: ThemeMode;
+  private _mode: ThemeMode;
   public primary: AccentPalette;
   public secondary: AccentPalette;
   public tertiary: AccentPalette;
@@ -51,12 +54,39 @@ export class ThemePalette {
   public error: AccentPalette;
 
   constructor(palette?: ThemePaletteInitializer) {
-    this.mode = palette?.mode ?? 'light';
-
     Object.keys(classMap).forEach(key => {
       this._assignInput(key, palette?.[key]);
     });
+
+    this.mode = palette?.mode ?? 'light';
   }
+
+  get mode() {
+    return this._mode;
+  }
+
+  set mode(mode: ThemeMode) {
+    this._mode = mode;
+    this._createGlobalRefTokenCssVars();
+    this._createGlobalSystemTokenCssVars();
+  }
+
+  private _createGlobalRefTokenCssVars = () => {
+    Object.entries(colorRefTokenStubs()).forEach(([paletteName, stub]) => {
+      Object.entries((this[paletteName] as TonalPalette).tones).forEach(
+        ([tone, color]) => {
+          const key = `${stub}-${tone}`;
+          applyStyleVar(key, color.hex);
+        },
+      );
+    });
+  };
+
+  private _createGlobalSystemTokenCssVars = () => {
+    Object.entries(systemColorTokens()).forEach(([sysToken, refTokens]) => {
+      applyStyleVar(sysToken, refTokens[this.mode], true);
+    });
+  };
 
   private _assignInput(
     key: string,

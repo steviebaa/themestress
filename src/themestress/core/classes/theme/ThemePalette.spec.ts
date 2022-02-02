@@ -46,4 +46,12 @@ describe('Class ThemePalette', () => {
 
     expect(theme.primary.main.hex).toEqual('#22aa78');
   });
+  it('should set the ref token global css variables', () => {
+    const theme = new ThemePalette();
+
+    const style = document.documentElement.style;
+    expect(style['_values']['--md-ref-palette-primary-40']).toEqual(
+      theme.primary.tones[40].hex,
+    );
+  });
 });
