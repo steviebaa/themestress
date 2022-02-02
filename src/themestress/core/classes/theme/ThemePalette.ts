@@ -42,7 +42,7 @@ const classMap = {
 };
 
 export class ThemePalette {
-  private _mode: ThemeMode;
+  public mode: ThemeMode;
   public primary: AccentPalette;
   public secondary: AccentPalette;
   public tertiary: AccentPalette;
@@ -54,19 +54,14 @@ export class ThemePalette {
   public error: AccentPalette;
 
   constructor(palette?: ThemePaletteInitializer) {
+    this.mode = palette?.mode ?? 'light';
+
     Object.keys(classMap).forEach(key => {
       this._assignInput(key, palette?.[key]);
     });
-
-    this.mode = palette?.mode ?? 'light';
   }
 
-  get mode() {
-    return this._mode;
-  }
-
-  set mode(mode: ThemeMode) {
-    this._mode = mode;
+  public setGlobalCssVars() {
     this._createGlobalRefTokenCssVars();
     this._createGlobalSystemTokenCssVars();
   }
