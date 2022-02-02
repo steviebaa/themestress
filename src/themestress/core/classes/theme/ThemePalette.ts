@@ -27,15 +27,15 @@ export interface ThemePaletteInitializer {
 }
 
 const classMap = {
-  primary: {cls: AccentPalette, fallback: '#670dea'},
-  secondary: {cls: AccentPalette, fallback: '#202f97'},
-  tertiary: {cls: AccentPalette, fallback: '#bf04dc'},
-  neutral: {cls: NeutralPalette, fallback: '#aaaaaa'},
-  neutralVariant: {cls: NeutralVariantPalette, fallback: '#aaaaaa'},
-  success: {cls: AccentPalette, fallback: '#56bd66'},
-  warning: {cls: AccentPalette, fallback: '#f1c946'},
-  info: {cls: AccentPalette, fallback: '#6fb4ff'},
-  error: {cls: AccentPalette, fallback: '#e52a36'},
+  primary: {cls: AccentPalette, fallback: '#6750A4'},
+  secondary: {cls: AccentPalette, fallback: '#625B71'},
+  tertiary: {cls: AccentPalette, fallback: '#7D5260'},
+  neutral: {cls: NeutralPalette, fallback: '#605D62'},
+  neutralVariant: {cls: NeutralVariantPalette, fallback: '#79747E'},
+  success: {cls: AccentPalette, fallback: '#529d2f'},
+  warning: {cls: AccentPalette, fallback: '#ca9b02'},
+  info: {cls: AccentPalette, fallback: '#28a0a4'},
+  error: {cls: AccentPalette, fallback: '#B3261E'},
 };
 
 export class ThemePalette {

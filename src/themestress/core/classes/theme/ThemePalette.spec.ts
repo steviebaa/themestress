@@ -16,15 +16,15 @@ describe('Class ThemePalette', () => {
     };
     const theme = new ThemePalette(initPalette);
 
-    expect(theme.primary.main.hex).toEqual('#540bc1');
-    expect(theme.secondary.main.hex).toEqual('#2435a8');
-    expect(theme.tertiary.main.hex).toEqual('#ae04c8');
-    expect(theme.neutral.background.hex).toEqual('#fcfcfc');
-    expect(theme.neutralVariant.surface.hex).toEqual('#e6e6e6');
-    expect(theme.success.main.hex).toEqual('#399347');
-    expect(theme.warning.main.hex).toEqual('#be950e');
-    expect(theme.info.main.hex).toEqual('#0063cc');
-    expect(theme.error.main.hex).toEqual('#b61621');
+    expect(theme.primary.main.hex).toEqual('#564389');
+    expect(theme.secondary.main.hex).toEqual('#625b71');
+    expect(theme.tertiary.main.hex).toEqual('#7b515f');
+    expect(theme.neutral.background.hex).toEqual('#fcfcfd');
+    expect(theme.neutralVariant.surface.hex).toEqual('#e6e4e7');
+    expect(theme.success.main.hex).toEqual('#529d2f');
+    expect(theme.warning.main.hex).toEqual('#ca9b02');
+    expect(theme.info.main.hex).toEqual('#28a0a4');
+    expect(theme.error.main.hex).toEqual('#ae251e');
   });
   it('should initialise with provided string color', () => {
     const initPalette: ThemePaletteInitializer = {
