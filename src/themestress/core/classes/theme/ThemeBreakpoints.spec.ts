@@ -3,11 +3,11 @@ import {ThemeBreakpoints} from './ThemeBreakpoints';
 describe('Class ThemeBreakpoints', () => {
   it('should set the default props', () => {
     const breakpoints = new ThemeBreakpoints();
-    expect(breakpoints.xs).toEqual({size: 300, unit: 'px'});
+    expect(breakpoints.xs).toEqual({size: 0, unit: 'px'});
     expect(breakpoints.sm).toEqual({size: 600, unit: 'px'});
-    expect(breakpoints.md).toEqual({size: 900, unit: 'px'});
-    expect(breakpoints.lg).toEqual({size: 1200, unit: 'px'});
-    expect(breakpoints.xl).toEqual({size: 1536, unit: 'px'});
+    expect(breakpoints.md).toEqual({size: 905, unit: 'px'});
+    expect(breakpoints.lg).toEqual({size: 1240, unit: 'px'});
+    expect(breakpoints.xl).toEqual({size: 1440, unit: 'px'});
   });
   it('should set the custom props', () => {
     const breakpoints = new ThemeBreakpoints({
@@ -22,5 +22,12 @@ describe('Class ThemeBreakpoints', () => {
     expect(breakpoints.md).toEqual({size: 3, unit: 'pt'});
     expect(breakpoints.lg).toEqual({size: 4, unit: 'pt'});
     expect(breakpoints.xl).toEqual({size: 5, unit: 'pt'});
+  });
+  it('should set the global css variables', () => {
+    const breakpoints = new ThemeBreakpoints();
+    breakpoints.setGlobalCssVars();
+
+    const style = document.documentElement.style;
+    expect(style['_values']['--md-sys-breakpoint-xs']).toEqual('0px');
   });
 });
