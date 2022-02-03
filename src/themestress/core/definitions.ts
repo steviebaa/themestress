@@ -1,12 +1,8 @@
 import {ClassAttributes, HTMLAttributes} from 'react';
 import {TonalPalette} from './classes/base/TonalPalette';
 
-interface SystemColorToken {
-  light: string;
-  dark: string;
-}
 export interface SystemColorTokens {
-  [key: string]: SystemColorToken;
+  [key: string]: {light: string; dark: string};
 }
 
 export interface TypographyTokenPropAttributes {
@@ -23,28 +19,12 @@ export interface TypographySystemToken {
 }
 
 export interface TypographyRefTokens {
-  'md-ref-typeface-brand-regular': string;
-  'md-ref-typeface-weight-regular': string | number;
-  'md-ref-typeface-plain-medium': string;
-  'md-ref-typeface-weight-medium': string | number;
+  regular: {font: string; weight: string};
+  medium: {font: string; weight: string};
 }
 
 export interface TypographySystemTokens {
-  'md-sys-typescale-display-large': TypographySystemToken;
-  'md-sys-typescale-display-medium': TypographySystemToken;
-  'md-sys-typescale-display-small': TypographySystemToken;
-  'md-sys-typescale-headline-large': TypographySystemToken;
-  'md-sys-typescale-headline-medium': TypographySystemToken;
-  'md-sys-typescale-headline-small': TypographySystemToken;
-  'md-sys-typescale-title-large': TypographySystemToken;
-  'md-sys-typescale-title-medium': TypographySystemToken;
-  'md-sys-typescale-title-small': TypographySystemToken;
-  'md-sys-typescale-label-large': TypographySystemToken;
-  'md-sys-typescale-label-medium': TypographySystemToken;
-  'md-sys-typescale-label-small': TypographySystemToken;
-  'md-sys-typescale-body-large': TypographySystemToken;
-  'md-sys-typescale-body-medium': TypographySystemToken;
-  'md-sys-typescale-body-small': TypographySystemToken;
+  [key: string]: TypographySystemToken;
 }
 
 export interface ElevationToken {
