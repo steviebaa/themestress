@@ -1,6 +1,5 @@
-import {ElevationToken} from '..';
-import {ElevationTokens} from '../definitions';
-import {applyStyleVar} from '../utils';
+import {ElevationToken, ElevationTokens} from '../definitions';
+import {applyStyleVar} from '../utils/helpers';
 
 const elevation = (elevation: number) => {
   // Fraction function
