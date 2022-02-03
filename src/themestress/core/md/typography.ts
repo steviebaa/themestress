@@ -3,7 +3,7 @@ import {
   TypographySystemTokens,
   TypographyTokenPropAttributes,
 } from '../definitions';
-import {applyStyleVar, nullish} from '../utils';
+import {applyStyleVar, nullish} from '../utils/helpers';
 
 export const getRootElementSize = () => {
   return getComputedStyle(document.querySelector(':root')).getPropertyValue(
@@ -11,7 +11,7 @@ export const getRootElementSize = () => {
   );
 };
 
-const spToRem = (sp: number, rootSizePx?: number) => {
+export const spToRem = (sp: number, rootSizePx?: number) => {
   const rem = rootSizePx ?? Number(getRootElementSize().replace('px', ''));
   return Number((sp / rem).toFixed(4));
 };
@@ -44,123 +44,130 @@ export const applyTypographySystemTokens = (tokens: TypographySystemTokens) => {
   }
 };
 
-export const applyTypographyRefTokens = (tokens: TypographyRefTokens) => {
-  for (const token in tokens) {
-    applyStyleVar(token, tokens[token]);
-  }
+export const typographyRefTokens = (prefix = 'md-ref'): TypographyRefTokens => {
+  return {
+    regular: {
+      font: `${prefix}-typeface-font-regular`,
+      weight: `${prefix}-typeface-weight-regular`,
+    },
+    medium: {
+      font: `${prefix}-typeface-font-medium`,
+      weight: `${prefix}-typeface-weight-medium`,
+    },
+  };
 };
 
-export const typographyRefTokens: TypographyRefTokens = {
-  'md-ref-typeface-brand-regular': 'Roboto, Helvetica, Arial, sans-serif',
-  'md-ref-typeface-weight-regular': 400,
-  'md-ref-typeface-plain-medium': 'Roboto, Helvetica, Arial, sans-serif',
-  'md-ref-typeface-weight-medium': 500,
-};
+export const typographySystemTokens = (
+  sysPrefix = 'md-sys',
+  refPrefix = 'md-ref',
+): TypographySystemTokens => {
+  const refTokenStubs = typographyRefTokens(refPrefix);
 
-export const typographySystemTokens: TypographySystemTokens = {
-  'md-sys-typescale-display-large': {
-    font: {refToken: 'md-ref-typeface-brand-regular'},
-    'line-height': {value: 64},
-    size: {value: 57},
-    tracking: {value: 0},
-    weight: {refToken: 'md-ref-typeface-weight-regular'},
-  },
-  'md-sys-typescale-display-medium': {
-    font: {refToken: 'md-ref-typeface-brand-regular'},
-    'line-height': {value: 52},
-    size: {value: 45},
-    tracking: {value: 0},
-    weight: {refToken: 'md-ref-typeface-weight-regular'},
-  },
-  'md-sys-typescale-display-small': {
-    font: {refToken: 'md-ref-typeface-brand-regular'},
-    'line-height': {value: 44},
-    size: {value: 36},
-    tracking: {value: 0},
-    weight: {refToken: 'md-ref-typeface-weight-regular'},
-  },
-  'md-sys-typescale-headline-large': {
-    font: {refToken: 'md-ref-typeface-brand-regular'},
-    'line-height': {value: 40},
-    size: {value: 32},
-    tracking: {value: 0},
-    weight: {refToken: 'md-ref-typeface-weight-regular'},
-  },
-  'md-sys-typescale-headline-medium': {
-    font: {refToken: 'md-ref-typeface-brand-regular'},
-    'line-height': {value: 36},
-    size: {value: 28},
-    tracking: {value: 0},
-    weight: {refToken: 'md-ref-typeface-weight-regular'},
-  },
-  'md-sys-typescale-headline-small': {
-    font: {refToken: 'md-ref-typeface-brand-regular'},
-    'line-height': {value: 32},
-    size: {value: 24},
-    tracking: {value: 0},
-    weight: {refToken: 'md-ref-typeface-weight-regular'},
-  },
-  'md-sys-typescale-title-large': {
-    font: {refToken: 'md-ref-typeface-brand-regular'},
-    'line-height': {value: 28},
-    size: {value: 22},
-    tracking: {value: 0},
-    weight: {refToken: 'md-ref-typeface-weight-regular'},
-  },
-  'md-sys-typescale-title-medium': {
-    font: {refToken: 'md-ref-typeface-plain-medium'},
-    'line-height': {value: 24},
-    size: {value: 16},
-    tracking: {value: 0.15},
-    weight: {refToken: 'md-ref-typeface-weight-medium'},
-  },
-  'md-sys-typescale-title-small': {
-    font: {refToken: 'md-ref-typeface-plain-medium'},
-    'line-height': {value: 20},
-    size: {value: 14},
-    tracking: {value: 0.1},
-    weight: {refToken: 'md-ref-typeface-weight-medium'},
-  },
-  'md-sys-typescale-label-large': {
-    font: {refToken: 'md-ref-typeface-plain-medium'},
-    'line-height': {value: 20},
-    size: {value: 14},
-    tracking: {value: 0.1},
-    weight: {refToken: 'md-ref-typeface-weight-medium'},
-  },
-  'md-sys-typescale-label-medium': {
-    font: {refToken: 'md-ref-typeface-plain-medium'},
-    'line-height': {value: 16},
-    size: {value: 12},
-    tracking: {value: 0.5},
-    weight: {refToken: 'md-ref-typeface-weight-medium'},
-  },
-  'md-sys-typescale-label-small': {
-    font: {refToken: 'md-ref-typeface-plain-medium'},
-    'line-height': {value: 6},
-    size: {value: 11},
-    tracking: {value: 0.5},
-    weight: {refToken: 'md-ref-typeface-weight-medium'},
-  },
-  'md-sys-typescale-body-large': {
-    font: {refToken: 'md-ref-typeface-plain-medium'},
-    'line-height': {value: 24},
-    size: {value: 16},
-    tracking: {value: 0.15},
-    weight: {refToken: 'md-ref-typeface-weight-regular'},
-  },
-  'md-sys-typescale-body-medium': {
-    font: {refToken: 'md-ref-typeface-plain-medium'},
-    'line-height': {value: 20},
-    size: {value: 14},
-    tracking: {value: 0.25},
-    weight: {refToken: 'md-ref-typeface-weight-regular'},
-  },
-  'md-sys-typescale-body-small': {
-    font: {refToken: 'md-ref-typeface-plain-medium'},
-    'line-height': {value: 16},
-    size: {value: 12},
-    tracking: {value: 0.4},
-    weight: {refToken: 'md-ref-typeface-weight-regular'},
-  },
+  return {
+    [`${sysPrefix}-typescale-display-large`]: {
+      font: {refToken: refTokenStubs.regular.font},
+      'line-height': {value: 64},
+      size: {value: 57},
+      tracking: {value: 0},
+      weight: {refToken: refTokenStubs.regular.weight},
+    },
+    [`${sysPrefix}-typescale-display-medium`]: {
+      font: {refToken: refTokenStubs.regular.font},
+      'line-height': {value: 52},
+      size: {value: 45},
+      tracking: {value: 0},
+      weight: {refToken: refTokenStubs.regular.weight},
+    },
+    [`${sysPrefix}-typescale-display-small`]: {
+      font: {refToken: refTokenStubs.regular.font},
+      'line-height': {value: 44},
+      size: {value: 36},
+      tracking: {value: 0},
+      weight: {refToken: refTokenStubs.regular.weight},
+    },
+    [`${sysPrefix}-typescale-headline-large`]: {
+      font: {refToken: refTokenStubs.regular.font},
+      'line-height': {value: 40},
+      size: {value: 32},
+      tracking: {value: 0},
+      weight: {refToken: refTokenStubs.regular.weight},
+    },
+    [`${sysPrefix}-typescale-headline-medium`]: {
+      font: {refToken: refTokenStubs.regular.font},
+      'line-height': {value: 36},
+      size: {value: 28},
+      tracking: {value: 0},
+      weight: {refToken: refTokenStubs.regular.weight},
+    },
+    [`${sysPrefix}-typescale-headline-small`]: {
+      font: {refToken: refTokenStubs.regular.font},
+      'line-height': {value: 32},
+      size: {value: 24},
+      tracking: {value: 0},
+      weight: {refToken: refTokenStubs.regular.weight},
+    },
+    [`${sysPrefix}-typescale-title-large`]: {
+      font: {refToken: refTokenStubs.regular.font},
+      'line-height': {value: 28},
+      size: {value: 22},
+      tracking: {value: 0},
+      weight: {refToken: refTokenStubs.regular.weight},
+    },
+    [`${sysPrefix}-typescale-title-medium`]: {
+      font: {refToken: refTokenStubs.medium.font},
+      'line-height': {value: 24},
+      size: {value: 16},
+      tracking: {value: 0.15},
+      weight: {refToken: refTokenStubs.medium.weight},
+    },
+    [`${sysPrefix}-typescale-title-small`]: {
+      font: {refToken: refTokenStubs.medium.font},
+      'line-height': {value: 20},
+      size: {value: 14},
+      tracking: {value: 0.1},
+      weight: {refToken: refTokenStubs.medium.weight},
+    },
+    [`${sysPrefix}-typescale-label-large`]: {
+      font: {refToken: refTokenStubs.medium.font},
+      'line-height': {value: 20},
+      size: {value: 14},
+      tracking: {value: 0.1},
+      weight: {refToken: refTokenStubs.medium.weight},
+    },
+    [`${sysPrefix}-typescale-label-medium`]: {
+      font: {refToken: refTokenStubs.medium.font},
+      'line-height': {value: 16},
+      size: {value: 12},
+      tracking: {value: 0.5},
+      weight: {refToken: refTokenStubs.medium.weight},
+    },
+    [`${sysPrefix}-typescale-label-small`]: {
+      font: {refToken: refTokenStubs.medium.font},
+      'line-height': {value: 6},
+      size: {value: 11},
+      tracking: {value: 0.5},
+      weight: {refToken: refTokenStubs.medium.weight},
+    },
+    [`${sysPrefix}-typescale-body-large`]: {
+      font: {refToken: refTokenStubs.medium.font},
+      'line-height': {value: 24},
+      size: {value: 16},
+      tracking: {value: 0.15},
+      weight: {refToken: refTokenStubs.regular.weight},
+    },
+    [`${sysPrefix}-typescale-body-medium`]: {
+      font: {refToken: refTokenStubs.medium.font},
+      'line-height': {value: 20},
+      size: {value: 14},
+      tracking: {value: 0.25},
+      weight: {refToken: refTokenStubs.regular.weight},
+    },
+    [`${sysPrefix}-typescale-body-small`]: {
+      font: {refToken: refTokenStubs.medium.font},
+      'line-height': {value: 16},
+      size: {value: 12},
+      tracking: {value: 0.4},
+      weight: {refToken: refTokenStubs.regular.weight},
+    },
+  };
 };

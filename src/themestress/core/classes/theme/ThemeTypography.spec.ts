@@ -4,20 +4,34 @@ describe('Class ThemeTypography', () => {
   it('should set the default props', () => {
     const typography = new ThemeTypography();
     expect(typography.size).toEqual(16);
-    expect(typography.sizeUnit).toEqual('px');
-    expect(typography.family).toEqual('Roboto');
-    expect(typography.familyFallback).toEqual('Arial Helvetica sans-serif');
+    expect(typography.regular.weight).toEqual(400);
+    expect(typography.regular.font).toEqual('Roboto');
+    expect(typography.regular.fallback).toEqual('Arial Helvetica sans-serif');
+    expect(typography.medium.weight).toEqual(500);
+    expect(typography.medium.font).toEqual('Roboto');
+    expect(typography.medium.fallback).toEqual('Arial Helvetica sans-serif');
   });
   it('should set the custom props', () => {
     const typography = new ThemeTypography({
       size: 12,
-      sizeUnit: 'pt',
-      family: 'Montserrat',
-      familyFallback: 'Helvetica',
+      regular: {font: 'Montserrat', fallback: 'Helvetica'},
+      medium: {weight: 700},
     });
     expect(typography.size).toEqual(12);
-    expect(typography.sizeUnit).toEqual('pt');
-    expect(typography.family).toEqual('Montserrat');
-    expect(typography.familyFallback).toEqual('Helvetica');
+    expect(typography.regular.weight).toEqual(400);
+    expect(typography.regular.font).toEqual('Montserrat');
+    expect(typography.regular.fallback).toEqual('Helvetica');
+    expect(typography.medium.weight).toEqual(700);
+    expect(typography.medium.font).toEqual('Roboto');
+    expect(typography.medium.fallback).toEqual('Arial Helvetica sans-serif');
+  });
+
+  it('should set the global css variables', () => {
+    const typography = new ThemeTypography();
+    typography.setGlobalCssVars();
+
+    const style = document.documentElement.style;
+    expect(style['_values']['--md-ref-typeface-weight-regular']).toEqual("400");
+    expect(style.length).toEqual(80);
   });
 });
