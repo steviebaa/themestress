@@ -32,11 +32,11 @@ describe('Class Theme', () => {
     expect(theme.typography.size).toEqual(14);
   });
   it('should generate a theme with custom spacing', () => {
-    const spacing = new ThemeSpacing({size: 1, sizeUnit: 'cm'});
+    const spacing = new ThemeSpacing({size: 1, unit: 'cm'});
     const theme = new Theme({spacing});
 
     expect(theme.spacing.size).toEqual(1);
-    expect(theme.spacing.sizeUnit).toEqual('cm');
+    expect(theme.spacing.unit).toEqual('cm');
   });
   it('should generate a theme with custom zIndices', () => {
     const zIndices = new ThemeZIndices({modal: 300});

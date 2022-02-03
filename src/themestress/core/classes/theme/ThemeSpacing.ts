@@ -1,20 +1,30 @@
+import {applyStyleVar} from '@themestress/core/utils/helpers';
+
 export interface ThemeSpacingProps {
   size: number;
-  sizeUnit: string;
+  unit: string;
 }
 
 export type ThemeSpacingInitializer = Partial<ThemeSpacingProps>;
 
 export class ThemeSpacing implements ThemeSpacingProps {
   public size: number;
-  public sizeUnit: string;
+  public unit: string;
 
   constructor(spacing?: ThemeSpacingInitializer) {
     this._setProperties(spacing);
   }
 
+  public setGlobalCssVars() {
+    this._createGlobalSystemTokenCssVars();
+  }
+
   private _setProperties(spacing?: ThemeSpacingInitializer) {
     this.size = spacing?.size ?? 4;
-    this.sizeUnit = spacing?.sizeUnit ?? 'px';
+    this.unit = spacing?.unit ?? 'px';
   }
+
+  private _createGlobalSystemTokenCssVars = () => {
+    applyStyleVar('md-sys-spacing', `${this.size}${this.unit}`);
+  };
 }
