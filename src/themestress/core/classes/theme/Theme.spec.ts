@@ -10,7 +10,7 @@ describe('Class Theme', () => {
     const theme = new Theme();
 
     expect(theme.palette.primary.keyColor.hex).toBeDefined();
-    expect(theme.typography.family).toBeDefined();
+    expect(theme.typography.regular.font).toBeDefined();
     expect(theme.breakpoints.md).toBeDefined();
   });
   it('should generate a theme with custom palette', () => {
@@ -22,10 +22,13 @@ describe('Class Theme', () => {
     expect(theme.zIndices).toBeDefined();
   });
   it('should generate a theme with custom typography', () => {
-    const typography = new ThemeTypography({family: 'Montserrat', size: 14});
+    const typography = new ThemeTypography({
+      size: 14,
+      regular: {font: 'Montserrat'},
+    });
     const theme = new Theme({typography});
 
-    expect(theme.typography.family).toEqual('Montserrat');
+    expect(theme.typography.regular.font).toEqual('Montserrat');
     expect(theme.typography.size).toEqual(14);
   });
   it('should generate a theme with custom spacing', () => {
