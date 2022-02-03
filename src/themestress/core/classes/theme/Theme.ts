@@ -25,6 +25,14 @@ export class Theme implements ThemeProps {
     this._setProperties(theme);
   }
 
+  public setGlobalCssVars() {
+    this.palette.setGlobalCssVars();
+    this.typography.setGlobalCssVars();
+    this.spacing.setGlobalCssVars();
+    this.zIndices.setGlobalCssVars();
+    this.breakpoints.setGlobalCssVars();
+  }
+
   private _setProperties(theme?: ThemeInitializer) {
     this.palette = theme?.palette ?? new ThemePalette();
     this.typography = theme?.typography ?? new ThemeTypography();

@@ -52,4 +52,11 @@ describe('Class Theme', () => {
     expect(theme.breakpoints.xs.size).toEqual(2);
     expect(theme.breakpoints.xs.unit).toEqual('cm');
   });
+  it('should set the global css variables for all the sub classes', () => {
+    const theme = new Theme();
+    theme.setGlobalCssVars();
+
+    const style = document.documentElement.style;
+    expect(style['_values']['--md-sys-breakpoint-xs']).toEqual('0px');
+  });
 });
