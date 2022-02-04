@@ -25,51 +25,51 @@ export const systemElevationTokens = (
     [`${sysPrefix}-elevation-level-1`]: {
       light: {
         shadow: `box-shadow: 0px 1px 2px ${sc1}, 0px 1px 3px 1px ${sc2}`,
-        shade: `linear-gradient(0deg, ${getShade(0.05)}), ${getShade(0.05)}))`,
+        shade: `linear-gradient(0deg, ${getShade(0.05)}, ${getShade(0.05)})`,
       },
       dark: {
         shadow: `box-shadow: 0px 1px 3px 1px ${sc2}, 0px 1px 2px ${sc1}`,
-        shade: `linear-gradient(0deg, ${getShade(0.05)}), ${getShade(0.05)}))`,
+        shade: `linear-gradient(0deg, ${getShade(0.05)}, ${getShade(0.05)})`,
       },
     },
     [`${sysPrefix}-elevation-level-2`]: {
       light: {
         shadow: `box-shadow: 0px 1px 2px ${sc1}, 0px 2px 6px 2px ${sc2}`,
-        shade: `linear-gradient(0deg, ${getShade(0.08)}), ${getShade(0.08)}))`,
+        shade: `linear-gradient(0deg, ${getShade(0.08)}, ${getShade(0.08)})`,
       },
       dark: {
         shadow: `box-shadow: 0px 2px 6px 2px ${sc2}, 0px 1px 2px ${sc1}`,
-        shade: `linear-gradient(0deg, ${getShade(0.08)}), ${getShade(0.08)}))`,
+        shade: `linear-gradient(0deg, ${getShade(0.08)}, ${getShade(0.08)})`,
       },
     },
     [`${sysPrefix}-elevation-level-3`]: {
       light: {
         shadow: `box-shadow: 0px 4px 8px 3px ${sc2}, 0px 1px 3px ${sc1}`,
-        shade: `linear-gradient(0deg, ${getShade(0.11)}), ${getShade(0.11)}))`,
+        shade: `linear-gradient(0deg, ${getShade(0.11)}, ${getShade(0.11)})`,
       },
       dark: {
         shadow: `box-shadow: 0px 4px 8px 3px ${sc2}, 0px 1px 3px ${sc1}`,
-        shade: `linear-gradient(0deg, ${getShade(0.11)}), ${getShade(0.11)}))`,
+        shade: `linear-gradient(0deg, ${getShade(0.11)}, ${getShade(0.11)})`,
       },
     },
     [`${sysPrefix}-elevation-level-4`]: {
       light: {
         shadow: `box-shadow: 0px 6px 10px 4px ${sc2}, 0px 2px 3px ${sc1}`,
-        shade: `linear-gradient(0deg, ${getShade(0.12)}), ${getShade(0.12)}))`,
+        shade: `linear-gradient(0deg, ${getShade(0.12)}, ${getShade(0.12)})`,
       },
       dark: {
         shadow: `0px 6px 10px 4px ${sc2}, 0px 2px 3px ${sc1}`,
-        shade: `linear-gradient(0deg, ${getShade(0.12)}), ${getShade(0.12)}))`,
+        shade: `linear-gradient(0deg, ${getShade(0.12)}, ${getShade(0.12)})`,
       },
     },
     [`${sysPrefix}-elevation-level-5`]: {
       light: {
         shadow: `box-shadow: 0px 8px 12px 6px ${sc2}, 0px 4px 4px ${sc1}`,
-        shade: `linear-gradient(0deg, ${getShade(0.14)}), ${getShade(0.14)}))`,
+        shade: `linear-gradient(0deg, ${getShade(0.14)}, ${getShade(0.14)})`,
       },
       dark: {
         shadow: `box-shadow: 0px 8px 12px 6px ${sc2}, 0px 4px 4px ${sc1}`,
-        shade: `linear-gradient(0deg, ${getShade(0.14)}), ${getShade(0.14)}))`,
+        shade: `linear-gradient(0deg, ${getShade(0.14)}, ${getShade(0.14)})`,
       },
     },
   };

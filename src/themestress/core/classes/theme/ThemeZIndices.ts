@@ -1,4 +1,4 @@
-import {applyStyleVar} from '@themestress/core/utils/helpers';
+import {addStyleHelper} from '../../definitions';
 
 export interface ThemeZIndicesProps {
   navbar: number;
@@ -21,21 +21,21 @@ export class ThemeZIndices implements ThemeZIndicesProps {
     this._setProperties(zIndices);
   }
 
-  public setGlobalCssVars() {
-    this._createGlobalSystemTokenCssVars();
-  }
+  public setGlobalCssVars = (addStyle: addStyleHelper) => {
+    this._createGlobalSystemTokenCssVars(addStyle);
+  };
 
-  private _createGlobalSystemTokenCssVars = () => {
+  private _createGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
     ['navbar', 'backdrop', 'modal', 'snackbar', 'tooltip'].forEach(z => {
-      applyStyleVar(`md-sys-z-index-${z}`, `${this[z].size}${this[z].unit}`);
+      addStyle(`md-sys-z-index-${z}`, `${this[z]}`);
     });
   };
 
-  private _setProperties(zIndices?: ThemeZIndicesInitializer) {
+  private _setProperties = (zIndices?: ThemeZIndicesInitializer) => {
     this.navbar = zIndices?.navbar ?? 1100;
     this.backdrop = zIndices?.backdrop ?? 1300;
     this.modal = zIndices?.modal ?? 1400;
     this.snackbar = zIndices?.snackbar ?? 1500;
     this.tooltip = zIndices?.tooltip ?? 1600;
-  }
+  };
 }

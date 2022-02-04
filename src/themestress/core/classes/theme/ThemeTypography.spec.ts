@@ -1,3 +1,4 @@
+import {Theme} from './Theme';
 import {ThemeTypography} from './ThemeTypography';
 
 describe('Class ThemeTypography', () => {
@@ -27,11 +28,12 @@ describe('Class ThemeTypography', () => {
   });
 
   it('should set the global css variables', () => {
+    const theme = new Theme();
     const typography = new ThemeTypography();
-    typography.setGlobalCssVars();
+    typography.setGlobalCssVars(theme['_addStyle']);
 
     const style = document.documentElement.style;
-    expect(style['_values']['--md-ref-typeface-weight-regular']).toEqual("400");
+    expect(style['_values']['--md-ref-typeface-weight-regular']).toEqual('400');
     expect(style.length).toEqual(80);
   });
 });

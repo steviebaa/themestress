@@ -2,6 +2,12 @@ import {ClassAttributes, HTMLAttributes} from 'react';
 import {ThemeProps} from '@themestress/core/classes/theme/Theme';
 import {TonalPalette} from './classes/base/TonalPalette';
 
+export type addStyleHelper = (
+  key: string,
+  value: string | number,
+  isVar?: boolean,
+) => void;
+
 export interface SystemColorTokens {
   [key: string]: {light: string; dark: string};
 }

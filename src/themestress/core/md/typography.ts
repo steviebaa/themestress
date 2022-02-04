@@ -2,8 +2,9 @@ import {
   TypographyRefTokens,
   TypographySystemTokens,
   TypographyTokenPropAttributes,
+  addStyleHelper,
 } from '../definitions';
-import {applyStyleVar, nullish} from '../utils/helpers';
+import {nullish} from '../utils/helpers';
 
 export const getRootElementSize = () => {
   return getComputedStyle(document.querySelector(':root')).getPropertyValue(
@@ -16,7 +17,10 @@ export const spToRem = (sp: number, rootSizePx?: number) => {
   return Number((sp / rem).toFixed(4));
 };
 
-export const applyTypographySystemTokens = (tokens: TypographySystemTokens) => {
+export const applyTypographySystemTokens = (
+  tokens: TypographySystemTokens,
+  addStyle: addStyleHelper,
+) => {
   const rootSizePx = Number(getRootElementSize().replace('px', ''));
 
   for (const token in tokens) {
@@ -35,11 +39,7 @@ export const applyTypographySystemTokens = (tokens: TypographySystemTokens) => {
         finalValue = spToRem(props.value as number, rootSizePx) + 'rem';
       }
 
-      applyStyleVar(
-        path,
-        props.refToken ?? finalValue,
-        !nullish(props.refToken),
-      );
+      addStyle(path, props.refToken ?? finalValue, !nullish(props.refToken));
     }
   }
 };

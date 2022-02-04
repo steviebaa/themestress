@@ -1,4 +1,4 @@
-import {applyStyleVar} from '@themestress/core/utils/helpers';
+import {addStyleHelper} from '../../definitions';
 
 export interface ThemeSpacingProps {
   size: number;
@@ -15,16 +15,16 @@ export class ThemeSpacing implements ThemeSpacingProps {
     this._setProperties(spacing);
   }
 
-  public setGlobalCssVars() {
-    this._createGlobalSystemTokenCssVars();
-  }
+  public setGlobalCssVars = (addStyle: addStyleHelper) => {
+    this._createGlobalSystemTokenCssVars(addStyle);
+  };
 
-  private _setProperties(spacing?: ThemeSpacingInitializer) {
+  private _createGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
+    addStyle('md-sys-spacing', `${this.size}${this.unit}`);
+  };
+
+  private _setProperties = (spacing?: ThemeSpacingInitializer) => {
     this.size = spacing?.size ?? 4;
     this.unit = spacing?.unit ?? 'px';
-  }
-
-  private _createGlobalSystemTokenCssVars = () => {
-    applyStyleVar('md-sys-spacing', `${this.size}${this.unit}`);
   };
 }

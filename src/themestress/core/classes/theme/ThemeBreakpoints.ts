@@ -1,4 +1,4 @@
-import {applyStyleVar} from '@themestress/core/utils/helpers';
+import {addStyleHelper} from '../../definitions';
 
 export interface BreakPoint {
   size: number;
@@ -26,20 +26,17 @@ export class ThemeBreakpoints implements ThemeBreakpointsProps {
     this._setProperties(breakpoints);
   }
 
-  public setGlobalCssVars() {
-    this._createGlobalSystemTokenCssVars();
-  }
+  public setGlobalCssVars = (addStyle: addStyleHelper) => {
+    this._createGlobalSystemTokenCssVars(addStyle);
+  };
 
-  private _createGlobalSystemTokenCssVars = () => {
+  private _createGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
     ['xs', 'sm', 'md', 'lg', 'xl'].forEach(bp => {
-      applyStyleVar(
-        `md-sys-breakpoint-${bp}`,
-        `${this[bp].size}${this[bp].unit}`,
-      );
+      addStyle(`md-sys-breakpoint-${bp}`, `${this[bp].size}${this[bp].unit}`);
     });
   };
 
-  private _setProperties(breakpoints?: ThemeBreakpointsInitializer) {
+  private _setProperties = (breakpoints?: ThemeBreakpointsInitializer) => {
     this.xs.size = breakpoints?.xs?.size ?? 0;
     this.xs.unit = breakpoints?.xs?.unit ?? 'px';
 
@@ -54,5 +51,5 @@ export class ThemeBreakpoints implements ThemeBreakpointsProps {
 
     this.xl.size = breakpoints?.xl?.size ?? 1440;
     this.xl.unit = breakpoints?.xl?.unit ?? 'px';
-  }
+  };
 }

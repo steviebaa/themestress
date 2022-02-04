@@ -39,10 +39,10 @@ describe('Class Theme', () => {
     expect(theme.spacing.unit).toEqual('cm');
   });
   it('should generate a theme with custom zIndices', () => {
-    const zIndices = new ThemeZIndices({modal: {size: 300}});
+    const zIndices = new ThemeZIndices({modal: 300});
     const theme = new Theme({zIndices});
 
-    expect(theme.zIndices.modal.size).toEqual(300);
+    expect(theme.zIndices.modal).toEqual(300);
   });
 
   it('should generate a theme with custom breakpoints', () => {

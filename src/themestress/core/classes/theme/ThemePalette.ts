@@ -1,11 +1,10 @@
-import {ThemeMode} from '../../definitions';
+import {addStyleHelper, ThemeMode} from '../../definitions';
 import {AccentPalette} from '../palette/AccentPalette';
 import {NeutralPalette} from '../palette/NeutralPalette';
 import {NeutralVariantPalette} from '../palette/NeutralVariantPalette';
 import {Color} from '../base/Color';
 import {TonalPalette} from '../base/TonalPalette';
 import {colorRefTokenStubs, systemColorTokens} from '../../md/color';
-import {applyStyleVar} from '../../utils/helpers';
 
 export interface ThemePaletteInitializer {
   mode?: ThemeMode;
@@ -61,29 +60,29 @@ export class ThemePalette {
     });
   }
 
-  public setGlobalCssVars() {
-    this._setGlobalRefTokenCssVars();
-    this._setGlobalSystemTokenCssVars();
-  }
+  public setGlobalCssVars = (addStyle: addStyleHelper) => {
+    this._setGlobalRefTokenCssVars(addStyle);
+    this._setGlobalSystemTokenCssVars(addStyle);
+  };
 
-  private _setGlobalRefTokenCssVars = () => {
+  private _setGlobalRefTokenCssVars = (addStyle: addStyleHelper) => {
     Object.entries(colorRefTokenStubs()).forEach(([paletteName, stub]) => {
       Object.entries((this[paletteName] as TonalPalette).tones).forEach(
         ([tone, color]) => {
           const key = `${stub}-${tone}`;
-          applyStyleVar(key, color.hex);
+          addStyle(key, color.hex);
         },
       );
     });
   };
 
-  private _setGlobalSystemTokenCssVars = () => {
+  private _setGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
     Object.entries(systemColorTokens()).forEach(([sysToken, refTokens]) => {
-      applyStyleVar(sysToken, refTokens[this.mode], true);
+      addStyle(sysToken, refTokens[this.mode], true);
     });
   };
 
-  private _assignInput(
+  private _assignInput = (
     key: string,
     prop:
       | string
@@ -91,7 +90,7 @@ export class ThemePalette {
       | AccentPalette
       | NeutralPalette
       | NeutralVariantPalette,
-  ) {
+  ) => {
     const {cls, fallback: color} = classMap[key];
 
     if (typeof prop === 'string') {
@@ -103,5 +102,5 @@ export class ThemePalette {
     }
 
     this[key] = prop;
-  }
+  };
 }
