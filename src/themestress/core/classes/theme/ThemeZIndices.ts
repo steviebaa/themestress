@@ -1,26 +1,21 @@
 import {applyStyleVar} from '@themestress/core/utils/helpers';
 
-interface ZIndex {
-  size?: number;
-  unit?: string;
-}
-
 export interface ThemeZIndicesProps {
-  navbar: ZIndex;
-  backdrop: ZIndex;
-  modal: ZIndex;
-  snackbar: ZIndex;
-  tooltip: ZIndex;
+  navbar: number;
+  backdrop: number;
+  modal: number;
+  snackbar: number;
+  tooltip: number;
 }
 
 export type ThemeZIndicesInitializer = Partial<ThemeZIndicesProps>;
 
 export class ThemeZIndices implements ThemeZIndicesProps {
-  public navbar: ZIndex = {size: null, unit: null};
-  public backdrop: ZIndex = {size: null, unit: null};
-  public modal: ZIndex = {size: null, unit: null};
-  public snackbar: ZIndex = {size: null, unit: null};
-  public tooltip: ZIndex = {size: null, unit: null};
+  public navbar: number = null;
+  public backdrop: number = null;
+  public modal: number = null;
+  public snackbar: number = null;
+  public tooltip: number = null;
 
   constructor(zIndices?: ThemeZIndicesInitializer) {
     this._setProperties(zIndices);
@@ -37,19 +32,10 @@ export class ThemeZIndices implements ThemeZIndicesProps {
   };
 
   private _setProperties(zIndices?: ThemeZIndicesInitializer) {
-    this.navbar.size = zIndices?.navbar?.size ?? 1100;
-    this.navbar.unit = zIndices?.navbar?.unit ?? 'px';
-
-    this.backdrop.size = zIndices?.backdrop?.size ?? 1300;
-    this.backdrop.unit = zIndices?.backdrop?.unit ?? 'px';
-
-    this.modal.size = zIndices?.modal?.size ?? 1400;
-    this.modal.unit = zIndices?.modal?.unit ?? 'px';
-
-    this.snackbar.size = zIndices?.snackbar?.size ?? 1500;
-    this.snackbar.unit = zIndices?.snackbar?.unit ?? 'px';
-
-    this.tooltip.size = zIndices?.tooltip?.size ?? 1600;
-    this.tooltip.unit = zIndices?.tooltip?.unit ?? 'px';
+    this.navbar = zIndices?.navbar ?? 1100;
+    this.backdrop = zIndices?.backdrop ?? 1300;
+    this.modal = zIndices?.modal ?? 1400;
+    this.snackbar = zIndices?.snackbar ?? 1500;
+    this.tooltip = zIndices?.tooltip ?? 1600;
   }
 }

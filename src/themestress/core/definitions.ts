@@ -1,4 +1,5 @@
 import {ClassAttributes, HTMLAttributes} from 'react';
+import {ThemeProps} from '@themestress/core/classes/theme/Theme';
 import {TonalPalette} from './classes/base/TonalPalette';
 
 export interface SystemColorTokens {
@@ -27,22 +28,15 @@ export interface TypographySystemTokens {
   [key: string]: TypographySystemToken;
 }
 
-export interface ElevationToken {
-  role: string;
-  token: string;
-  elevation: number;
-  transform: string;
+export interface ElevationStyles {
+  shadow: string;
+  shade: string;
 }
 export interface ElevationTokens {
-  'md-sys-elevation-level1': ElevationToken;
-  'md-sys-elevation-level2': ElevationToken;
-  'md-sys-elevation-level3': ElevationToken;
-  'md-sys-elevation-level4': ElevationToken;
-  'md-sys-elevation-level5': ElevationToken;
-  'md-sys-elevation-level6': ElevationToken;
-  'md-sys-elevation-level7': ElevationToken;
-  'md-sys-elevation-level8': ElevationToken;
-  'md-sys-elevation-level9': ElevationToken;
+  [key: string]: {
+    light: ElevationStyles;
+    dark: ElevationStyles;
+  };
 }
 
 export interface Transform {
@@ -138,27 +132,27 @@ interface INeutral {
 }
 type TNeutral = keyof INeutral;
 
-export interface ThemeProps {
-  palette?: PaletteProps;
-  typography?: {
-    size?: number;
-  };
-  spacing?: number;
-  zIndex?: {
-    navbar?: number;
-    backdrop?: number;
-    modal?: number;
-    tooltip?: number;
-    snackbar?: number;
-  };
-  breakpoints?: {
-    xs?: string;
-    sm?: string;
-    md?: string;
-    lg?: string;
-    xl?: string;
-  };
-}
+// export interface ThemeProps {
+//   palette?: PaletteProps;
+//   typography?: {
+//     size?: number;
+//   };
+//   spacing?: number;
+//   zIndex?: {
+//     navbar?: number;
+//     backdrop?: number;
+//     modal?: number;
+//     tooltip?: number;
+//     snackbar?: number;
+//   };
+//   breakpoints?: {
+//     xs?: string;
+//     sm?: string;
+//     md?: string;
+//     lg?: string;
+//     xl?: string;
+//   };
+// }
 
 declare module '@emotion/react' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
