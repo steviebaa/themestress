@@ -28,6 +28,7 @@ interface SnackbarProviderProps {
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 }
 
+/* z-index: ${({theme}) => theme.zIndex.snackbar}; */
 const Snackbar = styled.div<SnackbarProviderProps>`
   position: fixed;
   top: ${({position, margin}) =>
@@ -41,7 +42,6 @@ const Snackbar = styled.div<SnackbarProviderProps>`
   flex-direction: ${({position}) =>
     position.includes('top') ? 'column' : 'column-reverse'};
   display: flex;
-  z-index: ${({theme}) => theme.zIndex.snackbar};
   min-width: ${({minWidth}) => minWidth};
   min-height: fit-content;
   transition: min-height;
@@ -110,6 +110,7 @@ export const SnackbarProvider = ({
   );
 };
 
+/* margin-top: ${({theme}) => `${theme.spacing * 2}px`}; */
 const StyledSnack = styled.div<Partial<SnackProps>>`
   width: ${({msg}) => msg.width ?? ''};
   overflow: hidden;
@@ -122,7 +123,6 @@ const StyledSnack = styled.div<Partial<SnackProps>>`
   color: ${({theme: {palette}}) =>
     palette.neutral[palette.mode === 'light' ? 100 : 900].on};
   border-radius: ${({theme}) => `${theme.spacing}px`};
-  margin-top: ${({theme}) => `${theme.spacing * 2}px`};
   animation-timing-function: ease-in-out;
   transform: ${({position, margin}) => {
     if (position.includes('left')) {

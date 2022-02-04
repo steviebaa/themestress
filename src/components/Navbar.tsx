@@ -6,9 +6,8 @@ import {Flex, Paper, Spacer, Switch, Typography} from '@themestress/components';
 
 const StyledNavbar = styled(Paper)`
   height: ${config.navHeight}px;
-  z-index: ${({theme}) => theme.zIndex.navbar};
-  border-bottom: 1px solid
-    ${({theme}) => theme.palette.outline[theme.palette.mode]};
+  z-index: ${({theme}) => theme.zIndices.navbar};
+  border-bottom: 1px solid ${({theme}) => theme.palette.neutral.tones[50].hex};
 `;
 
 export const Navbar = () => {

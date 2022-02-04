@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import {TColor} from '../core/definitions';
-import {colorFromTheme} from '../core/themeUtils';
+// import {colorFromTheme} from '../core/themeUtils';
 
 export interface SwitchProps {
   checked: boolean;
@@ -30,36 +30,36 @@ const Track = styled.span<Partial<SwitchProps> & OnProp>`
   cursor: pointer;
   background-color: ${({theme, trackColor, on}) => {
     const {
-      palette: {success, neutral: neutral},
+      palette: {success, neutral},
     } = theme;
     if (trackColor) {
-      return on
-        ? colorFromTheme(theme, trackColor.on)
-        : colorFromTheme(theme, trackColor.off);
+      // return on
+      //   ? colorFromTheme(theme, trackColor.on)
+      //   : colorFromTheme(theme, trackColor.off);
     } else {
       if (theme.palette.mode === 'light') {
-        return on ? success.main : neutral[100].main;
+        return on ? success.main.hex : neutral.tones[10].hex;
       } else {
-        return on ? success.main : neutral[700].main;
+        return on ? success.main.hex : neutral.tones[70].hex;
       }
     }
   }};
   transition: background-color 200ms ease-in-out;
 `;
 
+/* background-color: ${({theme, noIcon, handleColor, on}) =>
+	noIcon
+		? colorFromTheme(
+				theme,
+				on ? handleColor?.on ?? 'white' : handleColor?.off ?? 'white',
+			)
+		: 'transparent'}; */
 const Handle = styled.span<Partial<SwitchProps> & OnProp>`
   position: absolute;
   display: flex;
   align-items: center;
   border-radius: 50%;
   width: ${({noIcon}) => (noIcon ? '22px' : '26px')};
-  background-color: ${({theme, noIcon, handleColor, on}) =>
-    noIcon
-      ? colorFromTheme(
-          theme,
-          on ? handleColor?.on ?? 'white' : handleColor?.off ?? 'white',
-        )
-      : 'transparent'};
   box-sizing: border-box;
   transition: right 200ms;
   padding-bottom: ${({noIcon}) => (noIcon ? '22px' : 'initial')};
@@ -88,14 +88,13 @@ const CrossPath = () => (
   <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm4.3 14.3c-.39.39-1.02.39-1.41 0L12 13.41 9.11 16.3c-.39.39-1.02.39-1.41 0a.9959.9959 0 0 1 0-1.41L10.59 12 7.7 9.11a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0L12 10.59l2.89-2.89c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41L13.41 12l2.89 2.89c.38.38.38 1.02 0 1.41z" />
 );
 
-const Svg = styled.svg<Partial<SwitchProps> & OnProp>`
-  fill: ${({theme, handleColor, on}) => {
-    return colorFromTheme(
-      theme,
-      on ? handleColor?.on ?? 'white' : handleColor?.off ?? 'white',
-    );
-  }};
-`;
+/* fill: ${({theme, handleColor, on}) => {
+	return colorFromTheme(
+		theme,
+		on ? handleColor?.on ?? 'white' : handleColor?.off ?? 'white',
+	);
+}}; */
+const Svg = styled.svg<Partial<SwitchProps> & OnProp>``;
 
 export const Switch: React.FC<SwitchProps> = ({
   checked,

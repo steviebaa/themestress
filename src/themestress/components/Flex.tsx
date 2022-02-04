@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import {
-  colorFromTheme,
-  onColorFromTheme,
+  // colorFromTheme,
+  // onColorFromTheme,
   getMarginAndPadding,
 } from '../core/themeUtils';
 import {ReactHTMLProps, TColor} from '../core/definitions';
@@ -97,17 +97,16 @@ const FlexContainer = styled.div<FlexProps & {$wrap: boolean}>`
   align-self: ${({justifyContent}) => justifyContent || ''};
 
   ${props => getMarginAndPadding(props)}
-
-  background-color: ${({theme, bgColor: bg}) =>
-    bg === undefined ? 'transparent' : colorFromTheme(theme, bg)};
-
-  color: ${({theme, fontColor: fc, bgColor: bg}) => {
-    let color = 'inherit';
-    if (bg && !fc) color = onColorFromTheme(theme, bg);
-    else if (fc) color = colorFromTheme(theme, fc);
-    return color;
-  }};
 `;
+/* background-color: ${({theme, bgColor: bg}) => */
+// bg === undefined ? 'transparent' : colorFromTheme(theme, bg)};
+
+/* color: ${({theme, fontColor: fc, bgColor: bg}) => { */
+/* let color = 'inherit'; */
+// if (bg && !fc) color = onColorFromTheme(theme, bg);
+// else if (fc) color = colorFromTheme(theme, fc);
+/* return color; */
+/* }}; */
 
 export const Flex: React.FC<FlexProps> = ({wrap, ...props}: FlexProps) => {
   return (

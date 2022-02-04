@@ -17,11 +17,11 @@ const StyledMenuItem = styled(Button)<SideNavItemProps>`
   padding: 8px;
   margin: 0px 0px 2px 0px;
   color: ${({theme, _internal_is_selected}) => {
-    const {neutral: neutral, mode} = theme.palette;
+    const {neutral, mode} = theme.palette;
     if (mode === 'light') {
-      return neutral[_internal_is_selected ? 900 : 600].main;
+      return neutral.tones[_internal_is_selected ? 90 : 60].hex;
     } else {
-      return neutral[_internal_is_selected ? 100 : 600].main;
+      return neutral.tones[_internal_is_selected ? 10 : 60].hex;
     }
   }};
 `;

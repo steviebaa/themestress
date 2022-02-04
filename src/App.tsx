@@ -3,21 +3,18 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import {SettingsProvider} from '@stores/SettingsContext';
-import {Theme} from '@core/Theme';
+import {ThemeProvider} from '@core/Theme';
 import {createSectionRoutes} from '@core/routeMap';
 import {System} from '@controllers/System';
 import {Home} from '@controllers/Home';
 import {Components} from '@controllers/Components';
 import {SnackbarProvider} from '@themestress/components/Snackbar';
-import {ThemeVariables} from '@themestress/core/ThemeVariables';
-import {Color} from '@themestress/core/classes/Color';
-import {TonalPalette} from '@themestress/core/classes/TonalPalette';
 
 export const App: React.FC = () => {
   return (
     <SettingsProvider>
-      <Theme>
-        <ThemeVariables />
+      <ThemeProvider>
+        {/* <ThemeVariables /> */}
         <SnackbarProvider>
           <Router>
             <Routes>
@@ -33,7 +30,7 @@ export const App: React.FC = () => {
             </Routes>
           </Router>
         </SnackbarProvider>
-      </Theme>
+      </ThemeProvider>
     </SettingsProvider>
   );
 };

@@ -1,9 +1,9 @@
 import React, {ForwardedRef, forwardRef} from 'react';
 import styled from '@emotion/styled';
 import {
-  colorFromTheme,
-  onColorFromTheme,
-  getBreakpoint,
+  // colorFromTheme,
+  // onColorFromTheme,
+  // getBreakpoint,
   getMarginAndPadding,
 } from '../core/themeUtils';
 import {TColor, BreakPoint} from '../core/definitions';
@@ -42,49 +42,49 @@ const shadow = (elevation: number) => {
   return `${l1},${l2}`;
 };
 
-const StyledDiv = styled.div<PaperProps>`
-  width: ${({theme, width}) =>
-    width === undefined ? '' : `${getBreakpoint(theme, width)}`};
-  max-width: ${({theme, width}) =>
-    width === undefined ? '' : `${getBreakpoint(theme, width)}`};
-  height: ${({theme, height}) => `${height || ''}`};
-  ${props => getMarginAndPadding(props)}
-  border-radius: ${({theme, radius, square}) => {
-    if (square) return '';
-    return `${radius === undefined ? theme.spacing : theme.spacing * radius}px`;
-  }};
-  box-shadow: ${({variant, elevation}) =>
-    variant === 'elevated' ? shadow(elevation) : 'initial'};
-  border: ${({theme, variant}) =>
+/* width: ${({theme, width}) =>
+	width === undefined ? '' : `${getBreakpoint(theme, width)}`}; */
+/* max-width: ${({theme, width}) =>
+	width === undefined ? '' : `${getBreakpoint(theme, width)}`}; */
+/* border-radius: ${({theme, radius, square}) => { */
+// if (square) return '';
+// return `${radius === undefined ? theme.spacing : theme.spacing * radius}px`;
+// }};
+/* border: ${({theme, variant}) =>
     variant === 'outlined'
       ? `1px solid ${theme.palette.outline[theme.palette.mode]}`
-      : 'initial'};
-  background-color: ${({theme, bgColor}) => {
-    let color;
-    if (bgColor === undefined) {
-      const {neutral: neutral, mode} = theme.palette;
-      const isLight = mode === 'light';
-      color = isLight ? neutral[50].main : neutral[850].main;
-    } else {
-      color = colorFromTheme(theme, bgColor);
-    }
-    return color;
-  }};
-  color: ${({theme, bgColor, fontColor}) => {
-    let color;
-    if (bgColor === undefined) {
-      const {neutral: neutral, mode} = theme.palette;
-      const isLight = mode === 'light';
-      color = isLight ? neutral[50].on : neutral[850].on;
-    } else {
-      color = onColorFromTheme(theme, bgColor);
-    }
-    if (fontColor !== undefined) color = colorFromTheme(theme, fontColor);
-    return color;
-  }};
-  border-color: ${({theme, borderColor}) =>
-    colorFromTheme(theme, borderColor || '')};
+      : 'initial'}; */
+/* background-color: ${({theme, bgColor}) => {
+		let color;
+		if (bgColor === undefined) {
+			const {neutral: neutral, mode} = theme.palette;
+			const isLight = mode === 'light';
+			color = isLight ? neutral[50].main : neutral[850].main;
+		} else {
+			color = colorFromTheme(theme, bgColor);
+		}
+		return color;
+	}}; */
+const StyledDiv = styled.div<PaperProps>`
+  height: ${({theme, height}) => `${height || ''}`};
+  ${props => getMarginAndPadding(props)}
+  box-shadow: ${({variant, elevation}) =>
+    variant === 'elevated' ? shadow(elevation) : 'initial'};
 `;
+  // color: ${({theme, bgColor, fontColor}) => {
+  //   let color;
+  //   if (bgColor === undefined) {
+  //     const {neutral: neutral, mode} = theme.palette;
+  //     const isLight = mode === 'light';
+  //     color = isLight ? neutral[50].on : neutral[850].on;
+  //   } else {
+  //     color = onColorFromTheme(theme, bgColor);
+  //   }
+  //   if (fontColor !== undefined) color = colorFromTheme(theme, fontColor);
+  //   return color;
+  // }};
+  // border-color: ${({theme, borderColor}) =>
+  //   colorFromTheme(theme, borderColor || '')};
 
 export const Paper: React.FC<PaperProps> = forwardRef(
   (

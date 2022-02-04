@@ -1,6 +1,6 @@
 import React, {useState, useLayoutEffect} from 'react';
 import styled from '@emotion/styled';
-import {colorFromTheme} from '../core/themeUtils';
+// import {colorFromTheme} from '../core/themeUtils';
 import {TColor, ReactHTMLProps} from '../core/definitions';
 
 export interface RippleProps extends ReactHTMLProps<HTMLDivElement> {
@@ -8,6 +8,7 @@ export interface RippleProps extends ReactHTMLProps<HTMLDivElement> {
   bgColor?: TColor;
 }
 
+// This was in span
 const RippleContainer = styled.div<RippleProps>`
   position: absolute;
   top: 0;
@@ -20,9 +21,9 @@ const RippleContainer = styled.div<RippleProps>`
     border-radius: 100%;
     position: absolute;
     opacity: 1;
-    background-color: ${({theme, bgColor}) => colorFromTheme(theme, bgColor)};
     animation-name: ripple;
     animation-duration: ${({duration}) => duration}ms;
+    background-color: ${({theme}) => theme.palette.neutralVariant.outline.hex};
   }
 
   @keyframes ripple {
