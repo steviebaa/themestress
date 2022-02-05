@@ -33,8 +33,7 @@ export const applyTypographySystemTokens = (
 
       if (key === 'line-height') {
         const lineHeight = props.value as number;
-        const size = tokens[token].size.value as number;
-        finalValue = spToRem(lineHeight / size, rootSizePx) + 'rem';
+        finalValue = spToRem(lineHeight, rootSizePx) + 'rem';
       } else if (['size', 'tracking'].includes(key)) {
         finalValue = spToRem(props.value as number, rootSizePx) + 'rem';
       }
