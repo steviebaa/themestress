@@ -6,6 +6,7 @@ import {
 import {ThemeElevations} from './ThemeElevations';
 import {ThemePalette, ThemePaletteInitializer} from './ThemePalette';
 import {ThemeSpacing, ThemeSpacingInitializer} from './ThemeSpacing';
+import {ThemeStates, ThemeStatesInitializer} from './ThemeStates';
 import {ThemeTypography, ThemeTypographyInitializer} from './ThemeTypography';
 import {ThemeZIndices, ThemeZIndicesInitializer} from './ThemeZIndices';
 
@@ -16,6 +17,7 @@ export interface ThemeProps {
   zIndices: ThemeZIndices;
   breakpoints: ThemeBreakpoints;
   elevations: ThemeElevations;
+  states: ThemeStates;
 }
 
 export interface ThemeInitializer {
@@ -25,6 +27,7 @@ export interface ThemeInitializer {
   zIndices?: ThemeZIndicesInitializer;
   breakpoints?: ThemeBreakpointsInitializer;
   elevations?: ThemeElevations;
+  states?: ThemeStatesInitializer;
 }
 
 export class Theme implements ThemeProps {
@@ -34,6 +37,7 @@ export class Theme implements ThemeProps {
   public zIndices: ThemeZIndices;
   public breakpoints: ThemeBreakpoints;
   public elevations: ThemeElevations;
+  public states: ThemeStates;
 
   private _styles = {};
   private _stylesheet: HTMLStyleElement;
@@ -51,6 +55,7 @@ export class Theme implements ThemeProps {
     this.zIndices.setGlobalCssVars(this._addStyle);
     this.breakpoints.setGlobalCssVars(this._addStyle);
     this.elevations.setGlobalCssVars(this._addStyle);
+    this.states.setGlobalCssVars(this._addStyle);
 
     this._applyStyles();
   };
@@ -106,5 +111,6 @@ export class Theme implements ThemeProps {
     this.zIndices = new ThemeZIndices(theme?.zIndices);
     this.breakpoints = new ThemeBreakpoints(theme?.breakpoints);
     this.elevations = new ThemeElevations({mode: this.palette.mode});
+    this.states = new ThemeStates(theme?.states);
   };
 }
