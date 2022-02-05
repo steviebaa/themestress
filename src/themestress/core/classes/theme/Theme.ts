@@ -25,7 +25,7 @@ export class Theme implements ThemeProps {
   public breakpoints: ThemeBreakpoints;
   public elevations: ThemeElevations;
 
-  private _styles: string = '';
+  private _styles = {};
   private _stylesheet: HTMLStyleElement;
 
   constructor(theme?: ThemeInitializer) {
@@ -76,13 +76,17 @@ export class Theme implements ThemeProps {
     value: string | number,
     isVar: boolean = false,
   ) => {
-    let style = `--${key}: ${String(isVar ? `var(--${value})` : value)}`;
+    let style = `${String(isVar ? `var(--${value})` : value)}`;
     style = style.slice(-1) === ';' ? style : (style += ';');
-    if (!this._styles.includes(style)) this._styles += style;
+    this._styles[`--${key}`] = style;
   };
 
   private _applyStyles = () => {
-    this._stylesheet.innerHTML = `:root {${this._styles}}`;
+    let styles = '';
+    for (const key in this._styles) {
+      styles += `${key}: ${this._styles[key]}`;
+    }
+    this._stylesheet.innerHTML = `:root {${styles}}`;
   };
 
   private _setProperties = (theme?: ThemeInitializer) => {

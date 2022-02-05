@@ -12,7 +12,7 @@ interface ThemeProps {
 export const ThemeProvider = ({children}: ThemeProps) => {
   const [settings] = useContext(settingsContext);
   const theme = new Theme();
-  theme.setGlobalCssVars();
+  // theme.setGlobalCssVars();
 
   // const theme = createTheme({
   // palette: {

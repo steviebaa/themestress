@@ -6,7 +6,7 @@ describe('Class ThemeElevations', () => {
     expect(elevations.level1).toEqual({
       overlay:
         'linear-gradient(0deg, rgb(103,80,164,0.05), rgb(103,80,164,0.05))',
-      shadow:
+      elevation:
         'box-shadow: 0px 1px 2px rgb(0,0,0,0.3), 0px 1px 3px 1px rgb(0,0,0,0.15)',
     });
   });

@@ -35,7 +35,7 @@ export interface TypographySystemTokens {
 }
 
 export interface ElevationStyles {
-  shadow?: string;
+  elevation?: string;
   overlay?: string;
 }
 export interface ElevationTokens {

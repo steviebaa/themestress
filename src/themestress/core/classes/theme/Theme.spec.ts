@@ -57,7 +57,7 @@ describe('Class Theme', () => {
     const elevations = new ThemeElevations({mode: 'dark'});
     const theme = new Theme({elevations});
 
-    expect(theme.elevations.level1.shadow).toEqual(
+    expect(theme.elevations.level1.elevation).toEqual(
       'box-shadow: 0px 1px 3px 1px rgb(0,0,0,0.15), 0px 1px 2px rgb(0,0,0,0.3)',
     );
   });
@@ -65,10 +65,8 @@ describe('Class Theme', () => {
     const theme = new Theme();
     theme['_addStyle']('test', 'variable;');
     theme['_addStyle']('test2', 'variable2', true);
-    expect(theme['_styles'].includes('--test: variable;')).toBeTruthy();
-    expect(
-      theme['_styles'].includes('--test2: var(--variable2);'),
-    ).toBeTruthy();
+    expect(theme['_styles']['--test']).toBeTruthy();
+    expect(theme['_styles']['--test2']).toBeTruthy();
   });
   it('should set the theme mode', () => {
     const setGlobalCssVars = jest.fn();

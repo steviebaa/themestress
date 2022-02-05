@@ -4,7 +4,7 @@ describe('MD elevation utilities', () => {
   it('should return styles for light theme and default colors', () => {
     const styles = systemElevationStyles();
 
-    expect(styles[1].shadow).toEqual(
+    expect(styles[1].elevation).toEqual(
       'box-shadow: 0px 1px 2px rgb(0,0,0,0.3), 0px 1px 3px 1px rgb(0,0,0,0.15)',
     );
     expect(styles[1].overlay).toEqual(
@@ -14,7 +14,7 @@ describe('MD elevation utilities', () => {
   it('should return styles for dark theme', () => {
     const styles = systemElevationStyles('dark', '#fba91a', '#888888');
 
-    expect(styles[1].shadow).toEqual(
+    expect(styles[1].elevation).toEqual(
       'box-shadow: 0px 1px 3px 1px rgb(136,136,136,0.15), 0px 1px 2px rgb(136,136,136,0.3)',
     );
     expect(styles[1].overlay).toEqual(
