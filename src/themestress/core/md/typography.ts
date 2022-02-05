@@ -43,7 +43,7 @@ export const applyTypographySystemTokens = (
   }
 };
 
-export const typographyRefTokens = (prefix = 'md-ref'): TypographyRefTokens => {
+export const typographyRefTokens = (prefix = 'ref'): TypographyRefTokens => {
   return {
     regular: {
       font: `${prefix}-typeface-font-regular`,
@@ -57,8 +57,8 @@ export const typographyRefTokens = (prefix = 'md-ref'): TypographyRefTokens => {
 };
 
 export const typographySystemTokens = (
-  sysPrefix = 'md-sys',
-  refPrefix = 'md-ref',
+  sysPrefix = 'sys',
+  refPrefix = 'ref',
 ): TypographySystemTokens => {
   const refTokenStubs = typographyRefTokens(refPrefix);
 

@@ -22,14 +22,14 @@ describe('MD typography utilities', () => {
   });
   it('should return the ref tokens object with the default or specific prefix', () => {
     const tokens1 = typographyRefTokens();
-    expect(tokens1.regular.font).toEqual('md-ref-typeface-font-regular');
+    expect(tokens1.regular.font).toEqual('ref-typeface-font-regular');
 
     const tokens2 = typographyRefTokens('ts');
     expect(tokens2.regular.font).toEqual('ts-typeface-font-regular');
   });
   it('should return the system tokens object with the default or specific prefix', () => {
     const tokens1 = typographySystemTokens();
-    expect(tokens1['md-sys-typescale-display-large'].size).toEqual({value: 57});
+    expect(tokens1['sys-typescale-display-large'].size).toEqual({value: 57});
 
     const tokens2 = typographySystemTokens('ts', 'ts');
     expect(tokens2['ts-typescale-display-large'].size).toEqual({value: 57});
@@ -40,8 +40,8 @@ describe('MD typography utilities', () => {
     applyTypographySystemTokens(tokens1, addStyle);
 
     expect(addStyle).toHaveBeenLastCalledWith(
-      'md-sys-typescale-body-small-weight',
-      'md-ref-typeface-weight-regular',
+      'sys-typescale-body-small-weight',
+      'ref-typeface-weight-regular',
       true,
     );
   });

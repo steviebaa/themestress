@@ -18,7 +18,7 @@ export class ThemeSpacing implements ThemeSpacingProps {
   };
 
   private _createGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
-    addStyle('md-sys-spacing', `${this.size}px`);
+    addStyle('sys-spacing', `${this.size}px`);
   };
 
   private _setProperties = (spacing?: ThemeSpacingInitializer) => {

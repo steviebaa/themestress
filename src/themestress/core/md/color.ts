@@ -1,7 +1,7 @@
 import {SystemColorTokens} from '../definitions';
 
 /** Keys must remain to map to the ThemePalette class but token prefix can change. */
-export const colorRefTokenStubs = (prefix = 'md-ref') => ({
+export const colorRefTokenStubs = (prefix = 'ref') => ({
   primary: `${prefix}-palette-primary`,
   secondary: `${prefix}-palette-secondary`,
   tertiary: `${prefix}-palette-tertiary`,
@@ -15,8 +15,8 @@ export const colorRefTokenStubs = (prefix = 'md-ref') => ({
 
 /** Light and dark keys must remain but token prefixes can change. */
 export const systemColorTokens = (
-  sysPrefix = 'md-sys',
-  refPrefix = 'md-ref',
+  sysPrefix = 'sys',
+  refPrefix = 'ref',
 ): SystemColorTokens => {
   const refTokenStubs = colorRefTokenStubs(refPrefix);
 

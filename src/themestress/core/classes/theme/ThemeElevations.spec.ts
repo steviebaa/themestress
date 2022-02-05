@@ -6,8 +6,7 @@ describe('Class ThemeElevations', () => {
     expect(elevations.level1).toEqual({
       overlay:
         'linear-gradient(0deg, rgb(103,80,164,0.05), rgb(103,80,164,0.05))',
-      elevation:
-        '0px 1px 2px rgb(0,0,0,0.3), 0px 1px 3px 1px rgb(0,0,0,0.15)',
+      elevation: '0px 1px 2px rgb(0,0,0,0.3), 0px 1px 3px 1px rgb(0,0,0,0.15)',
     });
   });
   it('should set the global css variables', () => {
@@ -17,7 +16,7 @@ describe('Class ThemeElevations', () => {
     elevations.setGlobalCssVars(addStyles);
 
     expect(addStyles).toHaveBeenLastCalledWith(
-      'md-sys-overlay-level-5',
+      'sys-overlay-level-5',
       'linear-gradient(0deg, rgb(103,80,164,0.14), rgb(103,80,164,0.14))',
     );
   });

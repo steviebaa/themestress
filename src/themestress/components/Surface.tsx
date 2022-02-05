@@ -31,25 +31,25 @@ export interface SurfaceProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const elevatedStyles = (props: SurfaceProps & {theme: Theme}) => {
   return css`
-    color: var(--md-sys-color-on-surface);
-    background-color: var(--md-sys-color-surface);
-    background-image: var(--md-sys-overlay-level-${props.elevation});
-    box-shadow: var(--md-sys-elevation-level-${props.elevation});
+    color: var(--sys-color-on-surface);
+    background-color: var(--sys-color-surface);
+    background-image: var(--sys-overlay-level-${props.elevation});
+    box-shadow: var(--sys-elevation-level-${props.elevation});
   `;
 };
 
 const filledStyles = (props: SurfaceProps & {theme: Theme}) => {
   return css`
-    color: var(--md-sys-color-on-surface-variant);
-    background-color: var(--md-sys-color-surface-variant);
+    color: var(--sys-color-on-surface-variant);
+    background-color: var(--sys-color-surface-variant);
   `;
 };
 
 const outlinedStyles = (props: SurfaceProps & {theme: Theme}) => {
   return css`
-    color: var(--md-sys-color-on-surface);
-    background-color: var(--md-sys-color-surface);
-    border: 1px solid var(--md-sys-color-outline);
+    color: var(--sys-color-on-surface);
+    background-color: var(--sys-color-surface);
+    border: 1px solid var(--sys-color-outline);
   `;
 };
 

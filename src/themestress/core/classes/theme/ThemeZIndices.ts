@@ -27,7 +27,7 @@ export class ThemeZIndices implements ThemeZIndicesProps {
 
   private _createGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
     ['navbar', 'backdrop', 'modal', 'snackbar', 'tooltip'].forEach(z => {
-      addStyle(`md-sys-z-index-${z}`, `${this[z]}`);
+      addStyle(`sys-z-index-${z}`, `${this[z]}`);
     });
   };
 

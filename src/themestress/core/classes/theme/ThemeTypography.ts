@@ -38,7 +38,7 @@ export class ThemeTypography implements ThemeTypographyProps {
   };
 
   private _createGlobalRefTokenCssVars = (addStyle: addStyleHelper) => {
-    const refTokens = typographyRefTokens('md-ref');
+    const refTokens = typographyRefTokens('ref');
 
     const {font: regFont, weight: regWeight} = refTokens.regular;
     addStyle(regFont, `"${this.regular.font}", ${this.regular.fallback}`);
@@ -50,7 +50,7 @@ export class ThemeTypography implements ThemeTypographyProps {
   };
 
   private _createGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
-    const systemTokens = typographySystemTokens('md-sys', 'md-ref');
+    const systemTokens = typographySystemTokens('sys', 'ref');
     applyTypographySystemTokens(systemTokens, addStyle);
   };
 

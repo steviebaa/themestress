@@ -28,7 +28,7 @@ describe('Class ThemeBreakpoints', () => {
     const breakpoints = new ThemeBreakpoints();
     breakpoints.setGlobalCssVars(addStyle);
 
-    expect(addStyle).toHaveBeenLastCalledWith('md-sys-breakpoint-xl', '1440px');
+    expect(addStyle).toHaveBeenLastCalledWith('sys-breakpoint-xl', '1440px');
   });
   it('should parse a breakpoint', () => {
     const breakpoints = new ThemeBreakpoints();

@@ -31,7 +31,7 @@ export class ThemeStates implements ThemeStatesProps {
   private _createGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
     ['hover', 'focus', 'press', 'drag'].forEach(type => {
       addStyle(
-        `md-sys-state-${type}-state-layer-opacity`,
+        `sys-state-${type}-state-layer-opacity`,
         `${this[type].opacity}`,
       );
     });

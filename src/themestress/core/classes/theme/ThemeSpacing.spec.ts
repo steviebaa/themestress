@@ -14,6 +14,6 @@ describe('Class ThemeSpacing', () => {
     const spacing = new ThemeSpacing();
     spacing.setGlobalCssVars(addStyle);
 
-    expect(addStyle).toHaveBeenLastCalledWith('md-sys-spacing', '4px');
+    expect(addStyle).toHaveBeenLastCalledWith('sys-spacing', '4px');
   });
 });

@@ -65,11 +65,11 @@ const variantElementMap = {
 const baseStyles = (props: TypographyProps) => {
   const role = props.variant;
   return css`
-    font-family: var(--md-sys-typescale-${role}-font);
-    line-height: var(--md-sys-typescale-${role}-line-height);
-    font-size: var(--md-sys-typescale-${role}-size);
-    letter-spacing: var(--md-sys-typescale-${role}-tracking);
-    font-weight: var(--md-sys-typescale-${role}-weight);
+    font-family: var(--sys-typescale-${role}-font);
+    line-height: var(--sys-typescale-${role}-line-height);
+    font-size: var(--sys-typescale-${role}-size);
+    letter-spacing: var(--sys-typescale-${role}-tracking);
+    font-weight: var(--sys-typescale-${role}-weight);
   `;
 };
 

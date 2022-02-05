@@ -42,7 +42,7 @@ export class ThemeBreakpoints implements ThemeBreakpointsProps {
 
   private _createGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
     ['xs', 'sm', 'md', 'lg', 'xl'].forEach(bp => {
-      addStyle(`md-sys-breakpoint-${bp}`, `${this[bp].size}${this[bp].unit}`);
+      addStyle(`sys-breakpoint-${bp}`, `${this[bp].size}${this[bp].unit}`);
     });
   };
 

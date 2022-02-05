@@ -38,8 +38,8 @@ describe('Class ThemeTypography', () => {
     typography.setGlobalCssVars(addStyle);
 
     expect(addStyle).toHaveBeenLastCalledWith(
-      'md-sys-typescale-body-small-weight',
-      'md-ref-typeface-weight-regular',
+      'sys-typescale-body-small-weight',
+      'ref-typeface-weight-regular',
       true,
     );
   });

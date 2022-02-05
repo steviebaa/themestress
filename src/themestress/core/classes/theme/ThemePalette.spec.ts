@@ -52,8 +52,8 @@ describe('Class ThemePalette', () => {
     theme.setGlobalCssVars(addStyle);
 
     expect(addStyle).toHaveBeenLastCalledWith(
-      'md-sys-color-inverse-primary',
-      'md-ref-palette-primary-80',
+      'sys-color-inverse-primary',
+      'ref-palette-primary-80',
       true,
     );
   });

@@ -45,11 +45,11 @@ export class ThemeElevations {
   private _createGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
     [1, 2, 3, 4, 5].forEach(level => {
       addStyle(
-        `md-sys-elevation-level-${level}`,
+        `sys-elevation-level-${level}`,
         `${this[`level${level}`].elevation}`,
       );
       addStyle(
-        `md-sys-overlay-level-${level}`,
+        `sys-overlay-level-${level}`,
         `${this[`level${level}`].overlay}`,
       );
     });

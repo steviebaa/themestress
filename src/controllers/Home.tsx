@@ -53,11 +53,7 @@ export const Home = () => {
           </NavigationRail>
         </MenuSurface>
 
-        <Scrollable
-          width="lg"
-          padding={10}
-          bgColor="var(--md-sys-color-surface)"
-        >
+        <Scrollable width="lg" padding={10} bgColor="var(--sys-color-surface)">
           <Container maxWidth="md">
             <Outlet />
           </Container>

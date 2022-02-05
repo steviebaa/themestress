@@ -28,6 +28,6 @@ describe('Class ThemeZIndices', () => {
     const zIndices = new ThemeZIndices();
     zIndices.setGlobalCssVars(addStyle);
 
-    expect(addStyle).toHaveBeenLastCalledWith('md-sys-z-index-tooltip', '1600');
+    expect(addStyle).toHaveBeenLastCalledWith('sys-z-index-tooltip', '1600');
   });
 });

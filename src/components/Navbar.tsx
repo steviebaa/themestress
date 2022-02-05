@@ -12,7 +12,7 @@ import {
 
 const StyledNavbar = styled(Surface)`
   height: ${config.navHeight}px;
-  z-index: var(--md-sys-z-index-navbar);
+  z-index: var(--sys-z-index-navbar);
 `;
 
 export const Navbar = () => {
