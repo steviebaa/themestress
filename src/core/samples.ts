@@ -40,7 +40,7 @@ export const samples = {
 </Button>`,
   },
   card: {
-    overview: `<Card padding={3} variant="outlined">
+    overview: `<Card variant="outlined">
 	Card with variant="outlined"
 </Card>`,
     elevation: `<Card padding={3} elevation={3}>

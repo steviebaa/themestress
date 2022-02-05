@@ -25,7 +25,7 @@ export const CardPage = () => {
       <P>A surface for displaying almost anything.</P>
 
       <SampleBox>
-        <Card elevation={3}>
+        <Card >
           Card with <Code>variant="elevated"</Code>
         </Card>
 
