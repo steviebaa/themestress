@@ -152,6 +152,28 @@ export const samples = {
   )
 }`,
   },
+  navigationrail: {
+    overview: `export const SideMenu = () => {
+  const [selected, setSelected] = useState(0)
+
+  return (
+    <NavigationRail selected={selected} onTabChanged={i => setSelected(i)}>
+      <Typography>Overview</Typography>
+      <NavigationItem>Dashboard</NavigationItem>
+
+      <Typography>Reports</Typography>
+      <NavigationItem>Annual</NavigationItem>
+      <NavigationItem>Monthly</NavigationItem>
+
+      <Typography>Settings</Typography>
+      <NavigationItem>Account</NavigationItem>
+    </NavigationRail>
+  )
+}`,
+  },
+  navigationitem: {
+    overview: `<NavigationItem>Dashboard</NavigationItem>`,
+  },
   modal: {
     overview: `export const ChangePayment = () => {
   const [open, setOpen] = useState(false)
@@ -215,28 +237,6 @@ export const samples = {
   <Ripple />
   <span>Click here</span>
 </div>`,
-  },
-  sidenav: {
-    overview: `export const SideMenu = () => {
-  const [selected, setSelected] = useState(0)
-
-  return (
-    <SideNav selected={selected} onTabChanged={i => setSelected(i)}>
-      <Typography>Overview</Typography>
-      <SideNavItem>Dashboard</SideNavItem>
-
-      <Typography>Reports</Typography>
-      <SideNavItem>Annual</SideNavItem>
-      <SideNavItem>Monthly</SideNavItem>
-
-      <Typography>Settings</Typography>
-      <SideNavItem>Account</SideNavItem>
-    </SideNav>
-  )
-}`,
-  },
-  navigationitem: {
-    overview: `<SideNavItem>Dashboard</SideNavItem>`,
   },
   slider: {
     overview: `export const VolumeController = () => {

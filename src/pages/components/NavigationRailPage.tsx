@@ -44,7 +44,7 @@ export const NavigationRailPage = () => {
           <NavigationItem>Account</NavigationItem>
         </NavigationRail>
       </SampleBox>
-      <TypeScript code={samples.sidenav.overview} />
+      <TypeScript code={samples.navigationrail.overview} />
 
       <ApiTable />
     </>

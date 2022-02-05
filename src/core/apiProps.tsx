@@ -172,6 +172,20 @@ export const apiProps = {
       ['menuProps', 'MenuProps', '', 'Pass props to the Menu.'],
     ],
   },
+  navigationrail: {
+    props: [
+      ['selected', 'number', '', 'The index of the selected item.'],
+      [
+        'onTabChanged',
+        'Function(selectedIndex: number)',
+        '',
+        'Triggered when another NavigationItem is clicked.',
+      ],
+    ],
+  },
+  navigationitem: {
+    extends: ['Button'],
+  },
   modal: {
     props: [
       ['open', 'boolean', 'false', 'If the menu should be open.'],
@@ -212,20 +226,6 @@ export const apiProps = {
         'The color of the ripple.',
       ],
     ],
-  },
-  navigationrail: {
-    props: [
-      ['selected', 'number', '', 'The index of the selected item.'],
-      [
-        'onTabChanged',
-        'Function(selectedIndex: number)',
-        '',
-        'Triggered when another SideNavItem is clicked.',
-      ],
-    ],
-  },
-  navigationitem: {
-    extends: ['Button'],
   },
   slider: {
     props: [
