@@ -45,8 +45,8 @@ export interface FlexProps extends ReactHTMLProps<HTMLDivElement> {
   wrap?: boolean;
   wrapReverse?: boolean;
 
-  fontColor?: TColor;
-  bgColor?: TColor;
+  fontColor?: string;
+  bgColor?: string;
 
   width?: string;
   height?: string;
@@ -94,7 +94,8 @@ const FlexContainer = styled.div<FlexProps & {$wrap: boolean}>`
 
   ${props => getMarginAndPadding(props)}
 
-  color: inherit;
+  color: ${({fontColor}) => fontColor || 'inherit'};
+  background-color: ${({bgColor}) => bgColor || ''};
 `;
 
 export const Flex: React.FC<FlexProps> = ({wrap, ...props}: FlexProps) => {

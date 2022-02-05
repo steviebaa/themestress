@@ -64,8 +64,8 @@ export const apiProps = {
   },
   card: {
     props: [
-      ['variant', 'elevated | outlined', 'elevated', 'Paper style.'],
-      ['elevation', 'number', '1', 'From 0 to 24 inclusive.'],
+      ['variant', 'elevated | filled | outlined', 'elevated', 'Paper style.'],
+      ['elevation', 'number', '1', 'From 0 to 5 inclusive.'],
       ['square', 'boolean', 'false', 'Square the corners.'],
       ['fontColor', 'string', '', 'Css color property.'],
       ['bgColor', 'string', '', 'Css background-color property.'],
@@ -73,10 +73,10 @@ export const apiProps = {
       [
         'radius',
         'number',
-        '1',
+        '16px',
         'Css border-radius. Multiplied by theme.spacing (px).',
       ],
-      ['width', 'BreakPoint', 'md', 'Css width property.'],
+      ['width', 'BreakPoint', '', 'Css width and max-width property.'],
       ['height', 'string', '', 'Css height property.'],
       ...marginProps,
       ...paddingProps,

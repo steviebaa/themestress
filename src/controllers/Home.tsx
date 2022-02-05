@@ -4,7 +4,13 @@ import styled from '@emotion/styled';
 import {cleanRoute, getMenuItems, getRoutesList} from '@core/routeMap';
 import config from '@config/constants.json';
 import {Navbar} from '@components/Navbar';
-import {NavigationRail, Surface, Flex, Spacer, Container} from '@themestress/components';
+import {
+  NavigationRail,
+  Surface,
+  Flex,
+  Spacer,
+  Container,
+} from '@themestress/components';
 
 const Page = styled(Surface)`
   height: calc(100vh - ${config.navHeight}px);
@@ -13,11 +19,13 @@ const Page = styled(Surface)`
   flex-direction: row;
 `;
 
-const Scrollable = styled(Flex)`
+const Scrollable = styled(Surface)`
   overflow: auto;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
 `;
 
-const MenuPaper = styled(Surface)`
+const MenuSurface = styled(Surface)`
   overflow: auto;
 `;
 
@@ -34,15 +42,22 @@ export const Home = () => {
   return (
     <Flex column>
       <Navbar />
-      <Page square>
-        <MenuPaper padding={2} elevation={1} square>
-          <NavigationRail selected={menuIndex} onTabChanged={i => setMenuIndex(i)}>
+      <Page>
+        <MenuSurface padding={6} variant="filled">
+          <NavigationRail
+            selected={menuIndex}
+            onTabChanged={i => setMenuIndex(i)}
+          >
             <Spacer size={'220px'} />
             {getMenuItems(handleClick)}
           </NavigationRail>
-        </MenuPaper>
+        </MenuSurface>
 
-        <Scrollable column width="100%">
+        <Scrollable
+          width="lg"
+          padding={10}
+          bgColor="var(--md-sys-color-surface)"
+        >
           <Container maxWidth="md">
             <Outlet />
           </Container>

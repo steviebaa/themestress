@@ -2,12 +2,17 @@ import React, {useContext} from 'react';
 import styled from '@emotion/styled';
 import config from '@config/constants.json';
 import {settingsContext} from '@stores/SettingsContext';
-import {Flex, Surface, Spacer, Switch, Typography} from '@themestress/components';
+import {
+  Flex,
+  Surface,
+  Spacer,
+  Switch,
+  Typography,
+} from '@themestress/components';
 
 const StyledNavbar = styled(Surface)`
   height: ${config.navHeight}px;
-  z-index: ${({theme}) => theme.zIndices.navbar};
-  border-bottom: 1px solid ${({theme}) => theme.palette.neutral.tones[50].hex};
+  z-index: var(--md-sys-z-index-navbar);
 `;
 
 export const Navbar = () => {
@@ -23,7 +28,7 @@ export const Navbar = () => {
   };
 
   return (
-    <StyledNavbar square elevation={0}>
+    <StyledNavbar variant="filled">
       <Flex
         height="100%"
         row
