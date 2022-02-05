@@ -1,12 +1,4 @@
-import {applyStyleVar} from '../utils/helpers';
 import {colorRefTokenStubs, systemColorTokens} from './color';
-import {
-  applyTypographySystemTokens,
-  getRootElementSize,
-  spToRem,
-  typographyRefTokens,
-  typographySystemTokens,
-} from './typography';
 
 describe('MD color utilities', () => {
   it('should return the ref tokens object with the default or specific prefix', () => {

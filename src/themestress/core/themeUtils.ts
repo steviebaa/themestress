@@ -181,7 +181,7 @@ export const getMarginAndPadding = (props: {
   };
 
   let styles = '';
-  // targets.forEach(prop => (styles += calc(prop) ?? ''));
+  targets.forEach(prop => (styles += calc(prop) ?? ''));
 
   return styles;
 };

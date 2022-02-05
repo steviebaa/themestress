@@ -1,4 +1,3 @@
-import {applyStyleVar} from '../utils/helpers';
 import {
   applyTypographySystemTokens,
   getRootElementSize,

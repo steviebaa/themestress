@@ -1,4 +1,3 @@
-import {Theme} from './Theme';
 import {ThemeTypography} from './ThemeTypography';
 
 describe('Class ThemeTypography', () => {

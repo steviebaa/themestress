@@ -1,5 +1,5 @@
 import {ClassAttributes, HTMLAttributes} from 'react';
-import {ThemeProps} from '@themestress/core/classes/theme/Theme';
+import {ThemeProps} from './classes/theme/Theme';
 import {TonalPalette} from './classes/base/TonalPalette';
 
 export type addStyleHelper = (
@@ -134,28 +134,6 @@ interface INeutral {
   '950': IColorDesignation;
 }
 type TNeutral = keyof INeutral;
-
-// export interface ThemeProps {
-//   palette?: PaletteProps;
-//   typography?: {
-//     size?: number;
-//   };
-//   spacing?: number;
-//   zIndex?: {
-//     navbar?: number;
-//     backdrop?: number;
-//     modal?: number;
-//     tooltip?: number;
-//     snackbar?: number;
-//   };
-//   breakpoints?: {
-//     xs?: string;
-//     sm?: string;
-//     md?: string;
-//     lg?: string;
-//     xl?: string;
-//   };
-// }
 
 declare module '@emotion/react' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface

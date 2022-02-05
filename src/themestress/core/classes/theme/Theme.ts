@@ -1,4 +1,4 @@
-import {ThemeMode} from '@themestress/core';
+import {ThemeMode} from '../../definitions';
 import {ThemeBreakpoints} from './ThemeBreakpoints';
 import {ThemeElevations} from './ThemeElevations';
 import {ThemePalette} from './ThemePalette';
