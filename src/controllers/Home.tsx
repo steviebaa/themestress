@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import {cleanRoute, getMenuItems, getRoutesList} from '@core/routeMap';
 import config from '@config/constants.json';
 import {Navbar} from '@components/Navbar';
-import {SideNav, Paper, Flex, Spacer, Container} from '@themestress/components';
+import {NavigationRail, Paper, Flex, Spacer, Container} from '@themestress/components';
 
 const Page = styled(Paper)`
   height: calc(100vh - ${config.navHeight}px);
@@ -36,10 +36,10 @@ export const Home = () => {
       <Navbar />
       <Page square>
         <MenuPaper padding={2} elevation={1} square>
-          <SideNav selected={menuIndex} onTabChanged={i => setMenuIndex(i)}>
+          <NavigationRail selected={menuIndex} onTabChanged={i => setMenuIndex(i)}>
             <Spacer size={'220px'} />
             {getMenuItems(handleClick)}
-          </SideNav>
+          </NavigationRail>
         </MenuPaper>
 
         <Scrollable column width="100%">

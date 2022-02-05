@@ -4,11 +4,15 @@ import {Code, P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
 import {samples} from '@core/samples';
-import {SideNav, SideNavItem, Typography} from '@themestress/components';
+import {
+  NavigationRail,
+  NavigationItem,
+  Typography,
+} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 
-export const SideNavPage = () => {
+export const NavigationRailPage = () => {
   const [selected, setSelected] = useState(0);
 
   return (
@@ -20,25 +24,25 @@ export const SideNavPage = () => {
       </P>
 
       <P>
-        The <Code>SideNav</Code> will index children that are{' '}
-        <Link to="/components/sidenav">
-          <Code>SideNavItem</Code>
+        The <Code>NavigationRail</Code> will index children that are{' '}
+        <Link to="/components/navigationitem">
+          <Code>NavigationItem</Code>
         </Link>
         components.
       </P>
 
       <SampleBox>
-        <SideNav selected={selected} onTabChanged={i => setSelected(i)}>
+        <NavigationRail selected={selected} onTabChanged={i => setSelected(i)}>
           <Typography>Overview</Typography>
-          <SideNavItem>Dashboard</SideNavItem>
+          <NavigationItem>Dashboard</NavigationItem>
 
           <Typography>Reports</Typography>
-          <SideNavItem>Annual</SideNavItem>
-          <SideNavItem>Monthly</SideNavItem>
+          <NavigationItem>Annual</NavigationItem>
+          <NavigationItem>Monthly</NavigationItem>
 
           <Typography>Settings</Typography>
-          <SideNavItem>Account</SideNavItem>
-        </SideNav>
+          <NavigationItem>Account</NavigationItem>
+        </NavigationRail>
       </SampleBox>
       <TypeScript code={samples.sidenav.overview} />
 

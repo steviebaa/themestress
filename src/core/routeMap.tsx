@@ -12,8 +12,8 @@ import {IconPage} from '@pages/components/IconPage';
 import {MenuPage} from '@pages/components/MenuPage';
 import {MenuItemPage} from '@pages/components/MenuItemPage';
 import {ModalPage} from '@pages/components/ModalPage';
-import {SideNavPage} from '@pages/components/SideNavPage';
-import {SideNavItemPage} from '@pages/components/SideNavItemPage';
+import {NavigationRailPage} from '@pages/components/NavigationRailPage';
+import {NavigationItemPage} from '@pages/components/NavigationItemPage';
 import {NestedMenuItemPage} from '@pages/components/NestedMenuItemPage';
 import {PaperPage} from '@pages/components/PaperPage';
 import {RipplePage} from '@pages/components/RipplePage';
@@ -29,7 +29,7 @@ import {ThemeingPage} from '@pages/system/ThemeingPage';
 import {TypesPage} from '@pages/system/TypesPage';
 import {PalettePage} from '@pages/system/PalettePage';
 
-import {Typography, SideNavItem} from '@themestress/components';
+import {Typography, NavigationItem} from '@themestress/components';
 
 import {ButtonElevatedPage} from '@pages/components/ButtonElevatedPage';
 
@@ -70,12 +70,12 @@ export const getMenuItems = (handleClick: (slug: string) => void) => {
 
     Object.entries(section.pages).forEach(([pageSlug, info]) => {
       items.push(
-        <SideNavItem
+        <NavigationItem
           key={pageSlug}
           onClick={() => handleClick(`${section.route}/${pageSlug}`)}
         >
           {info.name}
-        </SideNavItem>,
+        </NavigationItem>,
       );
     });
   });
@@ -121,11 +121,11 @@ export const componentsRouteMap = [
       menu: {name: 'Menu', page: <MenuPage />},
       menuitem: {name: 'MenuItem', page: <MenuItemPage />},
       nestedmenuitem: {name: 'NestedMenuItem', page: <NestedMenuItemPage />},
+      navigationrail: {name: 'NavigationRail', page: <NavigationRailPage />},
+      navigationitem: {name: 'NavigationItem', page: <NavigationItemPage />},
       modal: {name: 'Modal', page: <ModalPage />},
       paper: {name: 'Paper', page: <PaperPage />},
       ripple: {name: 'Ripple', page: <RipplePage />},
-      sidenav: {name: 'SideNav', page: <SideNavPage />},
-      sidenavitem: {name: 'SideNavItem', page: <SideNavItemPage />},
       slider: {name: 'Slider', page: <SliderPage />},
       snackbar: {name: 'Snackbar', page: <SnackbarPage />},
       spacer: {name: 'Spacer', page: <SpacerPage />},

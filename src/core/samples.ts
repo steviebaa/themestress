@@ -235,7 +235,7 @@ export const samples = {
   )
 }`,
   },
-  sidenavitem: {
+  navigationitem: {
     overview: `<SideNavItem>Dashboard</SideNavItem>`,
   },
   slider: {
@@ -385,6 +385,6 @@ export const Dashboard = () => {
 </Tooltip>`,
   },
   typography: {
-    overview: `<Typography variant="h1">Big Heading!</Typography>`,
+    overview: `<Typography variant="display-large">Big Heading!</Typography>`,
   },
 };

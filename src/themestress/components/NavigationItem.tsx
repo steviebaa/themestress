@@ -2,13 +2,13 @@ import React, {ForwardedRef, forwardRef} from 'react';
 import styled from '@emotion/styled';
 import {Button, ButtonProps} from './Button';
 
-export interface SideNavItemProps extends ButtonProps {
+export interface NavigationItemProps extends ButtonProps {
   _internal_click?: (ref: ForwardedRef<HTMLButtonElement>) => void;
   _internal_is_selected?: boolean;
   children?: React.ReactNode;
 }
 
-const StyledMenuItem = styled(Button)<SideNavItemProps>`
+const StyledMenuItem = styled(Button)<NavigationItemProps>`
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.75;
@@ -26,14 +26,14 @@ const StyledMenuItem = styled(Button)<SideNavItemProps>`
   }};
 `;
 
-export const SideNavItem: React.FC<SideNavItemProps> = forwardRef(
+export const NavigationItem: React.FC<NavigationItemProps> = forwardRef(
   (
-    {onClick, _internal_click, ...props}: SideNavItemProps,
+    {onClick, _internal_click, ...props}: NavigationItemProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
       <StyledMenuItem
-        className="_SideNavItem"
+        className="_NavigationItem"
         ref={ref}
         onClick={e => {
           if (onClick) onClick(e);

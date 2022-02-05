@@ -1,8 +1,9 @@
 import React, {MutableRefObject, useEffect, useRef} from 'react';
 import styled from '@emotion/styled';
-import {SideNavItem} from './SideNavItem';
+import {NavigationItem} from './NavigationItem';
 
-export interface SideNavProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface NavigationRailProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   selected: number;
   onTabChanged?: (i: number) => void;
 }
@@ -22,12 +23,12 @@ const Indicator = styled.span`
   position: absolute;
 `;
 
-export const SideNav: React.FC<SideNavProps> = ({
+export const NavigationRail: React.FC<NavigationRailProps> = ({
   selected,
   onTabChanged,
   children,
   ...props
-}: SideNavProps) => {
+}: NavigationRailProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const indicatorRef = useRef<HTMLSpanElement>(null);
   const refs: MutableRefObject<HTMLButtonElement>[] = [];
@@ -36,7 +37,7 @@ export const SideNav: React.FC<SideNavProps> = ({
   const referencedChildren = React.Children.map(
     children,
     (child: React.ReactElement) => {
-      if (child.type !== SideNavItem) return child;
+      if (child.type !== NavigationItem) return child;
       menuItemsCount++;
       const itemIndex = menuItemsCount;
 
@@ -83,8 +84,8 @@ export const SideNav: React.FC<SideNavProps> = ({
   }, [refs, selected]);
 
   return (
-    <StyledMenu className="_SideNav" ref={menuRef} {...props}>
-      {<Indicator className="_SideNav-Indicator" ref={indicatorRef} />}
+    <StyledMenu className="_NavigationRail" ref={menuRef} {...props}>
+      {<Indicator className="_NavigationRail-Indicator" ref={indicatorRef} />}
       {referencedChildren}
     </StyledMenu>
   );

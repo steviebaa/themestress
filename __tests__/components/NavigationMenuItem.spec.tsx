@@ -2,17 +2,17 @@ import React from 'react';
 import {mount} from 'enzyme';
 import {ThemeProvider} from '@emotion/react';
 import {createTheme} from '@themestress/core';
-import {SideNavItem} from '@themestress/components';
+import {NavigationItem} from '@themestress/components';
 
 describe('Component NavMenuItem', () => {
   it('should render a NavMenuItem component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
-        <SideNavItem>Test NavMenuItem</SideNavItem>
+        <NavigationItem>Test NavMenuItem</NavigationItem>
       </ThemeProvider>,
     );
 
-    const component = wrapper.find(SideNavItem);
+    const component = wrapper.find(NavigationItem);
 
     expect(component).toHaveLength(1);
   });
@@ -20,11 +20,11 @@ describe('Component NavMenuItem', () => {
   it('should click NavMenuItem component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
-        <SideNavItem handleClick={() => null}>Test NavMenuItem</SideNavItem>
+        <NavigationItem handleClick={() => null}>Test NavMenuItem</NavigationItem>
       </ThemeProvider>,
     );
 
-    const component = wrapper.find(SideNavItem);
+    const component = wrapper.find(NavigationItem);
     component.childAt(0).prop('onClick')();
 
     expect(component).toHaveLength(1);

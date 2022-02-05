@@ -1,5 +1,6 @@
 import React from 'react';
 import {Code} from '../components/StyledTypography';
+
 const marginProps = [
   ['margin', 'number', '', 'Multiplied by theme.spacing (px).'],
   ['marginLeft', 'number', '', 'Multiplied by theme.spacing (px).'],
@@ -8,7 +9,7 @@ const marginProps = [
   ['marginBottom', 'number', '', 'Multiplied by theme.spacing (px).'],
 ];
 const paddingProps = [
-  ['padding', 'number', '10px 16px', 'Multiplied by theme.spacing (px).'],
+  ['padding', 'number', '', 'Multiplied by theme.spacing (px).'],
   ['paddingLeft', 'number', '', 'Multiplied by theme.spacing (px).'],
   ['paddingRight', 'number', '', 'Multiplied by theme.spacing (px).'],
   ['paddingTop', 'number', '', 'Multiplied by theme.spacing (px).'],
@@ -212,7 +213,7 @@ export const apiProps = {
       ],
     ],
   },
-  sidenav: {
+  navigationrail: {
     props: [
       ['selected', 'number', '', 'The index of the selected item.'],
       [
@@ -223,8 +224,7 @@ export const apiProps = {
       ],
     ],
   },
-
-  sidenavitem: {
+  navigationitem: {
     extends: ['Button'],
   },
   slider: {
@@ -333,7 +333,6 @@ export const apiProps = {
       ],
     ],
   },
-
   snackbar: {
     props: [
       [
@@ -362,7 +361,6 @@ bottom-left | bottom-right`,
       ],
     ],
   },
-
   usesnackbar: {
     props: [
       ['content', 'any', '', 'Inserted into the snack.'],
@@ -376,7 +374,6 @@ bottom-left | bottom-right`,
       ['duration', 'number', '', 'Time to show the snack.'],
     ],
   },
-
   spacer: {
     props: [
       [
@@ -400,7 +397,6 @@ bottom-left | bottom-right`,
       ],
     ],
   },
-
   switch: {
     props: [
       ['on', 'boolean', '', 'If the switch is on.'],
@@ -442,7 +438,6 @@ bottom-left | bottom-right`,
       ],
     ],
   },
-
   tooltip: {
     props: [
       ['tip', 'ReactNode', '', 'The content of the tooltip.'],
@@ -460,16 +455,26 @@ bottom-left | bottom-right`,
       ],
     ],
   },
-
   typography: {
     props: [
       [
         'variant',
-        `h1 | h2 | h3 | h4 | h5 | h6 | 
-subtitle1 | subtitle2 | body1 |
-body2 | button | caption |
-overline | code | inherit`,
-        'body1',
+        `  display-large
+| display-medium
+| display-small
+| headline-large
+| headline-medium
+| headline-small
+| title-large
+| title-medium
+| title-small
+| label-large
+| label-medium
+| label-small
+| body-large
+| body-medium
+| body-small`,
+        'body-large',
         'The style of the typography.',
       ],
       ['fontSize', 'string', '', 'Default font size depends on variant.'],
@@ -480,16 +485,23 @@ left | right`,
         '',
         'Css text-align property.',
       ],
-      ['paragraph', 'boolean', 'false', 'Use a <p/> tag.'],
+      [
+        'element',
+        'string',
+        '',
+        <span>
+          Specify the html tag to use. E.g. <Code>span</Code>
+        </span>,
+      ],
       ['capitalize', 'boolean', 'false', 'Css text-transform property.'],
       ['uppercase', 'boolean', 'false', 'Css text-transform property.'],
       [
         'fontColor',
-        'TColor',
+        'string',
         'inherit',
         'Auto adjusts if only bgColor is provided.',
       ],
-      ['bgColor', 'TColor', 'transparent', 'Css background-color property.'],
+      ['bgColor', 'string', 'transparent', 'Css background-color property.'],
       ['weight', 'number | string', '', 'Css font-weight property.'],
       ['bold', 'boolean', 'false', 'Applies a font-weight of bold.'],
       ['lineHeight', 'string', '', 'Css line-height property.'],
