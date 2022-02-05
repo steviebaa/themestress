@@ -2,9 +2,9 @@ import React, {useContext} from 'react';
 import styled from '@emotion/styled';
 import config from '@config/constants.json';
 import {settingsContext} from '@stores/SettingsContext';
-import {Flex, Paper, Spacer, Switch, Typography} from '@themestress/components';
+import {Flex, Surface, Spacer, Switch, Typography} from '@themestress/components';
 
-const StyledNavbar = styled(Paper)`
+const StyledNavbar = styled(Surface)`
   height: ${config.navHeight}px;
   z-index: ${({theme}) => theme.zIndices.navbar};
   border-bottom: 1px solid ${({theme}) => theme.palette.neutral.tones[50].hex};
@@ -31,12 +31,7 @@ export const Navbar = () => {
         paddingLeft={6}
         justifyContent="space-between"
       >
-        <Typography
-          variant="overline"
-          fontSize="1.4rem"
-          lineHeight=""
-          margin={0}
-        >
+        <Typography variant="headline-small" element="span" margin={0}>
           Themestress
         </Typography>
         <Flex alignItems="center" marginRight={4}>

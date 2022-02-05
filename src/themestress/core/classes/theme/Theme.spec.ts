@@ -32,11 +32,10 @@ describe('Class Theme', () => {
     expect(theme.typography.size).toEqual(14);
   });
   it('should generate a theme with custom spacing', () => {
-    const spacing = new ThemeSpacing({spacing: {size: 1, unit: 'cm'}});
+    const spacing = new ThemeSpacing({spacing: {size: 1}});
     const theme = new Theme({spacing});
 
     expect(theme.spacing.size).toEqual(1);
-    expect(theme.spacing.unit).toEqual('cm');
   });
   it('should generate a theme with custom zIndices', () => {
     const zIndices = new ThemeZIndices({zIndices: {modal: 300}});
@@ -58,7 +57,7 @@ describe('Class Theme', () => {
     const theme = new Theme({elevations});
 
     expect(theme.elevations.level1.elevation).toEqual(
-      'box-shadow: 0px 1px 3px 1px rgb(0,0,0,0.15), 0px 1px 2px rgb(0,0,0,0.3)',
+      '0px 1px 3px 1px rgb(0,0,0,0.15), 0px 1px 2px rgb(0,0,0,0.3)',
     );
   });
   it('should add a style to the private styles variable', () => {

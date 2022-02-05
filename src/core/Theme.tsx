@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {ThemeProvider as EmotionProvider} from '@emotion/react';
 // import {createTheme} from '@themestress/core/themeUtils';
 import {Css} from '@core/styles/Css';
@@ -12,6 +12,11 @@ interface ThemeProps {
 export const ThemeProvider = ({children}: ThemeProps) => {
   const [settings] = useContext(settingsContext);
   const theme = new Theme();
+
+  useEffect(() => {
+    theme.setMode(settings.mode);
+  }, [settings.mode]);
+
   // theme.setGlobalCssVars();
 
   // const theme = createTheme({

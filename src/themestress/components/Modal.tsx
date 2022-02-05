@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import {Backdrop, BackdropProps} from './Backdrop';
-import {Paper, PaperProps} from './Paper';
+import {Surface, SurfaceProps} from './Surface';
 import {BreakPoint, colorFromTheme, getBreakpoint, TColor} from '../core';
 
-export interface ModalProps extends PaperProps {
+export interface ModalProps extends SurfaceProps {
   children: React.ReactNode;
   open: boolean;
   onClickAway?: () => void;
@@ -23,7 +23,7 @@ const StyledModal = styled(Backdrop)<BackdropProps>`
     colorFromTheme(theme, bgColor || 'rgba(0, 0, 0, 0.3)')};
 `;
 
-const StyledPaper = styled(Paper)<Partial<ModalProps>>`
+const StyledPaper = styled(Surface)<Partial<ModalProps>>`
   width: ${({theme, fullScreen, width}) =>
     fullScreen ? '100vw' : getBreakpoint(theme, width)};
   height: ${({fullScreen, height}) => (fullScreen ? '100vh' : height || '')};

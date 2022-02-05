@@ -8,7 +8,7 @@ import React, {
 import {createPortal} from 'react-dom';
 import styled from '@emotion/styled';
 import {ReactHTMLProps, Transform} from '../core/definitions';
-import {Paper} from './Paper';
+import {Surface} from './Surface';
 import {Backdrop} from './Backdrop';
 
 export interface MenuProps extends ReactHTMLProps<HTMLDivElement> {
@@ -22,7 +22,7 @@ export interface MenuProps extends ReactHTMLProps<HTMLDivElement> {
   positionOverride?: {x: number; y: number};
 }
 
-const StyledMenu = styled(Paper)<MenuProps & {pos?: DOMRect | null}>`
+const StyledMenu = styled(Surface)<MenuProps & {pos?: DOMRect | null}>`
   position: fixed;
   width: ${({width}) => width};
   z-index: 2000;

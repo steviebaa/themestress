@@ -15,7 +15,7 @@ import {ModalPage} from '@pages/components/ModalPage';
 import {NavigationRailPage} from '@pages/components/NavigationRailPage';
 import {NavigationItemPage} from '@pages/components/NavigationItemPage';
 import {NestedMenuItemPage} from '@pages/components/NestedMenuItemPage';
-import {PaperPage} from '@pages/components/PaperPage';
+import {CardPage} from '@pages/components/CardPage';
 import {RipplePage} from '@pages/components/RipplePage';
 import {SliderPage} from '@pages/components/SliderPage';
 import {SnackbarPage} from '@pages/components/SnackbarPage';
@@ -113,6 +113,7 @@ export const componentsRouteMap = [
       backdrop: {name: 'Backdrop', page: <BackdropPage />},
       button: {name: 'Button', page: <ButtonPage />},
       buttonelevated: {name: 'ButtonElevated', page: <ButtonElevatedPage />},
+      card: {name: 'Card', page: <CardPage />},
       container: {name: 'Container', page: <ContainerPage />},
       contextmenu: {name: 'ContextMenu', page: <ContextMenuPage />},
       divider: {name: 'Divider', page: <DividerPage />},
@@ -124,7 +125,6 @@ export const componentsRouteMap = [
       navigationrail: {name: 'NavigationRail', page: <NavigationRailPage />},
       navigationitem: {name: 'NavigationItem', page: <NavigationItemPage />},
       modal: {name: 'Modal', page: <ModalPage />},
-      paper: {name: 'Paper', page: <PaperPage />},
       ripple: {name: 'Ripple', page: <RipplePage />},
       slider: {name: 'Slider', page: <SliderPage />},
       snackbar: {name: 'Snackbar', page: <SnackbarPage />},

@@ -1,12 +1,12 @@
 import React from 'react';
 import {PageHeader} from '@components/ImportSample';
 import {Code, P} from '../../components/StyledTypography';
-import {Paper} from '../../themestress/components';
+import {Surface} from '../../themestress/components';
 import ThemeInImage from '@assets/img/theme-in.png';
 import ThemeOutImage from '@assets/img/theme-out.png';
 import styled from '@emotion/styled';
 
-const ClippedPaper = styled(Paper)`
+const ClippedPaper = styled(Surface)`
   overflow: hidden;
 `;
 

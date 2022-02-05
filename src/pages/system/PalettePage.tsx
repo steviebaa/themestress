@@ -2,9 +2,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import {Code, P} from '@components/StyledTypography';
 import ThemeOutImage from '@assets/img/theme-out.png';
-import {Paper} from '@themestress/components';
+import {Surface} from '@themestress/components';
 
-const ClippedPaper = styled(Paper)`
+const ClippedPaper = styled(Surface)`
   overflow: hidden;
 `;
 

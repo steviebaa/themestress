@@ -4,7 +4,7 @@ import {Code, P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
 import {samples} from '@core/samples';
-import {Paper, MenuItem, Flex} from '@themestress/components';
+import {Surface, MenuItem, Flex} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 
@@ -18,12 +18,12 @@ export const MenuItemPage = () => {
       </P>
 
       <SampleBox>
-        <Paper>
+        <Surface>
           <Flex column paddingTop={1} paddingBottom={1}>
             <MenuItem>New File</MenuItem>
             <MenuItem>Save As</MenuItem>
           </Flex>
-        </Paper>
+        </Surface>
       </SampleBox>
       <TypeScript code={samples.menuitem.overview} />
 

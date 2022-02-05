@@ -62,6 +62,26 @@ export const apiProps = {
       ...paddingProps,
     ],
   },
+  card: {
+    props: [
+      ['variant', 'elevated | outlined', 'elevated', 'Paper style.'],
+      ['elevation', 'number', '1', 'From 0 to 24 inclusive.'],
+      ['square', 'boolean', 'false', 'Square the corners.'],
+      ['fontColor', 'string', '', 'Css color property.'],
+      ['bgColor', 'string', '', 'Css background-color property.'],
+      ['borderColor', 'string', '', 'Css border-color property.'],
+      [
+        'radius',
+        'number',
+        '1',
+        'Css border-radius. Multiplied by theme.spacing (px).',
+      ],
+      ['width', 'BreakPoint', 'md', 'Css width property.'],
+      ['height', 'string', '', 'Css height property.'],
+      ...marginProps,
+      ...paddingProps,
+    ],
+  },
   container: {
     props: [
       ['maxWidth', 'BreakPoint', 'md', 'Css max-width property.'],
@@ -194,26 +214,6 @@ export const apiProps = {
       ['fullScreen', 'boolean', 'false', 'Make the modal 100vw x 100vh.'],
       ['width', 'BreakPoint', 'md', 'Css width property.'],
       ['height', 'string', '', 'Css height property.'],
-    ],
-  },
-  paper: {
-    props: [
-      ['variant', 'elevated | outlined', 'elevated', 'Paper style.'],
-      ['elevation', 'number', '1', 'From 0 to 24 inclusive.'],
-      ['square', 'boolean', 'false', 'Square the corners.'],
-      ['fontColor', 'TColor', '', 'Css color property.'],
-      ['bgColor', 'TColor', '', 'Css background-color property.'],
-      ['borderColor', 'TColor', '', 'Css border-color property.'],
-      [
-        'radius',
-        'number',
-        '1',
-        'Css border-radius. Multiplied by theme.spacing (px).',
-      ],
-      ['width', 'BreakPoint', 'md', 'Css width property.'],
-      ['height', 'string', '', 'Css height property.'],
-      ...marginProps,
-      ...paddingProps,
     ],
   },
   ripple: {

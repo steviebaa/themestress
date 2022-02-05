@@ -32,4 +32,10 @@ describe('Class ThemeBreakpoints', () => {
 
     expect(addStyle).toHaveBeenLastCalledWith('md-sys-breakpoint-xl', '1440px');
   });
+  it('should parse a breakpoint', () => {
+    const breakpoints = new ThemeBreakpoints();
+
+    expect(breakpoints.parse('sm')).toEqual('600px');
+    expect(breakpoints.parse('3rem')).toEqual('3rem');
+  });
 });

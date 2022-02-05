@@ -31,6 +31,15 @@ export class ThemeBreakpoints implements ThemeBreakpointsProps {
     this._createGlobalSystemTokenCssVars(addStyle);
   };
 
+  /** If the value provided matches a breakpoint, the breakpoint will be returned, else the provided value. */
+  public parse = (value: string) => {
+    if (['xs', 'sm', 'md', 'lg', 'xl'].includes(value)) {
+      return `${this[value].size}${this[value].unit}`;
+    } else {
+      return value;
+    }
+  };
+
   private _createGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
     ['xs', 'sm', 'md', 'lg', 'xl'].forEach(bp => {
       addStyle(`md-sys-breakpoint-${bp}`, `${this[bp].size}${this[bp].unit}`);

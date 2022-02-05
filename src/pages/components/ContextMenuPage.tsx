@@ -5,7 +5,7 @@ import {
   ContextMenu,
   Typography,
   MenuItem,
-  Paper,
+  Surface,
 } from '@themestress/components';
 import {TypeScript} from '@components/TypeScript';
 import {samples} from '@core/samples';
@@ -51,13 +51,13 @@ export const ContextMenuPage = () => {
             </MenuItem>,
           ]}
         >
-          <Paper variant="outlined" padding={3}>
+          <Surface variant="outlined" padding={3}>
             <Typography variant="body1" fontSize="18px" margin={0}>
               Right Click Me!
             </Typography>
-          </Paper>
+          </Surface>
 
-          <Paper
+          <Surface
             variant="outlined"
             padding={3}
             onContextMenu={() =>
@@ -71,7 +71,7 @@ export const ContextMenuPage = () => {
             <Typography variant="body1" fontSize="18px" margin={0}>
               I already have an <Code>onContextMenu</Code> prop.
             </Typography>
-          </Paper>
+          </Surface>
         </ContextMenu>
       </SampleBox>
       <TypeScript code={samples.contextmenu.overview} />

@@ -39,6 +39,14 @@ export const samples = {
   <CheckRounded fill={['primary', 'main']} />
 </Button>`,
   },
+  card: {
+    overview: `<Card padding={3} variant="outlined">
+	Card with variant="outlined"
+</Card>`,
+    elevation: `<Card padding={3} elevation={3}>
+	Card with elevation={3}
+</Card>`,
+  },
   container: {
     overview: '<Container maxWidth="xs">Container</Container>',
   },
@@ -50,11 +58,11 @@ export const samples = {
     <MenuItem key={'b'} onClick={handleClick}>Save</MenuItem>,
   ]}
 >
-  <Paper variant="outlined">
+  <Card variant="outlined">
       Right Click Me!
-  </Paper>
+  </Card>
 
-  <Paper
+  <Card
     variant="outlined"
     onContextMenu={() =>
       snackbar.queue({
@@ -64,7 +72,7 @@ export const samples = {
     }
   >
     I already have an onContextMenu prop.
-  </Paper>
+  </Card>
 </ContextMenu>`,
   },
   divider: {
@@ -223,14 +231,6 @@ export const samples = {
     </>
   )
 }`,
-  },
-  paper: {
-    overview: `<Paper padding={3} variant="outlined">
-	Paper with variant="outlined"
-</Paper>`,
-    elevation: `<Paper padding={3} elevation={3}>
-	Paper with elevation={3}
-</Paper>`,
   },
   ripple: {
     overview: `<div>

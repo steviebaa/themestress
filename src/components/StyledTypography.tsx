@@ -3,13 +3,18 @@ import styled from '@emotion/styled';
 import {Typography, TypographyProps} from '@themestress/components';
 
 export const P = styled((props: TypographyProps) => (
-  <Typography variant="body1" {...props} marginBottom={3} fontSize="16px" />
+  <Typography
+    variant="body-medium"
+    {...props}
+    marginBottom={3}
+    fontSize="16px"
+  />
 ))`
-  margin-bottom: ${({theme}) => `${theme.spacing * 6}px`};
+  margin-bottom: ${({theme}) => `${theme.spacing.size * 6}px`};
 `;
 
 export const Code = styled((props: TypographyProps) => (
-  <Typography variant="code" fontSize="1rem" {...props} />
+  <Typography variant="label-small" fontSize="1rem" {...props} />
 ))``;
 
 export const Subheading = styled.h2`

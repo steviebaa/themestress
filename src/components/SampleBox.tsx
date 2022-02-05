@@ -1,5 +1,5 @@
 import React from 'react';
-import {Paper, Flex} from '@themestress/components';
+import {Surface, Flex} from '@themestress/components';
 
 interface SampleBoxProps {
   children?: React.ReactNode;
@@ -9,12 +9,11 @@ export const SampleBox: React.FC<SampleBoxProps> = ({
   children,
   ...props
 }: SampleBoxProps) => {
-
   return (
-    <Paper variant="outlined" padding={6}>
+    <Surface variant="outlined" padding={6} radius={4}>
       <Flex justifyContent="space-around" {...props}>
         {children}
       </Flex>
-    </Paper>
+    </Surface>
   );
 };

@@ -4,9 +4,9 @@ import styled from '@emotion/styled';
 import {cleanRoute, getMenuItems, getRoutesList} from '@core/routeMap';
 import config from '@config/constants.json';
 import {Navbar} from '@components/Navbar';
-import {NavigationRail, Paper, Flex, Spacer, Container} from '@themestress/components';
+import {NavigationRail, Surface, Flex, Spacer, Container} from '@themestress/components';
 
-const Page = styled(Paper)`
+const Page = styled(Surface)`
   height: calc(100vh - ${config.navHeight}px);
   width: 100vw;
   display: flex;
@@ -17,7 +17,7 @@ const Scrollable = styled(Flex)`
   overflow: auto;
 `;
 
-const MenuPaper = styled(Paper)`
+const MenuPaper = styled(Surface)`
   overflow: auto;
 `;
 

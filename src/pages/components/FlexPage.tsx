@@ -10,7 +10,7 @@ import {PageHeader} from '@components/ImportSample';
 
 const Text = styled(({...props}) => (
   <Typography
-    variant="body1"
+    variant="body-medium"
     fontSize="18px"
     bgColor="royalblue"
     padding={2}
