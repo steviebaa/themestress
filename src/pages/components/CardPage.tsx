@@ -26,15 +26,15 @@ export const CardPage = () => {
 
       <SampleBox>
         <Card elevation={3}>
-          Paper with <Code>variant="elevated"</Code>
+          Card with <Code>variant="elevated"</Code>
         </Card>
 
         <Card variant="filled">
-          Paper with <Code>variant="filled"</Code>
+          Card with <Code>variant="filled"</Code>
         </Card>
 
         <Card variant="outlined">
-          Paper with <Code>variant="outlined"</Code>
+          Card with <Code>variant="outlined"</Code>
         </Card>
       </SampleBox>
       <TypeScript code={samples.card.overview} />
