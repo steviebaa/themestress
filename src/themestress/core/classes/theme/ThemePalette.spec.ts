@@ -5,16 +5,16 @@ describe('Class ThemePalette', () => {
   it('should correctly set the theme prop', () => {
     const theme1 = new ThemePalette();
     expect(theme1.mode).toEqual('light');
-    const theme2 = new ThemePalette({palette: {mode: 'light'}});
+    const theme2 = new ThemePalette({mode: 'light'});
     expect(theme2.mode).toEqual('light');
-    const theme3 = new ThemePalette({palette: {mode: 'dark'}});
+    const theme3 = new ThemePalette({mode: 'dark'});
     expect(theme3.mode).toEqual('dark');
   });
   it('should initialise with default colors', () => {
     const palette: ThemePaletteInitializer = {
       mode: 'light',
     };
-    const theme = new ThemePalette({palette});
+    const theme = new ThemePalette(palette);
 
     expect(theme.primary.main.hex).toEqual('#564389');
     expect(theme.secondary.main.hex).toEqual('#625b71');
@@ -32,7 +32,7 @@ describe('Class ThemePalette', () => {
       primary: '#448aff',
       neutral: '#caaaaa',
     };
-    const theme = new ThemePalette({palette});
+    const theme = new ThemePalette(palette);
 
     expect(theme.primary.main.hex).toEqual('#004bcc');
     expect(theme.neutral.background.hex).toEqual('#fdfcfc');
@@ -42,7 +42,7 @@ describe('Class ThemePalette', () => {
       mode: 'light',
       primary: new Color('#22aa77'),
     };
-    const theme = new ThemePalette({palette});
+    const theme = new ThemePalette(palette);
 
     expect(theme.primary.main.hex).toEqual('#22aa78');
   });

@@ -1,10 +1,13 @@
 import {ThemeMode} from '../../definitions';
-import {ThemeBreakpoints} from './ThemeBreakpoints';
+import {
+  ThemeBreakpoints,
+  ThemeBreakpointsInitializer,
+} from './ThemeBreakpoints';
 import {ThemeElevations} from './ThemeElevations';
-import {ThemePalette} from './ThemePalette';
-import {ThemeSpacing} from './ThemeSpacing';
-import {ThemeTypography} from './ThemeTypography';
-import {ThemeZIndices} from './ThemeZIndices';
+import {ThemePalette, ThemePaletteInitializer} from './ThemePalette';
+import {ThemeSpacing, ThemeSpacingInitializer} from './ThemeSpacing';
+import {ThemeTypography, ThemeTypographyInitializer} from './ThemeTypography';
+import {ThemeZIndices, ThemeZIndicesInitializer} from './ThemeZIndices';
 
 export interface ThemeProps {
   palette: ThemePalette;
@@ -15,7 +18,14 @@ export interface ThemeProps {
   elevations: ThemeElevations;
 }
 
-export interface ThemeInitializer extends Partial<ThemeProps> {}
+export interface ThemeInitializer {
+  palette?: ThemePaletteInitializer;
+  typography?: ThemeTypographyInitializer;
+  spacing?: ThemeSpacingInitializer;
+  zIndices?: ThemeZIndicesInitializer;
+  breakpoints?: ThemeBreakpointsInitializer;
+  elevations?: ThemeElevations;
+}
 
 export class Theme implements ThemeProps {
   public palette: ThemePalette;
@@ -90,12 +100,11 @@ export class Theme implements ThemeProps {
   };
 
   private _setProperties = (theme?: ThemeInitializer) => {
-    this.palette = theme?.palette ?? new ThemePalette();
-    this.typography = theme?.typography ?? new ThemeTypography();
-    this.spacing = theme?.spacing ?? new ThemeSpacing();
-    this.zIndices = theme?.zIndices ?? new ThemeZIndices();
-    this.breakpoints = theme?.breakpoints ?? new ThemeBreakpoints();
-    this.elevations =
-      theme?.elevations ?? new ThemeElevations({mode: this.palette.mode});
+    this.palette = new ThemePalette(theme?.palette);
+    this.typography = new ThemeTypography(theme?.typography);
+    this.spacing = new ThemeSpacing(theme?.spacing);
+    this.zIndices = new ThemeZIndices(theme?.zIndices);
+    this.breakpoints = new ThemeBreakpoints(theme?.breakpoints);
+    this.elevations = new ThemeElevations({mode: this.palette.mode});
   };
 }

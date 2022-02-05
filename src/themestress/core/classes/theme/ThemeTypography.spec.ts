@@ -17,11 +17,9 @@ describe('Class ThemeTypography', () => {
   });
   it('should set the custom props', () => {
     const typography = new ThemeTypography({
-      typography: {
-        size: 12,
-        regular: {font: 'Montserrat', fallback: 'Helvetica'},
-        medium: {weight: 700},
-      },
+      size: 12,
+      regular: {font: 'Montserrat', fallback: 'Helvetica'},
+      medium: {weight: 700},
     });
     expect(typography.size).toEqual(12);
     expect(typography.regular.weight).toEqual(400);

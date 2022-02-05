@@ -17,7 +17,7 @@ export class ThemeZIndices implements ThemeZIndicesProps {
   public snackbar: number = null;
   public tooltip: number = null;
 
-  constructor({zIndices}: {zIndices?: ThemeZIndicesInitializer} = {}) {
+  constructor(zIndices: ThemeZIndicesInitializer = {}) {
     this._setProperties(zIndices);
   }
 
@@ -32,10 +32,10 @@ export class ThemeZIndices implements ThemeZIndicesProps {
   };
 
   private _setProperties = (zIndices?: ThemeZIndicesInitializer) => {
-    this.navbar = zIndices?.navbar ?? 1100;
-    this.backdrop = zIndices?.backdrop ?? 1300;
-    this.modal = zIndices?.modal ?? 1400;
-    this.snackbar = zIndices?.snackbar ?? 1500;
-    this.tooltip = zIndices?.tooltip ?? 1600;
+    this.navbar = zIndices.navbar ?? 1100;
+    this.backdrop = zIndices.backdrop ?? 1300;
+    this.modal = zIndices.modal ?? 1400;
+    this.snackbar = zIndices.snackbar ?? 1500;
+    this.tooltip = zIndices.tooltip ?? 1600;
   };
 }

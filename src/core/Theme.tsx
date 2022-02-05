@@ -4,6 +4,7 @@ import {ThemeProvider as EmotionProvider} from '@emotion/react';
 import {Css} from '@core/styles/Css';
 import {settingsContext} from '@stores/SettingsContext';
 import {Theme} from '@themestress/core/classes/theme/Theme';
+import {ThemeTypography} from '@themestress/core/classes/theme/ThemeTypography';
 
 interface ThemeProps {
   children: React.ReactNode;
@@ -11,7 +12,13 @@ interface ThemeProps {
 
 export const ThemeProvider = ({children}: ThemeProps) => {
   const [settings] = useContext(settingsContext);
-  const theme = new Theme();
+  // const typography = new ThemeTypography({
+  //   typography: {
+  //     regular: {font: 'Montserrat'},
+  //     medium: {font: 'Montserrat'},
+  //   },
+  // });
+  const theme = new Theme({typography: {regular: {font: 'Montserrat'}}});
 
   useEffect(() => {
     theme.setMode(settings.mode);

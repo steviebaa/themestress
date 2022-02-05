@@ -11,13 +11,11 @@ describe('Class ThemeBreakpoints', () => {
   });
   it('should set the custom props', () => {
     const breakpoints = new ThemeBreakpoints({
-      breakpoints: {
-        xs: {size: 1, unit: 'pt'},
-        sm: {size: 2, unit: 'pt'},
-        md: {size: 3, unit: 'pt'},
-        lg: {size: 4, unit: 'pt'},
-        xl: {size: 5, unit: 'pt'},
-      },
+      xs: {size: 1, unit: 'pt'},
+      sm: {size: 2, unit: 'pt'},
+      md: {size: 3, unit: 'pt'},
+      lg: {size: 4, unit: 'pt'},
+      xl: {size: 5, unit: 'pt'},
     });
     expect(breakpoints.xs).toEqual({size: 1, unit: 'pt'});
     expect(breakpoints.sm).toEqual({size: 2, unit: 'pt'});

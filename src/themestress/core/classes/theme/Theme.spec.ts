@@ -15,7 +15,7 @@ describe('Class Theme', () => {
     expect(theme.breakpoints.md).toBeDefined();
   });
   it('should generate a theme with custom palette', () => {
-    const palette = new ThemePalette({palette: {primary: '#448aff'}});
+    const palette = new ThemePalette({primary: '#448aff'});
     const theme = new Theme({palette});
 
     expect(theme.palette.primary.keyColor.hex).toEqual('#4287ff');
@@ -24,7 +24,8 @@ describe('Class Theme', () => {
   });
   it('should generate a theme with custom typography', () => {
     const typography = new ThemeTypography({
-      typography: {size: 14, regular: {font: 'Montserrat'}},
+      size: 14,
+      regular: {font: 'Montserrat'},
     });
     const theme = new Theme({typography});
 
@@ -32,20 +33,20 @@ describe('Class Theme', () => {
     expect(theme.typography.size).toEqual(14);
   });
   it('should generate a theme with custom spacing', () => {
-    const spacing = new ThemeSpacing({spacing: {size: 1}});
+    const spacing = new ThemeSpacing({size: 1});
     const theme = new Theme({spacing});
 
     expect(theme.spacing.size).toEqual(1);
   });
   it('should generate a theme with custom zIndices', () => {
-    const zIndices = new ThemeZIndices({zIndices: {modal: 300}});
+    const zIndices = new ThemeZIndices({modal: 300});
     const theme = new Theme({zIndices});
 
     expect(theme.zIndices.modal).toEqual(300);
   });
   it('should generate a theme with custom breakpoints', () => {
     const breakpoints = new ThemeBreakpoints({
-      breakpoints: {xs: {size: 2, unit: 'cm'}},
+      xs: {size: 2, unit: 'cm'},
     });
     const theme = new Theme({breakpoints});
 
@@ -57,7 +58,7 @@ describe('Class Theme', () => {
     const theme = new Theme({elevations});
 
     expect(theme.elevations.level1.elevation).toEqual(
-      '0px 1px 3px 1px rgb(0,0,0,0.15), 0px 1px 2px rgb(0,0,0,0.3)',
+      '0px 1px 2px rgb(0,0,0,0.3), 0px 1px 3px 1px rgb(0,0,0,0.15)',
     );
   });
   it('should add a style to the private styles variable', () => {

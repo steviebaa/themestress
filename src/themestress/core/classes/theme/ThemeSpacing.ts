@@ -9,7 +9,7 @@ export interface ThemeSpacingInitializer extends Partial<ThemeSpacingProps> {}
 export class ThemeSpacing implements ThemeSpacingProps {
   public size: number;
 
-  constructor({spacing}: {spacing?: ThemeSpacingInitializer} = {}) {
+  constructor(spacing: ThemeSpacingInitializer = {}) {
     this._setProperties(spacing);
   }
 
@@ -22,6 +22,6 @@ export class ThemeSpacing implements ThemeSpacingProps {
   };
 
   private _setProperties = (spacing?: ThemeSpacingInitializer) => {
-    this.size = spacing?.size ?? 4;
+    this.size = spacing.size ?? 4;
   };
 }

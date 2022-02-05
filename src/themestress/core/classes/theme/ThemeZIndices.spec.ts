@@ -11,7 +11,11 @@ describe('Class ThemeZIndices', () => {
   });
   it('should set the custom props', () => {
     const zIndices = new ThemeZIndices({
-      zIndices: {navbar: 1, backdrop: 2, modal: 3, snackbar: 4, tooltip: 5},
+      navbar: 1,
+      backdrop: 2,
+      modal: 3,
+      snackbar: 4,
+      tooltip: 5,
     });
     expect(zIndices.navbar).toEqual(1);
     expect(zIndices.backdrop).toEqual(2);

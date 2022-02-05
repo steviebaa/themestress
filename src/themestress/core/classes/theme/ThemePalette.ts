@@ -54,8 +54,8 @@ export class ThemePalette implements ThemePaletteInitializer {
   public info: AccentPalette;
   public error: AccentPalette;
 
-  constructor({palette}: {palette?: ThemePaletteInitializer} = {}) {
-    this.mode = palette?.mode ?? 'light';
+  constructor(palette: ThemePaletteInitializer = {}) {
+    this.mode = palette.mode ?? 'light';
     this._assignInput(palette);
   }
 
@@ -94,7 +94,7 @@ export class ThemePalette implements ThemePaletteInitializer {
 
   private _assignInput = (palette: ThemePaletteInitializer) => {
     Object.keys(classMap).forEach(key => {
-      let prop = palette?.[key];
+      let prop = palette[key];
 
       const {cls, fallback: color} = classMap[key];
 

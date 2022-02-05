@@ -23,7 +23,7 @@ export class ThemeBreakpoints implements ThemeBreakpointsProps {
   public lg: BreakPoint = {size: null, unit: null};
   public xl: BreakPoint = {size: null, unit: null};
 
-  constructor({breakpoints}: {breakpoints?: ThemeBreakpointsInitializer} = {}) {
+  constructor(breakpoints: ThemeBreakpointsInitializer = {}) {
     this._setProperties(breakpoints);
   }
 
@@ -47,19 +47,19 @@ export class ThemeBreakpoints implements ThemeBreakpointsProps {
   };
 
   private _setProperties = (breakpoints?: ThemeBreakpointsInitializer) => {
-    this.xs.size = breakpoints?.xs?.size ?? 0;
-    this.xs.unit = breakpoints?.xs?.unit ?? 'px';
+    this.xs.size = breakpoints.xs?.size ?? 0;
+    this.xs.unit = breakpoints.xs?.unit ?? 'px';
 
-    this.sm.size = breakpoints?.sm?.size ?? 600;
-    this.sm.unit = breakpoints?.sm?.unit ?? 'px';
+    this.sm.size = breakpoints.sm?.size ?? 600;
+    this.sm.unit = breakpoints.sm?.unit ?? 'px';
 
-    this.md.size = breakpoints?.md?.size ?? 905;
-    this.md.unit = breakpoints?.md?.unit ?? 'px';
+    this.md.size = breakpoints.md?.size ?? 905;
+    this.md.unit = breakpoints.md?.unit ?? 'px';
 
-    this.lg.size = breakpoints?.lg?.size ?? 1240;
-    this.lg.unit = breakpoints?.lg?.unit ?? 'px';
+    this.lg.size = breakpoints.lg?.size ?? 1240;
+    this.lg.unit = breakpoints.lg?.unit ?? 'px';
 
-    this.xl.size = breakpoints?.xl?.size ?? 1440;
-    this.xl.unit = breakpoints?.xl?.unit ?? 'px';
+    this.xl.size = breakpoints.xl?.size ?? 1440;
+    this.xl.unit = breakpoints.xl?.unit ?? 'px';
   };
 }

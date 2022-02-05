@@ -6,7 +6,7 @@ describe('Class ThemeSpacing', () => {
     expect(spacing.size).toEqual(4);
   });
   it('should set the custom props', () => {
-    const spacing = new ThemeSpacing({spacing: {size: 12}});
+    const spacing = new ThemeSpacing({size: 12});
     expect(spacing.size).toEqual(12);
   });
   it('should set the global css system tokens', () => {

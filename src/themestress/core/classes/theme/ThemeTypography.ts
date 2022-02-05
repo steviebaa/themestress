@@ -28,7 +28,7 @@ export class ThemeTypography implements ThemeTypographyProps {
     fallback: '"Arial", "Helvetica", sans-serif',
   };
 
-  constructor({typography}: {typography?: ThemeTypographyInitializer} = {}) {
+  constructor(typography: ThemeTypographyInitializer = {}) {
     this._setProperties(typography);
   }
 
@@ -55,10 +55,10 @@ export class ThemeTypography implements ThemeTypographyProps {
   };
 
   private _setProperties = (typography?: ThemeTypographyInitializer) => {
-    mergeDeep(this.regular, typography?.regular);
-    mergeDeep(this.medium, typography?.medium);
+    mergeDeep(this.regular, typography.regular);
+    mergeDeep(this.medium, typography.medium);
 
-    this.size = typography?.size ?? 16;
+    this.size = typography.size ?? 16;
     document.documentElement.style.setProperty(`font-size`, this.size + 'px');
   };
 }
