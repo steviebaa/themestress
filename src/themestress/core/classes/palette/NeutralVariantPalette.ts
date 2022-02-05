@@ -23,12 +23,12 @@ export class NeutralVariantPalette extends TonalPalette {
   }
 
   /** Set the tones of the palette to the recommend values */
-  public setTones(mode: ThemeMode) {
+  public setTones = (mode: ThemeMode) => {
     const isLight = mode === 'light';
 
     this._outlineTone = isLight ? 50 : 60;
 
     this._surfaceTone = isLight ? 90 : 30;
     this.surface.on = this.tones[isLight ? 30 : 80];
-  }
+  };
 }

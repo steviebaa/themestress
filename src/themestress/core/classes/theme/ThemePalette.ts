@@ -6,26 +6,26 @@ import {Color} from '../base/Color';
 import {TonalPalette} from '../base/TonalPalette';
 import {colorRefTokenStubs, systemColorTokens} from '../../md/color';
 
-export interface ThemePaletteInitializer {
-  mode?: ThemeMode;
+export interface ThemePaletteProps {
+  mode: ThemeMode;
   /** Can be and instance of Color, AccentPalette or a color string (hex, hsl, rgb, css) */
-  primary?: string | Color | AccentPalette;
+  primary: string | Color | AccentPalette;
   /** Can be and instance of Color, AccentPalette or a color string (hex, hsl, rgb, css) */
-  secondary?: string | Color | AccentPalette;
+  secondary: string | Color | AccentPalette;
   /** Can be and instance of Color, AccentPalette or a color string (hex, hsl, rgb, css) */
-  tertiary?: string | Color | AccentPalette;
+  tertiary: string | Color | AccentPalette;
   /** Can be and instance of Color, AccentPalette or a color string (hex, hsl, rgb, css) */
-  neutral?: string | Color | NeutralPalette;
+  neutral: string | Color | NeutralPalette;
   /** Can be and instance of Color, AccentPalette or a color string (hex, hsl, rgb, css) */
-  neutralVariant?: string | Color | NeutralVariantPalette;
+  neutralVariant: string | Color | NeutralVariantPalette;
   /** Can be and instance of Color, AccentPalette or a color string (hex, hsl, rgb, css) */
-  success?: string | Color | AccentPalette;
+  success: string | Color | AccentPalette;
   /** Can be and instance of Color, AccentPalette or a color string (hex, hsl, rgb, css) */
-  warning?: string | Color | AccentPalette;
+  warning: string | Color | AccentPalette;
   /** Can be and instance of Color, AccentPalette or a color string (hex, hsl, rgb, css) */
-  info?: string | Color | AccentPalette;
+  info: string | Color | AccentPalette;
   /** Can be and instance of Color, AccentPalette or a color string (hex, hsl, rgb, css) */
-  error?: string | Color | AccentPalette;
+  error: string | Color | AccentPalette;
 }
 
 const classMap = {
@@ -40,8 +40,10 @@ const classMap = {
   error: {cls: AccentPalette, fallback: '#B3261E'},
 };
 
-export class ThemePalette {
-  public mode: ThemeMode;
+export interface ThemePaletteInitializer extends Partial<ThemePaletteProps> {}
+
+export class ThemePalette implements ThemePaletteInitializer {
+  private _mode: ThemeMode;
   public primary: AccentPalette;
   public secondary: AccentPalette;
   public tertiary: AccentPalette;
@@ -52,11 +54,19 @@ export class ThemePalette {
   public info: AccentPalette;
   public error: AccentPalette;
 
-  constructor(palette?: ThemePaletteInitializer) {
+  constructor({palette}: {palette?: ThemePaletteInitializer} = {}) {
     this.mode = palette?.mode ?? 'light';
+    this._assignInput(palette);
+  }
 
+  get mode() {
+    return this._mode;
+  }
+
+  set mode(mode: ThemeMode) {
+    this._mode = mode;
     Object.keys(classMap).forEach(key => {
-      this._assignInput(key, palette?.[key]);
+      this[key]?.setTones(mode);
     });
   }
 
@@ -78,29 +88,25 @@ export class ThemePalette {
 
   private _setGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
     Object.entries(systemColorTokens()).forEach(([sysToken, refTokens]) => {
-      addStyle(sysToken, refTokens[this.mode], true);
+      addStyle(sysToken, refTokens[this._mode], true);
     });
   };
 
-  private _assignInput = (
-    key: string,
-    prop:
-      | string
-      | Color
-      | AccentPalette
-      | NeutralPalette
-      | NeutralVariantPalette,
-  ) => {
-    const {cls, fallback: color} = classMap[key];
+  private _assignInput = (palette: ThemePaletteInitializer) => {
+    Object.keys(classMap).forEach(key => {
+      let prop = palette?.[key];
 
-    if (typeof prop === 'string') {
-      prop = new cls(new Color(prop), this.mode);
-    } else if (prop instanceof Color) {
-      prop = new cls(prop, this.mode);
-    } else if (!prop) {
-      prop = new cls(new Color(color), this.mode);
-    }
+      const {cls, fallback: color} = classMap[key];
 
-    this[key] = prop;
+      if (typeof prop === 'string') {
+        prop = new cls(new Color(prop), this.mode);
+      } else if (prop instanceof Color) {
+        prop = new cls(prop, this.mode);
+      } else if (!prop) {
+        prop = new cls(new Color(color), this.mode);
+      }
+
+      this[key] = prop;
+    });
   };
 }

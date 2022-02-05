@@ -25,4 +25,18 @@ describe('Class NeutralPalette', () => {
     palette.setTones('dark');
     expect(palette.surface.hex).toEqual('#1a1a1a');
   });
+  it('should return the correct outline color', () => {
+    const palette = new NeutralPalette(new Color('#aaaaaa'));
+    expect(palette.outline.hex).toEqual('#808080');
+
+    palette.setTones('dark');
+    expect(palette.outline.hex).toEqual('#999999');
+  });
+  it('should return the correct shadow color', () => {
+    const palette = new NeutralPalette(new Color('#aaaaaa'));
+    expect(palette.shadow.hex).toEqual('#000000');
+
+    palette.setTones('dark');
+    expect(palette.shadow.hex).toEqual('#000000');
+  });
 });

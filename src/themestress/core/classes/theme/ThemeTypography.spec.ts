@@ -14,9 +14,11 @@ describe('Class ThemeTypography', () => {
   });
   it('should set the custom props', () => {
     const typography = new ThemeTypography({
-      size: 12,
-      regular: {font: 'Montserrat', fallback: 'Helvetica'},
-      medium: {weight: 700},
+      typography: {
+        size: 12,
+        regular: {font: 'Montserrat', fallback: 'Helvetica'},
+        medium: {weight: 700},
+      },
     });
     expect(typography.size).toEqual(12);
     expect(typography.regular.weight).toEqual(400);
@@ -28,12 +30,14 @@ describe('Class ThemeTypography', () => {
   });
 
   it('should set the global css variables', () => {
-    const theme = new Theme();
+    const addStyle = jest.fn();
     const typography = new ThemeTypography();
-    typography.setGlobalCssVars(theme['_addStyle']);
+    typography.setGlobalCssVars(addStyle);
 
-    const style = document.documentElement.style;
-    expect(style['_values']['--md-ref-typeface-weight-regular']).toEqual('400');
-    expect(style.length).toEqual(80);
+    expect(addStyle).toHaveBeenLastCalledWith(
+      'md-sys-typescale-body-small-weight',
+      'md-ref-typeface-weight-regular',
+      true,
+    );
   });
 });

@@ -11,11 +11,7 @@ describe('Class ThemeZIndices', () => {
   });
   it('should set the custom props', () => {
     const zIndices = new ThemeZIndices({
-      navbar: 1,
-      backdrop: 2,
-      modal: 3,
-      snackbar: 4,
-      tooltip: 5,
+      zIndices: {navbar: 1, backdrop: 2, modal: 3, snackbar: 4, tooltip: 5},
     });
     expect(zIndices.navbar).toEqual(1);
     expect(zIndices.backdrop).toEqual(2);
@@ -24,10 +20,10 @@ describe('Class ThemeZIndices', () => {
     expect(zIndices.tooltip).toEqual(5);
   });
   it('should set the global css variables', () => {
+    const addStyle = jest.fn();
     const zIndices = new ThemeZIndices();
-    zIndices.setGlobalCssVars();
+    zIndices.setGlobalCssVars(addStyle);
 
-    const style = document.documentElement.style;
-    expect(style['_values']['--md-sys-z-index-modal']).toEqual('1400px');
+    expect(addStyle).toHaveBeenLastCalledWith('md-sys-z-index-tooltip', '1600');
   });
 });

@@ -5,13 +5,13 @@ export interface ThemeSpacingProps {
   unit: string;
 }
 
-export type ThemeSpacingInitializer = Partial<ThemeSpacingProps>;
+export interface ThemeSpacingInitializer extends Partial<ThemeSpacingProps> {}
 
 export class ThemeSpacing implements ThemeSpacingProps {
   public size: number;
   public unit: string;
 
-  constructor(spacing?: ThemeSpacingInitializer) {
+  constructor({spacing}: {spacing?: ThemeSpacingInitializer} = {}) {
     this._setProperties(spacing);
   }
 

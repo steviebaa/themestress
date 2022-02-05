@@ -13,7 +13,8 @@ export interface ThemeBreakpointsProps {
   xl: BreakPoint;
 }
 
-export type ThemeBreakpointsInitializer = Partial<ThemeBreakpointsProps>;
+export interface ThemeBreakpointsInitializer
+  extends Partial<ThemeBreakpointsProps> {}
 
 export class ThemeBreakpoints implements ThemeBreakpointsProps {
   public xs: BreakPoint = {size: null, unit: null};
@@ -22,7 +23,7 @@ export class ThemeBreakpoints implements ThemeBreakpointsProps {
   public lg: BreakPoint = {size: null, unit: null};
   public xl: BreakPoint = {size: null, unit: null};
 
-  constructor(breakpoints?: ThemeBreakpointsInitializer) {
+  constructor({breakpoints}: {breakpoints?: ThemeBreakpointsInitializer} = {}) {
     this._setProperties(breakpoints);
   }
 

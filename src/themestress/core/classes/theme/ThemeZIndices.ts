@@ -8,7 +8,7 @@ export interface ThemeZIndicesProps {
   tooltip: number;
 }
 
-export type ThemeZIndicesInitializer = Partial<ThemeZIndicesProps>;
+export interface ThemeZIndicesInitializer extends Partial<ThemeZIndicesProps> {}
 
 export class ThemeZIndices implements ThemeZIndicesProps {
   public navbar: number = null;
@@ -17,7 +17,7 @@ export class ThemeZIndices implements ThemeZIndicesProps {
   public snackbar: number = null;
   public tooltip: number = null;
 
-  constructor(zIndices?: ThemeZIndicesInitializer) {
+  constructor({zIndices}: {zIndices?: ThemeZIndicesInitializer} = {}) {
     this._setProperties(zIndices);
   }
 

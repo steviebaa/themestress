@@ -35,14 +35,11 @@ export interface TypographySystemTokens {
 }
 
 export interface ElevationStyles {
-  shadow: string;
-  shade: string;
+  shadow?: string;
+  overlay?: string;
 }
 export interface ElevationTokens {
-  [key: string]: {
-    light: ElevationStyles;
-    dark: ElevationStyles;
-  };
+  [key: string]: ElevationStyles;
 }
 
 export interface Transform {

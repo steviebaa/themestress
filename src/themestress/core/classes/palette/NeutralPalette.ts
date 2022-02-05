@@ -35,7 +35,7 @@ export class NeutralPalette extends TonalPalette {
   }
 
   /** Set the tones of the palette to the recommend values */
-  public setTones(mode: ThemeMode) {
+  public setTones = (mode: ThemeMode) => {
     const isLight = mode === 'light';
 
     this._backgroundTone = isLight ? 99 : 10;
@@ -45,5 +45,5 @@ export class NeutralPalette extends TonalPalette {
     this.surface.on = this.tones[isLight ? 10 : 90];
 
     this._outlineTone = isLight ? 50 : 60;
-  }
+  };
 }

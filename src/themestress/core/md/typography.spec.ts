@@ -36,13 +36,14 @@ describe('MD typography utilities', () => {
     expect(tokens2['ts-typescale-display-large'].size).toEqual({value: 57});
   });
   it('should set the typography system tokens global css vars', () => {
+    const addStyle = jest.fn();
     const tokens1 = typographySystemTokens();
-    applyTypographySystemTokens(tokens1);
+    applyTypographySystemTokens(tokens1, addStyle);
 
-    expect(
-      document.documentElement.style['_values'][
-        '--md-sys-typescale-display-large-font'
-      ],
-    ).toEqual('var(--md-ref-typeface-font-regular)');
+    expect(addStyle).toHaveBeenLastCalledWith(
+      'md-sys-typescale-body-small-weight',
+      'md-ref-typeface-weight-regular',
+      true,
+    );
   });
 });

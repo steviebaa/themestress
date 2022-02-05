@@ -12,7 +12,8 @@ export interface ThemeTypographyProps {
   medium?: {font?: string; weight?: number; fallback?: string};
 }
 
-export type ThemeTypographyInitializer = Partial<ThemeTypographyProps>;
+export interface ThemeTypographyInitializer
+  extends Partial<ThemeTypographyProps> {}
 
 export class ThemeTypography implements ThemeTypographyProps {
   public size: number;
@@ -27,7 +28,8 @@ export class ThemeTypography implements ThemeTypographyProps {
     fallback: 'Arial Helvetica sans-serif',
   };
 
-  constructor(typography?: ThemeTypographyInitializer) {
+
+  constructor({typography}: {typography?: ThemeTypographyInitializer} = {}) {
     this._setProperties(typography);
   }
 

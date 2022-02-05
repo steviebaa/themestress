@@ -11,11 +11,13 @@ describe('Class ThemeBreakpoints', () => {
   });
   it('should set the custom props', () => {
     const breakpoints = new ThemeBreakpoints({
-      xs: {size: 1, unit: 'pt'},
-      sm: {size: 2, unit: 'pt'},
-      md: {size: 3, unit: 'pt'},
-      lg: {size: 4, unit: 'pt'},
-      xl: {size: 5, unit: 'pt'},
+      breakpoints: {
+        xs: {size: 1, unit: 'pt'},
+        sm: {size: 2, unit: 'pt'},
+        md: {size: 3, unit: 'pt'},
+        lg: {size: 4, unit: 'pt'},
+        xl: {size: 5, unit: 'pt'},
+      },
     });
     expect(breakpoints.xs).toEqual({size: 1, unit: 'pt'});
     expect(breakpoints.sm).toEqual({size: 2, unit: 'pt'});
@@ -24,10 +26,10 @@ describe('Class ThemeBreakpoints', () => {
     expect(breakpoints.xl).toEqual({size: 5, unit: 'pt'});
   });
   it('should set the global css variables', () => {
+    const addStyle = jest.fn();
     const breakpoints = new ThemeBreakpoints();
-    breakpoints.setGlobalCssVars();
+    breakpoints.setGlobalCssVars(addStyle);
 
-    const style = document.documentElement.style;
-    expect(style['_values']['--md-sys-breakpoint-xs']).toEqual('0px');
+    expect(addStyle).toHaveBeenLastCalledWith('md-sys-breakpoint-xl', '1440px');
   });
 });

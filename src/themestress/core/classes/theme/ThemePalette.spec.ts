@@ -1,20 +1,20 @@
 import {Color} from '../base/Color';
-import {ThemePaletteInitializer, ThemePalette} from './ThemePalette';
+import {ThemePalette, ThemePaletteInitializer} from './ThemePalette';
 
 describe('Class ThemePalette', () => {
   it('should correctly set the theme prop', () => {
     const theme1 = new ThemePalette();
     expect(theme1.mode).toEqual('light');
-    const theme2 = new ThemePalette({mode: 'light'});
+    const theme2 = new ThemePalette({palette: {mode: 'light'}});
     expect(theme2.mode).toEqual('light');
-    const theme3 = new ThemePalette({mode: 'dark'});
+    const theme3 = new ThemePalette({palette: {mode: 'dark'}});
     expect(theme3.mode).toEqual('dark');
   });
   it('should initialise with default colors', () => {
-    const initPalette: ThemePaletteInitializer = {
+    const palette: ThemePaletteInitializer = {
       mode: 'light',
     };
-    const theme = new ThemePalette(initPalette);
+    const theme = new ThemePalette({palette});
 
     expect(theme.primary.main.hex).toEqual('#564389');
     expect(theme.secondary.main.hex).toEqual('#625b71');
@@ -27,32 +27,43 @@ describe('Class ThemePalette', () => {
     expect(theme.error.main.hex).toEqual('#ae251e');
   });
   it('should initialise with provided string color', () => {
-    const initPalette: ThemePaletteInitializer = {
+    const palette: ThemePaletteInitializer = {
       mode: 'light',
       primary: '#448aff',
       neutral: '#caaaaa',
     };
-    const theme = new ThemePalette(initPalette);
+    const theme = new ThemePalette({palette});
 
     expect(theme.primary.main.hex).toEqual('#004bcc');
     expect(theme.neutral.background.hex).toEqual('#fdfcfc');
   });
   it('should initialise with provided Color class instance', () => {
-    const initPalette: ThemePaletteInitializer = {
+    const palette: ThemePaletteInitializer = {
       mode: 'light',
       primary: new Color('#22aa77'),
     };
-    const theme = new ThemePalette(initPalette);
+    const theme = new ThemePalette({palette});
 
     expect(theme.primary.main.hex).toEqual('#22aa78');
   });
   it('should set the ref token global css variables', () => {
+    const addStyle = jest.fn();
     const theme = new ThemePalette();
-    theme.setGlobalCssVars();
+    theme.setGlobalCssVars(addStyle);
 
-    const style = document.documentElement.style;
-    expect(style['_values']['--md-ref-palette-primary-40']).toEqual(
-      theme.primary.tones[40].hex,
+    expect(addStyle).toHaveBeenLastCalledWith(
+      'md-sys-color-inverse-primary',
+      'md-ref-palette-primary-80',
+      true,
     );
+  });
+  it('should set the tones', () => {
+    const setTone = jest.fn();
+    const palette = new ThemePalette();
+
+    palette.primary.setTones = setTone;
+    palette.mode = 'dark';
+
+    expect(setTone).toHaveBeenLastCalledWith('dark');
   });
 });
