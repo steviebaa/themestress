@@ -18,7 +18,7 @@ const CodeBlock = styled(TypeScript)`
 `;
 
 const Column2 = styled.pre`
-  whitespace: 'pre-wrap';
+  white-space: pre-wrap;
   margin: 0;
 `;
 
@@ -29,7 +29,8 @@ const StyledTable = styled.table`
   th,
   td {
     outline: none;
-    border-bottom: ${({theme}) => `1px solid ${theme.palette.neutral[500].main}`};
+    border-bottom: ${({theme}) =>
+      `1px solid ${theme.palette.neutral.tones[50].hex}`};
     padding: 12px 0px;
     padding-right: 12px;
   }

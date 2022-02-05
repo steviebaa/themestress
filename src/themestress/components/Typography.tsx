@@ -3,8 +3,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import {ReactHTMLProps, TColor} from '../core/definitions';
 import {
-  colorFromTheme,
-  onColorFromTheme,
+  // colorFromTheme,
+  // onColorFromTheme,
   getMarginAndPadding,
 } from '../core/themeUtils';
 
@@ -174,19 +174,20 @@ const createStyledComponent = (mappedVariant: MappedVariant) => styled(
       : ['button', 'overline'].includes(variant)
       ? ''
       : 'none'};
-  background-color: ${({theme, bgColor: bg, variant}) =>
-    bg === undefined
-      ? variant === 'code'
-        ? `rgba(127,127,127,0.2)`
-        : 'transparent'
-      : colorFromTheme(theme, bg)};
-  color: ${({theme, fontColor: fc, bgColor: bg}) => {
-    let color = 'inherit';
-    if (bg && !fc) color = onColorFromTheme(theme, bg);
-    else if (fc) color = colorFromTheme(theme, fc);
-    return color;
-  }};
 `;
+// color: ${({theme, fontColor: fc, bgColor: bg}) => {
+// 	let color = 'inherit';
+// 	if (bg && !fc) color = onColorFromTheme(theme, bg);
+// 	else if (fc) color = colorFromTheme(theme, fc);
+// 	return color;
+// }};
+
+// background-color: ${({theme, bgColor: bg, variant}) =>
+//   bg === undefined
+//     ? variant === 'code'
+//       ? `rgba(127,127,127,0.2)`
+//       : 'transparent'
+//     : colorFromTheme(theme, bg)};
 
 export const Typography: React.FC<TypographyProps> = ({
   children,
