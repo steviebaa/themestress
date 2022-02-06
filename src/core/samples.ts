@@ -40,11 +40,18 @@ export const samples = {
 </Button>`,
   },
   elevatedbutton: {
-    overview: `const startIcon = <svg height={16} width={16}><path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"/></svg>
+    overview: `const startIcon = <svg height={18} width={18}><path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"/></svg>
 
 <ElevatedButton startIcon={<PlusIcon/>}>
   Elevated Icon Button
 </ElevatedButton>`,
+  },
+  filledbutton: {
+    overview: `const startIcon = <svg height={18} width={18}><path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"/></svg>
+
+<FilledButton startIcon={<PlusIcon/>}>
+  Filled Icon Button
+</FilledButton>`,
   },
   card: {
     overview: `<Card variant="outlined">
