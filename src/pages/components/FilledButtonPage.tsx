@@ -20,13 +20,13 @@ export const FilledButtonPage = () => {
 
       <SampleBox>
         <Tooltip tip={<Code>{`startIcon={icon}`}</Code>}>
-          <FilledButton startIcon={icon}>Filled Icon Button</FilledButton>
+          <FilledButton margin={2} startIcon={icon}>Filled Icon Button</FilledButton>
         </Tooltip>
         <br />
-        <FilledButton>Filled Button</FilledButton>
+        <FilledButton margin={2}>Filled Button</FilledButton>
         <br />
         <Tooltip tip={<Code>{`disabled={true}`}</Code>}>
-          <FilledButton startIcon={icon} disabled>
+          <FilledButton margin={2} startIcon={icon} disabled>
             Filled Button
           </FilledButton>
         </Tooltip>
@@ -42,7 +42,7 @@ export const FilledButtonPage = () => {
             tip={<Code>{`endIcon={<svg><path d="M18 ..."/></svg}`}</Code>}
           >
             <FilledButton margin={2} endIcon={icon}>
-              Filled Icon Button
+              End Icon
             </FilledButton>
           </Tooltip>
           <br />
@@ -52,14 +52,16 @@ export const FilledButtonPage = () => {
             </FilledButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>{'fontColor="var(--sys-color-error-container)"'}</Code>}>
-            <FilledButton margin={2} fontColor="var(--sys-color-error-container)">
+          <Tooltip tip={<Code>{'fontColor="red"'}</Code>}>
+            <FilledButton margin={2} fontColor="red">
               Font Color
             </FilledButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>{'bgColor="#ffadad"'}</Code>}>
-            <FilledButton margin={2} bgColor="#ffadad">
+          <Tooltip
+            tip={<Code>{'bgColor="var(--sys-color-inverse-primary)"'}</Code>}
+          >
+            <FilledButton margin={2} bgColor="var(--sys-color-inverse-primary)">
               Background Color
             </FilledButton>
           </Tooltip>
@@ -83,7 +85,7 @@ export const FilledButtonPage = () => {
           </Tooltip>
           <br />
           <Tooltip tip={<Code>align="right"</Code>}>
-            <FilledButton margin={2} align="right">
+            <FilledButton margin={2} align="right" width="150px">
               Text Align
             </FilledButton>
           </Tooltip>

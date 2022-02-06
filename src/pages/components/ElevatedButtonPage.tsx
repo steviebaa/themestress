@@ -20,13 +20,15 @@ export const ElevatedButtonPage = () => {
 
       <SampleBox>
         <Tooltip tip={<Code>{`startIcon={icon}`}</Code>}>
-          <ElevatedButton startIcon={icon}>Elevated Icon Button</ElevatedButton>
+          <ElevatedButton margin={2} startIcon={icon}>
+            Elevated Icon Button
+          </ElevatedButton>
         </Tooltip>
         <br />
-        <ElevatedButton>Elevated Button</ElevatedButton>
+        <ElevatedButton margin={2}>Elevated Button</ElevatedButton>
         <br />
         <Tooltip tip={<Code>{`disabled={true}`}</Code>}>
-          <ElevatedButton startIcon={icon} disabled>
+          <ElevatedButton margin={2} startIcon={icon} disabled>
             Elevated Button
           </ElevatedButton>
         </Tooltip>
@@ -42,7 +44,7 @@ export const ElevatedButtonPage = () => {
             tip={<Code>{`endIcon={<svg><path d="M18 ..."/></svg}`}</Code>}
           >
             <ElevatedButton margin={2} endIcon={icon}>
-              Elevated Icon Button
+              End Icon
             </ElevatedButton>
           </Tooltip>
           <br />
@@ -52,16 +54,19 @@ export const ElevatedButtonPage = () => {
             </ElevatedButton>
           </Tooltip>
           <br />
-          <Tooltip
-            tip={<Code>{'fontColor="var(--ref-palette-error-60)"'}</Code>}
-          >
-            <ElevatedButton margin={2} fontColor="var(--ref-palette-error-60)">
+          <Tooltip tip={<Code>{'fontColor="red"'}</Code>}>
+            <ElevatedButton margin={2} fontColor="red">
               Font Color
             </ElevatedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>{'bgColor="#fcceaf"'}</Code>}>
-            <ElevatedButton margin={2} bgColor="#fcceaf">
+          <Tooltip
+            tip={<Code>{'bgColor="var(--sys-color-inverse-primary)"'}</Code>}
+          >
+            <ElevatedButton
+              margin={2}
+              bgColor="var(--sys-color-inverse-primary)"
+            >
               Background Color
             </ElevatedButton>
           </Tooltip>
@@ -85,7 +90,7 @@ export const ElevatedButtonPage = () => {
           </Tooltip>
           <br />
           <Tooltip tip={<Code>align="right"</Code>}>
-            <ElevatedButton margin={2} align="right">
+            <ElevatedButton margin={2} align="right" width="150px">
               Text Align
             </ElevatedButton>
           </Tooltip>

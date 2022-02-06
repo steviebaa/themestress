@@ -35,6 +35,7 @@ import {ElevatedButtonPage} from '@pages/components/ElevatedButtonPage';
 import {FilledButtonPage} from '@pages/components/FilledButtonPage';
 import {FilledTonalButtonPage} from '@pages/components/FilledTonalButtonPage';
 import {OutlinedButtonPage} from '@pages/components/OutlinedButtonPage';
+import {TextButtonPage} from '@pages/components/TextButtonPage';
 
 export const getPageFromRoute = (
   route: string,
@@ -126,6 +127,7 @@ export const componentsRouteMap = [
         page: <FilledTonalButtonPage />,
       },
       outlinedbutton: {name: 'OutlinedButton', page: <OutlinedButtonPage />},
+      textbutton: {name: 'TextButton', page: <TextButtonPage />},
       flex: {name: 'Flex', page: <FlexPage />},
       icon: {name: 'Icon', page: <IconPage />},
       menu: {name: 'Menu', page: <MenuPage />},

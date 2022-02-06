@@ -20,13 +20,13 @@ export const OutlinedButtonPage = () => {
 
       <SampleBox>
         <Tooltip tip={<Code>{`startIcon={icon}`}</Code>}>
-          <OutlinedButton startIcon={icon}>Outlined Icon Button</OutlinedButton>
+          <OutlinedButton margin={2} startIcon={icon}>Outlined Icon Button</OutlinedButton>
         </Tooltip>
         <br />
-        <OutlinedButton>Outlined Button</OutlinedButton>
+        <OutlinedButton margin={2}>Outlined Button</OutlinedButton>
         <br />
         <Tooltip tip={<Code>{`disabled={true}`}</Code>}>
-          <OutlinedButton startIcon={icon} disabled>
+          <OutlinedButton margin={2} startIcon={icon} disabled>
             Outlined Button
           </OutlinedButton>
         </Tooltip>
@@ -42,7 +42,7 @@ export const OutlinedButtonPage = () => {
             tip={<Code>{`endIcon={<svg><path d="M18 ..."/></svg}`}</Code>}
           >
             <OutlinedButton margin={2} endIcon={icon}>
-              Outlined Icon Button
+              End Icon
             </OutlinedButton>
           </Tooltip>
           <br />
@@ -52,18 +52,18 @@ export const OutlinedButtonPage = () => {
             </OutlinedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>{'fontColor="var(--sys-color-error)"'}</Code>}>
-            <OutlinedButton margin={2} fontColor="var(--sys-color-error)">
+          <Tooltip tip={<Code>{'fontColor="red"'}</Code>}>
+            <OutlinedButton margin={2} fontColor="red">
               Font Color
             </OutlinedButton>
           </Tooltip>
           <br />
           <Tooltip
-            tip={<Code>{'bgColor="var(--sys-color-error-container)"'}</Code>}
+            tip={<Code>{'bgColor="var(--sys-color-inverse-primary)"'}</Code>}
           >
             <OutlinedButton
               margin={2}
-              bgColor="var(--sys-color-error-container)"
+              bgColor="var(--sys-color-inverse-primary)"
             >
               Background Color
             </OutlinedButton>
@@ -88,7 +88,7 @@ export const OutlinedButtonPage = () => {
           </Tooltip>
           <br />
           <Tooltip tip={<Code>align="right"</Code>}>
-            <OutlinedButton margin={2} align="right">
+            <OutlinedButton margin={2} align="right" width="150px">
               Text Align
             </OutlinedButton>
           </Tooltip>
