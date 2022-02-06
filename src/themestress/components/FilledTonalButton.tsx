@@ -7,7 +7,8 @@ import {getMarginAndPadding, ReactHTMLProps} from '../core';
 import {ColorUtility} from '@themestress/core/classes/base/ColorUtility';
 import {createStateLayer} from '@themestress/core/md/color';
 
-export interface ElevatedButtonProps extends ReactHTMLProps<HTMLButtonElement> {
+export interface FilledTonalButtonProps
+  extends ReactHTMLProps<HTMLButtonElement> {
   disableRipple?: boolean;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
@@ -35,7 +36,7 @@ const baseStyles = ({
   theme,
   startIcon,
   endIcon,
-}: ElevatedButtonProps & {theme: Theme}) => {
+}: FilledTonalButtonProps & {theme: Theme}) => {
   return css`
     display: inline-flex;
     justify-content: center;
@@ -47,8 +48,7 @@ const baseStyles = ({
     border-radius: 9999px;
     padding-left: ${startIcon ? '16px' : '24px'};
     padding-right: ${endIcon ? '16px' : '24px'};
-    background-color: var(--sys-color-surface);
-    box-shadow: var(--sys-elevation-level-1);
+    background-color: var(--sys-color-secondary-container);
 
     ._Ripple {
       > span {
@@ -59,25 +59,25 @@ const baseStyles = ({
       }
     }
 
-    > span.elevated-button-start-icon {
+    > span.filled-tonal-button-start-icon {
       padding-right: 8px;
       display: flex;
       > svg {
-        fill: var(--sys-color-primary);
+        fill: var(--sys-color-on-secondary-container);
       }
     }
 
-    > span.elevated-button-end-icon {
+    > span.filled-tonal-button-end-icon {
       padding-left: 8px;
       display: flex;
       > svg {
-        fill: var(--sys-color-primary);
+        fill: var(--sys-color-on-secondary-container);
       }
     }
 
-    > span.elevated-button-label {
+    > span.filled-tonal-button-label {
       flex-grow: 1;
-      color: var(--sys-color-primary);
+      color: var(--sys-color-on-secondary-container);
       font-family: var(--sys-typescale-label-large-font);
       font-weight: var(--sys-typescale-label-large-weight);
       font-size: var(--sys-typescale-label-large-size);
@@ -87,7 +87,7 @@ const baseStyles = ({
   `;
 };
 
-const disabledStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
+const disabledStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
   return css`
     box-shadow: none;
     background-color: ${ColorUtility.hex.set.opacity(
@@ -95,8 +95,8 @@ const disabledStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
       ColorUtility.fractionToHex(0.12),
     )};
 
-    > span.elevated-button-start-icon,
-    > span.elevated-button-end-icon {
+    > span.filled-tonal-button-start-icon,
+    > span.filled-tonal-button-end-icon {
       > svg {
         fill: ${ColorUtility.hex.set.opacity(
           theme.palette.neutral.surface.on.hex,
@@ -105,7 +105,7 @@ const disabledStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
       }
     }
 
-    > span.elevated-button-label {
+    > span.filled-tonal-button-label {
       color: ${ColorUtility.hex.set.opacity(
         theme.palette.neutral.surface.on.hex,
         ColorUtility.fractionToHex(0.38),
@@ -113,38 +113,38 @@ const disabledStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
     }
   `;
 };
-const hoveredStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
+const hoveredStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
   return css`
-    box-shadow: var(--sys-elevation-level-2);
+    box-shadow: var(--sys-elevation-level-1);
     background-image: ${createStateLayer(
-      theme.palette.primary.main.hex,
+      theme.palette.secondary.container.on.hex,
       theme.states.hover.opacity,
     )};
   `;
 };
-const focusedStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
+const focusedStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
   return css`
     outline: 2px solid var(--sys-color-outline);
     outline-offset: 2px;
-    box-shadow: var(--sys-elevation-level-1);
+    box-shadow: var(--sys-elevation-level-0);
     background-image: ${createStateLayer(
-      theme.palette.primary.main.hex,
+      theme.palette.primary.main.on.hex,
       theme.states.focus.opacity,
     )};
   `;
 };
-const activeStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
+const activeStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
   return css`
-    transform: translateY(1px);
-    box-shadow: var(--sys-elevation-level-1);
+		transform: translateY(1px);
+    box-shadow: var(--sys-elevation-level-0);
     background-image: ${createStateLayer(
-      theme.palette.primary.main.hex,
+      theme.palette.secondary.container.on.hex,
       theme.states.press.opacity,
     )};
   `;
 };
 
-const StyledButton = styled.button<ElevatedButtonProps>`
+const StyledButton = styled.button<FilledTonalButtonProps>`
   ${baseStyles}
 
   :not(:disabled):focus-visible {
@@ -167,37 +167,38 @@ const StyledButton = styled.button<ElevatedButtonProps>`
   height: ${({height}) => height ?? ''};
   text-align: ${({align}) => align ?? ''};
   border-radius: ${({radius}) => radius ?? ''};
-  box-shadow: ${({elevation}) => `var(--sys-elevation-level-${elevation})`};
   background-color: ${({bgColor}) => bgColor ?? ''};
+  box-shadow: ${({elevation}) =>
+    `var(--sys-elevation-level-${elevation ?? 0})`};
 
-  > span.elevated-button-label {
+  > span.filled-tonal-button-label {
     color: ${({fontColor}) => fontColor ?? ''};
   }
 
   ${props => getMarginAndPadding(props)};
 `;
 
-export const ElevatedButton: React.FC<ElevatedButtonProps> = forwardRef(
+export const FilledTonalButton: React.FC<FilledTonalButtonProps> = forwardRef(
   ({children, ...props}, ref) => {
-    props.elevation = props.elevation === undefined ? 1 : props.elevation;
-
     return (
       <StyledButton
         ref={ref}
         disabled={props.disabled}
-        className="elevated-container"
+        className="filled-tonal-container"
         {...props}
       >
         {!props.disabled && <Ripple />}
 
         {props.startIcon && (
-          <span className="elevated-button-start-icon">{props.startIcon}</span>
+          <span className="filled-tonal-button-start-icon">
+            {props.startIcon}
+          </span>
         )}
 
-        <span className="elevated-button-label">{children}</span>
+        <span className="filled-tonal-button-label">{children}</span>
 
         {props.endIcon && (
-          <span className="elevated-button-end-icon">{props.endIcon}</span>
+          <span className="filled-tonal-button-end-icon">{props.endIcon}</span>
         )}
       </StyledButton>
     );

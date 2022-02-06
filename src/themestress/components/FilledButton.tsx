@@ -16,7 +16,6 @@ export interface FilledButtonProps extends ReactHTMLProps<HTMLButtonElement> {
   align?: 'left' | 'center' | 'right';
   fontColor?: string;
   bgColor?: string;
-  // borderColor?: TColor;
   radius?: string;
   width?: string;
   height?: string;
@@ -135,6 +134,7 @@ const focusedStyle = ({theme}: FilledButtonProps & {theme: Theme}) => {
 };
 const activeStyle = ({theme}: FilledButtonProps & {theme: Theme}) => {
   return css`
+    transform: translateY(1px);
     box-shadow: var(--sys-elevation-level-0);
     background-image: ${createStateLayer(
       theme.palette.primary.main.on.hex,
@@ -166,8 +166,9 @@ const StyledButton = styled.button<FilledButtonProps>`
   height: ${({height}) => height ?? ''};
   text-align: ${({align}) => align ?? ''};
   border-radius: ${({radius}) => radius ?? ''};
-  box-shadow: ${({elevation}) => `var(--sys-elevation-level-${elevation})`};
   background-color: ${({bgColor}) => bgColor ?? ''};
+  box-shadow: ${({elevation}) =>
+    `var(--sys-elevation-level-${elevation ?? 0})`};
 
   > span.filled-button-label {
     color: ${({fontColor}) => fontColor ?? ''};

@@ -33,6 +33,7 @@ import {Typography, NavigationItem} from '@themestress/components';
 
 import {ElevatedButtonPage} from '@pages/components/ElevatedButtonPage';
 import { FilledButtonPage } from '@pages/components/FilledButtonPage';
+import { FilledTonalButtonPage } from '@pages/components/FilledTonalButtonPage';
 
 export const getPageFromRoute = (
   route: string,
@@ -119,6 +120,7 @@ export const componentsRouteMap = [
       divider: {name: 'Divider', page: <DividerPage />},
       elevatedbutton: {name: 'ElevatedButton', page: <ElevatedButtonPage />},
       filledbutton: {name: 'FilledButton', page: <FilledButtonPage />},
+      filledtonalbutton: {name: 'FilledTonalButton', page: <FilledTonalButtonPage />},
       flex: {name: 'Flex', page: <FlexPage />},
       icon: {name: 'Icon', page: <IconPage />},
       menu: {name: 'Menu', page: <MenuPage />},

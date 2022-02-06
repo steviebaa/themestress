@@ -53,6 +53,13 @@ export const samples = {
   Filled Icon Button
 </FilledButton>`,
   },
+  filledtonalbutton: {
+    overview: `const startIcon = <svg height={18} width={18}><path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"/></svg>
+
+<FilledTonalButton startIcon={<PlusIcon/>}>
+  Filled Tonal Icon Button
+</FilledTonalButton>`,
+  },
   card: {
     overview: `<Card variant="outlined">
 	Card with variant="outlined"
