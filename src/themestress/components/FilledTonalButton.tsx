@@ -59,7 +59,7 @@ const baseStyles = ({
       }
     }
 
-    > span.filled-tonal-button-start-icon {
+    > span._FilledTonalButton-start-icon {
       padding-right: 8px;
       display: flex;
       > svg {
@@ -67,7 +67,7 @@ const baseStyles = ({
       }
     }
 
-    > span.filled-tonal-button-end-icon {
+    > span._FilledTonalButton-end-icon {
       padding-left: 8px;
       display: flex;
       > svg {
@@ -75,7 +75,7 @@ const baseStyles = ({
       }
     }
 
-    > span.filled-tonal-button-label {
+    > span._FilledTonalButton-label {
       flex-grow: 1;
       color: var(--sys-color-on-secondary-container);
       font-family: var(--sys-typescale-label-large-font);
@@ -95,8 +95,8 @@ const disabledStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
       ColorUtility.fractionToHex(0.12),
     )};
 
-    > span.filled-tonal-button-start-icon,
-    > span.filled-tonal-button-end-icon {
+    > span._FilledTonalButton-start-icon,
+    > span._FilledTonalButton-end-icon {
       > svg {
         fill: ${ColorUtility.hex.set.opacity(
           theme.palette.neutral.surface.on.hex,
@@ -105,7 +105,7 @@ const disabledStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
       }
     }
 
-    > span.filled-tonal-button-label {
+    > span._FilledTonalButton-label {
       color: ${ColorUtility.hex.set.opacity(
         theme.palette.neutral.surface.on.hex,
         ColorUtility.fractionToHex(0.38),
@@ -135,7 +135,7 @@ const focusedStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
 };
 const activeStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
   return css`
-		transform: translateY(1px);
+    transform: translateY(1px);
     box-shadow: var(--sys-elevation-level-0);
     background-image: ${createStateLayer(
       theme.palette.secondary.container.on.hex,
@@ -171,7 +171,7 @@ const StyledButton = styled.button<FilledTonalButtonProps>`
   box-shadow: ${({elevation}) =>
     `var(--sys-elevation-level-${elevation ?? 0})`};
 
-  > span.filled-tonal-button-label {
+  > span._FilledTonalButton-label {
     color: ${({fontColor}) => fontColor ?? ''};
   }
 
@@ -184,21 +184,21 @@ export const FilledTonalButton: React.FC<FilledTonalButtonProps> = forwardRef(
       <StyledButton
         ref={ref}
         disabled={props.disabled}
-        className="filled-tonal-container"
+        className="_FilledTonalButton"
         {...props}
       >
         {!props.disabled && <Ripple />}
 
         {props.startIcon && (
-          <span className="filled-tonal-button-start-icon">
+          <span className="_FilledTonalButton-start-icon">
             {props.startIcon}
           </span>
         )}
 
-        <span className="filled-tonal-button-label">{children}</span>
+        <span className="_FilledTonalButton-label">{children}</span>
 
         {props.endIcon && (
-          <span className="filled-tonal-button-end-icon">{props.endIcon}</span>
+          <span className="_FilledTonalButton-end-icon">{props.endIcon}</span>
         )}
       </StyledButton>
     );

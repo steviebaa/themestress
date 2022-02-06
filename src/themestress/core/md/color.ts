@@ -1,7 +1,9 @@
+import {Color} from '../classes/base/Color';
 import {ColorUtility} from '../classes/base/ColorUtility';
 import {SystemColorTokens} from '../definitions';
 
-export const createStateLayer = (color: string, opacity: number) => {
+export const createStateLayer = (color: string | Color, opacity: number) => {
+  if (color instanceof Color) color = color.hex;
   const rgb = ColorUtility.to.rgb(color);
   const rgba = ColorUtility.rgb.set.opacity(rgb, opacity);
   return `linear-gradient(${rgba}, ${rgba})`;

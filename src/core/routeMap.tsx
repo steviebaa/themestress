@@ -32,8 +32,9 @@ import {PalettePage} from '@pages/system/PalettePage';
 import {Typography, NavigationItem} from '@themestress/components';
 
 import {ElevatedButtonPage} from '@pages/components/ElevatedButtonPage';
-import { FilledButtonPage } from '@pages/components/FilledButtonPage';
-import { FilledTonalButtonPage } from '@pages/components/FilledTonalButtonPage';
+import {FilledButtonPage} from '@pages/components/FilledButtonPage';
+import {FilledTonalButtonPage} from '@pages/components/FilledTonalButtonPage';
+import {OutlinedButtonPage} from '@pages/components/OutlinedButtonPage';
 
 export const getPageFromRoute = (
   route: string,
@@ -120,7 +121,11 @@ export const componentsRouteMap = [
       divider: {name: 'Divider', page: <DividerPage />},
       elevatedbutton: {name: 'ElevatedButton', page: <ElevatedButtonPage />},
       filledbutton: {name: 'FilledButton', page: <FilledButtonPage />},
-      filledtonalbutton: {name: 'FilledTonalButton', page: <FilledTonalButtonPage />},
+      filledtonalbutton: {
+        name: 'FilledTonalButton',
+        page: <FilledTonalButtonPage />,
+      },
+      outlinedbutton: {name: 'OutlinedButton', page: <OutlinedButtonPage />},
       flex: {name: 'Flex', page: <FlexPage />},
       icon: {name: 'Icon', page: <IconPage />},
       menu: {name: 'Menu', page: <MenuPage />},

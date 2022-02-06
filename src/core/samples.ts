@@ -60,6 +60,13 @@ export const samples = {
   Filled Tonal Icon Button
 </FilledTonalButton>`,
   },
+  outlinedbutton: {
+    overview: `const startIcon = <svg height={18} width={18}><path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"/></svg>
+
+<OutlinedButton startIcon={<PlusIcon/>}>
+  Outlined Icon Button
+</OutlinedButton>`,
+  },
   card: {
     overview: `<Card variant="outlined">
 	Card with variant="outlined"

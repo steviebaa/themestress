@@ -20,13 +20,10 @@ export const ThemeProvider = ({children}: ThemeProps) => {
   // });
   const theme = new Theme({
     // palette: {primary: {main}}
-    palette: {primary: '#6750A4' /*neutral: '#FFFBFE'*/},
+
+    palette: {mode: settings.mode, primary: '#6750A4' /*neutral: '#FFFBFE'*/},
     typography: {regular: {font: 'Montserrat'}, medium: {font: 'Montserrat'}},
   });
-
-  useEffect(() => {
-    theme.setMode(settings.mode);
-  }, [settings.mode]);
 
   // theme.setGlobalCssVars();
 

@@ -3,11 +3,11 @@ import {samples} from '@core/samples';
 import {P, Code, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
-import {FilledTonalButton, Flex, Tooltip} from '@themestress/components';
+import {OutlinedButton, Flex, Tooltip} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 
-export const FilledTonalButtonPage = () => {
+export const OutlinedButtonPage = () => {
   const icon = (
     <svg height={18} width={18}>
       <path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"></path>
@@ -20,21 +20,19 @@ export const FilledTonalButtonPage = () => {
 
       <SampleBox>
         <Tooltip tip={<Code>{`startIcon={icon}`}</Code>}>
-          <FilledTonalButton startIcon={icon}>
-            Filled Tonal Icon Button
-          </FilledTonalButton>
+          <OutlinedButton startIcon={icon}>Outlined Icon Button</OutlinedButton>
         </Tooltip>
         <br />
-        <FilledTonalButton>Filled Tonal Button</FilledTonalButton>
+        <OutlinedButton>Outlined Button</OutlinedButton>
         <br />
         <Tooltip tip={<Code>{`disabled={true}`}</Code>}>
-          <FilledTonalButton startIcon={icon} disabled>
-            Filled Tonal Button
-          </FilledTonalButton>
+          <OutlinedButton startIcon={icon} disabled>
+            Outlined Button
+          </OutlinedButton>
         </Tooltip>
       </SampleBox>
 
-      <TypeScript code={samples.filledtonalbutton.overview} />
+      <TypeScript code={samples.outlinedbutton.overview} />
 
       <Subheading>Customizing</Subheading>
       <P>Hover a button to see the prop used.</P>
@@ -43,51 +41,68 @@ export const FilledTonalButtonPage = () => {
           <Tooltip
             tip={<Code>{`endIcon={<svg><path d="M18 ..."/></svg}`}</Code>}
           >
-            <FilledTonalButton margin={2} endIcon={icon}>
-              Filled Tonal Icon Button
-            </FilledTonalButton>
+            <OutlinedButton margin={2} endIcon={icon}>
+              Outlined Icon Button
+            </OutlinedButton>
           </Tooltip>
           <br />
           <Tooltip tip={<Code>{`elevation="5"`}</Code>}>
-            <FilledTonalButton margin={2} elevation="5">
+            <OutlinedButton margin={2} elevation="5">
               Elevation
-            </FilledTonalButton>
+            </OutlinedButton>
           </Tooltip>
           <br />
           <Tooltip tip={<Code>{'fontColor="var(--sys-color-error)"'}</Code>}>
-            <FilledTonalButton margin={2} fontColor="var(--sys-color-error)">
+            <OutlinedButton margin={2} fontColor="var(--sys-color-error)">
               Font Color
-            </FilledTonalButton>
+            </OutlinedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>{'bgColor="#ffadad"'}</Code>}>
-            <FilledTonalButton margin={2} bgColor="#ffadad">
+          <Tooltip
+            tip={<Code>{'bgColor="var(--sys-color-error-container)"'}</Code>}
+          >
+            <OutlinedButton
+              margin={2}
+              bgColor="var(--sys-color-error-container)"
+            >
               Background Color
-            </FilledTonalButton>
+            </OutlinedButton>
           </Tooltip>
           <br />
           <Tooltip tip={<Code>radius="4px"</Code>}>
-            <FilledTonalButton margin={2} radius="4px">
+            <OutlinedButton margin={2} radius="4px">
               Border Radius
-            </FilledTonalButton>
+            </OutlinedButton>
           </Tooltip>
           <br />
           <Tooltip tip={<Code>height="50px"</Code>}>
-            <FilledTonalButton margin={2} height="50px">
+            <OutlinedButton margin={2} height="50px">
               Height
-            </FilledTonalButton>
+            </OutlinedButton>
           </Tooltip>
           <br />
           <Tooltip tip={<Code>width="100px"</Code>}>
-            <FilledTonalButton margin={2} width="300px">
+            <OutlinedButton margin={2} width="300px">
               Width
-            </FilledTonalButton>
+            </OutlinedButton>
           </Tooltip>
           <br />
           <Tooltip tip={<Code>align="right"</Code>}>
-            <FilledTonalButton margin={2} align="right">
+            <OutlinedButton margin={2} align="right">
               Text Align
-            </FilledTonalButton>
+            </OutlinedButton>
+          </Tooltip>
+          <br />
+          <Tooltip tip={<Code>borderWidth="3px"</Code>}>
+            <OutlinedButton margin={2} borderWidth="3px">
+              Border Width
+            </OutlinedButton>
+          </Tooltip>
+          <br />
+          <Tooltip tip={<Code>borderColor="red"</Code>}>
+            <OutlinedButton margin={2} borderColor="red">
+              Border Color
+            </OutlinedButton>
           </Tooltip>
         </Flex>
       </SampleBox>

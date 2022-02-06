@@ -7,7 +7,7 @@ import {getMarginAndPadding, ReactHTMLProps} from '../core';
 import {ColorUtility} from '@themestress/core/classes/base/ColorUtility';
 import {createStateLayer} from '@themestress/core/md/color';
 
-export interface ElevatedButtonProps extends ReactHTMLProps<HTMLButtonElement> {
+export interface OutlinedButtonProps extends ReactHTMLProps<HTMLButtonElement> {
   disableRipple?: boolean;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
@@ -16,6 +16,8 @@ export interface ElevatedButtonProps extends ReactHTMLProps<HTMLButtonElement> {
   align?: 'left' | 'center' | 'right';
   fontColor?: string;
   bgColor?: string;
+  borderColor?: string;
+  borderWidth?: string;
   radius?: string;
   width?: string;
   height?: string;
@@ -35,12 +37,12 @@ const baseStyles = ({
   theme,
   startIcon,
   endIcon,
-}: ElevatedButtonProps & {theme: Theme}) => {
+}: OutlinedButtonProps & {theme: Theme}) => {
   return css`
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border: none;
+    border: 1px solid var(--sys-color-outline);
     position: relative;
     overflow: hidden;
     min-height: 40px;
@@ -48,7 +50,6 @@ const baseStyles = ({
     padding-left: ${startIcon ? '16px' : '24px'};
     padding-right: ${endIcon ? '16px' : '24px'};
     background-color: var(--sys-color-surface);
-    box-shadow: var(--sys-elevation-level-1);
 
     ._Ripple {
       > span {
@@ -59,7 +60,7 @@ const baseStyles = ({
       }
     }
 
-    > span._ElevatedButton-start-icon {
+    > span._OutlinedButton-start-icon {
       padding-right: 8px;
       display: flex;
       > svg {
@@ -67,7 +68,7 @@ const baseStyles = ({
       }
     }
 
-    > span._ElevatedButton-end-icon {
+    > span._OutlinedButton-end-icon {
       padding-left: 8px;
       display: flex;
       > svg {
@@ -75,7 +76,7 @@ const baseStyles = ({
       }
     }
 
-    > span._ElevatedButton-label {
+    > span._OutlinedButton-label {
       flex-grow: 1;
       color: var(--sys-color-primary);
       font-family: var(--sys-typescale-label-large-font);
@@ -87,16 +88,16 @@ const baseStyles = ({
   `;
 };
 
-const disabledStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
+const disabledStyle = ({theme}: OutlinedButtonProps & {theme: Theme}) => {
   return css`
     box-shadow: none;
-    background-color: ${ColorUtility.hex.set.opacity(
+    border-color: ${ColorUtility.hex.set.opacity(
       theme.palette.neutral.surface.on.hex,
       ColorUtility.fractionToHex(0.12),
     )};
 
-    > span._ElevatedButton-start-icon,
-    > span._ElevatedButton-end-icon {
+    > span._OutlinedButton-start-icon,
+    > span._OutlinedButton-end-icon {
       > svg {
         fill: ${ColorUtility.hex.set.opacity(
           theme.palette.neutral.surface.on.hex,
@@ -105,7 +106,7 @@ const disabledStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
       }
     }
 
-    > span._ElevatedButton-label {
+    > span._OutlinedButton-label {
       color: ${ColorUtility.hex.set.opacity(
         theme.palette.neutral.surface.on.hex,
         ColorUtility.fractionToHex(0.38),
@@ -113,38 +114,37 @@ const disabledStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
     }
   `;
 };
-const hoveredStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
+const hoveredStyle = ({theme}: OutlinedButtonProps & {theme: Theme}) => {
   return css`
-    box-shadow: var(--sys-elevation-level-2);
+    border-color: var(--sys-color-outline);
     background-image: ${createStateLayer(
-      theme.palette.primary.main.hex,
+      theme.palette.primary.main,
       theme.states.hover.opacity,
     )};
   `;
 };
-const focusedStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
+const focusedStyle = ({theme}: OutlinedButtonProps & {theme: Theme}) => {
   return css`
     outline: 2px solid var(--sys-color-outline);
+    border-color: var(--sys-color-primary);
     outline-offset: 2px;
-    box-shadow: var(--sys-elevation-level-1);
     background-image: ${createStateLayer(
-      theme.palette.primary.main.hex,
+      theme.palette.primary.main,
       theme.states.focus.opacity,
     )};
   `;
 };
-const activeStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
+const activeStyle = ({theme}: OutlinedButtonProps & {theme: Theme}) => {
   return css`
-    transform: translateY(1px);
-    box-shadow: var(--sys-elevation-level-1);
+    border-color: var(--sys-color-outline);
     background-image: ${createStateLayer(
-      theme.palette.primary.main.hex,
+      theme.palette.primary.main,
       theme.states.press.opacity,
     )};
   `;
 };
 
-const StyledButton = styled.button<ElevatedButtonProps>`
+const StyledButton = styled.button<OutlinedButtonProps>`
   ${baseStyles}
 
   :not(:disabled):focus-visible {
@@ -167,37 +167,38 @@ const StyledButton = styled.button<ElevatedButtonProps>`
   height: ${({height}) => height ?? ''};
   text-align: ${({align}) => align ?? ''};
   border-radius: ${({radius}) => radius ?? ''};
-  box-shadow: ${({elevation}) => `var(--sys-elevation-level-${elevation})`};
   background-color: ${({bgColor}) => bgColor ?? ''};
+  border-color: ${({borderColor}) => borderColor ?? ''};
+  border-width: ${({borderWidth}) => borderWidth ?? ''};
+  box-shadow: ${({elevation}) =>
+    `var(--sys-elevation-level-${elevation ?? 0})`};
 
-  > span._ElevatedButton-label {
+  > span._OutlinedButton-label {
     color: ${({fontColor}) => fontColor ?? ''};
   }
 
   ${props => getMarginAndPadding(props)};
 `;
 
-export const ElevatedButton: React.FC<ElevatedButtonProps> = forwardRef(
+export const OutlinedButton: React.FC<OutlinedButtonProps> = forwardRef(
   ({children, ...props}, ref) => {
-    props.elevation = props.elevation === undefined ? 1 : props.elevation;
-
     return (
       <StyledButton
         ref={ref}
         disabled={props.disabled}
-        className="_ElevatedButton"
+        className="_OutlinedButton"
         {...props}
       >
         {!props.disabled && <Ripple />}
 
         {props.startIcon && (
-          <span className="_ElevatedButton-start-icon">{props.startIcon}</span>
+          <span className="_OutlinedButton-start-icon">{props.startIcon}</span>
         )}
 
-        <span className="_ElevatedButton-label">{children}</span>
+        <span className="_OutlinedButton-label">{children}</span>
 
         {props.endIcon && (
-          <span className="_ElevatedButton-end-icon">{props.endIcon}</span>
+          <span className="_OutlinedButton-end-icon">{props.endIcon}</span>
         )}
       </StyledButton>
     );

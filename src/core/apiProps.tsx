@@ -113,6 +113,23 @@ export const apiProps = {
       ...paddingProps,
     ],
   },
+  outlinedbutton: {
+    props: [
+      ['disableRipple', 'boolean', 'false', 'Disable the ripple effect.'],
+      ['startIcon', '<svg/>', '', 'The icon on the left side.'],
+      ['endIcon', '<svg/>', '', 'The icon on the right side.'],
+      ['disabled', 'boolean', 'false', 'HTML button disabled prop.'],
+      ['elevation', 'string | number', '0', 'Between 0 and 5 inclusive.'],
+      ['align', 'left | center | right', 'center', 'Css text-align property.'],
+      ['fontColor', 'string', '', 'Css color property.'],
+      ['bgColor', 'string', '', 'Css background-color property.'],
+      ['radius', 'number', '', 'Multiplied by theme.spacing (px).'],
+      ['width', 'string', '', 'Css width property.'],
+      ['height', 'string', '40px', 'Css height property.'],
+      ...marginProps,
+      ...paddingProps,
+    ],
+  },
   card: {
     props: [
       ['variant', 'elevated | filled | outlined', 'elevated', 'Paper style.'],

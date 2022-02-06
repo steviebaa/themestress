@@ -58,7 +58,7 @@ const baseStyles = ({
       }
     }
 
-    > span.filled-button-start-icon {
+    > span._FilledButton-start-icon {
       padding-right: 8px;
       display: flex;
       > svg {
@@ -66,7 +66,7 @@ const baseStyles = ({
       }
     }
 
-    > span.filled-button-end-icon {
+    > span._FilledButton-end-icon {
       padding-left: 8px;
       display: flex;
       > svg {
@@ -74,7 +74,7 @@ const baseStyles = ({
       }
     }
 
-    > span.filled-button-label {
+    > span._FilledButton-label {
       flex-grow: 1;
       color: var(--sys-color-on-primary);
       font-family: var(--sys-typescale-label-large-font);
@@ -94,8 +94,8 @@ const disabledStyle = ({theme}: FilledButtonProps & {theme: Theme}) => {
       ColorUtility.fractionToHex(0.12),
     )};
 
-    > span.filled-button-start-icon,
-    > span.filled-button-end-icon {
+    > span._FilledButton-start-icon,
+    > span._FilledButton-end-icon {
       > svg {
         fill: ${ColorUtility.hex.set.opacity(
           theme.palette.neutral.surface.on.hex,
@@ -104,7 +104,7 @@ const disabledStyle = ({theme}: FilledButtonProps & {theme: Theme}) => {
       }
     }
 
-    > span.filled-button-label {
+    > span._FilledButton-label {
       color: ${ColorUtility.hex.set.opacity(
         theme.palette.neutral.surface.on.hex,
         ColorUtility.fractionToHex(0.38),
@@ -170,7 +170,7 @@ const StyledButton = styled.button<FilledButtonProps>`
   box-shadow: ${({elevation}) =>
     `var(--sys-elevation-level-${elevation ?? 0})`};
 
-  > span.filled-button-label {
+  > span._FilledButton-label {
     color: ${({fontColor}) => fontColor ?? ''};
   }
 
@@ -183,19 +183,19 @@ export const FilledButton: React.FC<FilledButtonProps> = forwardRef(
       <StyledButton
         ref={ref}
         disabled={props.disabled}
-        className="filled-container"
+        className="_FilledButton"
         {...props}
       >
         {!props.disabled && <Ripple />}
 
         {props.startIcon && (
-          <span className="filled-button-start-icon">{props.startIcon}</span>
+          <span className="_FilledButton-start-icon">{props.startIcon}</span>
         )}
 
-        <span className="filled-button-label">{children}</span>
+        <span className="_FilledButton-label">{children}</span>
 
         {props.endIcon && (
-          <span className="filled-button-end-icon">{props.endIcon}</span>
+          <span className="_FilledButton-end-icon">{props.endIcon}</span>
         )}
       </StyledButton>
     );
