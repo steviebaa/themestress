@@ -80,7 +80,7 @@ export const Ripple: React.FC<RippleProps> = ({
       className="_Ripple"
       duration={duration}
       bgColor={color}
-      onMouseDown={addRipple}
+      onMouseUp={addRipple}
     >
       {rippleArray.length > 0 &&
         rippleArray.map((ripple, index) => {

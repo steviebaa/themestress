@@ -14,8 +14,18 @@ export const P = styled((props: TypographyProps) => (
 `;
 
 export const Code = styled((props: TypographyProps) => (
-  <Typography variant="label-small" fontSize="1rem" {...props} />
-))``;
+  <Typography
+    variant="label-small"
+    fontSize="1rem"
+    fontColor="var(--sys-color-on-secondary-container)"
+    bgColor="var(--sys-color-secondary-container)"
+    padding={2}
+    {...props}
+  />
+))`
+  font-family: monospace;
+  border-radius: 4px;
+`;
 
 export const Subheading = styled.h2`
   margin-top: 48px;

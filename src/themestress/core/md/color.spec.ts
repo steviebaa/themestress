@@ -1,4 +1,4 @@
-import {colorRefTokenStubs, systemColorTokens} from './color';
+import {colorRefTokenStubs, createStateLayer, systemColorTokens} from './color';
 
 describe('MD color utilities', () => {
   it('should return the ref tokens object with the default or specific prefix', () => {
@@ -16,5 +16,12 @@ describe('MD color utilities', () => {
 
     const tokens2 = systemColorTokens('ts', 'ts');
     expect(tokens2['ts-color-primary'].light).toEqual('ts-palette-primary-40');
+  });
+  it('should compose the state layer background color', () => {
+    const color = createStateLayer('#fba91a', 0.12);
+
+    expect(color).toEqual(
+      'linear-gradient(rgb(251,169,26,0.12), rgb(251,169,26,0.12))',
+    );
   });
 });

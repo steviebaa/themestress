@@ -39,6 +39,13 @@ export const samples = {
   <CheckRounded fill={['primary', 'main']} />
 </Button>`,
   },
+  elevatedbutton: {
+    overview: `const startIcon = <svg height={16} width={16}><path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"/></svg>
+
+<ElevatedButton startIcon={<PlusIcon/>}>
+  Elevated Icon Button
+</ElevatedButton>`,
+  },
   card: {
     overview: `<Card variant="outlined">
 	Card with variant="outlined"
@@ -372,7 +379,6 @@ export const Dashboard = () => {
   handleColor={{on: 'royalblue', off: ['error', 'main']}}
 />;`,
   },
-
   tooltip: {
     overview: `<Tooltip tip="Is it me you're looking for?">
   <Button variant="outlined">Hover Me!</Button>

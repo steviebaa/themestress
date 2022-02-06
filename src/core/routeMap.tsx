@@ -31,7 +31,8 @@ import {PalettePage} from '@pages/system/PalettePage';
 
 import {Typography, NavigationItem} from '@themestress/components';
 
-import {ButtonElevatedPage} from '@pages/components/ButtonElevatedPage';
+import {ElevatedButtonPage} from '@pages/components/ElevatedButtonPage';
+import { FilledButtonPage } from '@pages/components/FilledButtonPage';
 
 export const getPageFromRoute = (
   route: string,
@@ -112,11 +113,12 @@ export const componentsRouteMap = [
       avatar: {name: 'Avatar', page: <AvatarPage />},
       backdrop: {name: 'Backdrop', page: <BackdropPage />},
       button: {name: 'Button', page: <ButtonPage />},
-      buttonelevated: {name: 'ButtonElevated', page: <ButtonElevatedPage />},
       card: {name: 'Card', page: <CardPage />},
       container: {name: 'Container', page: <ContainerPage />},
       contextmenu: {name: 'ContextMenu', page: <ContextMenuPage />},
       divider: {name: 'Divider', page: <DividerPage />},
+      elevatedbutton: {name: 'ElevatedButton', page: <ElevatedButtonPage />},
+      filledbutton: {name: 'FilledButton', page: <FilledButtonPage />},
       flex: {name: 'Flex', page: <FlexPage />},
       icon: {name: 'Icon', page: <IconPage />},
       menu: {name: 'Menu', page: <MenuPage />},

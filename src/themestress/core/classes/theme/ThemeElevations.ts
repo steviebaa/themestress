@@ -2,6 +2,7 @@ import {systemElevationStyles} from '../../md/elevation';
 import {ElevationStyles, addStyleHelper, ThemeMode} from '../../definitions';
 
 export interface ThemeElevationProps {
+  level0: ElevationStyles;
   level1: ElevationStyles;
   level2: ElevationStyles;
   level3: ElevationStyles;
@@ -13,6 +14,7 @@ export interface ThemeElevationInitializer
   extends Partial<ThemeElevationProps> {}
 
 export class ThemeElevations {
+  public level0: ElevationStyles;
   public level1: ElevationStyles;
   public level2: ElevationStyles;
   public level3: ElevationStyles;
@@ -43,7 +45,7 @@ export class ThemeElevations {
   };
 
   private _createGlobalSystemTokenCssVars = (addStyle: addStyleHelper) => {
-    [1, 2, 3, 4, 5].forEach(level => {
+    [0, 1, 2, 3, 4, 5].forEach(level => {
       addStyle(
         `sys-elevation-level-${level}`,
         `${this[`level${level}`].elevation}`,
@@ -63,6 +65,7 @@ export class ThemeElevations {
     const {mode, overlayHexColor, shadowHexColor} = options;
     const tokens = systemElevationStyles(mode, overlayHexColor, shadowHexColor);
 
+    this.level0 = tokens[0];
     this.level1 = tokens[1];
     this.level2 = tokens[2];
     this.level3 = tokens[3];

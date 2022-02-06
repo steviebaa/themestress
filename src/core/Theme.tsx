@@ -18,7 +18,11 @@ export const ThemeProvider = ({children}: ThemeProps) => {
   //     medium: {font: 'Montserrat'},
   //   },
   // });
-  const theme = new Theme({typography: {regular: {font: 'Montserrat'}}});
+  const theme = new Theme({
+    // palette: {primary: {main}}
+    palette: {primary: '#6750A4' /*neutral: '#FFFBFE'*/},
+    typography: {regular: {font: 'Montserrat'}, medium: {font: 'Montserrat'}},
+  });
 
   useEffect(() => {
     theme.setMode(settings.mode);

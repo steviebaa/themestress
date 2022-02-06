@@ -1,4 +1,11 @@
+import {ColorUtility} from '../classes/base/ColorUtility';
 import {SystemColorTokens} from '../definitions';
+
+export const createStateLayer = (color: string, opacity: number) => {
+  const rgb = ColorUtility.to.rgb(color);
+  const rgba = ColorUtility.rgb.set.opacity(rgb, opacity);
+  return `linear-gradient(${rgba}, ${rgba})`;
+};
 
 /** Keys must remain to map to the ThemePalette class but token prefix can change. */
 export const colorRefTokenStubs = (prefix = 'ref') => ({

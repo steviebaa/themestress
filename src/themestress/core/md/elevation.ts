@@ -20,6 +20,7 @@ export const systemElevationStyles = (
   const isLight = mode === 'light';
 
   return {
+    0: {elevation: `none`, overlay: `none`},
     1: isLight
       ? {
           elevation: `0px 1px 2px ${sc1}, 0px 1px 3px 1px ${sc2}`,
