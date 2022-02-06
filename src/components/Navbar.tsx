@@ -36,7 +36,13 @@ export const Navbar = () => {
         paddingLeft={6}
         justifyContent="space-between"
       >
-        <Typography variant="headline-small" element="span" margin={0}>
+        <Typography
+          variant="headline-small"
+          element="span"
+          margin={0}
+          fontColor="var(--sys-color-tertiary)"
+          weight={500}
+        >
           Themestress
         </Typography>
         <Flex alignItems="center" marginRight={4}>

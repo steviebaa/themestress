@@ -3,14 +3,14 @@ import {samples} from '@core/samples';
 import {P, Code, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
-import {ElevatedButton, Flex, Tooltip} from '@themestress/components';
+import {FilledButton, Flex, Tooltip} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 
-export const ElevatedButtonPage = () => {
+export const FilledButtonPage = () => {
   const icon = (
     <svg height={18} width={18}>
-      <path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z" />
+      <path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"></path>
     </svg>
   );
 
@@ -20,19 +20,19 @@ export const ElevatedButtonPage = () => {
 
       <SampleBox>
         <Tooltip tip={<Code>{`startIcon={icon}`}</Code>}>
-          <ElevatedButton startIcon={icon}>Elevated Icon Button</ElevatedButton>
+          <FilledButton startIcon={icon}>Filled Icon Button</FilledButton>
         </Tooltip>
         <br />
-        <ElevatedButton>Elevated Button</ElevatedButton>
+        <FilledButton>Filled Button</FilledButton>
         <br />
         <Tooltip tip={<Code>{`disabled={true}`}</Code>}>
-          <ElevatedButton startIcon={icon} disabled>
-            Elevated Button
-          </ElevatedButton>
+          <FilledButton startIcon={icon} disabled>
+            Filled Button
+          </FilledButton>
         </Tooltip>
       </SampleBox>
 
-      <TypeScript code={samples.elevatedbutton.overview} />
+      <TypeScript code={samples.filledbutton.overview} />
 
       <Subheading>Customizing</Subheading>
       <P>Hover a button to see the prop used.</P>
@@ -41,53 +41,51 @@ export const ElevatedButtonPage = () => {
           <Tooltip
             tip={<Code>{`endIcon={<svg><path d="M18 ..."/></svg}`}</Code>}
           >
-            <ElevatedButton margin={2} endIcon={icon}>
-              Elevated Icon Button
-            </ElevatedButton>
+            <FilledButton margin={2} endIcon={icon}>
+              Filled Icon Button
+            </FilledButton>
           </Tooltip>
           <br />
           <Tooltip tip={<Code>{`elevation="5"`}</Code>}>
-            <ElevatedButton margin={2} elevation="5">
+            <FilledButton margin={2} elevation="5">
               Elevation
-            </ElevatedButton>
+            </FilledButton>
           </Tooltip>
           <br />
-          <Tooltip
-            tip={<Code>{'fontColor="var(--ref-palette-error-60)"'}</Code>}
-          >
-            <ElevatedButton margin={2} fontColor="var(--ref-palette-error-60)">
+          <Tooltip tip={<Code>{'fontColor="var(--sys-color-error-container)"'}</Code>}>
+            <FilledButton margin={2} fontColor="var(--sys-color-error-container)">
               Font Color
-            </ElevatedButton>
+            </FilledButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>{'bgColor="#fcceaf"'}</Code>}>
-            <ElevatedButton margin={2} bgColor="#fcceaf">
+          <Tooltip tip={<Code>{'bgColor="#ffadad"'}</Code>}>
+            <FilledButton margin={2} bgColor="#ffadad">
               Background Color
-            </ElevatedButton>
+            </FilledButton>
           </Tooltip>
           <br />
           <Tooltip tip={<Code>radius="4px"</Code>}>
-            <ElevatedButton margin={2} radius="4px">
+            <FilledButton margin={2} radius="4px">
               Border Radius
-            </ElevatedButton>
+            </FilledButton>
           </Tooltip>
           <br />
           <Tooltip tip={<Code>height="50px"</Code>}>
-            <ElevatedButton margin={2} height="50px">
+            <FilledButton margin={2} height="50px">
               Height
-            </ElevatedButton>
+            </FilledButton>
           </Tooltip>
           <br />
           <Tooltip tip={<Code>width="100px"</Code>}>
-            <ElevatedButton margin={2} width="300px">
+            <FilledButton margin={2} width="300px">
               Width
-            </ElevatedButton>
+            </FilledButton>
           </Tooltip>
           <br />
           <Tooltip tip={<Code>align="right"</Code>}>
-            <ElevatedButton margin={2} align="right">
+            <FilledButton margin={2} align="right">
               Text Align
-            </ElevatedButton>
+            </FilledButton>
           </Tooltip>
         </Flex>
       </SampleBox>
