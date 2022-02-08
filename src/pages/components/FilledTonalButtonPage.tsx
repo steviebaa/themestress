@@ -9,8 +9,8 @@ import {PageHeader} from '@components/ImportSample';
 
 export const FilledTonalButtonPage = () => {
   const icon = (
-    <svg height={18} width={18}>
-      <path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"></path>
+    <svg viewBox="0 0 24 24">
+      <path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"></path>
     </svg>
   );
 
@@ -41,7 +41,9 @@ export const FilledTonalButtonPage = () => {
       <SampleBox>
         <Flex row wrap justifyContent="center" alignItems="center">
           <Tooltip
-            tip={<Code>{`endIcon={<svg><path d="M18 ..."/></svg}`}</Code>}
+            tip={
+              <Code>{`endIcon={<svg viewBox="0 0 24 24"><path d="M18 ..."/></svg}`}</Code>
+            }
           >
             <FilledTonalButton margin={2} endIcon={icon}>
               End Icon

@@ -63,6 +63,8 @@ const baseStyles = ({
       display: flex;
       > svg {
         fill: var(--sys-color-on-primary);
+        height: 24px;
+        width: 24px;
       }
     }
 
@@ -71,6 +73,8 @@ const baseStyles = ({
       display: flex;
       > svg {
         fill: var(--sys-color-on-primary);
+        height: 24px;
+        width: 24px;
       }
     }
 

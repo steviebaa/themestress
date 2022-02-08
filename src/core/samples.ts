@@ -40,39 +40,47 @@ export const samples = {
 </Button>`,
   },
   elevatedbutton: {
-    overview: `const startIcon = <svg height={18} width={18}><path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"/></svg>
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
 
 <ElevatedButton startIcon={<PlusIcon/>}>
   Elevated Icon Button
 </ElevatedButton>`,
   },
   filledbutton: {
-    overview: `const startIcon = <svg height={18} width={18}><path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"/></svg>
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
 
 <FilledButton startIcon={<PlusIcon/>}>
   Filled Icon Button
 </FilledButton>`,
   },
   filledtonalbutton: {
-    overview: `const startIcon = <svg height={18} width={18}><path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"/></svg>
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
 
 <FilledTonalButton startIcon={<PlusIcon/>}>
   Filled Tonal Icon Button
 </FilledTonalButton>`,
   },
   outlinedbutton: {
-    overview: `const startIcon = <svg height={18} width={18}><path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"/></svg>
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
 
 <OutlinedButton startIcon={<PlusIcon/>}>
   Outlined Icon Button
 </OutlinedButton>`,
   },
   textbutton: {
-    overview: `const startIcon = <svg height={18} width={18}><path d="M16 9H9V16H7V9H0V7H7V0H9V7H16V9Z"/></svg>
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
 
 <TextButton startIcon={<PlusIcon/>}>
   Text Icon Button
 </TextButton>`,
+  },
+  fab: {
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
+
+<FAB icon={<PlusIcon/>} position="bottom-left"/>`,
+    extendedfab: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
+
+<FAB icon={<PlusIcon/>} position="bottom-left">Extended</FAB>`,
   },
   card: {
     overview: `<Card variant="outlined">

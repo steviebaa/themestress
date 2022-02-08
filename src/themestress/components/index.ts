@@ -6,6 +6,7 @@ export * from './FilledButton';
 export * from './FilledTonalButton';
 export * from './OutlinedButton';
 export * from './TextButton';
+export * from './FAB';
 export * from './Card';
 export * from './Container';
 export * from './ContextMenu';
