@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import React, {forwardRef, useState} from 'react';
+import React, {forwardRef} from 'react';
 import styled from '@emotion/styled';
 import {css, jsx, Theme} from '@emotion/react';
 import {Ripple} from './Ripple';
