@@ -1,5 +1,5 @@
 import React from 'react';
-import {Code, P, Subheading} from '@components/StyledTypography';
+import {P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
 import {samples} from '@core/samples';
@@ -11,7 +11,7 @@ export const CardPage = () => {
   const cards = [];
   for (let i = 0; i <= 5; i++) {
     cards.push(
-      <Card margin={2} padding={4} elevation={i} height={'50px'} key={i}>
+      <Card elevation={i} height={'50px'} key={i} variant="elevated">
         <Flex justifyContent="center" alignItems="center" height="100%">
           Elevation {i}
         </Flex>
@@ -25,16 +25,22 @@ export const CardPage = () => {
       <P>A surface for displaying almost anything.</P>
 
       <SampleBox>
-        <Card >
-          Card with <Code>variant="elevated"</Code>
+        <Card width="200px" height="100px" variant="elevated">
+          <Flex height="100%" alignItems="flex-end">
+            Elevated
+          </Flex>
         </Card>
 
-        <Card variant="filled">
-          Card with <Code>variant="filled"</Code>
+        <Card draggable width="200px" height="100px" variant="filled">
+          <Flex height="100%" alignItems="flex-end">
+            Filled
+          </Flex>
         </Card>
 
-        <Card variant="outlined">
-          Card with <Code>variant="outlined"</Code>
+        <Card draggable width="200px" height="100px" variant="outlined">
+          <Flex height="100%" alignItems="flex-end">
+            Outlined
+          </Flex>
         </Card>
       </SampleBox>
       <TypeScript code={samples.card.overview} />

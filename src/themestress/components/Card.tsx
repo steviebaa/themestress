@@ -1,9 +1,10 @@
 /** @jsx jsx */
-import React, {ForwardedRef, forwardRef} from 'react';
+import React, {ForwardedRef, forwardRef, useState} from 'react';
 import styled from '@emotion/styled';
 import {css, jsx, Theme} from '@emotion/react';
 import {getMarginAndPadding} from '../core/themeUtils';
 import {BreakPoint} from '../core/definitions';
+import {createStateLayer} from '@themestress/core/md/color';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -30,41 +31,131 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   paddingBottom?: number;
 }
 
-const elevatedStyles = (props: CardProps & {theme: Theme}) => {
+const elevatedStyles = ({theme, elevation}: CardProps & {theme: Theme}) => {
   return css`
     color: var(--sys-color-on-surface);
     background-color: var(--sys-color-surface);
-    background-image: var(--sys-overlay-level-${props.elevation});
-    box-shadow: var(--sys-elevation-level-${props.elevation});
+    background-image: var(--sys-overlay-level-${elevation});
+    box-shadow: var(--sys-elevation-level-${elevation});
 
-    :hover {
+    :not(:disabled):focus-visible {
+      outline: 2px solid var(--sys-color-outline);
+      outline-offset: 2px;
+      box-shadow: var(--sys-elevation-level-1);
+      background-image: ${createStateLayer(
+        theme.palette.neutral.surface.on,
+        theme.states.focus.opacity,
+      )};
+    }
+
+    :not(:disabled):hover {
       box-shadow: var(--sys-elevation-level-2);
+      background-image: ${createStateLayer(
+        theme.palette.neutral.surface.on,
+        theme.states.hover.opacity,
+      )};
+    }
+
+    :not(:disabled):active {
+      transform: translateY(1px);
+      box-shadow: var(--sys-elevation-level-1);
+      background-image: ${createStateLayer(
+        theme.palette.neutral.surface.on,
+        theme.states.press.opacity,
+      )};
     }
   `;
 };
 
-const filledStyles = (props: CardProps & {theme: Theme}) => {
+const filledStyles = ({theme, elevation}: CardProps & {theme: Theme}) => {
   return css`
-    color: var(--sys-color-on-surface-variant);
+    color: var(--sys-color-on-surface);
     background-color: var(--sys-color-surface-variant);
+    background-image: var(--sys-overlay-level-${elevation});
+
+    :not(:disabled):focus-visible {
+      outline: 2px solid var(--sys-color-outline);
+      outline-offset: 2px;
+      box-shadow: var(--sys-elevation-level-0);
+      background-image: ${createStateLayer(
+        theme.palette.neutral.surface.on,
+        theme.states.focus.opacity,
+      )};
+    }
+
+    :not(:disabled):hover {
+      box-shadow: var(--sys-elevation-level-1);
+      background-image: ${createStateLayer(
+        theme.palette.neutral.surface.on,
+        theme.states.hover.opacity,
+      )};
+    }
+
+    :not(:disabled):active {
+      transform: translateY(1px);
+      box-shadow: var(--sys-elevation-level-0);
+      background-image: ${createStateLayer(
+        theme.palette.neutral.surface.on,
+        theme.states.press.opacity,
+      )};
+    }
   `;
 };
 
-const outlinedStyles = (props: CardProps & {theme: Theme}) => {
+const outlinedStyles = ({theme, elevation}: CardProps & {theme: Theme}) => {
   return css`
     color: var(--sys-color-on-surface);
     background-color: var(--sys-color-surface);
     border: 1px solid var(--sys-color-outline);
+
+    background-image: var(--sys-overlay-level-${elevation});
+
+    :not(:disabled):focus-visible {
+      outline: 2px solid var(--sys-color-outline);
+      outline-offset: 2px;
+      box-shadow: var(--sys-elevation-level-0);
+      background-image: ${createStateLayer(
+        theme.palette.neutral.surface.on,
+        theme.states.focus.opacity,
+      )};
+    }
+
+    :not(:disabled):hover {
+      box-shadow: var(--sys-elevation-level-0);
+      background-image: ${createStateLayer(
+        theme.palette.neutral.surface.on,
+        theme.states.hover.opacity,
+      )};
+    }
+
+    :not(:disabled):active {
+      box-shadow: var(--sys-elevation-level-0);
+      background-image: ${createStateLayer(
+        theme.palette.neutral.surface.on,
+        theme.states.press.opacity,
+      )};
+    }
   `;
 };
 
-const StyledDiv = styled.div<CardProps>`
+const draggingStyles = ({theme}: {theme: Theme}) => {
+  return css`
+    box-shadow: var(--sys-elevation-level-3);
+    background-image: ${createStateLayer(
+      theme.palette.neutral.surface.on,
+      theme.states.drag.opacity,
+    )};
+  `;
+};
+
+const StyledDiv = styled.div<CardProps & {isDragging: boolean}>`
   ${props => props.variant === 'elevated' && elevatedStyles}
   ${props => props.variant === 'filled' && filledStyles}
   ${props => props.variant === 'outlined' && outlinedStyles}
-	
-	margin: 4px;
-  padding: 20px 16px;
+  ${props => props.isDragging && draggingStyles}
+  
+  margin: 4px;
+  padding: 16px;
   ${props => getMarginAndPadding(props)}
 
   color: ${({fontColor}) => fontColor ?? ''};
@@ -82,19 +173,31 @@ export const Card: React.FC<CardProps> = forwardRef(
     {variant, elevation, ...props}: CardProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    if (variant === undefined) variant = 'elevated';
+    const [isDragging, setIsDragging] = useState(false);
+    const handleDrag = (dragging: boolean) => setIsDragging(dragging);
+
+    if (variant === undefined) variant = 'filled';
     if (elevation === undefined) elevation = 1;
 
     if (elevation < 0 || elevation > 5) {
-      console.error('Paper: elevation should be between 0 and 24 inclusive.');
+      console.error('Card: elevation should be between 0 and 5 inclusive.');
     }
 
     return (
       <StyledDiv
         ref={ref}
-        className="_Paper"
+        className="_Card"
         variant={variant}
         elevation={elevation}
+        isDragging={isDragging}
+        onDragStart={e => {
+          handleDrag(true);
+          props.onDragStart && props.onDragStart(e);
+        }}
+        onDragEnd={e => {
+          handleDrag(false);
+          props.onDragStart && props.onDragStart(e);
+        }}
         {...props}
       >
         {props.children}

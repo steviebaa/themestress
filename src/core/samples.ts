@@ -84,10 +84,10 @@ export const samples = {
   },
   card: {
     overview: `<Card variant="outlined">
-	Card with variant="outlined"
+  Outlined
 </Card>`,
     elevation: `<Card padding={3} elevation={3}>
-	Card with elevation={3}
+  Card with elevation={3}
 </Card>`,
   },
   container: {
@@ -141,7 +141,7 @@ export const samples = {
       <Menu open={open} onClose={toggleMenu} anchorElement={anchorElRef}>
         <MenuItem>New File</MenuItem>
       </Menu>
-			
+      
       <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
         Open Menu
       </Button>
