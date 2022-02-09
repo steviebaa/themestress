@@ -121,7 +121,7 @@ const hoveredStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
   return css`
     box-shadow: var(--sys-elevation-level-1);
     background-image: ${createStateLayer(
-      theme.palette.secondary.container.on.hex,
+      theme.palette.secondary.container.on,
       theme.states.hover.opacity,
     )};
   `;
@@ -132,7 +132,7 @@ const focusedStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
     outline-offset: 2px;
     box-shadow: var(--sys-elevation-level-0);
     background-image: ${createStateLayer(
-      theme.palette.primary.main.on.hex,
+      theme.palette.primary.main.on,
       theme.states.focus.opacity,
     )};
   `;
@@ -142,7 +142,7 @@ const activeStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
     transform: translateY(1px);
     box-shadow: var(--sys-elevation-level-0);
     background-image: ${createStateLayer(
-      theme.palette.secondary.container.on.hex,
+      theme.palette.secondary.container.on,
       theme.states.press.opacity,
     )};
   `;

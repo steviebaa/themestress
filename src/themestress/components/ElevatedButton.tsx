@@ -121,7 +121,7 @@ const hoveredStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
   return css`
     box-shadow: var(--sys-elevation-level-2);
     background-image: ${createStateLayer(
-      theme.palette.primary.main.hex,
+      theme.palette.primary.main,
       theme.states.hover.opacity,
     )};
   `;
@@ -132,7 +132,7 @@ const focusedStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
     outline-offset: 2px;
     box-shadow: var(--sys-elevation-level-1);
     background-image: ${createStateLayer(
-      theme.palette.primary.main.hex,
+      theme.palette.primary.main,
       theme.states.focus.opacity,
     )};
   `;
@@ -142,7 +142,7 @@ const activeStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
     transform: translateY(1px);
     box-shadow: var(--sys-elevation-level-1);
     background-image: ${createStateLayer(
-      theme.palette.primary.main.hex,
+      theme.palette.primary.main,
       theme.states.press.opacity,
     )};
   `;
