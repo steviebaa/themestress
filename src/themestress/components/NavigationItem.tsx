@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import {Button, ButtonProps} from './Button';
 
 export interface NavigationItemProps extends ButtonProps {
-  _internal_click?: (ref: ForwardedRef<HTMLButtonElement>) => void;
-  _internal_is_selected?: boolean;
+  __click?: (ref: ForwardedRef<HTMLButtonElement>) => void;
+  __selected?: boolean;
   children?: React.ReactNode;
 }
 
@@ -16,7 +16,7 @@ const StyledMenuItem = styled(Button)<NavigationItemProps>`
   max-width: 360px;
   padding: 8px;
   margin: 0px 0px 2px 0px;
-  color: ${({theme, _internal_is_selected}) => {
+  color: ${({theme, __selected: _internal_is_selected}) => {
     const {neutral, mode} = theme.palette;
     if (mode === 'light') {
       return neutral.tones[_internal_is_selected ? 90 : 60].hex;
@@ -28,7 +28,7 @@ const StyledMenuItem = styled(Button)<NavigationItemProps>`
 
 export const NavigationItem: React.FC<NavigationItemProps> = forwardRef(
   (
-    {onClick, _internal_click, ...props}: NavigationItemProps,
+    {onClick, __click: _internal_click, ...props}: NavigationItemProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
@@ -43,7 +43,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = forwardRef(
         noTransform
         align="left"
         variant="text"
-        _internal_is_selected={props._internal_is_selected}
+        __selected={props.__selected}
         {...props}
       >
         {props.children}

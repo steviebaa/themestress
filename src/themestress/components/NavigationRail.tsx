@@ -52,8 +52,8 @@ export const NavigationRail: React.FC<NavigationRailProps> = ({
 
       return React.cloneElement(child, {
         ref,
-        _internal_click: handleClick,
-        _internal_is_selected: itemIndex === selected,
+        __click: handleClick,
+        __selected: itemIndex === selected,
       });
     },
   );
