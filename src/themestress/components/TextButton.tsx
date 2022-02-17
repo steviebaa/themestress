@@ -144,8 +144,10 @@ const StyledButton = styled.button<TextButtonProps>`
     ${focusedStyle}
   }
 
-  :not(:disabled):hover {
-    ${hoveredStyle}
+  @media (hover: hover) {
+    :not(:disabled):hover {
+      ${hoveredStyle}
+    }
   }
 
   :not(:disabled):active {

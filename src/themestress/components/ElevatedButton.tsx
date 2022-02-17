@@ -155,8 +155,10 @@ const StyledButton = styled.button<ElevatedButtonProps>`
     ${focusedStyle}
   }
 
-  :not(:disabled):hover {
-    ${hoveredStyle}
+  @media (hover: hover) {
+    :not(:disabled):hover {
+      ${hoveredStyle}
+    }
   }
 
   :not(:disabled):active {
