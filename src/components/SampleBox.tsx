@@ -10,7 +10,7 @@ export const SampleBox: React.FC<SampleBoxProps> = ({
   ...props
 }: SampleBoxProps) => {
   return (
-    <Surface variant="outlined" padding={6} radius={4}>
+    <Surface variant="outlined" padding={6} radius={4} {...props}>
       <Flex justifyContent="space-around" {...props}>
         {children}
       </Flex>
