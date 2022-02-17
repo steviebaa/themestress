@@ -16,6 +16,8 @@ export * from './Icon';
 export * from './Menu';
 export * from './MenuItem';
 export * from './Modal';
+export * from './NavigationBar';
+export * from './NavigationBarItem';
 export * from './NavigationRail';
 export * from './NavigationItem';
 export * from './NestedMenuItem';

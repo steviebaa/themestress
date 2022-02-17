@@ -304,6 +304,17 @@ export const apiProps = {
       ['menuProps', 'MenuProps', '', 'Pass props to the Menu.'],
     ],
   },
+  navigationbar: {
+    props: [
+      ['selected', 'number', '', 'The index of the selected item.'],
+      [
+        'onSelectionChanged',
+        'Function(selectedIndex: number)',
+        '',
+        'Triggered when another NavigationBarItem is clicked.',
+      ],
+    ],
+  },
   navigationrail: {
     props: [
       ['selected', 'number', '', 'The index of the selected item.'],

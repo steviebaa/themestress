@@ -1,4 +1,4 @@
-import {ClassAttributes, HTMLAttributes} from 'react';
+import {ButtonHTMLAttributes, ClassAttributes, HTMLAttributes} from 'react';
 import {ThemeProps} from './classes/theme/Theme';
 import {TonalPalette} from './classes/base/TonalPalette';
 
@@ -63,6 +63,10 @@ export type TypographyColorPath = ['typography', TNeutral];
 export type NeutralColorPath = ['neutral', string | number, TColorDesignation];
 
 export type ReactHTMLProps<T> = ClassAttributes<T> & HTMLAttributes<T>;
+
+export interface ReactHTMLButtonProps
+  extends ReactHTMLProps<HTMLButtonElement>,
+    ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export type ThemeMode = 'light' | 'dark';
 

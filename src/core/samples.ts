@@ -203,6 +203,20 @@ export const samples = {
   )
 }`,
   },
+  navigationbar: {
+    overview: `export const NavMenu = () => {
+  const [selected, setSelected] = useState(0)
+
+  return (
+    <NavigationBar selected={selected} onSelectionChanged={i => setSelected(i)}>
+      <NavigationBarItem label="Label">{composeIcon}</NavigationBarItem>
+      <NavigationBarItem label="Label">{plusIcon}</NavigationBarItem>
+      <NavigationBarItem label="Label">{composeIcon}</NavigationBarItem>
+      <NavigationBarItem label="Label">{plusIcon}</NavigationBarItem>
+    </NavigationBar>
+  )
+}`,
+  },
   navigationrail: {
     overview: `export const SideMenu = () => {
   const [selected, setSelected] = useState(0)
