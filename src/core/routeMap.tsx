@@ -38,6 +38,7 @@ import {OutlinedButtonPage} from '@pages/components/OutlinedButtonPage';
 import {TextButtonPage} from '@pages/components/TextButtonPage';
 import {FABPage} from '@pages/components/FABPage';
 import {NavigationBarPage} from '@pages/components/NavigationBarPage';
+import {FullscreenDialogPage} from '@pages/components/FullscreenDialogPage';
 
 export const getPageFromRoute = (
   route: string,
@@ -117,7 +118,6 @@ export const componentsRouteMap = [
     pages: {
       avatar: {name: 'Avatar', page: <AvatarPage />},
       backdrop: {name: 'Backdrop', page: <BackdropPage />},
-			basicdialog: {name: 'BasicDialog', page: <BasicDialogPage />},
       button: {name: 'Button', page: <ButtonPage />},
       card: {name: 'Card', page: <CardPage />},
       container: {name: 'Container', page: <ContainerPage />},
@@ -137,6 +137,11 @@ export const componentsRouteMap = [
       menu: {name: 'Menu', page: <MenuPage />},
       menuitem: {name: 'MenuItem', page: <MenuItemPage />},
       nestedmenuitem: {name: 'NestedMenuItem', page: <NestedMenuItemPage />},
+      basicdialog: {name: 'BasicDialog', page: <BasicDialogPage />},
+      fullscreendialog: {
+        name: 'FullscreenDialog',
+        page: <FullscreenDialogPage />,
+      },
       navigationbar: {name: 'NavigationBar', page: <NavigationBarPage />},
       navigationrail: {name: 'NavigationRail', page: <NavigationRailPage />},
       navigationitem: {name: 'NavigationItem', page: <NavigationItemPage />},

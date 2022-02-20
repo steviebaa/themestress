@@ -40,20 +40,14 @@ export const apiProps = {
   backdrop: {
     props: [
       ['onClick', 'Function', '', 'Invoked when the backdrop is clicked.'],
-      ['zIndex', 'number', '1300', 'Uses theme.zIndex.backdrop if defined.'],
+      [
+        'zIndex',
+        'number',
+        'var(--sys-z-index-backdrop)',
+        'Css z-index property.',
+      ],
       ['bgColor', 'TColor', 'transparent', 'Css background-color property.'],
       ['fontColor', 'TColor', '', 'Css color property.'],
-    ],
-  },
-  basicdialog: {
-    props: [
-      ['open', 'boolean', 'false', 'If the dialog should be open.'],
-      ['onClickAway', 'Function', '', 'Executes when the backdrop is clicked.'],
-      ['backdropProps', 'BackdropProps', '', 'Pass props to the backdrop.'],
-      ['width', 'BreakPoint', 'sm', 'Css width property.'],
-      ['height', 'string', '', 'Css height property.'],
-      ...marginProps,
-      ...paddingProps,
     ],
   },
   button: {
@@ -313,6 +307,32 @@ export const apiProps = {
       ['content', 'ReactNode', '', 'Renders in the MenuItem.'],
       ['hideArrow', 'boolean', 'false', 'Hides the arrow on the MenuItem.'],
       ['menuProps', 'MenuProps', '', 'Pass props to the Menu.'],
+    ],
+  },
+
+  basicdialog: {
+    props: [
+      ['open', 'boolean', 'false', 'If the dialog should be open.'],
+      ['onClickAway', 'Function', '', 'Executes when the backdrop is clicked.'],
+      ['backdropProps', 'BackdropProps', '', 'Pass props to the backdrop.'],
+      ['width', 'BreakPoint', 'sm', 'Css width property.'],
+      ['height', 'string', '', 'Css height property.'],
+      ...marginProps,
+      ...paddingProps,
+    ],
+  },
+  fullscreendialog: {
+    props: [
+      ['open', 'boolean', 'false', 'If the dialog should be open.'],
+      ['onClickAway', 'Function', '', 'Executes when the backdrop is clicked.'],
+      [
+        'zIndex',
+        'number',
+        'var(--sys-z-index-modal)',
+        'Css z-index property.',
+      ],
+      ...marginProps,
+      ...paddingProps,
     ],
   },
   navigationbar: {

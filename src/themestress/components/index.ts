@@ -16,6 +16,7 @@ export * from './Icon';
 export * from './Menu';
 export * from './MenuItem';
 export * from './BasicDialog';
+export * from './FullscreenDialog';
 export * from './NavigationBar';
 export * from './NavigationBarItem';
 export * from './NavigationRail';
