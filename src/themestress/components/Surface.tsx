@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import React, {ForwardedRef, forwardRef} from 'react';
 import styled from '@emotion/styled';
-import {css, jsx, Theme} from '@emotion/react';
+import {css, jsx} from '@emotion/react';
 import {getMarginAndPadding} from '../core/themeUtils';
-import {BreakPoint} from '../core/definitions';
+import {BreakPoint, ReactHTMLProps} from '../core/definitions';
 
-export interface SurfaceProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SurfaceProps extends ReactHTMLProps<HTMLDivElement> {
   children?: React.ReactNode;
   fontColor?: string;
   bgColor?: string;
@@ -29,7 +29,7 @@ export interface SurfaceProps extends React.HTMLAttributes<HTMLDivElement> {
   paddingBottom?: number;
 }
 
-const elevatedStyles = (props: SurfaceProps & {theme: Theme}) => {
+const elevatedStyles = (props: SurfaceProps) => {
   return css`
     color: var(--sys-color-on-surface);
     background-color: var(--sys-color-surface);
@@ -38,14 +38,14 @@ const elevatedStyles = (props: SurfaceProps & {theme: Theme}) => {
   `;
 };
 
-const filledStyles = (props: SurfaceProps & {theme: Theme}) => {
+const filledStyles = () => {
   return css`
     color: var(--sys-color-on-surface-variant);
     background-color: var(--sys-color-surface-variant);
   `;
 };
 
-const outlinedStyles = (props: SurfaceProps & {theme: Theme}) => {
+const outlinedStyles = () => {
   return css`
     color: var(--sys-color-on-surface);
     background-color: var(--sys-color-surface);
