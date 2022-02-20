@@ -47,7 +47,7 @@ export class ThemeBreakpoints implements ThemeBreakpointsProps {
   };
 
   private _setProperties = (breakpoints?: ThemeBreakpointsInitializer) => {
-    this.xs.size = breakpoints.xs?.size ?? 0;
+    this.xs.size = breakpoints.xs?.size ?? 300;
     this.xs.unit = breakpoints.xs?.unit ?? 'px';
 
     this.sm.size = breakpoints.sm?.size ?? 600;
