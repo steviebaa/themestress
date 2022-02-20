@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {ForwardedRef, forwardRef} from 'react';
 import styled from '@emotion/styled';
 import {getMarginAndPadding} from '../core/themeUtils';
-import {ReactHTMLProps, TColor} from '../core/definitions';
+import {BreakPoint, ReactHTMLProps} from '../core/definitions';
 
 type JustifyProps =
   | 'flex-start'
@@ -48,7 +48,7 @@ export interface FlexProps extends ReactHTMLProps<HTMLDivElement> {
   fontColor?: string;
   bgColor?: string;
 
-  width?: string;
+  width?: BreakPoint;
   height?: string;
 
   justifyContent?: JustifyProps;
@@ -84,7 +84,7 @@ const FlexContainer = styled.div<FlexProps & {$wrap: boolean}>`
   flex-wrap: ${({$wrap, wrapReverse}) =>
     ($wrap && 'wrap') || (wrapReverse && 'wrap-reverse') || ''};
 
-  width: ${({width}) => width || ''};
+  width: ${({theme, width}) => theme.breakpoints.parse(width) || ''};
   height: ${({height}) => height || ''};
 
   align-items: ${({alignItems}) => alignItems || ''};
@@ -98,8 +98,15 @@ const FlexContainer = styled.div<FlexProps & {$wrap: boolean}>`
   background-color: ${({bgColor}) => bgColor || ''};
 `;
 
-export const Flex: React.FC<FlexProps> = ({wrap, ...props}: FlexProps) => {
-  return (
-    <FlexContainer className="_Flex" $wrap={wrap} {...props}></FlexContainer>
-  );
-};
+export const Flex: React.FC<FlexProps> = forwardRef(
+  ({wrap, ...props}: FlexProps, ref: ForwardedRef<HTMLDivElement>) => {
+    return (
+      <FlexContainer
+        ref={ref}
+        className="_Flex"
+        $wrap={wrap}
+        {...props}
+      ></FlexContainer>
+    );
+  },
+);
