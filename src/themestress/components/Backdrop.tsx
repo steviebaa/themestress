@@ -1,52 +1,55 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, {ForwardedRef, forwardRef} from 'react';
 import styled from '@emotion/styled';
-import {colorFromTheme, onColorFromTheme} from '../core/themeUtils';
-import {TColor, ReactHTMLProps} from '../core/definitions';
+import {ReactHTMLProps} from '../core/definitions';
+import {getMarginAndPadding} from '../core/themeUtils';
 
 export interface BackdropProps extends ReactHTMLProps<HTMLDivElement> {
   open: boolean;
-  onClick?: () => void;
+  onClick?: (e?: React.MouseEvent) => void;
   zIndex?: number;
-  fontColor?: TColor;
-  bgColor?: TColor;
+  fontColor?: string;
+  bgColor?: string;
   children?: React.ReactNode;
+
+  margin?: number;
+  marginLeft?: number;
+  marginRight?: number;
+  marginTop?: number;
+  marginBottom?: number;
+
+  padding?: number;
+  paddingLeft?: number;
+  paddingRight?: number;
+  paddingTop?: number;
+  paddingBottom?: number;
 }
 
 const StyledBackdrop = styled.div<BackdropProps>`
+  ${props => getMarginAndPadding(props)}
   position: fixed;
+  box-sizing: border-box;
   left: 0px;
   top: 0px;
   width: 100vw;
   height: 100vh;
-  z-index: ${({theme, zIndex}) => zIndex || theme.zIndex.backdrop};
-  background-color: ${({theme, bgColor: bg}) =>
-    bg === undefined ? 'transparent' : colorFromTheme(theme, bg)};
-
-  color: ${({theme, fontColor, bgColor}) => {
-    let color = 'inherit';
-    if (bgColor && !fontColor) color = onColorFromTheme(theme, bgColor);
-    else if (fontColor) color = colorFromTheme(theme, fontColor);
-    return color;
-  }};
+  z-index: ${({zIndex}) => zIndex ?? 'var(--sys-z-index-backdrop)'};
+  color: ${({fontColor}) => fontColor ?? 'inherit'};
+  background-color: ${({bgColor}) => bgColor ?? 'rgba(0, 0, 0, 0.3)'};
 `;
 
-export const Backdrop: React.FC<BackdropProps> = ({
-  onClick,
-  ...props
-}: BackdropProps) => {
-  const handleClick = () => {
-    onClick && onClick();
-  };
+export const Backdrop: React.FC<BackdropProps> = forwardRef(
+  ({onClick, ...props}, ref: ForwardedRef<HTMLDivElement>) => {
+    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+      onClick && onClick(e);
+    };
 
-  return props.open
-    ? ReactDOM.createPortal(
-        <StyledBackdrop
-          className="_Backdrop"
-          onClick={handleClick}
-          {...props}
-        />,
-        document.body,
-      )
-    : null;
-};
+    return props.open ? (
+      <StyledBackdrop
+        ref={ref}
+        className="_Backdrop"
+        onClick={handleClick}
+        {...props}
+      />
+    ) : null;
+  },
+);
