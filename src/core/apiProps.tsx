@@ -45,6 +45,17 @@ export const apiProps = {
       ['fontColor', 'TColor', '', 'Css color property.'],
     ],
   },
+  basicdialog: {
+    props: [
+      ['open', 'boolean', 'false', 'If the dialog should be open.'],
+      ['onClickAway', 'Function', '', 'Executes when the backdrop is clicked.'],
+      ['backdropProps', 'BackdropProps', '', 'Pass props to the backdrop.'],
+      ['width', 'BreakPoint', 'sm', 'Css width property.'],
+      ['height', 'string', '', 'Css height property.'],
+      ...marginProps,
+      ...paddingProps,
+    ],
+  },
   button: {
     props: [
       ['variant', 'contained | outlined | text', 'text', 'The button style.'],
@@ -328,16 +339,6 @@ export const apiProps = {
   },
   navigationitem: {
     extends: ['Button'],
-  },
-  modal: {
-    props: [
-      ['open', 'boolean', 'false', 'If the menu should be open.'],
-      ['onClickAway', 'Function', '', 'Executes when the backdrop is clicked.'],
-      ['backdropProps', 'BackdropProps', '', 'Pass props to the backdrop.'],
-      ['fullScreen', 'boolean', 'false', 'Make the modal 100vw x 100vh.'],
-      ['width', 'BreakPoint', 'md', 'Css width property.'],
-      ['height', 'string', '', 'Css height property.'],
-    ],
   },
   ripple: {
     props: [

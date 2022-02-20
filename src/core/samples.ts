@@ -30,6 +30,51 @@ export const samples = {
   )
 }`,
   },
+  basicdialog: {
+    overview: `export const ChangePayment = () => {
+  const [open, setOpen] = useState(false);
+  const toggleModal = () => setOpen(prev => !prev);
+  const snackbar = useSnackbar();
+
+  return (
+    <>
+      <ElevatedButton onClick={toggleModal}>Change Plan</ElevatedButton>
+
+      <BasicDialog open={open} onClickAway={toggleModal} width={'xs'}>
+        <Flex column>
+          <Typography variant="title-large">Change Plan</Typography>
+
+          <Divider margin={0} />
+
+          <Typography variant="body-large">
+            Are you sure you want to update you plan details?
+          </Typography>
+
+          <Flex justifyContent="flex-end">
+            <FilledButton
+              onClick={() => {
+                toggleModal();
+                snackbar.enqueue({
+                  content: 'Details updated 🎉',
+                  variant: 'success',
+                });
+              }}
+              margin={2}
+              marginRight={0}
+            >
+              Confirm
+            </FilledButton>
+
+            <OutlinedButton onClick={() => toggleModal()} margin={2}>
+              Cancel
+            </OutlinedButton>
+          </Flex>
+        </Flex>
+      </BasicDialog>
+    </>
+  );
+};`,
+  },
   button: {
     overview: '<Button>Button</Button>',
     variant: `<Button variant="contained">Contained</Button>
@@ -238,56 +283,6 @@ export const samples = {
   },
   navigationitem: {
     overview: `<NavigationItem>Dashboard</NavigationItem>`,
-  },
-  modal: {
-    overview: `export const ChangePayment = () => {
-  const [open, setOpen] = useState(false)
-  const toggleModal = () => setOpen(prev => !prev)
-  const snackbar = useSnackbar()
-
-  return (
-    <>
-      <Button variant="contained" onClick={toggleModal}>
-        Change Plan
-      </Button>
-
-      <Modal open={open} onClickAway={toggleModal} width={'xs'}>
-        <Flex column>
-          <Typography variant="h5" margin={4}>
-            Change Plan
-          </Typography>
-
-          <Divider margin={0} />
-
-          <Typography fontSize="16px" margin={4}>
-            Are you sure you want to update you plan details?
-          </Typography>
-
-          <Flex justifyContent="flex-end">
-            <Button
-              onClick={() => {
-                toggleModal()
-                snackbar.queue({
-                  content: 'Details updated 🎉',
-                  variant: 'success',
-                })
-              }}
-              variant="contained"
-              margin={2}
-              marginRight={0}
-            >
-              Confirm
-            </Button>
-
-            <Button onClick={() => toggleModal()} variant="outlined" margin={2}>
-              Cancel
-            </Button>
-          </Flex>
-        </Flex>
-      </Modal>
-    </>
-  )
-}`,
   },
   ripple: {
     overview: `<div>

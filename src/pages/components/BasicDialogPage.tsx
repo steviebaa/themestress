@@ -1,20 +1,22 @@
 import React, {useState} from 'react';
 import {P} from '@components/StyledTypography';
+import {samples} from '@core/samples';
 import {SampleBox} from '@components/SampleBox';
+import {TypeScript} from '@components/TypeScript';
+import {ApiTable} from '@components/ApiTable';
+import {PageHeader} from '@components/ImportSample';
+import {useSnackbar} from '@themestress/core/hooks';
 import {
-  Modal,
-  Button,
+  BasicDialog,
   Typography,
   Divider,
   Flex,
+  ElevatedButton,
+  OutlinedButton,
+  FilledButton,
 } from '@themestress/components';
-import {useSnackbar} from '@themestress/core/hooks';
-import {TypeScript} from '../../components/TypeScript';
-import {samples} from '../../core/samples';
-import {ApiTable} from '@components/ApiTable';
-import {PageHeader} from '@components/ImportSample';
 
-export const ModalPage = () => {
+export const BasicDialogPage = () => {
   const [open, setOpen] = useState(false);
   const toggleModal = () => setOpen(prev => !prev);
   const snackbar = useSnackbar();
@@ -22,27 +24,23 @@ export const ModalPage = () => {
   return (
     <>
       <PageHeader />
-      <P>Use a React portal to present a modal.</P>
+      <P>Present a modal.</P>
 
       <SampleBox>
-        <Button variant="contained" onClick={toggleModal}>
-          Change Plan
-        </Button>
+        <ElevatedButton onClick={toggleModal}>Change Plan</ElevatedButton>
 
-        <Modal open={open} onClickAway={toggleModal} width={'xs'}>
+        <BasicDialog open={open} onClickAway={toggleModal} width={'xs'}>
           <Flex column>
-            <Typography variant="h5" margin={4}>
-              Change Plan
-            </Typography>
+            <Typography variant="title-large">Change Plan</Typography>
 
             <Divider margin={0} />
 
-            <Typography fontSize="16px" margin={4}>
+            <Typography variant="body-large">
               Are you sure you want to update you plan details?
             </Typography>
 
             <Flex justifyContent="flex-end">
-              <Button
+              <FilledButton
                 onClick={() => {
                   toggleModal();
                   snackbar.enqueue({
@@ -50,26 +48,21 @@ export const ModalPage = () => {
                     variant: 'success',
                   });
                 }}
-                variant="contained"
                 margin={2}
                 marginRight={0}
               >
                 Confirm
-              </Button>
+              </FilledButton>
 
-              <Button
-                onClick={() => toggleModal()}
-                variant="outlined"
-                margin={2}
-              >
+              <OutlinedButton onClick={() => toggleModal()} margin={2}>
                 Cancel
-              </Button>
+              </OutlinedButton>
             </Flex>
           </Flex>
-        </Modal>
+        </BasicDialog>
       </SampleBox>
 
-      <TypeScript collapsable code={samples.modal.overview} />
+      <TypeScript collapsable code={samples.basicdialog.overview} />
 
       <ApiTable />
     </>

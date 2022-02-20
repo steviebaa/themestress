@@ -15,7 +15,7 @@ export * from './Flex';
 export * from './Icon';
 export * from './Menu';
 export * from './MenuItem';
-export * from './Modal';
+export * from './BasicDialog';
 export * from './NavigationBar';
 export * from './NavigationBarItem';
 export * from './NavigationRail';

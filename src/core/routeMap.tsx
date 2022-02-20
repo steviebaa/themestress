@@ -11,7 +11,7 @@ import {FlexPage} from '@pages/components/FlexPage';
 import {IconPage} from '@pages/components/IconPage';
 import {MenuPage} from '@pages/components/MenuPage';
 import {MenuItemPage} from '@pages/components/MenuItemPage';
-import {ModalPage} from '@pages/components/ModalPage';
+import {BasicDialogPage} from '@pages/components/BasicDialogPage';
 import {NavigationRailPage} from '@pages/components/NavigationRailPage';
 import {NavigationItemPage} from '@pages/components/NavigationItemPage';
 import {NestedMenuItemPage} from '@pages/components/NestedMenuItemPage';
@@ -117,6 +117,7 @@ export const componentsRouteMap = [
     pages: {
       avatar: {name: 'Avatar', page: <AvatarPage />},
       backdrop: {name: 'Backdrop', page: <BackdropPage />},
+			basicdialog: {name: 'BasicDialog', page: <BasicDialogPage />},
       button: {name: 'Button', page: <ButtonPage />},
       card: {name: 'Card', page: <CardPage />},
       container: {name: 'Container', page: <ContainerPage />},
@@ -139,7 +140,6 @@ export const componentsRouteMap = [
       navigationbar: {name: 'NavigationBar', page: <NavigationBarPage />},
       navigationrail: {name: 'NavigationRail', page: <NavigationRailPage />},
       navigationitem: {name: 'NavigationItem', page: <NavigationItemPage />},
-      modal: {name: 'Modal', page: <ModalPage />},
       ripple: {name: 'Ripple', page: <RipplePage />},
       slider: {name: 'Slider', page: <SliderPage />},
       snackbar: {name: 'Snackbar', page: <SnackbarPage />},
