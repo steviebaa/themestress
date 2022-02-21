@@ -17,7 +17,7 @@ import {
 } from '@themestress/components';
 
 export const FullscreenDialogPage = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const toggleModal = () => setOpen(prev => !prev);
   const snackbar = useSnackbar();
 
