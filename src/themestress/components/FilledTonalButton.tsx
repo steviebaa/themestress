@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import {css, jsx, Theme} from '@emotion/react';
 import {Ripple} from './Ripple';
 import {getMarginAndPadding, ReactHTMLProps} from '../core';
-import {ColorUtility} from '@themestress/core/classes/base/ColorUtility';
-import {createStateLayer} from '@themestress/core/md/color';
+import {ColorUtility} from '../core/classes/base/ColorUtility';
+import {createStateLayer} from '../core/md/color';
 
 export interface FilledTonalButtonProps
   extends ReactHTMLProps<HTMLButtonElement> {
