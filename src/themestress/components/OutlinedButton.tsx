@@ -93,6 +93,11 @@ const baseStyles = ({
 };
 
 const disabledStyle = ({theme}: OutlinedButtonProps & {theme: Theme}) => {
+  const color = ColorUtility.hex.set.opacity(
+    theme.palette.neutral.surface.on.hex,
+    ColorUtility.fractionToHex(0.38),
+  );
+
   return css`
     box-shadow: none;
     border-color: ${ColorUtility.hex.set.opacity(
@@ -102,19 +107,14 @@ const disabledStyle = ({theme}: OutlinedButtonProps & {theme: Theme}) => {
 
     > span._OutlinedButton-start-icon,
     > span._OutlinedButton-end-icon {
+      color: ${color};
       > svg {
-        fill: ${ColorUtility.hex.set.opacity(
-          theme.palette.neutral.surface.on.hex,
-          ColorUtility.fractionToHex(0.38),
-        )};
+        fill: ${color};
       }
     }
 
     > span._OutlinedButton-label {
-      color: ${ColorUtility.hex.set.opacity(
-        theme.palette.neutral.surface.on.hex,
-        ColorUtility.fractionToHex(0.38),
-      )};
+      color: ${color};
     }
   `;
 };

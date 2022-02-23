@@ -91,6 +91,11 @@ const baseStyles = ({
 };
 
 const disabledStyle = ({theme}: FilledButtonProps & {theme: Theme}) => {
+  const color = ColorUtility.hex.set.opacity(
+    theme.palette.neutral.surface.on.hex,
+    ColorUtility.fractionToHex(0.38),
+  );
+
   return css`
     box-shadow: none;
     background-color: ${ColorUtility.hex.set.opacity(
@@ -100,19 +105,14 @@ const disabledStyle = ({theme}: FilledButtonProps & {theme: Theme}) => {
 
     > span._FilledButton-start-icon,
     > span._FilledButton-end-icon {
+      color: ${color};
       > svg {
-        fill: ${ColorUtility.hex.set.opacity(
-          theme.palette.neutral.surface.on.hex,
-          ColorUtility.fractionToHex(0.38),
-        )};
+        fill: ${color};
       }
     }
 
     > span._FilledButton-label {
-      color: ${ColorUtility.hex.set.opacity(
-        theme.palette.neutral.surface.on.hex,
-        ColorUtility.fractionToHex(0.38),
-      )};
+      color: ${color};
     }
   `;
 };
