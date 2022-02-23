@@ -1,11 +1,15 @@
 import React, {useRef, useState} from 'react';
+import {samples} from '@core/samples';
 import {P, Code, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
-import {samples} from '@core/samples';
-import {Menu, MenuItem, Button} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
+import {Menu, MenuItem, Button, Divider} from '@themestress/components';
+
+import FolderIcon from '@themestress/icons/FolderOutlined';
+import ImportIcon from '@themestress/icons/FileDownloadOutlined';
+import SmallRightArrowIcon from '@themestress/icons/ArrowRightOutlined';
 
 export const MenuPage = () => {
   const [open, setOpen] = useState(false);
@@ -23,15 +27,26 @@ export const MenuPage = () => {
   return (
     <>
       <PageHeader />
-      <P>A dropdown menu that renders via a React Portal.</P>
+      <P>A menu that anchors to another element.</P>
+
+      <P>
+        The <Code>Menu</Code> will indent the text of each <Code>MenuItem</Code>{' '}
+        in groups. Groups are seperated by a Divider component.
+      </P>
 
       <SampleBox>
         <Menu open={open} onClose={toggleMenu} anchorElement={anchorElRef}>
-          <MenuItem>New File</MenuItem>
+          <MenuItem startIcon={FolderIcon}>Open</MenuItem>
           <MenuItem>Save as</MenuItem>
+          <MenuItem startIcon={ImportIcon} endIcon={SmallRightArrowIcon}>
+            Import
+          </MenuItem>
+          <Divider />
+          <MenuItem endIcon={'⌘C'}>Copy</MenuItem>
         </Menu>
+
         <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
-          Open Menu
+          File
         </Button>
       </SampleBox>
       <TypeScript code={samples.menu.overview} />

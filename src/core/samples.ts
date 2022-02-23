@@ -139,11 +139,17 @@ export const samples = {
   return (
     <>
       <Menu open={open} onClose={toggleMenu} anchorElement={anchorElRef}>
-        <MenuItem>New File</MenuItem>
+        <MenuItem startIcon={FolderIcon}>Open</MenuItem>
+        <MenuItem>Save as</MenuItem>
+        <MenuItem startIcon={ImportIcon} endIcon={SmallRightArrowIcon}>
+          Import
+        </MenuItem>
+        <Divider menu />
+        <MenuItem endIcon={'⌘C'}>Copy</MenuItem>
       </Menu>
       
       <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
-        Open Menu
+        File
       </Button>
     </>
   )
@@ -177,7 +183,15 @@ export const samples = {
 </>`,
   },
   menuitem: {
-    overview: `<MenuItem onClick={handleClick}>New File</MenuItem>`,
+    overview: `<StyledMenu open={true} onClose={handleClose} anchorElement={anchorEl}>
+  <MenuItem startIcon={FolderIcon}>Open</MenuItem>
+  <MenuItem>Save as</MenuItem>
+  <MenuItem startIcon={ImportIcon} endIcon={SmallRightArrowIcon}>
+    Import
+  </MenuItem>
+  <Divider menu />
+  <MenuItem endIcon={'⌘C'}>Copy</MenuItem>
+</StyledMenu>`,
   },
   nestedmenuitem: {
     overview: `const FileMenu = () => {

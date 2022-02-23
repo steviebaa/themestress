@@ -1,29 +1,45 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {Link} from 'react-router-dom';
+import styled from '@emotion/styled';
+import {samples} from '@core/samples';
 import {Code, P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
-import {samples} from '@core/samples';
-import {Surface, MenuItem, Flex} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
+import {MenuItem, Menu, Divider} from '@themestress/components';
+
+import FolderIcon from '@themestress/icons/FolderOutlined';
+import ImportIcon from '@themestress/icons/FileDownloadOutlined';
+import SmallRightArrowIcon from '@themestress/icons/ArrowRightOutlined';
+
+const StyledMenu = styled(Menu)`
+  position: relative;
+  top: 0;
+  left: 0;
+`;
 
 export const MenuItemPage = () => {
+  const anchorEl = useRef(null);
+
   return (
     <>
       <PageHeader />
       <P>
-        The <Code>MenuItem</Code> is a styled <Code>Button</Code> for use in the{' '}
-        <Code>Menu</Code> component.
+        The <Code>MenuItem</Code> is a styled <Code>TextButton</Code> for use in
+        the <Code>Menu</Code> component.
       </P>
 
-      <SampleBox>
-        <Surface>
-          <Flex column paddingTop={1} paddingBottom={1}>
-            <MenuItem>New File</MenuItem>
-            <MenuItem>Save As</MenuItem>
-          </Flex>
-        </Surface>
+      <SampleBox contrast>
+        <StyledMenu open={true} onClose={null} anchorElement={anchorEl} _nested>
+          <MenuItem startIcon={FolderIcon}>Open</MenuItem>
+          <MenuItem>Save as</MenuItem>
+          <MenuItem disabled startIcon={ImportIcon} endIcon={SmallRightArrowIcon}>
+            Import
+          </MenuItem>
+          <Divider />
+          <MenuItem endIcon={'⌘C'}>Copy</MenuItem>
+        </StyledMenu>
       </SampleBox>
       <TypeScript code={samples.menuitem.overview} />
 

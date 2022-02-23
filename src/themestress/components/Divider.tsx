@@ -14,9 +14,10 @@ interface DividerProps {
 }
 
 const StyledDivider = styled.hr<DividerProps>`
+  ${props => getMarginAndPadding(props)};
+
   width: ${({vertical, weight}) => (vertical ? (weight || 1) + 'px' : '100%')};
   height: ${({vertical, weight}) => (vertical ? 'auto' : (weight || 1) + 'px')};
-  margin: 0;
   padding: 0;
   border: none;
   display: inline-block;
@@ -25,8 +26,6 @@ const StyledDivider = styled.hr<DividerProps>`
   align-self: stretch;
 
   background-color: ${({bgColor}) => bgColor ?? 'var(--sys-color-outline)'};
-
-  ${props => getMarginAndPadding(props)};
 `;
 
 export const Divider: React.FC<DividerProps> = (props: DividerProps) => {

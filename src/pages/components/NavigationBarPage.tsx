@@ -34,10 +34,6 @@ const StyledNavBar = styled(NavigationBar)`
   position: relative;
 `;
 
-const StyledSampleBox = styled(SampleBox)`
-  background-color: var(--sys-color-inverse-on-surface);
-`;
-
 export const NavigationBarPage = () => {
   const [selected, setSelected] = useState(0);
 
@@ -61,7 +57,7 @@ export const NavigationBarPage = () => {
         components.
       </P>
 
-      <StyledSampleBox>
+      <SampleBox contrast>
         <StyledNavBar
           selected={selected}
           onSelectionChanged={i => setSelected(i)}
@@ -71,7 +67,7 @@ export const NavigationBarPage = () => {
           <NavigationBarItem label="Label">{composeIcon}</NavigationBarItem>
           <NavigationBarItem label="Label">{plusIcon}</NavigationBarItem>
         </StyledNavBar>
-      </StyledSampleBox>
+      </SampleBox>
       <TypeScript code={samples.navigationbar.overview} />
 
       <ApiTable />

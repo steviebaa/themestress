@@ -105,6 +105,7 @@ export const NestedMenuItem: React.FC<NestedMenuItemProps> = ({
         onClose={handleClose}
         anchorOrigin={anchorOrigin}
         transformOrigin={transformOrigin}
+        _nested
         {...menuProps}
       >
         {children}

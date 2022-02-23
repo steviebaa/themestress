@@ -19,12 +19,12 @@ export const Code = styled((props: TypographyProps) => (
     fontSize="1rem"
     fontColor="var(--sys-color-on-secondary-container)"
     bgColor="var(--sys-color-secondary-container)"
-    padding={2}
     {...props}
   />
 ))`
   font-family: monospace;
   border-radius: 4px;
+  padding: 0.5px 2px;
 `;
 
 export const Subheading = styled.h2`
