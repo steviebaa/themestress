@@ -23,14 +23,6 @@ import {SpacerPage} from '@pages/components/SpacerPage';
 import {SwitchPage} from '@pages/components/SwitchPage';
 import {TypographyPage} from '@pages/components/TypographyPage';
 import {TooltipPage} from '@pages/components/TooltipPage';
-
-import {GettingStartedPage} from '@pages/system/GettingStartedPage';
-import {ThemeingPage} from '@pages/system/ThemeingPage';
-import {TypesPage} from '@pages/system/TypesPage';
-import {PalettePage} from '@pages/system/PalettePage';
-
-import {Typography, NavigationItem} from '@themestress/components';
-
 import {ElevatedButtonPage} from '@pages/components/ElevatedButtonPage';
 import {FilledButtonPage} from '@pages/components/FilledButtonPage';
 import {FilledTonalButtonPage} from '@pages/components/FilledTonalButtonPage';
@@ -39,6 +31,15 @@ import {TextButtonPage} from '@pages/components/TextButtonPage';
 import {FABPage} from '@pages/components/FABPage';
 import {NavigationBarPage} from '@pages/components/NavigationBarPage';
 import {FullscreenDialogPage} from '@pages/components/FullscreenDialogPage';
+import {SelectPage} from '@pages/components/SelectPage';
+
+import {GettingStartedPage} from '@pages/system/GettingStartedPage';
+import {ThemeingPage} from '@pages/system/ThemeingPage';
+import {TypesPage} from '@pages/system/TypesPage';
+import {PalettePage} from '@pages/system/PalettePage';
+
+import {Typography, NavigationItem} from '@themestress/components';
+import {TextFieldPage} from '@pages/components/TextFieldPage';
 
 export const getPageFromRoute = (
   route: string,
@@ -146,10 +147,12 @@ export const componentsRouteMap = [
       navigationrail: {name: 'NavigationRail', page: <NavigationRailPage />},
       navigationitem: {name: 'NavigationItem', page: <NavigationItemPage />},
       ripple: {name: 'Ripple', page: <RipplePage />},
+      select: {name: 'Select', page: <SelectPage />},
       slider: {name: 'Slider', page: <SliderPage />},
       snackbar: {name: 'Snackbar', page: <SnackbarPage />},
       spacer: {name: 'Spacer', page: <SpacerPage />},
       switch: {name: 'Switch', page: <SwitchPage />},
+      textfield: {name: 'TextField', page: <TextFieldPage />},
       tooltip: {name: 'Tooltip', page: <TooltipPage />},
       typography: {name: 'Typography', page: <TypographyPage />},
     },
