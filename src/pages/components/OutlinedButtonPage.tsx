@@ -3,9 +3,9 @@ import {samples} from '@core/samples';
 import {P, Code, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
-import {OutlinedButton, Flex, Tooltip} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
+import {OutlinedButton, Flex, Tooltip} from '@themestress/components';
 
 export const OutlinedButtonPage = () => {
   const icon = (

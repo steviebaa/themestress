@@ -1,37 +1,57 @@
-import React, {useRef} from 'react';
-import {Link} from 'react-router-dom';
-import styled from '@emotion/styled';
+import React from 'react';
 import {samples} from '@core/samples';
-import {Code, P, Subheading} from '@components/StyledTypography';
+import {Code, P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
-import {TextField, Divider} from '@themestress/components';
+import {TextField} from '@themestress/components';
 
 import FolderIcon from '@themestress/icons/FolderOutlined';
 import ImportIcon from '@themestress/icons/FileDownloadOutlined';
-import SmallRightArrowIcon from '@themestress/icons/ArrowRightOutlined';
 
 export const TextFieldPage = () => {
-  // const anchorEl = useRef(null);
-
   return (
     <>
       <PageHeader />
+
       <P>
-        The <Code>MenuItem</Code> is a styled <Code>TextButton</Code> for use in
-        the <Code>Menu</Code> component.
+        There are two variants of TextField. Use the <Code>variant</Code> prop
+        to select <Code>outlined</Code> or <Code>filled.</Code>
       </P>
 
-      <SampleBox contrast>
-        <TextField></TextField>
+      <SampleBox>
+        <TextField label="Outlined" />
+        <TextField
+          label="Weight"
+          startIcon={ImportIcon}
+          endIcon={'KG'}
+          inputProps={{type: 'number'}}
+        />
+        <TextField label="Disabled" startIcon={FolderIcon} disabled />
       </SampleBox>
-      {/* <TypeScript code={samples.menuitem.overview} /> */}
 
-      <Subheading>API</Subheading>
+      <br />
 
-      {/* <ApiTable /> */}
+      <SampleBox contrast>
+        <TextField variant="filled" label="Filled" />
+        <TextField
+          variant="filled"
+          label="Weight"
+          startIcon={ImportIcon}
+          endIcon={'KG'}
+          inputProps={{type: 'number'}}
+        />
+        <TextField
+          variant="filled"
+          label="Disabled"
+          startIcon={FolderIcon}
+          disabled
+        />
+      </SampleBox>
+      <TypeScript code={samples.textfield.overview} />
+
+      <ApiTable />
     </>
   );
 };

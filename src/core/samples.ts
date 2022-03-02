@@ -219,9 +219,9 @@ export const samples = {
   },
   basicdialog: {
     overview: `export const ChangePayment = () => {
-  const [open, setOpen] = useState(false);
-  const toggleModal = () => setOpen(prev => !prev);
-  const snackbar = useSnackbar();
+  const [open, setOpen] = useState(false)
+  const toggleModal = () => setOpen(prev => !prev)
+  const snackbar = useSnackbar()
 
   return (
     <>
@@ -240,11 +240,11 @@ export const samples = {
           <Flex justifyContent="flex-end">
             <FilledButton
               onClick={() => {
-                toggleModal();
+                toggleModal()
                 snackbar.enqueue({
                   content: 'Details updated 🎉',
                   variant: 'success',
-                });
+                })
               }}
               margin={2}
               marginRight={0}
@@ -259,14 +259,14 @@ export const samples = {
         </Flex>
       </BasicDialog>
     </>
-  );
-};`,
+  )
+}`,
   },
   fullscreenDialog: {
     overview: `export const ChangePayment = () => {
-  const [open, setOpen] = useState(false);
-  const toggleModal = () => setOpen(prev => !prev);
-  const snackbar = useSnackbar();
+  const [open, setOpen] = useState(false)
+  const toggleModal = () => setOpen(prev => !prev)
+  const snackbar = useSnackbar()
 
   return (
     <>
@@ -285,11 +285,11 @@ export const samples = {
           <Flex justifyContent="flex-end">
             <FilledButton
               onClick={() => {
-                toggleModal();
+                toggleModal()
                 snackbar.enqueue({
                   content: 'Details updated 🎉',
                   variant: 'success',
-                });
+                })
               }}
               margin={2}
               marginRight={0}
@@ -304,8 +304,8 @@ export const samples = {
         </Flex>
       </FullscreenDialog>
     </>
-  );
-};`,
+  )
+}`,
   },
   navigationbar: {
     overview: `export const NavMenu = () => {
@@ -472,16 +472,33 @@ export const Dashboard = () => {
   },
   switch: {
     overview: `export const ToggleTheme = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(false)
 
-  return <Switch checked={darkMode} onChange={value => setDarkMode(value)} />;
+  return <Switch checked={darkMode} onChange={value => setDarkMode(value)} />
 }`,
     colors: `<Switch
   checked={on}
   onChange={value => setOn(value)}
   trackColor={{on: 'info', off: 'secondary'}}
   handleColor={{on: 'royalblue', off: ['error', 'main']}}
-/>;`,
+/>`,
+  },
+  textfield: {
+    overview: `export const WeightField = () => {
+  const [value, setValue] = useState<string>('');
+
+  return (
+    <TextField
+      variant="filled"
+      label="Weight"
+      startIcon={ImportIcon}
+      endIcon={'KG'}
+      inputProps={{type: 'number'}}
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    />
+  );
+}`,
   },
   tooltip: {
     overview: `<Tooltip tip="Is it me you're looking for?">

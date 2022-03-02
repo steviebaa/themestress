@@ -309,7 +309,6 @@ export const apiProps = {
       ['menuProps', 'MenuProps', '', 'Pass props to the Menu.'],
     ],
   },
-
   basicdialog: {
     props: [
       ['open', 'boolean', 'false', 'If the dialog should be open.'],
@@ -325,12 +324,7 @@ export const apiProps = {
     props: [
       ['open', 'boolean', 'false', 'If the dialog should be open.'],
       ['onClickAway', 'Function', '', 'Executes when the backdrop is clicked.'],
-      [
-        'zIndex',
-        'number',
-        'var(--sys-z-index-modal)',
-        'Css z-index property.',
-      ],
+      ['zIndex', 'number', 'var(--sys-z-index-modal)', 'Css z-index property.'],
       ...marginProps,
       ...paddingProps,
     ],
@@ -580,6 +574,23 @@ bottom-left | bottom-right`,
 }`,
         'Customize the color of the track for both states.',
       ],
+    ],
+  },
+  textfield: {
+    props: [
+      ['variant', 'outlined | filled', '', 'The input style.'],
+      ['value', 'string | number', '', 'The current value of the textfield.'],
+      ['onChange', 'Function', '', 'Receives the input event on value change.'],
+      [
+        'defaultValue',
+        'string | number',
+        '',
+        'Forward a default value to the input element.',
+      ],
+      ['label', 'string', '', 'The fieldset label.'],
+      ['startIcon', '<svg/>', '', 'The icon on the left side.'],
+      ['endIcon', '<svg/>', '', 'The icon on the right side.'],
+      ['disabled', 'boolean', 'false', 'Disable the element.'],
     ],
   },
   tooltip: {

@@ -87,17 +87,12 @@ const baseStyles = ({
       box-sizing: border-box;
       background-color: ${backgroundColor};
       border-radius: ${outlined ? '4px' : '4px 4px 0px 0px'};
-      border-color: var(
-        ${outlined ? '--sys-color-outline' : '--sys-color-primary'}
-      );
-      border-width: ${outlined ? '1px' : '0px 0px 2px 0px'};
+      border-color: var(--sys-color-outline);
+      border-width: ${outlined ? '1px' : '0px 0px 1px 0px'};
 
       :focus-within {
-        ${outlined &&
-        `
-				border-color: var(--sys-color-primary);
-        border-width: 2px;
-				`}
+        border-color: var(--sys-color-primary);
+        ${outlined ? `border-width: 2px;` : `border-bottom-width: 2px;`}
 
         > input {
           ~ legend {
