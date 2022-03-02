@@ -36,6 +36,10 @@ const baseStyles = ({
 
   const backgroundColor = outlined ? 'transparent' : 'var(--sys-color-surface)';
 
+  const tintColor = outlined
+    ? null
+    : ColorUtility.rgb.set.opacity(theme.palette.primary.main.rgb, 0.08);
+
   return css`
     font-weight: 400;
     font-size: 1rem;
@@ -86,6 +90,8 @@ const baseStyles = ({
       height: inherit;
       box-sizing: border-box;
       background-color: ${backgroundColor};
+      background-image: ${!outlined &&
+      `linear-gradient(${tintColor}, ${tintColor})`};
       border-radius: ${outlined ? '4px' : '4px 4px 0px 0px'};
       border-color: var(--sys-color-outline);
       border-width: ${outlined ? '1px' : '0px 0px 1px 0px'};
