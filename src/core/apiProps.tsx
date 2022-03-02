@@ -578,7 +578,7 @@ bottom-left | bottom-right`,
   },
   textfield: {
     props: [
-      ['variant', 'outlined | filled', '', 'The input style.'],
+      ['variant', 'outlined | filled', 'outlined', 'The input style.'],
       ['value', 'string | number', '', 'The current value of the textfield.'],
       ['onChange', 'Function', '', 'Receives the input event on value change.'],
       [

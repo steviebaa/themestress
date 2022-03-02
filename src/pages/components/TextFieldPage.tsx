@@ -33,7 +33,7 @@ export const TextFieldPage = () => {
 
       <br />
 
-      <SampleBox contrast>
+      <SampleBox>
         <TextField variant="filled" label="Filled" />
         <TextField
           variant="filled"
