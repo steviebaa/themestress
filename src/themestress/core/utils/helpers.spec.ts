@@ -6,6 +6,7 @@ import {
   normaliseRange,
   nullish,
   objDeep,
+  titleCase,
 } from './helpers';
 
 describe('Utils helpers', () => {
@@ -69,5 +70,8 @@ describe('Utils helpers', () => {
       k2: 'newValue',
       k3: 'v3',
     });
+  });
+  it('should title case a string', () => {
+    expect(titleCase('Test string')).toEqual('Test String');
   });
 });

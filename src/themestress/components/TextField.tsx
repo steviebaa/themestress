@@ -1,6 +1,6 @@
 import React, {MutableRefObject} from 'react';
 import {ReactHTMLProps} from '../core/definitions';
-import {InputBase, InputBaseProps} from './InputBase';
+import {InputBase} from './InputBase';
 
 export interface TextFieldProps extends ReactHTMLProps<HTMLDivElement> {
   value?: string | number;

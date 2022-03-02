@@ -4,6 +4,7 @@ import {css, Theme} from '@emotion/react';
 import {ReactHTMLProps} from '../core/definitions';
 import {getMarginAndPadding} from '../core/themeUtils';
 import {ColorUtility} from '@themestress/core/classes/base/ColorUtility';
+import {titleCase} from '@themestress/core/utils/helpers';
 
 export interface InputBaseProps extends ReactHTMLProps<HTMLDivElement> {
   value?: string | number;
@@ -40,6 +41,8 @@ const baseStyles = ({
     ? null
     : ColorUtility.rgb.set.opacity(theme.palette.primary.main.rgb, 0.08);
 
+  const className = `_${titleCase(variant)}${componentName}`;
+
   return css`
     font-weight: 400;
     font-size: 1rem;
@@ -52,7 +55,7 @@ const baseStyles = ({
     width: 245px;
 
     > fieldset {
-      > span._${componentName}-start-icon {
+      > span.${className}-start-icon {
         cursor: default;
         color: ${iconAndLabelColor};
         padding-right: 12px;
@@ -65,7 +68,7 @@ const baseStyles = ({
         }
       }
 
-      > span._${componentName}-end-icon {
+      > span.${className}-end-icon {
         cursor: default;
         color: ${iconAndLabelColor};
         padding-left: 12px;
@@ -265,17 +268,13 @@ export const InputBase: React.FC<InputBaseProps> = React.forwardRef(
     }: InputBaseProps,
     ref: MutableRefObject<HTMLDivElement>,
   ) => {
+    const className = `_${titleCase(props.variant)}${props.componentName}`;
+
     return (
-      <StyledTextField
-        ref={ref}
-        className={`_${props.componentName}`}
-        {...props}
-      >
+      <StyledTextField ref={ref} className={className} {...props}>
         <fieldset disabled={props.disabled}>
           {props.startIcon && (
-            <span className={`_${props.componentName}-start-icon`}>
-              {props.startIcon}
-            </span>
+            <span className={`${className}-start-icon`}>{props.startIcon}</span>
           )}
 
           <input
@@ -288,9 +287,7 @@ export const InputBase: React.FC<InputBaseProps> = React.forwardRef(
           />
 
           {props.endIcon && (
-            <span className={`_${props.componentName}-end-icon`}>
-              {props.endIcon}
-            </span>
+            <span className={`${className}-end-icon`}>{props.endIcon}</span>
           )}
 
           <legend>

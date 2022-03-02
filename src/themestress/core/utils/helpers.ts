@@ -60,3 +60,11 @@ export function mergeDeep(target: Object, source: Object) {
   }
   return target;
 }
+
+/** Title case a string */
+export function titleCase(s: string) {
+  return s
+    .split(' ')
+    .map(w => w[0].toUpperCase() + w.substring(1).toLowerCase())
+    .join(' ');
+}
