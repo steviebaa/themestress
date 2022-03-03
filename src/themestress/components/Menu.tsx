@@ -10,6 +10,7 @@ import {ReactHTMLProps, Transform} from '../core/definitions';
 import {createStateLayer} from '../core/md/color';
 import {Surface} from './Surface';
 import {Backdrop} from './Backdrop';
+import {BackdropProps} from './Backdrop';
 
 export interface MenuProps extends ReactHTMLProps<HTMLDivElement> {
   children: ReactNode;
@@ -21,6 +22,7 @@ export interface MenuProps extends ReactHTMLProps<HTMLDivElement> {
   transformOrigin?: Transform;
   positionOverride?: {x: number; y: number};
   _nested?: boolean;
+  backdropProps?: Partial<BackdropProps>;
 }
 
 const StyledMenu = styled(Surface)<MenuProps & {pos?: DOMRect | null}>`
@@ -82,6 +84,7 @@ const UnorderedList = styled.ul`
   display: flex;
   flex-direction: column;
   color: inherit;
+  flex-grow: 1;
 
   > ._Divider {
     background-color: var(--sys-color-surface-variant);
@@ -157,7 +160,11 @@ export const Menu: React.FC<MenuProps> = forwardRef(
       props.open && (
         <>
           {!isNested && (
-            <Backdrop open={props.open} onClick={handleClickAway} />
+            <Backdrop
+              open={props.open}
+              onClick={handleClickAway}
+              {...props.backdropProps}
+            />
           )}
           <StyledMenu
             ref={menuRef}

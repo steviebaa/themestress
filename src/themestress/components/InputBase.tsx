@@ -290,9 +290,11 @@ export const InputBase: React.FC<InputBaseProps> = React.forwardRef(
             <span className={`${className}-end-icon`}>{props.endIcon}</span>
           )}
 
-          <legend>
-            <label>{label}</label>
-          </legend>
+          {label && (
+            <legend>
+              <label>{label}</label>
+            </legend>
+          )}
         </fieldset>
       </StyledTextField>
     );

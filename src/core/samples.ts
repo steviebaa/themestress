@@ -349,6 +349,25 @@ export const samples = {
   <span>Click here</span>
 </div>`,
   },
+  select: {
+    overview: `export const SelectOption = () => {
+  const [value, setValue] = useState<string>('one');
+
+  return (
+    <Select
+      label="Select"
+      variant="filled"
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    >
+      <MenuItem value="one" startIcon={ImportIcon}>
+        Item 1
+      </MenuItem>
+      <MenuItem value="two">Item 2</MenuItem>
+    </Select>
+  );
+};`,
+  },
   slider: {
     overview: `export const VolumeController = () => {
   const [value, setValue] = useState(50)

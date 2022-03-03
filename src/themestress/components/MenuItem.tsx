@@ -13,6 +13,8 @@ export interface MenuItemProps
   children: React.ReactNode;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
+  /** Used for the Select component. Where the value passed to the Select will try to match this value. */
+  value?: string | number;
 }
 
 const baseStyles = () => {

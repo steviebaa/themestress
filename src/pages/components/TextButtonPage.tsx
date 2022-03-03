@@ -3,24 +3,19 @@ import {samples} from '@core/samples';
 import {P, Code, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
-import {TextButton, Flex, Tooltip} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
+import {TextButton, Flex, Tooltip} from '@themestress/components';
+import PlusIcon from '@themestress/icons/PlusSharp';
 
 export const TextButtonPage = () => {
-  const icon = (
-    <svg viewBox="0 0 24 24">
-      <path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"></path>
-    </svg>
-  );
-
   return (
     <>
       <PageHeader />
 
       <SampleBox>
         <Tooltip tip={<Code>{`startIcon={icon}`}</Code>}>
-          <TextButton margin={2} startIcon={icon}>
+          <TextButton margin={2} startIcon={PlusIcon}>
             Text Icon Button
           </TextButton>
         </Tooltip>
@@ -28,7 +23,7 @@ export const TextButtonPage = () => {
         <TextButton margin={2}>Text Button</TextButton>
         <br />
         <Tooltip tip={<Code>{`disabled={true}`}</Code>}>
-          <TextButton margin={2} startIcon={icon} disabled>
+          <TextButton margin={2} startIcon={PlusIcon} disabled>
             Text Button
           </TextButton>
         </Tooltip>
@@ -45,7 +40,7 @@ export const TextButtonPage = () => {
               <Code>{`endIcon={<svg viewBox="0 0 24 24"><path d="M18 ..."/></svg}`}</Code>
             }
           >
-            <TextButton margin={2} endIcon={icon}>
+            <TextButton margin={2} endIcon={PlusIcon}>
               End Icon
             </TextButton>
           </Tooltip>

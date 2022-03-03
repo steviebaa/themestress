@@ -6,21 +6,16 @@ import {TypeScript} from '@components/TypeScript';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {OutlinedButton, Flex, Tooltip} from '@themestress/components';
+import PlusIcon from '@themestress/icons/PlusSharp';
 
 export const OutlinedButtonPage = () => {
-  const icon = (
-    <svg viewBox="0 0 24 24">
-      <path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"></path>
-    </svg>
-  );
-
   return (
     <>
       <PageHeader />
 
       <SampleBox>
         <Tooltip tip={<Code>{`startIcon={icon}`}</Code>}>
-          <OutlinedButton margin={2} startIcon={icon}>
+          <OutlinedButton margin={2} startIcon={PlusIcon}>
             Outlined Icon Button
           </OutlinedButton>
         </Tooltip>
@@ -28,7 +23,7 @@ export const OutlinedButtonPage = () => {
         <OutlinedButton margin={2}>Outlined Button</OutlinedButton>
         <br />
         <Tooltip tip={<Code>{`disabled={true}`}</Code>}>
-          <OutlinedButton margin={2} startIcon={icon} disabled>
+          <OutlinedButton margin={2} startIcon={PlusIcon} disabled>
             Outlined Button
           </OutlinedButton>
         </Tooltip>
@@ -45,7 +40,7 @@ export const OutlinedButtonPage = () => {
               <Code>{`endIcon={<svg viewBox="0 0 24 24"><path d="M18 ..."/></svg}`}</Code>
             }
           >
-            <OutlinedButton margin={2} endIcon={icon}>
+            <OutlinedButton margin={2} endIcon={PlusIcon}>
               End Icon
             </OutlinedButton>
           </Tooltip>

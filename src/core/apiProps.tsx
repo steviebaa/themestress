@@ -365,6 +365,39 @@ export const apiProps = {
       ],
     ],
   },
+  select: {
+    props: [
+      ['variant', 'outlined | filled', 'outlined', 'The input style.'],
+      ['value', 'string | number', '', 'The current value of the textfield.'],
+      [
+        'onChange',
+        'Function',
+        '',
+        <span>
+          Callback for when the selected item changes. Access the{' '}
+          <Code>MenuItem</Code> value via <Code>e.target.value</Code>.`
+        </span>,
+      ],
+      [
+        'defaultValue',
+        'string | number',
+        '',
+        'Forward a default value to the input element.',
+      ],
+      ['label', 'string', '', 'The fieldset label.'],
+      ['startIcon', 'ReactNode', '', 'The icon on the left side.'],
+      ['endIcon', 'ReactNode', '', 'The icon on the right side.'],
+      [
+        'noEndIconRotate',
+        'boolean',
+        '',
+        'Prevent the endIcon from rotating on menu open.',
+      ],
+      ['disabled', 'boolean', '', 'If the field is disabled.'],
+      ['inputProps', 'React.InputHTMLAttributes<HTMLInputElement>', '', 'P.'],
+      ['disabled', 'boolean', 'false', 'Disable the element.'],
+    ],
+  },
   slider: {
     props: [
       ['width', 'string', '', 'Css width property.'],
@@ -588,8 +621,9 @@ bottom-left | bottom-right`,
         'Forward a default value to the input element.',
       ],
       ['label', 'string', '', 'The fieldset label.'],
-      ['startIcon', '<svg/>', '', 'The icon on the left side.'],
-      ['endIcon', '<svg/>', '', 'The icon on the right side.'],
+      ['startIcon', 'ReactNode', '', 'The icon on the left side.'],
+      ['endIcon', 'ReactNode', '', 'The icon on the right side.'],
+      ['inputProps', 'React.InputHTMLAttributes<HTMLInputElement>', '', 'P.'],
       ['disabled', 'boolean', 'false', 'Disable the element.'],
     ],
   },

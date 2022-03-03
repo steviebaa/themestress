@@ -49,6 +49,11 @@ const baseStyles = ({
     padding-right: ${endIcon ? '16px' : '24px'};
     background-color: var(--sys-color-primary);
 
+    * {
+      cursor: pointer;
+      pointer-events: none;
+    }
+
     ._Ripple {
       > span {
         background-color: ${ColorUtility.hex.set.opacity(

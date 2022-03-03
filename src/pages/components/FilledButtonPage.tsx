@@ -6,21 +6,16 @@ import {TypeScript} from '@components/TypeScript';
 import {FilledButton, Flex, Tooltip} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
+import PlusIcon from '@themestress/icons/PlusSharp';
 
 export const FilledButtonPage = () => {
-  const icon = (
-    <svg viewBox="0 0 24 24">
-      <path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"></path>
-    </svg>
-  );
-
   return (
     <>
       <PageHeader />
 
       <SampleBox>
         <Tooltip tip={<Code>{`startIcon={icon}`}</Code>}>
-          <FilledButton margin={2} startIcon={icon}>
+          <FilledButton margin={2} startIcon={PlusIcon}>
             Filled Icon Button
           </FilledButton>
         </Tooltip>
@@ -28,7 +23,7 @@ export const FilledButtonPage = () => {
         <FilledButton margin={2}>Filled Button</FilledButton>
         <br />
         <Tooltip tip={<Code>{`disabled={true}`}</Code>}>
-          <FilledButton margin={2} startIcon={icon} disabled>
+          <FilledButton margin={2} startIcon={PlusIcon} disabled>
             Filled Button
           </FilledButton>
         </Tooltip>
@@ -45,7 +40,7 @@ export const FilledButtonPage = () => {
               <Code>{`endIcon={<svg viewBox="0 0 24 24"><path d="M18 ..."/></svg}`}</Code>
             }
           >
-            <FilledButton margin={2} endIcon={icon}>
+            <FilledButton margin={2} endIcon={PlusIcon}>
               End Icon
             </FilledButton>
           </Tooltip>

@@ -1,20 +1,16 @@
-import React, {useRef} from 'react';
-import {Link} from 'react-router-dom';
-import styled from '@emotion/styled';
+import React, {useState} from 'react';
 import {samples} from '@core/samples';
 import {Code, P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
-import {Select, Divider} from '@themestress/components';
+import {Select, MenuItem} from '@themestress/components';
 
-import FolderIcon from '@themestress/icons/FolderOutlined';
 import ImportIcon from '@themestress/icons/FileDownloadOutlined';
-import SmallRightArrowIcon from '@themestress/icons/ArrowRightOutlined';
 
 export const SelectPage = () => {
-  // const anchorEl = useRef(null);
+  const [value, setValue] = useState<string>('one');
 
   return (
     <>
@@ -24,14 +20,35 @@ export const SelectPage = () => {
         the <Code>Menu</Code> component.
       </P>
 
-      <SampleBox contrast>
-        <Select></Select>
+      <SampleBox>
+        <Select
+          label="Select"
+          value={value}
+          onChange={e => setValue(e.target.value)}
+        >
+          <MenuItem value="one" startIcon={ImportIcon}>
+            Item 1
+          </MenuItem>
+          <MenuItem value="two">Item 2</MenuItem>
+        </Select>
+
+        <Select
+          label="Select"
+          variant="filled"
+          value={value}
+          onChange={e => setValue(e.target.value)}
+        >
+          <MenuItem value="one" startIcon={ImportIcon}>
+            Item 1
+          </MenuItem>
+          <MenuItem value="two">Item 2</MenuItem>
+        </Select>
       </SampleBox>
-      {/* <TypeScript code={samples.menuitem.overview} /> */}
+      <TypeScript code={samples.select.overview} />
 
       <Subheading>API</Subheading>
 
-      {/* <ApiTable /> */}
+      <ApiTable />
     </>
   );
 };

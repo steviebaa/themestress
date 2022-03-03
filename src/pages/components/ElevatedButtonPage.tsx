@@ -6,21 +6,16 @@ import {TypeScript} from '@components/TypeScript';
 import {ElevatedButton, Flex, Tooltip} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
+import PlusIcon from '@themestress/icons/PlusSharp';
 
 export const ElevatedButtonPage = () => {
-  const icon = (
-    <svg viewBox="0 0 24 24">
-      <path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"></path>
-    </svg>
-  );
-
   return (
     <>
       <PageHeader />
 
       <SampleBox>
         <Tooltip tip={<Code>{`startIcon={icon}`}</Code>}>
-          <ElevatedButton margin={2} startIcon={icon}>
+          <ElevatedButton margin={2} startIcon={PlusIcon}>
             Elevated Icon Button
           </ElevatedButton>
         </Tooltip>
@@ -28,7 +23,7 @@ export const ElevatedButtonPage = () => {
         <ElevatedButton margin={2}>Elevated Button</ElevatedButton>
         <br />
         <Tooltip tip={<Code>{`disabled={true}`}</Code>}>
-          <ElevatedButton margin={2} startIcon={icon} disabled>
+          <ElevatedButton margin={2} startIcon={PlusIcon} disabled>
             Elevated Button
           </ElevatedButton>
         </Tooltip>
@@ -45,7 +40,7 @@ export const ElevatedButtonPage = () => {
               <Code>{`endIcon={<svg viewBox="0 0 24 24"><path d="M18 ..."/></svg}`}</Code>
             }
           >
-            <ElevatedButton margin={2} endIcon={icon}>
+            <ElevatedButton margin={2} endIcon={PlusIcon}>
               End Icon
             </ElevatedButton>
           </Tooltip>

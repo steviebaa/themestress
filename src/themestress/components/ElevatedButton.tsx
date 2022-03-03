@@ -50,6 +50,11 @@ const baseStyles = ({
     background-color: var(--sys-color-surface);
     box-shadow: var(--sys-elevation-level-1);
 
+    * {
+      cursor: pointer;
+      pointer-events: none;
+    }
+
     ._Ripple {
       > span {
         background-color: ${ColorUtility.hex.set.opacity(

@@ -1,108 +1,90 @@
-import React, {MutableRefObject} from 'react';
 import styled from '@emotion/styled';
-import {css, Theme} from '@emotion/react';
+import React, {ChangeEvent, MutableRefObject, useRef, useState} from 'react';
 import {ReactHTMLProps} from '../core/definitions';
-import {getMarginAndPadding} from '../core/themeUtils';
-import {createStateLayer} from '../core/md/color';
-import {Typography} from './Typography';
+import {InputBase} from './InputBase';
+import {Menu} from './Menu';
+import ArrowDownSharpFilled from '../icons/ArrowDownSharpFilled';
 
-export interface SelectProps extends ReactHTMLProps<HTMLInputElement> {}
+export interface SelectProps extends ReactHTMLProps<HTMLDivElement> {
+  value: string | number;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  defaultValue?: string | number;
+  label?: string;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  disabled?: boolean;
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+  variant?: 'outlined' | 'filled';
+  noEndIconRotate?: boolean;
+}
 
-const baseStyles = () => {
-  return css`
-    cursor: pointer;
-    line-height: 1.5;
-    height: 48px;
-    min-width: 112px;
-    max-width: 280px;
-    overflow: hidden;
-    font-weight: 400;
-    font-size: 1rem;
-    border-radius: 0px;
-    text-align: left;
-    text-transform: none;
-    justify-content: left;
+const Input = styled(InputBase)<SelectProps & {open: boolean}>`
+  * {
+    cursor: pointer !important;
+  }
 
-    > span._TextButton-start-icon {
-      padding-right: 12px;
-      color: var(--sys-color-on-surface-variant);
+  > fieldset {
+    > input {
+      user-select: none;
+      caret-color: transparent;
+    }
+    > span:last-of-type {
       > svg {
-        fill: var(--sys-color-on-surface-variant);
+        transform: rotate(
+          ${({open, noEndIconRotate}) =>
+            open && !noEndIconRotate ? 180 : 0}deg
+        );
       }
     }
-
-    > span._TextButton-end-icon {
-      padding-left: 12px;
-      color: var(--sys-color-on-surface-variant);
-      > svg {
-        fill: var(--sys-color-on-surface-variant);
-      }
-    }
-
-    > span._TextButton-label {
-      color: var(--sys-color-on-surface);
-    }
-  `;
-};
-const hoveredStyle = ({theme}: {theme: Theme}) => {
-  return css`
-    background-image: ${createStateLayer(
-      theme.palette.neutral.surface.on,
-      theme.states.hover.opacity,
-    )};
-  `;
-};
-const focusedStyle = ({theme}: {theme: Theme}) => {
-  return css`
-    outline-offset: 0px;
-    background-image: ${createStateLayer(
-      theme.palette.neutral.surface.on,
-      theme.states.focus.opacity,
-    )};
-  `;
-};
-const activeStyle = ({theme}: {theme: Theme}) => {
-  return css`
-    transform: none;
-    background-image: ${createStateLayer(
-      theme.palette.neutral.surface.on,
-      theme.states.press.opacity,
-    )};
-  `;
-};
-const StyledSelect = styled.input<SelectProps>`
-  ${baseStyles}
-
-  :not(:disabled):focus-visible {
-    ${focusedStyle}
   }
-
-  @media (hover: hover) {
-    :not(:disabled):hover {
-      ${hoveredStyle}
-    }
-  }
-
-  :not(:disabled):active {
-    ${activeStyle}
-  }
-
-  ${props => getMarginAndPadding(props)}
-`;
-
-const StyledLabel = styled(Typography)<{padStart?: boolean; padEnd?: boolean}>`
-  padding-left: ${({padStart}) => padStart && '36px'};
-  padding-right: ${({padEnd}) => padEnd && '36px'};
 `;
 
 export const Select: React.FC<SelectProps> = React.forwardRef(
-  (props: SelectProps, ref: MutableRefObject<HTMLInputElement>) => {
+  ({value, ...props}: SelectProps, _ref: MutableRefObject<HTMLDivElement>) => {
+    const ref = _ref ?? useRef<HTMLDivElement>(null);
+    const [open, setOpen] = useState<boolean>(false);
+
+    const handleOnClick = (e: React.MouseEvent<HTMLDivElement>) => {
+      setOpen(true);
+      props.onClick && props.onClick(e);
+    };
+
+    const clonedChildren = React.Children.map(props.children, (child: any) => {
+      return React.cloneElement(child, {
+        onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+          child.onClick && child.onClick(e);
+          props.onChange &&
+            props.onChange(e as unknown as ChangeEvent<HTMLInputElement>);
+        },
+      });
+    });
+
+    const selectedItem = React.Children.toArray(props.children).filter(
+      (child: React.ReactElement) => child.props.value === value,
+    )[0] as React.ReactElement;
+
     return (
-      <StyledSelect
-        ref={ref}
-        className="_Select"
-        {...props}
-      ></StyledSelect>
+      <>
+        <Input
+          ref={ref}
+          componentName="Select"
+          variant={props.variant ?? 'outlined'}
+          endIcon={ArrowDownSharpFilled}
+          onClick={handleOnClick}
+          open={open}
+          value={selectedItem.props.children}
+          {...props}
+        />
+        <Menu
+          open={open}
+          onClose={() => setOpen(false)}
+          anchorElement={ref}
+          backdropProps={{bgColor: 'transparent'}}
+          width="245px"
+        >
+          {clonedChildren}
+        </Menu>
+      </>
     );
   },
 );
