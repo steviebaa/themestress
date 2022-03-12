@@ -64,7 +64,7 @@ const baseStyles = ({
       }
     }
 
-    > span._ElevatedButton-start-icon {
+    > span._ElevatedButton-StartIcon {
       padding-right: 8px;
       display: flex;
       > svg {
@@ -74,7 +74,7 @@ const baseStyles = ({
       }
     }
 
-    > span._ElevatedButton-end-icon {
+    > span._ElevatedButton-EndIcon {
       padding-left: 8px;
       display: flex;
       > svg {
@@ -84,7 +84,7 @@ const baseStyles = ({
       }
     }
 
-    > span._ElevatedButton-label {
+    > span._ElevatedButton-Label {
       flex-grow: 1;
       color: var(--sys-color-primary);
       font-family: var(--sys-typescale-label-large-font);
@@ -109,15 +109,15 @@ const disabledStyle = ({theme}: ElevatedButtonProps & {theme: Theme}) => {
       ColorUtility.fractionToHex(0.12),
     )};
 
-    > span._ElevatedButton-start-icon,
-    > span._ElevatedButton-end-icon {
+    > span._ElevatedButton-StartIcon,
+    > span._ElevatedButton-EndIcon {
       color: ${color};
       > svg {
         fill: ${color};
       }
     }
 
-    > span._ElevatedButton-label {
+    > span._ElevatedButton-Label {
       color: ${color};
     }
   `;
@@ -181,7 +181,7 @@ const StyledButton = styled.button<ElevatedButtonProps>`
   box-shadow: ${({elevation}) => `var(--sys-elevation-level-${elevation})`};
   background-color: ${({bgColor}) => bgColor ?? ''};
 
-  > span._ElevatedButton-label {
+  > span._ElevatedButton-Label {
     color: ${({fontColor}) => fontColor ?? ''};
   }
 
@@ -202,13 +202,13 @@ export const ElevatedButton: React.FC<ElevatedButtonProps> = forwardRef(
         {!props.disabled && <Ripple />}
 
         {props.startIcon && (
-          <span className="_ElevatedButton-start-icon">{props.startIcon}</span>
+          <span className="_ElevatedButton-StartIcon">{props.startIcon}</span>
         )}
 
-        <span className="_ElevatedButton-label">{children}</span>
+        <span className="_ElevatedButton-Label">{children}</span>
 
         {props.endIcon && (
-          <span className="_ElevatedButton-end-icon">{props.endIcon}</span>
+          <span className="_ElevatedButton-EndIcon">{props.endIcon}</span>
         )}
       </StyledButton>
     );

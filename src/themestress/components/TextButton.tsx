@@ -62,7 +62,7 @@ const baseStyles = ({
       }
     }
 
-    > span._TextButton-start-icon {
+    > span._TextButton-StartIcon {
       padding-right: 8px;
       display: flex;
       > svg {
@@ -72,7 +72,7 @@ const baseStyles = ({
       }
     }
 
-    > span._TextButton-end-icon {
+    > span._TextButton-EndIcon {
       padding-left: 8px;
       display: flex;
       > svg {
@@ -82,7 +82,7 @@ const baseStyles = ({
       }
     }
 
-    > span._TextButton-label {
+    > span._TextButton-Label {
       flex-grow: 1;
       color: var(--sys-color-primary);
       font-family: var(--sys-typescale-label-large-font);
@@ -101,15 +101,15 @@ const disabledStyle = ({theme}: TextButtonProps & {theme: Theme}) => {
   );
 
   return css`
-    > span._TextButton-start-icon,
-    > span._TextButton-end-icon {
+    > span._TextButton-StartIcon,
+    > span._TextButton-EndIcon {
       color: ${color};
       > svg {
         fill: ${color};
       }
     }
 
-    > span._TextButton-label {
+    > span._TextButton-Label {
       color: ${color};
     }
   `;
@@ -169,7 +169,7 @@ const StyledButton = styled.button<TextButtonProps>`
   border-radius: ${({radius}) => radius ?? ''};
   background-color: ${({bgColor}) => bgColor ?? ''};
 
-  > span._TextButton-label {
+  > span._TextButton-Label {
     color: ${({fontColor}) => fontColor ?? ''};
   }
 
@@ -188,13 +188,13 @@ export const TextButton: React.FC<TextButtonProps> = forwardRef(
         {!props.disabled && <Ripple />}
 
         {props.startIcon && (
-          <span className="_TextButton-start-icon">{props.startIcon}</span>
+          <span className="_TextButton-StartIcon">{props.startIcon}</span>
         )}
 
-        <span className="_TextButton-label">{children}</span>
+        <span className="_TextButton-Label">{children}</span>
 
         {props.endIcon && (
-          <span className="_TextButton-end-icon">{props.endIcon}</span>
+          <span className="_TextButton-EndIcon">{props.endIcon}</span>
         )}
       </StyledButton>
     );

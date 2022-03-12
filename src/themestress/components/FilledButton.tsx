@@ -63,7 +63,7 @@ const baseStyles = ({
       }
     }
 
-    > span._FilledButton-start-icon {
+    > span._FilledButton-StartIcon {
       padding-right: 8px;
       display: flex;
       > svg {
@@ -73,7 +73,7 @@ const baseStyles = ({
       }
     }
 
-    > span._FilledButton-end-icon {
+    > span._FilledButton-EndIcon {
       padding-left: 8px;
       display: flex;
       > svg {
@@ -83,7 +83,7 @@ const baseStyles = ({
       }
     }
 
-    > span._FilledButton-label {
+    > span._FilledButton-Label {
       flex-grow: 1;
       color: var(--sys-color-on-primary);
       font-family: var(--sys-typescale-label-large-font);
@@ -108,15 +108,15 @@ const disabledStyle = ({theme}: FilledButtonProps & {theme: Theme}) => {
       ColorUtility.fractionToHex(0.12),
     )};
 
-    > span._FilledButton-start-icon,
-    > span._FilledButton-end-icon {
+    > span._FilledButton-StartIcon,
+    > span._FilledButton-EndIcon {
       color: ${color};
       > svg {
         fill: ${color};
       }
     }
 
-    > span._FilledButton-label {
+    > span._FilledButton-Label {
       color: ${color};
     }
   `;
@@ -181,7 +181,7 @@ const StyledButton = styled.button<FilledButtonProps>`
   box-shadow: ${({elevation}) =>
     `var(--sys-elevation-level-${elevation ?? 0})`};
 
-  > span._FilledButton-label {
+  > span._FilledButton-Label {
     color: ${({fontColor}) => fontColor ?? ''};
   }
 
@@ -200,13 +200,13 @@ export const FilledButton: React.FC<FilledButtonProps> = forwardRef(
         {!props.disabled && <Ripple />}
 
         {props.startIcon && (
-          <span className="_FilledButton-start-icon">{props.startIcon}</span>
+          <span className="_FilledButton-StartIcon">{props.startIcon}</span>
         )}
 
-        <span className="_FilledButton-label">{children}</span>
+        <span className="_FilledButton-Label">{children}</span>
 
         {props.endIcon && (
-          <span className="_FilledButton-end-icon">{props.endIcon}</span>
+          <span className="_FilledButton-EndIcon">{props.endIcon}</span>
         )}
       </StyledButton>
     );

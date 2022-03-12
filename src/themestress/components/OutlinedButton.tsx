@@ -65,7 +65,7 @@ const baseStyles = ({
       }
     }
 
-    > span._OutlinedButton-start-icon {
+    > span._OutlinedButton-StartIcon {
       padding-right: 8px;
       display: flex;
       > svg {
@@ -75,7 +75,7 @@ const baseStyles = ({
       }
     }
 
-    > span._OutlinedButton-end-icon {
+    > span._OutlinedButton-EndIcon {
       padding-left: 8px;
       display: flex;
       > svg {
@@ -85,7 +85,7 @@ const baseStyles = ({
       }
     }
 
-    > span._OutlinedButton-label {
+    > span._OutlinedButton-Label {
       flex-grow: 1;
       color: var(--sys-color-primary);
       font-family: var(--sys-typescale-label-large-font);
@@ -110,15 +110,15 @@ const disabledStyle = ({theme}: OutlinedButtonProps & {theme: Theme}) => {
       ColorUtility.fractionToHex(0.12),
     )};
 
-    > span._OutlinedButton-start-icon,
-    > span._OutlinedButton-end-icon {
+    > span._OutlinedButton-StartIcon,
+    > span._OutlinedButton-EndIcon {
       color: ${color};
       > svg {
         fill: ${color};
       }
     }
 
-    > span._OutlinedButton-label {
+    > span._OutlinedButton-Label {
       color: ${color};
     }
   `;
@@ -184,7 +184,7 @@ const StyledButton = styled.button<OutlinedButtonProps>`
   box-shadow: ${({elevation}) =>
     `var(--sys-elevation-level-${elevation ?? 0})`};
 
-  > span._OutlinedButton-label {
+  > span._OutlinedButton-Label {
     color: ${({fontColor}) => fontColor ?? ''};
   }
 
@@ -203,13 +203,13 @@ export const OutlinedButton: React.FC<OutlinedButtonProps> = forwardRef(
         {!props.disabled && <Ripple />}
 
         {props.startIcon && (
-          <span className="_OutlinedButton-start-icon">{props.startIcon}</span>
+          <span className="_OutlinedButton-StartIcon">{props.startIcon}</span>
         )}
 
-        <span className="_OutlinedButton-label">{children}</span>
+        <span className="_OutlinedButton-Label">{children}</span>
 
         {props.endIcon && (
-          <span className="_OutlinedButton-end-icon">{props.endIcon}</span>
+          <span className="_OutlinedButton-EndIcon">{props.endIcon}</span>
         )}
       </StyledButton>
     );

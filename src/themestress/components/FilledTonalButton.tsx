@@ -64,7 +64,7 @@ const baseStyles = ({
       }
     }
 
-    > span._FilledTonalButton-start-icon {
+    > span._FilledTonalButton-StartIcon {
       padding-right: 8px;
       display: flex;
       > svg {
@@ -74,7 +74,7 @@ const baseStyles = ({
       }
     }
 
-    > span._FilledTonalButton-end-icon {
+    > span._FilledTonalButton-EndIcon {
       padding-left: 8px;
       display: flex;
       > svg {
@@ -84,7 +84,7 @@ const baseStyles = ({
       }
     }
 
-    > span._FilledTonalButton-label {
+    > span._FilledTonalButton-Label {
       flex-grow: 1;
       color: var(--sys-color-on-secondary-container);
       font-family: var(--sys-typescale-label-large-font);
@@ -109,15 +109,15 @@ const disabledStyle = ({theme}: FilledTonalButtonProps & {theme: Theme}) => {
       ColorUtility.fractionToHex(0.12),
     )};
 
-    > span._FilledTonalButton-start-icon,
-    > span._FilledTonalButton-end-icon {
+    > span._FilledTonalButton-StartIcon,
+    > span._FilledTonalButton-EndIcon {
       color: ${color};
       > svg {
         fill: ${color};
       }
     }
 
-    > span._FilledTonalButton-label {
+    > span._FilledTonalButton-Label {
       color: ${color};
     }
   `;
@@ -182,7 +182,7 @@ const StyledButton = styled.button<FilledTonalButtonProps>`
   box-shadow: ${({elevation}) =>
     `var(--sys-elevation-level-${elevation ?? 0})`};
 
-  > span._FilledTonalButton-label {
+  > span._FilledTonalButton-Label {
     color: ${({fontColor}) => fontColor ?? ''};
   }
 
@@ -201,15 +201,15 @@ export const FilledTonalButton: React.FC<FilledTonalButtonProps> = forwardRef(
         {!props.disabled && <Ripple />}
 
         {props.startIcon && (
-          <span className="_FilledTonalButton-start-icon">
+          <span className="_FilledTonalButton-StartIcon">
             {props.startIcon}
           </span>
         )}
 
-        <span className="_FilledTonalButton-label">{children}</span>
+        <span className="_FilledTonalButton-Label">{children}</span>
 
         {props.endIcon && (
-          <span className="_FilledTonalButton-end-icon">{props.endIcon}</span>
+          <span className="_FilledTonalButton-EndIcon">{props.endIcon}</span>
         )}
       </StyledButton>
     );
