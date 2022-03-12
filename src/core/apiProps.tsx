@@ -570,43 +570,38 @@ bottom-left | bottom-right`,
   },
   switch: {
     props: [
-      ['on', 'boolean', '', 'If the switch is on.'],
-      [
-        'noIcon',
-        'boolean',
-        '',
-        'Removes the checkmark and cross from the handle.',
-      ],
+      ['checked', 'boolean', '', 'The input state.'],
       [
         'onChange',
-        'Function(checked:boolean)',
+        'Function(e: React. ChangeEvent< HTMLInputElement>)',
         '',
-        'A callback for when the button is toggled.',
+        'A callback for when the switch is toggled.',
       ],
-      [
-        'smallTrack',
-        'boolean',
-        'false',
-        'Reduce the height of the track to match the handle.',
-      ],
+      ['trackWidth', 'string', '', 'The width of the track.'],
+      ['trackHeight', 'string', '', 'The height of the track.'],
+      ['trackBorderRadius', 'string', '', 'The border radius of the track.'],
       [
         'trackColor',
-        `{on?: TColor; off?: TColor;}`,
-        `{
- on: success.main; 
- off: neutral[100 | 700].main;
-}`,
-        'Customize the color of the track for both states. Defaults depend on theme.',
-      ],
-      [
-        'handleColor',
-        `{on?: TColor; off?: TColor}`,
-        `{
- on: 'white'; 
- off: 'white';
-}`,
+        `{on?: string; 
+off?: string}`,
+        `inverse-primary;
+outline;`,
         'Customize the color of the track for both states.',
       ],
+      ['handleDiameter', 'string', '', 'The diameter of the handle.'],
+      ['handleBorderRadius', 'string', '', 'The border radius of the handle.'],
+      ['handleInset', 'string', '', 'The inset of the handle from the track.'],
+      [
+        'handleColor',
+        `{on?: string;
+off?: string}`,
+        `primary; 
+surface-variant;`,
+        'Customize the color of the handle for both states.',
+      ],
+      ['noHandleShadow', 'string', '', 'Turn off the handle shadow.'],
+      ['noHoverEffect', 'string', '', 'Turn off the handle outline on hover.'],
+      ['disabled', 'string', '', 'If the switch is disabled.'],
     ],
   },
   textfield: {

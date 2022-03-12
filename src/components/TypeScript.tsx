@@ -31,7 +31,7 @@ export const TypeScript = React.memo(
       if (ref.current) {
         Prism.highlightElement(ref.current);
       }
-    }, [ref.current]);
+    }, [ref.current, code]);
 
     const toggleCollapse = () => {
       setIsCollapsed(prev => !prev);

@@ -48,7 +48,10 @@ export const Navbar = () => {
         <Flex alignItems="center" marginRight={4}>
           <Typography>Dark Mode</Typography>
           <Spacer size="8px" />
-          <Switch checked={darkMode} onChange={handleSwitchToggle} />
+          <Switch
+            checked={darkMode}
+            onChange={handleSwitchToggle}
+          />
         </Flex>
       </Flex>
     </StyledNavbar>

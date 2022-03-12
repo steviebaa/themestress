@@ -1,140 +1,275 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {TColor} from '../core/definitions';
-// import {colorFromTheme} from '../core/themeUtils';
 
 export interface SwitchProps {
   checked: boolean;
-  noIcon?: boolean;
-  onChange?: (checked: boolean) => void;
-  trackColor?: {on?: TColor; off?: TColor};
-  handleColor?: {on?: TColor; off?: TColor};
-  smallTrack?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  variant?: 'default' | 'ios' | 'android';
+  trackWidth?: string;
+  trackHeight?: string;
+  trackBorderRadius?: string;
+  trackColor?: {on?: string; off?: string};
+  handleDiameter?: string;
+  handleBorderRadius?: string;
+  handleInset?: string;
+  handleColor?: {on?: string; off?: string};
+  noHandleShadow?: boolean;
+  noHoverEffect?: boolean;
+  disabled?: boolean;
 }
 
-interface OnProp {
-  on: number;
-}
+const createPreset = (
+  trackWidth: string,
+  trackHeight: string,
+  trackBorderRadius: string,
+  trackColor: {on?: string; off?: string},
+  handleDiameter: string,
+  handleBorderRadius: string,
+  handleInset: string,
+  handleColor: {on?: string; off?: string},
+  noHoverEffect: boolean,
+) => {
+  return {
+    trackWidth,
+    trackHeight,
+    trackBorderRadius,
+    trackColor,
+    handleDiameter,
+    handleBorderRadius,
+    handleInset,
+    handleColor,
+    noHoverEffect,
+  };
+};
+const presets = {
+  default: createPreset(
+    '34px',
+    '14px',
+    '7px',
+    {
+      off: 'var(--sys-color-outline)',
+      on: 'var(--sys-color-inverse-primary)',
+    },
+    '20px',
+    '10px',
+    '-4px',
+    {
+      off: 'var(--sys-color-surface-variant)',
+      on: 'var(--sys-color-primary)',
+    },
+    false,
+  ),
+  ios: createPreset(
+    '42px',
+    '26px',
+    '13px',
+    {
+      off: 'var(--sys-color-secondary-container)',
+      on: '#65c466',
+    },
+    '22px',
+    '11px',
+    '2px',
+    {
+      off: 'var(--sys-color-surface)',
+      on: 'var(--sys-color-surface)',
+    },
+    true,
+  ),
+  android: createPreset(
+    '42px',
+    '22px',
+    '11px',
+    {
+      off: 'var(--sys-color-secondary-container)',
+      on: 'var(--sys-color-inverse-primary)',
+    },
+    '16px',
+    '8px',
+    '4px',
+    {
+      off: 'var(--sys-color-surface)',
+      on: 'var(--sys-color-primary)',
+    },
+    false,
+  ),
+};
 
-const Track = styled.span<Partial<SwitchProps> & OnProp>`
+const StyledContainer = styled.div<SwitchProps>`
+  position: relative;
+  height: ${({trackHeight, handleDiameter}) =>
+    `max(${trackHeight},${handleDiameter})`};
+  width: ${({trackWidth, handleInset}) =>
+    `max(${trackWidth}, calc(${trackWidth} - ${handleInset} * 2))`};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  :hover {
+    ._Switch-HandleEffect {
+      outline: ${({
+        trackColor,
+        handleDiameter,
+        checked,
+      }) => `calc(${handleDiameter} / 2) solid
+      ${checked ? trackColor.on : trackColor.off}`};
+    }
+  }
+
+  ${({disabled}) => disabled && 'opacity: 0.7'};
+`;
+
+const StyledTrack = styled.span<{
+  trackWidth: SwitchProps['trackWidth'];
+  trackHeight: SwitchProps['trackHeight'];
+  trackBorderRadius: SwitchProps['trackBorderRadius'];
+  trackColor: SwitchProps['trackColor'];
+  handleDiameter: SwitchProps['handleDiameter'];
+  disabled: SwitchProps['disabled'];
+  checked: boolean;
+}>`
   display: flex;
   align-items: center;
   position: relative;
-  width: 42px;
-  min-width: 42px;
-  max-width: 42px;
-  height: ${({smallTrack}) => (smallTrack ? '18px' : '26px')};
-  border-radius: 13px;
   padding: 0;
   align-items: center;
-  cursor: pointer;
-  background-color: ${({theme, trackColor, on}) => {
-    const {
-      palette: {success, neutral},
-    } = theme;
+
+  transition: background-color 200ms ease-in-out;
+  background-color: ${({trackColor, checked}) => {
     if (trackColor) {
-      // return on
-      //   ? colorFromTheme(theme, trackColor.on)
-      //   : colorFromTheme(theme, trackColor.off);
+      return checked ? trackColor.on : trackColor.off;
     } else {
-      if (theme.palette.mode === 'light') {
-        return on ? success.main.hex : neutral.tones[10].hex;
-      } else {
-        return on ? success.main.hex : neutral.tones[70].hex;
-      }
+      return `var(--sys-color-${checked ? 'primary' : 'secondary-container'})`;
     }
   }};
-  transition: background-color 200ms ease-in-out;
+
+  width: ${({trackWidth}) => trackWidth};
+  min-width: ${({trackWidth}) => trackWidth};
+  max-width: ${({trackWidth}) => trackWidth};
+  height: ${({trackHeight}) => trackHeight};
+  border-radius: ${({trackBorderRadius}) => trackBorderRadius};
 `;
 
-/* background-color: ${({theme, noIcon, handleColor, on}) =>
-	noIcon
-		? colorFromTheme(
-				theme,
-				on ? handleColor?.on ?? 'white' : handleColor?.off ?? 'white',
-			)
-		: 'transparent'}; */
-const Handle = styled.span<Partial<SwitchProps> & OnProp>`
+const StyledHandle = styled.span<{
+  handleDiameter: SwitchProps['handleDiameter'];
+  handleBorderRadius: SwitchProps['handleBorderRadius'];
+  handleInset: SwitchProps['handleInset'];
+  handleColor: SwitchProps['handleColor'];
+  trackWidth: SwitchProps['trackWidth'];
+  noHandleShadow: SwitchProps['noHandleShadow'];
+  checked: boolean;
+}>`
   position: absolute;
-  display: flex;
-  align-items: center;
-  border-radius: 50%;
-  width: ${({noIcon}) => (noIcon ? '22px' : '26px')};
   box-sizing: border-box;
-  transition: right 200ms;
-  padding-bottom: ${({noIcon}) => (noIcon ? '22px' : 'initial')};
-  right: ${({noIcon, on, smallTrack}) =>
-    smallTrack
-      ? noIcon
-        ? on
-          ? '-1px'
-          : '20px'
-        : on
-        ? '-3px'
-        : '18px'
-      : noIcon
-      ? on
-        ? '2px'
-        : '18px'
-      : on
-      ? '0px'
-      : '16px'};
+  background-color: ${({handleColor, checked}) =>
+    checked ? handleColor.on : handleColor.off};
+  ${({noHandleShadow}) =>
+    !noHandleShadow &&
+    `box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+                 rgb(0 0 0 / 14%) 0px 1px 1px 0px, 
+								 rgb(0 0 0 / 12%) 0px 1px 3px 0px`};
+
+  border-radius: ${({handleBorderRadius}) => handleBorderRadius ?? '50%'};
+  width: ${({handleDiameter}) => handleDiameter};
+  height: ${({handleDiameter}) => handleDiameter};
+
+  transition: left 200ms;
+  left: ${({checked, handleInset, trackWidth, handleDiameter}) => {
+    const startPos = checked ? trackWidth ?? '42px' : '0px';
+    const handleBuffer = checked ? handleDiameter : '0px';
+    const sign = checked ? '-' : '+';
+
+    return `calc((${startPos} - ${handleBuffer}) ${sign} ${
+      handleInset ?? '0px'
+    })`;
+  }};
 `;
 
-const TickPath = () => (
-  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.29 16.29 5.7 12.7a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0L10 14.17l6.88-6.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-7.59 7.59c-.38.39-1.02.39-1.41 0z" />
-);
-const CrossPath = () => (
-  <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm4.3 14.3c-.39.39-1.02.39-1.41 0L12 13.41 9.11 16.3c-.39.39-1.02.39-1.41 0a.9959.9959 0 0 1 0-1.41L10.59 12 7.7 9.11a.9959.9959 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0L12 10.59l2.89-2.89c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41L13.41 12l2.89 2.89c.38.38.38 1.02 0 1.41z" />
-);
+const StyledHoverEffect = styled.span`
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: inherit;
+  opacity: 0.12;
+`;
 
-/* fill: ${({theme, handleColor, on}) => {
-	return colorFromTheme(
-		theme,
-		on ? handleColor?.on ?? 'white' : handleColor?.off ?? 'white',
-	);
-}}; */
-const Svg = styled.svg<Partial<SwitchProps> & OnProp>``;
+const StyledInput = styled.input<{
+  trackHeight: string;
+  trackWidth: string;
+  handleDiameter: string;
+  handleInset: string;
+}>`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0;
+  cursor: pointer;
+  pointer-events: all;
+
+  :disabled {
+    cursor: default;
+  }
+`;
 
 export const Switch: React.FC<SwitchProps> = ({
-  checked,
-  noIcon,
-  trackColor,
   onChange,
-  handleColor,
+  variant,
   ...props
 }: SwitchProps) => {
-  const handleClick = () => {
-    if (onChange) onChange(!checked);
+  const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange && onChange(e);
   };
 
+  // Apply variants
+  const presetStyle = presets[variant] ?? presets.default;
+  Object.entries(presetStyle).forEach(([k, v]) => (props[k] = props[k] ?? v));
+
   return (
-    <Track
-      className="_Switch-Track"
-      on={checked ? 1 : 0}
-      onClick={handleClick}
-      noIcon={noIcon}
-      trackColor={trackColor}
-      {...props}
-    >
-      <Handle
-        className="_Switch-Handle"
-        on={checked ? 1 : 0}
-        noIcon={noIcon}
-        smallTrack={props.smallTrack}
+    <StyledContainer className="_Switch" {...props}>
+      <StyledInput
+        type="checkbox"
+        onChange={handleClick}
+        disabled={props.disabled}
+        trackHeight={props.trackHeight}
+        trackWidth={props.trackWidth}
+        handleDiameter={props.handleDiameter}
+        handleInset={props.handleInset}
+      />
+      <StyledTrack
+        className="_Switch-Track"
+        checked={props.checked}
+        trackWidth={props.trackWidth}
+        trackHeight={props.trackHeight}
+        trackBorderRadius={props.trackBorderRadius}
+        trackColor={props.trackColor}
+        handleDiameter={props.handleDiameter}
+        disabled={props.disabled}
       >
-        {noIcon ? null : (
-          <Svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 24 24"
-            on={checked ? 1 : 0}
-            handleColor={handleColor}
-          >
-            {checked ? <TickPath /> : <CrossPath />}
-          </Svg>
-        )}
-      </Handle>
-    </Track>
+        <StyledHandle
+          className="_Switch-Handle"
+          checked={props.checked}
+          handleColor={props.handleColor}
+          handleDiameter={props.handleDiameter}
+          handleInset={props.handleInset}
+          handleBorderRadius={props.handleBorderRadius}
+          trackWidth={props.trackWidth}
+          noHandleShadow={props.noHandleShadow}
+        >
+          {!props.noHoverEffect && !props.disabled && (
+            <StyledHoverEffect className="_Switch-HandleEffect" />
+          )}
+        </StyledHandle>
+      </StyledTrack>
+    </StyledContainer>
   );
 };

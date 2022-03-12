@@ -489,19 +489,6 @@ export const Dashboard = () => {
   </Typography>
 </>`,
   },
-  switch: {
-    overview: `export const ToggleTheme = () => {
-  const [darkMode, setDarkMode] = useState(false)
-
-  return <Switch checked={darkMode} onChange={value => setDarkMode(value)} />
-}`,
-    colors: `<Switch
-  checked={on}
-  onChange={value => setOn(value)}
-  trackColor={{on: 'info', off: 'secondary'}}
-  handleColor={{on: 'royalblue', off: ['error', 'main']}}
-/>`,
-  },
   textfield: {
     overview: `export const WeightField = () => {
   const [value, setValue] = useState<string>('');

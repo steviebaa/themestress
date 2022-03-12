@@ -1,9 +1,9 @@
 import React, {Ref, useEffect, useMemo, useRef, useState} from 'react';
 import styled from '@emotion/styled';
 import {Tooltip} from './Tooltip';
-import {withOpacity} from '../core/themeUtils';
+// import {withOpacity} from '../core/themeUtils';
 import {MutableRefObject} from 'react';
-import {colorFromTheme, TColor} from '../core';
+// import {colorFromTheme, string} from '../core';
 
 export interface SliderMark {
   value: number;
@@ -26,12 +26,12 @@ export interface SliderProps {
   markerFrequency?: {start?: number; stop?: number; step?: number};
   onChange?: (value: number) => void;
   onChangeCommitted?: (value: number) => void;
-  handlePrimaryColor?: TColor;
-  handleSecondaryColor?: TColor;
-  trackPrimaryColor?: TColor;
-  trackSecondaryColor?: TColor;
-  markPrimaryColor?: TColor;
-  markSecondaryColor?: TColor;
+  handlePrimaryColor?: string;
+  handleSecondaryColor?: string;
+  trackPrimaryColor?: string;
+  trackSecondaryColor?: string;
+  markPrimaryColor?: string;
+  markSecondaryColor?: string;
 }
 
 /* Styled Components */
@@ -46,85 +46,92 @@ const SliderGroup = styled.span<SliderProps>`
   touch-action: none;
   color: inherit;
   padding: 13px 0;
-  margin-bottom: 20px;
+  margin-bottom: ${({hideLabels}) => !hideLabels && '20px'};
   user-select: none;
 `;
-const Track = React.memo(styled.span<{sColor: TColor}>`
+const Track = React.memo(styled.span<{sColor: string}>`
   position: absolute;
   display: block;
   border-radius: inherit;
   width: 100%;
   height: inherit;
-  background-color: ${({theme, sColor}) =>
-    sColor === undefined
-      ? withOpacity(theme.palette.primary.main, 0.3)
-      : colorFromTheme(theme, sColor)};
+  background-color: var(--sys-color-inverse-primary);
 `);
-const Progress = styled.span<{progress: number; pColor: TColor}>`
+// background-color: ${({theme, sColor}) =>
+//   sColor === undefined
+//     ? withOpacity(theme.palette.primary.main, 0.3)
+//     : colorFromTheme(theme, sColor)};
+
+const Progress = styled.span<{progress: number; pColor: string}>`
   position: absolute;
   display: block;
   border-radius: inherit;
   width: ${({progress}) => progress}%;
   height: inherit;
-  background-color: ${({theme, pColor}) =>
-    pColor === undefined
-      ? theme.palette.primary.main
-      : colorFromTheme(theme, pColor)};
+  background-color: var(--sys-color-primary);
 `;
-const Handle = styled.span<{progress: number; pColor: TColor; sColor: TColor}>`
+// background-color: ${({theme, pColor}) =>
+//   pColor === undefined
+//     ? theme.palette.primary.main
+//     : colorFromTheme(theme, pColor)};
+
+const Handle = styled.span<{progress: number; pColor: string; sColor: string}>`
   position: absolute;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  box-sizing: border-box;
-  background-color: ${({theme, pColor}) =>
-    pColor === undefined
-      ? theme.palette.primary.main
-      : colorFromTheme(theme, pColor)};
   transform: translate(-50%, -50%);
   top: 50%;
   left: ${({progress}) => progress}%;
   transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
     0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
-  &:hover {
-    box-shadow: 0px 0px 0px 5px
-      ${({theme, sColor}) =>
-        sColor === undefined
-          ? withOpacity(theme.palette.primary.main, 0.3)
-          : colorFromTheme(theme, sColor)};
-  }
-  &:active {
-    box-shadow: 0px 0px 0px 8px
-      ${({theme, sColor}) =>
-        sColor === undefined
-          ? withOpacity(theme.palette.primary.main, 0.3)
-          : colorFromTheme(theme, sColor)};
-  }
+  background-color: var(--sys-color-surface);
 `;
+// box-sizing: border-box;
+// /* background-color: ${({theme, pColor}) =>
+//   pColor === undefined
+//     ? theme.palette.primary.main
+//     : colorFromTheme(theme, pColor)}; */
+// &:hover {
+// 	/* box-shadow: 0px 0px 0px 5px
+// 		${({theme, sColor}) =>
+// 			sColor === undefined
+// 				? withOpacity(theme.palette.primary.main, 0.3)
+// 				: colorFromTheme(theme, sColor)}; */
+// }
+// &:active {
+// 	/* box-shadow: 0px 0px 0px 8px
+// 		${({theme, sColor}) =>
+// 			sColor === undefined
+// 				? withOpacity(theme.palette.primary.main, 0.3)
+// 				: colorFromTheme(theme, sColor)}; */
+// }
+
 const Marker = React.memo(styled.span<{
   progress: number;
   position: number;
-  pColor: TColor;
-  sColor: TColor;
+  pColor: string;
+  sColor: string;
 }>`
   position: absolute;
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background-color: ${({theme, progress, position, pColor, sColor}) => {
-    return progress > position
-      ? (pColor === undefined
-        ? theme.palette.primary.on
-        : colorFromTheme(theme, pColor))
-      : (sColor === undefined
-      ? theme.palette.primary.main
-      : colorFromTheme(theme, sColor));
-  }};
   transform: translate(-50%, -50%);
   top: 50%;
   left: ${({position}) => position}%;
 `);
+/* background-color: ${({theme, progress, position, pColor, sColor}) => {
+    return progress > position
+      ? pColor === undefined
+        ? theme.palette.primary.on
+        : colorFromTheme(theme, pColor)
+      : sColor === undefined
+      ? theme.palette.primary.main
+      : colorFromTheme(theme, sColor);
+  }}; */
+
 const Label = React.memo(styled.span<{position: number}>`
   font-weight: 400;
   font-size: 0.875rem;
@@ -218,7 +225,7 @@ export const Slider: React.FC<SliderProps> = React.forwardRef(
     };
 
     const handleChangeCommitted = (newValue: number) => {
-      onChangeCommitted(newValue);
+      onChangeCommitted && onChangeCommitted(newValue);
       setIsHandleDown(false);
     };
 
@@ -294,6 +301,7 @@ export const Slider: React.FC<SliderProps> = React.forwardRef(
         className="_Slider-Group"
         ref={sliderGroupRef}
         onClick={handleSliderClick}
+        hideLabels={hideLabels}
         {...props}
       >
         <Track className="_Slider-Track" sColor={trackSecondaryColor} />
