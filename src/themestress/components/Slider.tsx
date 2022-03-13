@@ -2,7 +2,7 @@ import React, {Ref, useEffect, useMemo, useRef, useState} from 'react';
 import styled from '@emotion/styled';
 import {Tooltip} from './Tooltip';
 import {MutableRefObject} from 'react';
-import {ColorUtility} from '@themestress/core/classes/base/ColorUtility';
+import {ColorUtility} from '../core/classes/base/ColorUtility';
 
 export interface SliderMark {
   value: number;
