@@ -3,7 +3,7 @@ import {Code, P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
 import {samples} from '@core/samples';
-import {Ripple, Button} from '@themestress/components';
+import {Ripple, ElevatedButton} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 
@@ -17,7 +17,7 @@ export const RipplePage = () => {
       </P>
 
       <SampleBox>
-        <Button variant="contained">Create Ripple</Button>
+        <ElevatedButton>Create Ripple</ElevatedButton>
       </SampleBox>
       {/* <TypeScript code={samples.ripple.overview} /> */}
 

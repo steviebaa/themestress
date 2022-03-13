@@ -52,7 +52,6 @@ const baseStyles = ({
 
     * {
       cursor: pointer;
-      pointer-events: none;
     }
 
     ._Ripple {

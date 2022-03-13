@@ -1,21 +1,18 @@
 import React, {useState, useLayoutEffect} from 'react';
 import styled from '@emotion/styled';
-// import {colorFromTheme} from '../core/themeUtils';
-import {TColor, ReactHTMLProps} from '../core/definitions';
+import {ReactHTMLProps} from '../core/definitions';
 
 export interface RippleProps extends ReactHTMLProps<HTMLDivElement> {
   duration?: number;
-  bgColor?: TColor;
+  bgColor?: string;
 }
 
-// This was in span
 const RippleContainer = styled.div<RippleProps>`
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  pointer-events: none;
 
   span {
     transform: scale(0);
