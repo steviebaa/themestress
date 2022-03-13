@@ -413,6 +413,7 @@ export const samples = {
       value={value}
       onChange={v => setValue(v)}
       onChangeCommitted={handleCommit}
+      hideTooltip
     />
   )
 }`,
@@ -428,12 +429,12 @@ export const samples = {
       value={value}
       onChange={v => setValue(v)}
       onChangeCommitted={handleCommit}
-      handlePrimaryColor={'purple'}
-      handleSecondaryColor={'black'}
-      trackPrimaryColor={['accent', 'main']}
-      trackSecondaryColor={'blue'}
-      markPrimaryColor={'green'}
-      markSecondaryColor={'orange'}
+      handlePrimaryColor="var(--sys-color-tertiary)"
+      handleSecondaryColor="rgb(100,100,100,0.5)"
+      trackPrimaryColor="var(--sys-color-tertiary)"
+      trackSecondaryColor="var(--sys-color-tertiary-container)"
+      markPrimaryColor="white"
+      markSecondaryColor="orange"
     />
   )
 }`,

@@ -401,6 +401,7 @@ export const apiProps = {
   slider: {
     props: [
       ['width', 'string', '', 'Css width property.'],
+      ['hideTooltip', 'boolean', 'false', 'Hide the handle tooltip.'],
       [
         'marks',
         'SliderMark[]',
@@ -466,40 +467,35 @@ export const apiProps = {
           <strong>not</strong> be connected to the state for the value prop.
         </span>,
       ],
-      [
-        'handlePrimaryColor',
-        'TColor',
-        'primary.main',
-        'The color of the handle.',
-      ],
+      ['handlePrimaryColor', 'string', 'primary', 'The color of the handle.'],
       [
         'handleSecondaryColor',
-        'TColor',
-        'primary.main',
-        'The color of the handle shadow.',
+        'string',
+        'primary (30% opacity)',
+        'The color of the handle hover effect.',
       ],
       [
         'trackPrimaryColor',
-        'TColor',
-        'primary.main',
+        'string',
+        'primary',
         'The color of the track to the left of the handle.',
       ],
       [
         'trackSecondaryColor',
-        'TColor',
-        'primary.main (0.3 opacity)',
+        'string',
+        'inverse-primary',
         'The color of the track to the right of the handle.',
       ],
       [
         'markPrimaryColor',
-        'TColor',
-        'primary.on',
+        'string',
+        'on-primary',
         'The color of the markers to the left of the handle.',
       ],
       [
         'markSecondaryColor',
-        'TColor',
-        'primary.main',
+        'string',
+        'primary',
         'The color of the markers to the right of the handle.',
       ],
     ],
@@ -625,6 +621,7 @@ surface-variant;`,
   tooltip: {
     props: [
       ['tip', 'ReactNode', '', 'The content of the tooltip.'],
+      ['hide', 'boolean', 'false', 'Hide the tooltip.'],
       [
         'direction',
         'top | bottom | left | right',

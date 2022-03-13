@@ -118,23 +118,23 @@ const StyledSnack = styled.div<Partial<SnackProps>>`
   padding: 12px;
   box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
     rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
-  background: ${({theme: {palette}}) =>
-    palette.neutral[palette.mode === 'light' ? 100 : 900].main};
-  color: ${({theme: {palette}}) =>
-    palette.neutral[palette.mode === 'light' ? 100 : 900].on};
   border-radius: ${({theme}) => `${theme.spacing}px`};
   animation-timing-function: ease-in-out;
   transform: ${({position, margin}) => {
-    if (position.includes('left')) {
-      return `translateX(calc(-100% - ${margin.left}px))`;
+		if (position.includes('left')) {
+			return `translateX(calc(-100% - ${margin.left}px))`;
     } else {
-      return `translateX(calc(100% + ${margin.right}px))`;
+			return `translateX(calc(100% + ${margin.right}px))`;
     }
   }};
 
-  border-left: ${({theme: {palette}, msg: {variant}}) =>
-    `3px solid ${palette[variant]?.main ?? palette.neutral[400].main}`};
 `;
+	// background: ${({theme: {palette}}) =>
+	// 	palette.neutral[palette.mode === 'light' ? 100 : 900].main};
+	// color: ${({theme: {palette}}) =>
+	// 	palette.neutral[palette.mode === 'light' ? 100 : 900].on};
+  // border-left: ${({theme: {palette}, msg: {variant}}) =>
+  //   `3px solid ${palette[variant]?.main ?? palette.neutral[400].main}`};
 
 interface SnackProps {
   msg: _Message;

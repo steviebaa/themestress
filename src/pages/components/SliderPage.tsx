@@ -88,6 +88,7 @@ export const SliderPage = () => {
             onChangeCommitted={v => {
               snackbar.enqueue({content: `Slider changed to ${v}`});
             }}
+            hideTooltip
           />
         </Flex>
       </SampleBox>
@@ -106,12 +107,12 @@ export const SliderPage = () => {
             onChangeCommitted={v => {
               snackbar.enqueue({content: `Slider changed to ${v}`});
             }}
-            handlePrimaryColor={'purple'}
-            handleSecondaryColor={['neutral', '500', 'main']}
-            trackPrimaryColor={['accent', 'main']}
-            trackSecondaryColor={'blue'}
-            markPrimaryColor={'green'}
-            markSecondaryColor={'orange'}
+            handlePrimaryColor="var(--sys-color-tertiary)"
+            handleSecondaryColor="rgb(100,100,100,0.5)"
+            trackPrimaryColor="var(--sys-color-tertiary)"
+            trackSecondaryColor="var(--sys-color-tertiary-container)"
+            markPrimaryColor="white"
+            markSecondaryColor="orange"
           />
         </Flex>
       </SampleBox>

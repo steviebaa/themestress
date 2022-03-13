@@ -10,6 +10,7 @@ export interface TooltipProps extends ReactHTMLProps<HTMLDivElement> {
   tip: React.ReactNode;
   delay?: number;
   direction?: TDirection;
+  hide?: boolean;
 }
 
 const getWrapperTranslation = (direction: TDirection, bounds: DOMRect) => {
@@ -80,6 +81,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   children,
   tip,
   direction,
+  hide,
   ...props
 }: TooltipProps) => {
   // This ref will be used if there isnt an existing one on the child
@@ -145,6 +147,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
       {child}
       {active &&
         bounds &&
+        !hide &&
         ReactDOM.createPortal(
           <Wrapper
             className="_Tooltip-Wrapper"
