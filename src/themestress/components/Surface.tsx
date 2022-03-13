@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import React, {ForwardedRef, forwardRef} from 'react';
 import styled from '@emotion/styled';
-import {css, jsx} from '@emotion/react';
+import {css} from '@emotion/react';
 import {getMarginAndPadding} from '../core/themeUtils';
 import {BreakPoint, ReactHTMLProps} from '../core/definitions';
 

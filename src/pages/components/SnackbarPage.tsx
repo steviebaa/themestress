@@ -5,7 +5,7 @@ import {TypeScript} from '@components/TypeScript';
 import {samples} from '@core/samples';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
-import {Button, Typography} from '@themestress/components';
+import {OutlinedButton, Typography} from '@themestress/components';
 import {useSnackbar} from '@themestress/core/hooks';
 
 export const SnackbarPage = () => {
@@ -27,46 +27,40 @@ import {useSnackbar} from '@themestress/core/hooks'`}
       </P>
 
       <SampleBox>
-        <Button
-          variant="contained"
+        <OutlinedButton
           onClick={() => snackbar.enqueue({content: 'Did you know...'})}
         >
           Default
-        </Button>
-        <Button
-          bgColor={'success'}
-          fontColor={'white'}
+        </OutlinedButton>
+        <OutlinedButton
           onClick={() =>
             snackbar.enqueue({content: 'Great Job!', variant: 'success'})
           }
         >
           Success
-        </Button>
-        <Button
-          bgColor={'warning'}
+        </OutlinedButton>
+        <OutlinedButton
           onClick={() =>
             snackbar.enqueue({content: 'Be Careful!', variant: 'warning'})
           }
         >
           Warning
-        </Button>
-        <Button
-          bgColor={'error'}
+        </OutlinedButton>
+        <OutlinedButton
           onClick={() => snackbar.enqueue({content: 'Oops!', variant: 'error'})}
         >
           Error
-        </Button>
-        <Button
-          bgColor={'info'}
+        </OutlinedButton>
+        <OutlinedButton
           onClick={() =>
             snackbar.enqueue({
-              content: 'Wow, such informative',
+              content: 'Wow, information',
               variant: 'info',
             })
           }
         >
           Info
-        </Button>
+        </OutlinedButton>
       </SampleBox>
       <TypeScript code={samples.snackbar.overview} />
 
@@ -97,8 +91,7 @@ export const Dashboard = () => {
   const snackbar = useSnackbar();
 
   return (
-    <Button
-      bgColor={'success'}
+    <OutlinedButton
       onClick={() =>
         snackbar.enqueue({
           content: 'Great Job!',
@@ -108,6 +101,6 @@ export const Dashboard = () => {
       }
     >
       Success
-    </Button>
+    </OutlinedButton>
   );
 };

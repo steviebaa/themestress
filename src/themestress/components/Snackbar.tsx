@@ -28,7 +28,6 @@ interface SnackbarProviderProps {
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 }
 
-/* z-index: ${({theme}) => theme.zIndex.snackbar}; */
 const Snackbar = styled.div<SnackbarProviderProps>`
   position: fixed;
   top: ${({position, margin}) =>
@@ -46,6 +45,7 @@ const Snackbar = styled.div<SnackbarProviderProps>`
   min-height: fit-content;
   transition: min-height;
   transition-duration: 500ms;
+  z-index: var(--sys-z-index-snackbar);
 `;
 
 export const SnackbarContext = React.createContext<SnackbarContextProps>(null);
@@ -110,8 +110,8 @@ export const SnackbarProvider = ({
   );
 };
 
-/* margin-top: ${({theme}) => `${theme.spacing * 2}px`}; */
 const StyledSnack = styled.div<Partial<SnackProps>>`
+  margin-top: calc(var(--sys-spacing) * 2);
   width: ${({msg}) => msg.width ?? ''};
   overflow: hidden;
   box-sizing: border-box;
@@ -121,20 +121,21 @@ const StyledSnack = styled.div<Partial<SnackProps>>`
   border-radius: ${({theme}) => `${theme.spacing}px`};
   animation-timing-function: ease-in-out;
   transform: ${({position, margin}) => {
-		if (position.includes('left')) {
-			return `translateX(calc(-100% - ${margin.left}px))`;
+    if (position.includes('left')) {
+      return `translateX(calc(-100% - ${margin.left}px))`;
     } else {
-			return `translateX(calc(100% + ${margin.right}px))`;
+      return `translateX(calc(100% + ${margin.right}px))`;
     }
   }};
 
+  background: var(--sys-color-surface);
+  color: var(--sys-color-on-surface);
+  border-left: 3px solid var(--sys-color-primary);
+
+  ._Snack-Icon {
+    margin-right: 4px;
+  }
 `;
-	// background: ${({theme: {palette}}) =>
-	// 	palette.neutral[palette.mode === 'light' ? 100 : 900].main};
-	// color: ${({theme: {palette}}) =>
-	// 	palette.neutral[palette.mode === 'light' ? 100 : 900].on};
-  // border-left: ${({theme: {palette}, msg: {variant}}) =>
-  //   `3px solid ${palette[variant]?.main ?? palette.neutral[400].main}`};
 
 interface SnackProps {
   msg: _Message;
@@ -187,8 +188,11 @@ const Snack = ({msg, ...props}: SnackProps) => {
   };
   return (
     <StyledSnack msg={msg} ref={ref} key={msg.id} {...props}>
-      {msg.variant ? icons[msg.variant] : null}
-      {msg.content}
+      {msg.variant ? (
+        <span className="_Snack-Icon">{icons[msg.variant]}</span>
+      ) : null}
+
+      <span className="_Snack-Message">{msg.content}</span>
     </StyledSnack>
   );
 };

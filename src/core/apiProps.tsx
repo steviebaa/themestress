@@ -505,18 +505,20 @@ export const apiProps = {
       [
         'margin',
         `{
- left?:number;
- right?:number;
- top?:number;
- bottom?:number
+left?:number;
+right?:number;
+top?:number;
+bottom?:number
 }`,
         '',
         'Set margin to the edge of the screen (depends on position prop).',
       ],
       [
         'position',
-        `top-left | top-right | 
-bottom-left | bottom-right`,
+        `top-left    | 
+top-right   | 
+bottom-left |
+bottom-right`,
         'bottom-left',
         'The corner to display the snacks.',
       ],
@@ -533,7 +535,11 @@ bottom-left | bottom-right`,
       ['content', 'any', '', 'Inserted into the snack.'],
       [
         'variant',
-        'null | success | warning | error | info',
+        `null    | 
+success | 
+warning | 
+error   | 
+info`,
         '',
         'The styling variant.',
       ],

@@ -458,8 +458,7 @@ export const Dashboard = () => {
   const snackbar = useSnackbar()
 
   return (
-    <Button
-      bgColor={'success'}
+    <OutlinedButton
       onClick={() =>
         snackbar.enqueue({
           content: 'Great Job!',
@@ -469,7 +468,7 @@ export const Dashboard = () => {
       }
     >
       Success
-    </Button>
+    </OutlinedButton>
   )
 }
 `,

@@ -45,8 +45,8 @@ const getTipTranslation = (direction: TDirection) => {
 const Wrapper = styled.div<{bounds: DOMRect; direction: TDirection}>`
   position: fixed;
   z-index: 1500;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   top: ${({bounds}) => bounds.top}px;
   left: ${({bounds}) => bounds.left}px;
   display: flex;
