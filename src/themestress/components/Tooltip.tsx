@@ -70,8 +70,8 @@ const Tip = styled.div<{direction: TDirection}>`
   font-weight: bold;
   padding: 2px 8px;
   text-align: center;
-  color: ${({theme}) => theme.palette.secondary.on};
-  background-color: ${({theme}) => theme.palette.secondary.main};
+  color: var(--sys-color-on-secondary);
+  background-color: var(--sys-color-secondary);
   box-sizing: border-box;
   white-space: nowrap;
   transform: ${props => getTipTranslation(props.direction)};
@@ -108,7 +108,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     if (originalFn) originalFn();
   };
 
-  const handlePointerLeave = (e: React.MouseEvent, originalFn: () => void) => {
+  const handlePointerLeave = (_: React.MouseEvent, originalFn: () => void) => {
     setActive(false);
     clearInterval(timeout);
     if (originalFn) originalFn();
