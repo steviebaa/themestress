@@ -188,7 +188,7 @@ const StyledButton = styled.button<FilledButtonProps>`
 `;
 
 export const FilledButton: React.FC<FilledButtonProps> = forwardRef(
-  ({children, ...props}, ref) => {
+  ({children, disableRipple, ...props}, ref) => {
     return (
       <StyledButton
         ref={ref}
@@ -196,7 +196,7 @@ export const FilledButton: React.FC<FilledButtonProps> = forwardRef(
         className="_FilledButton"
         {...props}
       >
-        {!props.disabled && <Ripple />}
+        {!props.disabled && !disableRipple && <Ripple />}
 
         {props.startIcon && (
           <span className="_FilledButton-StartIcon">{props.startIcon}</span>

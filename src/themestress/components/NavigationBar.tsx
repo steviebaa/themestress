@@ -22,7 +22,7 @@ const StyledNavigationBar = styled.div`
   display: inline-flex;
   justify-content: space-between;
 
-  & :not(:nth-last-child()) {
+  & :not(:nth-last-of-type()) {
     margin-right: 4px;
   }
   & :not(:first-of-type) {

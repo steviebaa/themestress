@@ -313,10 +313,10 @@ export const samples = {
 
   return (
     <NavigationBar selected={selected} onSelectionChanged={i => setSelected(i)}>
-      <NavigationBarItem label="Label">{composeIcon}</NavigationBarItem>
-      <NavigationBarItem label="Label">{plusIcon}</NavigationBarItem>
-      <NavigationBarItem label="Label">{composeIcon}</NavigationBarItem>
-      <NavigationBarItem label="Label">{plusIcon}</NavigationBarItem>
+      <NavigationBarItem label="Label"><Icon>{ImportIcon}</Icon></NavigationBarItem>
+      <NavigationBarItem label="Label"><Icon>{ImportIcon}</Icon></NavigationBarItem>
+      <NavigationBarItem label="Label"><Icon>{ImportIcon}</Icon></NavigationBarItem>
+      <NavigationBarItem label="Label"><Icon>{ImportIcon}</Icon></NavigationBarItem>
     </NavigationBar>
   )
 }`,

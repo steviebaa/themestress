@@ -189,7 +189,7 @@ const StyledButton = styled.button<FilledTonalButtonProps>`
 `;
 
 export const FilledTonalButton: React.FC<FilledTonalButtonProps> = forwardRef(
-  ({children, ...props}, ref) => {
+  ({children, disableRipple, ...props}, ref) => {
     return (
       <StyledButton
         ref={ref}
@@ -197,7 +197,7 @@ export const FilledTonalButton: React.FC<FilledTonalButtonProps> = forwardRef(
         className="_FilledTonalButton"
         {...props}
       >
-        {!props.disabled && <Ripple />}
+        {!props.disabled && !disableRipple && <Ripple />}
 
         {props.startIcon && (
           <span className="_FilledTonalButton-StartIcon">

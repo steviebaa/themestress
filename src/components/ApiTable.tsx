@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {useLocation} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import {Spacer} from '@themestress/components';
 import {apiProps} from '@core/apiProps';
-import {Subheading} from '@components/StyledTypography';
+import {Code, P, Subheading} from '@components/StyledTypography';
 import {cleanRoute} from '../core/routeMap';
 import {TypeScript} from './TypeScript';
 
@@ -51,42 +51,55 @@ export const ApiTable: React.FC<ApiTableProps> = ({heading, lookup}) => {
   const route = path.split('/').slice(-1)[0];
 
   const items: Array<string[]> = apiProps[lookup ?? route].props;
+  const extensions: Array<string[]> = apiProps[lookup ?? route].extends;
 
-  if (!items) return null;
+  if (!items && !extensions) return null;
 
   return (
     <>
       <Subheading>{heading ?? 'API'}</Subheading>
-
-      <StyledTable>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item, i) => (
-            <tr key={i}>
-              {item.map((entry, i) => (
-                <td key={i}>
-                  {i === 0 ? (
-                    <CodeBlock noCopy code={entry} />
-                  ) : i === 1 ? (
-                    <Column2>{entry}</Column2>
-                  ) : i === 2 ? (
-                    entry && <CodeBlock noCopy code={entry} />
-                  ) : (
-                    entry
-                  )}
-                </td>
-              ))}
-            </tr>
+      {extensions && (
+        <P>
+          Extends{' '}
+          {extensions.map(v => (
+            <Link to={`/components/${v.toString().toLowerCase()}`}>
+              <Code>{v}</Code>
+            </Link>
           ))}
-        </tbody>
-      </StyledTable>
+        </P>
+      )}
+
+      {items && (
+        <StyledTable>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.map((item, i) => (
+              <tr key={i}>
+                {item.map((entry, i) => (
+                  <td key={i}>
+                    {i === 0 ? (
+                      <CodeBlock noCopy code={entry} />
+                    ) : i === 1 ? (
+                      <Column2>{entry}</Column2>
+                    ) : i === 2 ? (
+                      entry && <CodeBlock noCopy code={entry} />
+                    ) : (
+                      entry
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </StyledTable>
+      )}
       <Spacer vertical size="24px" />
     </>
   );

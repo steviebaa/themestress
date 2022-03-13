@@ -176,7 +176,7 @@ const StyledButton = styled.button<TextButtonProps>`
 `;
 
 export const TextButton: React.FC<TextButtonProps> = forwardRef(
-  ({children, ...props}, ref) => {
+  ({children, disableRipple, ...props}, ref) => {
     return (
       <StyledButton
         ref={ref}
@@ -184,7 +184,7 @@ export const TextButton: React.FC<TextButtonProps> = forwardRef(
         className="_TextButton"
         {...props}
       >
-        {!props.disabled && <Ripple />}
+        {!props.disabled && !disableRipple && <Ripple />}
 
         {props.startIcon && (
           <span className="_TextButton-StartIcon">{props.startIcon}</span>

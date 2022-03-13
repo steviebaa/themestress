@@ -191,7 +191,7 @@ const StyledButton = styled.button<OutlinedButtonProps>`
 `;
 
 export const OutlinedButton: React.FC<OutlinedButtonProps> = forwardRef(
-  ({children, ...props}, ref) => {
+  ({children, disableRipple, ...props}, ref) => {
     return (
       <StyledButton
         ref={ref}
@@ -199,7 +199,7 @@ export const OutlinedButton: React.FC<OutlinedButtonProps> = forwardRef(
         className="_OutlinedButton"
         {...props}
       >
-        {!props.disabled && <Ripple />}
+        {!props.disabled && !disableRipple && <Ripple />}
 
         {props.startIcon && (
           <span className="_OutlinedButton-StartIcon">{props.startIcon}</span>

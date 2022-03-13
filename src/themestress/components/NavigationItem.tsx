@@ -1,14 +1,14 @@
 import React, {ForwardedRef, forwardRef} from 'react';
 import styled from '@emotion/styled';
-import {Button, ButtonProps} from './Button';
+import {TextButton, TextButtonProps} from './TextButton';
 
-export interface NavigationItemProps extends ButtonProps {
+export interface NavigationItemProps extends TextButtonProps {
   __click?: (ref: ForwardedRef<HTMLButtonElement>) => void;
   __selected?: boolean;
   children?: React.ReactNode;
 }
 
-const StyledMenuItem = styled(Button)<NavigationItemProps>`
+const StyledMenuItem = styled(TextButton)<NavigationItemProps>`
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.75;
@@ -16,19 +16,11 @@ const StyledMenuItem = styled(Button)<NavigationItemProps>`
   max-width: 360px;
   padding: 8px;
   margin: 0px 0px 2px 0px;
-  color: ${({theme, __selected: _internal_is_selected}) => {
-    const {neutral, mode} = theme.palette;
-    if (mode === 'light') {
-      return neutral.tones[_internal_is_selected ? 90 : 60].hex;
-    } else {
-      return neutral.tones[_internal_is_selected ? 10 : 60].hex;
-    }
-  }};
 `;
 
 export const NavigationItem: React.FC<NavigationItemProps> = forwardRef(
   (
-    {onClick, __click: _internal_click, ...props}: NavigationItemProps,
+    {onClick, __click, __selected, ...props}: NavigationItemProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
@@ -36,14 +28,16 @@ export const NavigationItem: React.FC<NavigationItemProps> = forwardRef(
         className="_NavigationItem"
         ref={ref}
         onClick={e => {
-          if (onClick) onClick(e);
-          _internal_click(ref);
+          onClick && onClick(e);
+          __click && __click(ref);
         }}
         disableRipple
-        noTransform
         align="left"
-        variant="text"
-        __selected={props.__selected}
+        fontColor={
+          __selected
+            ? 'var(--sys-color-on-surface)'
+            : 'var(--sys-color-outline)'
+        }
         {...props}
       >
         {props.children}

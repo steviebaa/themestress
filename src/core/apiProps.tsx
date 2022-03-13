@@ -299,7 +299,7 @@ export const apiProps = {
     ],
   },
   menuitem: {
-    extends: ['Button'],
+    extends: ['TextButton'],
   },
   nestedmenuitem: {
     props: [
@@ -352,7 +352,7 @@ export const apiProps = {
     ],
   },
   navigationitem: {
-    extends: ['Button'],
+    extends: ['TextButton'],
   },
   ripple: {
     props: [

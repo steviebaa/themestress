@@ -29,12 +29,15 @@ export const MenuItemPage = () => {
         The <Code>MenuItem</Code> is a styled <Code>TextButton</Code> for use in
         the <Code>Menu</Code> component.
       </P>
-
       <SampleBox contrast>
         <StyledMenu open={true} onClose={null} anchorElement={anchorEl} _nested>
           <MenuItem startIcon={FolderIcon}>Open</MenuItem>
           <MenuItem>Save as</MenuItem>
-          <MenuItem disabled startIcon={ImportIcon} endIcon={SmallRightArrowIcon}>
+          <MenuItem
+            disabled
+            startIcon={ImportIcon}
+            endIcon={SmallRightArrowIcon}
+          >
             Import
           </MenuItem>
           <Divider />
@@ -42,15 +45,6 @@ export const MenuItemPage = () => {
         </StyledMenu>
       </SampleBox>
       <TypeScript code={samples.menuitem.overview} />
-
-      <Subheading>API</Subheading>
-      <P>
-        See the{' '}
-        <Link to="/components/button">
-          <Code>Button</Code>
-        </Link>{' '}
-        API for available props.
-      </P>
 
       <ApiTable />
     </>
