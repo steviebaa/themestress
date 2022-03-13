@@ -62,6 +62,7 @@ export const SwitchPage = () => {
               <Slider
                 value={Number(trackWidth)}
                 onChange={v => setTrackWidth(v.toString())}
+								hideMarkers
                 min={20}
                 max={50}
                 step={1}
@@ -76,6 +77,7 @@ export const SwitchPage = () => {
               <Slider
                 value={Number(trackHeight)}
                 onChange={v => setTrackHeight(v.toString())}
+								hideMarkers
                 min={10}
                 max={50}
                 step={1}
@@ -89,6 +91,7 @@ export const SwitchPage = () => {
               <Slider
                 value={Number(trackBorderRadius)}
                 onChange={v => setTrackBorderRadius(v.toString())}
+								hideMarkers
                 min={0}
                 max={26}
                 step={1}
@@ -102,6 +105,7 @@ export const SwitchPage = () => {
               <Slider
                 value={Number(handleDiameter)}
                 onChange={v => setHandleDiameter(v.toString())}
+								hideMarkers
                 min={10}
                 max={50}
                 step={1}
@@ -115,6 +119,7 @@ export const SwitchPage = () => {
               <Slider
                 value={Number(handleBorderRadius)}
                 onChange={v => setHandleBorderRadius(v.toString())}
+								hideMarkers
                 min={0}
                 max={26}
                 step={1}
@@ -128,6 +133,7 @@ export const SwitchPage = () => {
               <Slider
                 value={Number(handleInset)}
                 onChange={v => setHandleInset(v.toString())}
+								hideMarkers
                 min={-10}
                 max={10}
                 step={1}
