@@ -3,7 +3,6 @@ import {Route} from 'react-router';
 
 import {AvatarPage} from '@pages/components/AvatarPage';
 import {BackdropPage} from '@pages/components/BackdropPage';
-import {ButtonPage} from '@pages/components/ButtonPage';
 import {ContainerPage} from '@pages/components/ContainerPage';
 import {ContextMenuPage} from '@pages/components/ContextMenuPage';
 import {DividerPage} from '@pages/components/DividerPage';
@@ -119,7 +118,6 @@ export const componentsRouteMap = [
     pages: {
       avatar: {name: 'Avatar', page: <AvatarPage />},
       backdrop: {name: 'Backdrop', page: <BackdropPage />},
-      button: {name: 'Button', page: <ButtonPage />},
       card: {name: 'Card', page: <CardPage />},
       container: {name: 'Container', page: <ContainerPage />},
       contextmenu: {name: 'ContextMenu', page: <ContextMenuPage />},

@@ -5,7 +5,7 @@ import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
-import {Menu, MenuItem, Button, Divider} from '@themestress/components';
+import {Menu, MenuItem, ElevatedButton, Divider} from '@themestress/components';
 
 import FolderIcon from '@themestress/icons/FolderOutlined';
 import ImportIcon from '@themestress/icons/FileDownloadOutlined';
@@ -44,9 +44,9 @@ export const MenuPage = () => {
           <MenuItem endIcon={'⌘C'}>Copy</MenuItem>
         </Menu>
 
-        <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
+        <ElevatedButton variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
           File
-        </Button>
+        </ElevatedButton>
       </SampleBox>
       <TypeScript code={samples.menu.overview} />
 
@@ -80,9 +80,9 @@ export const MenuPage = () => {
         >
           <MenuItem>New File</MenuItem>
         </Menu>
-        <Button variant="outlined" ref={anchorElRef2} onClick={toggleMenu2}>
+        <ElevatedButton variant="outlined" ref={anchorElRef2} onClick={toggleMenu2}>
           Transform Position
-        </Button>
+        </ElevatedButton>
       </SampleBox>
       <TypeScript code={samples.menu.transform} />
 
@@ -106,9 +106,9 @@ export const MenuPage = () => {
         >
           <MenuItem>New File</MenuItem>
         </Menu>
-        <Button variant="outlined" ref={anchorElRef3} onClick={toggleMenu3}>
+        <ElevatedButton variant="outlined" ref={anchorElRef3} onClick={toggleMenu3}>
           Position Override
-        </Button>
+        </ElevatedButton>
       </SampleBox>
       <TypeScript code={samples.menu.positionOverride} />
 

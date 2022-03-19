@@ -39,23 +39,6 @@ export const apiProps = {
       ['fontColor', 'string', '', 'Css color property.'],
     ],
   },
-  button: {
-    props: [
-      ['variant', 'contained | outlined | text', 'text', 'The button style.'],
-      ['disableRipple', 'boolean', 'false', 'Disable the ripple effect.'],
-      ['align', 'left | center | right', 'center', 'Css text-align property.'],
-      ['noTransform', 'boolean', 'false', 'Removes uppercase default of text.'],
-      ['fontColor', 'TColor', '', 'Css color property.'],
-      ['bgColor', 'TColor', '', 'Css background-color property.'],
-      ['borderColor', 'TColor', '', 'Css border-color property.'],
-      ['noElevation', 'boolean', 'false', 'Remove the shadow.'],
-      ['radius', 'number', '1', 'Multiplied by theme.spacing (px).'],
-      ['width', 'string', '', 'Css width property.'],
-      ['height', 'string', '', 'Css height property.'],
-      ...marginProps,
-      ...paddingProps,
-    ],
-  },
   elevatedbutton: {
     props: [
       ['disableRipple', 'boolean', 'false', 'Disable the ripple effect.'],

@@ -7,7 +7,6 @@ import {TypeScript} from '@components/TypeScript';
 import {
   Typography,
   Backdrop,
-  Button,
   Flex,
   ElevatedButton,
 } from '@themestress/components';

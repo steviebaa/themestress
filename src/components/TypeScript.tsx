@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styled from '@emotion/styled';
-import {Flex, Button} from '@themestress/components';
+import {Flex, ElevatedButton} from '@themestress/components';
 
 import Prism from 'prismjs';
 import '@core/styles/prism.css';
@@ -46,15 +46,15 @@ export const TypeScript = React.memo(
       <>
         <Flex justifyContent="flex-end" height="fit-content">
           {collapsable && (
-            <Button onClick={toggleCollapse}>
+            <ElevatedButton onClick={toggleCollapse}>
               {isCollapsed ? 'Expand' : 'Collapse'}
-            </Button>
+            </ElevatedButton>
           )}
 
           {!noCopy && (
-            <Button onClick={() => navigator.clipboard.writeText(code)}>
+            <ElevatedButton onClick={() => navigator.clipboard.writeText(code)}>
               Copy
-            </Button>
+            </ElevatedButton>
           )}
         </Flex>
         <Pre restrictHeight={restrictHeight ? 1 : 0} {...props}>

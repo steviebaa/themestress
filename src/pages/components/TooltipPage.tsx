@@ -5,7 +5,7 @@ import {PageHeader} from '@components/ImportSample';
 import {Code, P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
-import {Button, Tooltip} from '@themestress/components';
+import {ElevatedButton, Tooltip} from '@themestress/components';
 
 export const TooltipPage = () => {
   return (
@@ -19,7 +19,7 @@ export const TooltipPage = () => {
 
       <SampleBox>
         <Tooltip tip={"Is it me you're looking for?"}>
-          <Button variant="outlined">Hover Me!</Button>
+          <ElevatedButton>Hover Me!</ElevatedButton>
         </Tooltip>
       </SampleBox>
       <TypeScript code={samples.tooltip.overview} />
@@ -29,15 +29,15 @@ export const TooltipPage = () => {
 
       <SampleBox>
         <Tooltip tip="Hello from the left side." direction="left">
-          <Button variant="outlined">Left</Button>
+          <ElevatedButton>Left</ElevatedButton>
         </Tooltip>
 
         <Tooltip tip="Hello from the other side." direction="right">
-          <Button variant="outlined">Right</Button>
+          <ElevatedButton>Right</ElevatedButton>
         </Tooltip>
 
         <Tooltip tip="Hello from below." direction="bottom">
-          <Button variant="outlined">Bottom</Button>
+          <ElevatedButton>Bottom</ElevatedButton>
         </Tooltip>
       </SampleBox>
       <TypeScript code={samples.tooltip.direction} />
@@ -47,7 +47,7 @@ export const TooltipPage = () => {
 
       <SampleBox>
         <Tooltip tip="That was 2 seconds!" delay={2000}>
-          <Button variant="outlined">Delayed Tooltip</Button>
+          <ElevatedButton>Delayed Tooltip</ElevatedButton>
         </Tooltip>
       </SampleBox>
       <TypeScript code={samples.tooltip.delay} />

@@ -19,9 +19,9 @@ export const samples = {
 
   return (
     <>
-      <Button variant="contained" onClick={toggleBackdrop}>
+      <ElevatedButton variant="contained" onClick={toggleBackdrop}>
         Open Backdrop
-      </Button>
+      </ElevatedButton>
 
       <Backdrop open={open} onClick={toggleBackdrop} bgColor={'rgb(0,0,0,0.8)'}>
         Optional content here
@@ -29,15 +29,6 @@ export const samples = {
     </>
   )
 }`,
-  },
-  button: {
-    overview: '<Button>Button</Button>',
-    variant: `<Button variant="contained">Contained</Button>
-<Button variant="outlined">Outlined</Button>
-<Button variant="text">Text</Button>`,
-    icon: `<Button variant="outlined" padding={1}>
-  <CheckRounded fill={['primary', 'main']} />
-</Button>`,
   },
   elevatedbutton: {
     overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
@@ -148,9 +139,9 @@ export const samples = {
         <MenuItem endIcon={'⌘C'}>Copy</MenuItem>
       </Menu>
       
-      <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
+      <ElevatedButton variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
         File
-      </Button>
+      </ElevatedButton>
     </>
   )
 }`,
@@ -164,9 +155,9 @@ export const samples = {
   >
     <MenuItem>New File</MenuItem>
   </Menu>
-  <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
+  <ElevatedButton variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
     Transform Position
-  </Button>
+  </ElevatedButton>
 </>`,
     positionOverride: `<>
   <Menu
@@ -177,9 +168,9 @@ export const samples = {
   >
     <MenuItem>New File</MenuItem>
   </Menu>
-  <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
+  <ElevatedButton variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
     Position Override
-  </Button>
+  </ElevatedButton>
 </>`,
   },
   menuitem: {
@@ -210,9 +201,9 @@ export const samples = {
         </NestedMenuItem>
       </Menu>
 
-      <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
+      <ElevatedButton variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
         Open Menu
-      </Button>
+      </ElevatedButton>
     </>
   )
 }`,
@@ -508,13 +499,13 @@ export const Dashboard = () => {
   },
   tooltip: {
     overview: `<Tooltip tip="Is it me you're looking for?">
-  <Button variant="outlined">Hover Me!</Button>
+  <ElevatedButton variant="outlined">Hover Me!</ElevatedButton>
 </Tooltip>`,
     direction: `<Tooltip tip="Hello from the other side." direction="right">
-  <Button variant="outlined">Right</Button>
+  <ElevatedButton variant="outlined">Right</ElevatedButton>
 </Tooltip>`,
     delay: `<Tooltip tip="That was 2 seconds!" delay={2000}>
-  <Button variant="outlined">Delayed Tooltip</Button>
+  <ElevatedButton variant="outlined">Delayed Tooltip</ElevatedButton>
 </Tooltip>`,
   },
   typography: {

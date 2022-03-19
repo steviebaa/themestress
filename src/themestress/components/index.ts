@@ -1,6 +1,5 @@
 export * from './Avatar';
 export * from './Backdrop';
-export * from './Button';
 export * from './ElevatedButton';
 export * from './FilledButton';
 export * from './FilledTonalButton';
