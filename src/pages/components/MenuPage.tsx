@@ -44,7 +44,7 @@ export const MenuPage = () => {
           <MenuItem endIcon={'⌘C'}>Copy</MenuItem>
         </Menu>
 
-        <ElevatedButton variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
+        <ElevatedButton ref={anchorElRef} onClick={toggleMenu}>
           File
         </ElevatedButton>
       </SampleBox>
@@ -80,7 +80,7 @@ export const MenuPage = () => {
         >
           <MenuItem>New File</MenuItem>
         </Menu>
-        <ElevatedButton variant="outlined" ref={anchorElRef2} onClick={toggleMenu2}>
+        <ElevatedButton ref={anchorElRef2} onClick={toggleMenu2}>
           Transform Position
         </ElevatedButton>
       </SampleBox>
@@ -106,7 +106,7 @@ export const MenuPage = () => {
         >
           <MenuItem>New File</MenuItem>
         </Menu>
-        <ElevatedButton variant="outlined" ref={anchorElRef3} onClick={toggleMenu3}>
+        <ElevatedButton ref={anchorElRef3} onClick={toggleMenu3}>
           Position Override
         </ElevatedButton>
       </SampleBox>
