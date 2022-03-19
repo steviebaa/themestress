@@ -35,8 +35,8 @@ export const apiProps = {
         'var(--sys-z-index-backdrop)',
         'Css z-index property.',
       ],
-      ['bgColor', 'TColor', 'transparent', 'Css background-color property.'],
-      ['fontColor', 'TColor', '', 'Css color property.'],
+      ['bgColor', 'string', 'transparent', 'Css background-color property.'],
+      ['fontColor', 'string', '', 'Css color property.'],
     ],
   },
   button: {

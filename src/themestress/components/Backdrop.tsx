@@ -38,18 +38,9 @@ const StyledBackdrop = styled.div<BackdropProps>`
 `;
 
 export const Backdrop: React.FC<BackdropProps> = forwardRef(
-  ({onClick, ...props}, ref: ForwardedRef<HTMLDivElement>) => {
-    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-      onClick && onClick(e);
-    };
-
+  (props, ref: ForwardedRef<HTMLDivElement>) => {
     return props.open ? (
-      <StyledBackdrop
-        ref={ref}
-        className="_Backdrop"
-        onClick={handleClick}
-        {...props}
-      />
+      <StyledBackdrop ref={ref} className="_Backdrop" {...props} />
     ) : null;
   },
 );
