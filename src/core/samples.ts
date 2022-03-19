@@ -4,9 +4,9 @@ export const samples = {
     overview: `export const ProfilePicture = () => {
   return (
     <>
-      <Avatar noPulse statusColor={['error', 'main']} />
+      <Avatar noPulse statusColor="blue" />
       <Avatar src="https://www.placecage.com/c/460/300" noStatus />
-      <Avatar alt="Nicolas Cage" borderColor={'grey'} />
+      <Avatar alt="Nicolas Cage" />
     </>
   )
 }`,

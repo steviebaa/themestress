@@ -19,18 +19,7 @@ const paddingProps = [
 export const apiProps = {
   avatar: {
     props: [
-      [
-        'borderColor',
-        'TColor',
-        'neutral[50] | neutral[900]',
-        'The border color of the status badge and the avatar.',
-      ],
-      [
-        'statusColor',
-        'TColor',
-        'success.main',
-        'The color of the status badge.',
-      ],
+      ['statusColor', 'string', '#44b700', 'The color of the status badge.'],
       ['noPulse', 'boolean', 'false', 'Disable the badge animation.'],
       ['noStatus', 'boolean', 'false', 'Hide the status badge.'],
       ['alt', 'string', '', 'The image alt text, also used for initials.'],
