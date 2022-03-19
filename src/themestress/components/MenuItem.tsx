@@ -105,6 +105,9 @@ const StyledMenuItem = styled(TextButton)<{
 const StyledLabel = styled(Typography)<{padStart?: boolean; padEnd?: boolean}>`
   padding-left: ${({padStart}) => padStart && '36px'};
   padding-right: ${({padEnd}) => padEnd && '36px'};
+  height: 100%;
+  display: flex;
+  align-items: center;
 `;
 
 export const MenuItem: React.FC<MenuItemProps> = React.forwardRef(

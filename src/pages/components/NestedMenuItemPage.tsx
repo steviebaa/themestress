@@ -1,16 +1,26 @@
 import React, {useRef, useState} from 'react';
+import {samples} from '@core/samples';
 import {P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {TypeScript} from '@components/TypeScript';
-import {samples} from '@core/samples';
-import {Menu, MenuItem, Button, NestedMenuItem} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
+import {
+  Menu,
+  MenuItem,
+  NestedMenuItem,
+  TextButton,
+  OutlinedButton,
+} from '@themestress/components';
 
 export const NestedMenuItemPage = () => {
   const [open, setOpen] = useState(false);
   const anchorElRef = useRef(null);
   const toggleMenu = () => setOpen(prev => !prev);
+
+  const [open2, setOpen2] = useState(false);
+  const anchorElRef2 = useRef(null);
+  const toggleMenu2 = () => setOpen2(prev => !prev);
 
   return (
     <>
@@ -28,16 +38,21 @@ export const NestedMenuItemPage = () => {
             <MenuItem>SVG</MenuItem>
           </NestedMenuItem>
         </Menu>
-        <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
+        <OutlinedButton ref={anchorElRef} onClick={toggleMenu}>
           Open Menu
-        </Button>
+        </OutlinedButton>
       </SampleBox>
       <TypeScript code={samples.nestedmenuitem.overview} />
 
       <Subheading>Reversal</Subheading>
 
       <SampleBox>
-        <NestedMenuItem content="Regardless of how deep the menu goes">
+        <Menu
+          open={open2}
+          onClose={toggleMenu2}
+          anchorElement={anchorElRef2}
+          anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+        >
           <NestedMenuItem content={'it will choose'}>
             <NestedMenuItem content="which direction to render">
               <NestedMenuItem content="to make sure it stays">
@@ -47,7 +62,10 @@ export const NestedMenuItemPage = () => {
               </NestedMenuItem>
             </NestedMenuItem>
           </NestedMenuItem>
-        </NestedMenuItem>
+        </Menu>
+        <TextButton ref={anchorElRef2} onClick={toggleMenu2}>
+          Regardless of how deep the menu goes
+        </TextButton>
       </SampleBox>
 
       <ApiTable />

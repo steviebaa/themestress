@@ -22,7 +22,7 @@ const StyledContainer = styled.div<ContainerProps>`
   position: relative;
   max-width: ${({maxWidth}) => maxWidthMap[maxWidth]};
   min-width: ${({fixed, maxWidth}) => (fixed ? maxWidthMap[maxWidth] : '')};
-  padding: ${({theme, padding}) => `0px ${theme.spacing * (padding ?? 6)}px`};
+  padding: ${({padding}) => `0px calc(var(--sys-spacing) * ${padding ?? 6})`};
   margin-left: auto;
   margin-right: auto;
   width: 100%;

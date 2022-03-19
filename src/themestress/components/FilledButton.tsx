@@ -83,6 +83,9 @@ const baseStyles = ({
     }
 
     > span._FilledButton-Label {
+      height: 100%;
+      display: flex;
+      align-items: center;
       flex-grow: 1;
       color: var(--sys-color-on-primary);
       font-family: var(--sys-typescale-label-large-font);

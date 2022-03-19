@@ -84,6 +84,9 @@ const baseStyles = ({
     }
 
     > span._FilledTonalButton-Label {
+      height: 100%;
+      display: flex;
+      align-items: center;
       flex-grow: 1;
       color: var(--sys-color-on-secondary-container);
       font-family: var(--sys-typescale-label-large-font);

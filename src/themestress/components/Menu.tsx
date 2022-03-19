@@ -11,6 +11,7 @@ import {createStateLayer} from '../core/md/color';
 import {Surface} from './Surface';
 import {Backdrop} from './Backdrop';
 import {BackdropProps} from './Backdrop';
+import {createPortal} from 'react-dom';
 
 export interface MenuProps extends ReactHTMLProps<HTMLDivElement> {
   children: ReactNode;
@@ -103,7 +104,6 @@ export const Menu: React.FC<MenuProps> = forwardRef(
     };
 
     const position = props.anchorElement?.current?.getBoundingClientRect();
-
     const isNested = props._nested;
 
     const handleClick = (e: React.MouseEvent) => {
@@ -157,12 +157,14 @@ export const Menu: React.FC<MenuProps> = forwardRef(
     );
 
     return (
-      props.open && (
+      props.open &&
+      createPortal(
         <>
           {!isNested && (
             <Backdrop
               open={props.open}
               onClick={handleClickAway}
+              bgColor="transparent"
               {...props.backdropProps}
             />
           )}
@@ -177,7 +179,8 @@ export const Menu: React.FC<MenuProps> = forwardRef(
               {clonedChildren}
             </UnorderedList>
           </StyledMenu>
-        </>
+        </>,
+        document.body,
       )
     );
   },

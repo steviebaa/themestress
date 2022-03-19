@@ -85,6 +85,9 @@ const baseStyles = ({
     }
 
     > span._OutlinedButton-Label {
+      height: 100%;
+      display: flex;
+      align-items: center;
       flex-grow: 1;
       color: var(--sys-color-primary);
       font-family: var(--sys-typescale-label-large-font);

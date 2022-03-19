@@ -9,7 +9,6 @@ import {Menu, MenuItem, Button, Divider} from '@themestress/components';
 
 import FolderIcon from '@themestress/icons/FolderOutlined';
 import ImportIcon from '@themestress/icons/FileDownloadOutlined';
-import SmallRightArrowIcon from '@themestress/icons/ArrowRightOutlined';
 
 export const MenuPage = () => {
   const [open, setOpen] = useState(false);
@@ -38,7 +37,7 @@ export const MenuPage = () => {
         <Menu open={open} onClose={toggleMenu} anchorElement={anchorElRef}>
           <MenuItem startIcon={FolderIcon}>Open</MenuItem>
           <MenuItem>Save as</MenuItem>
-          <MenuItem startIcon={ImportIcon} endIcon={SmallRightArrowIcon}>
+          <MenuItem startIcon={ImportIcon} endIcon={ImportIcon}>
             Import
           </MenuItem>
           <Divider />
