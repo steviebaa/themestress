@@ -69,7 +69,7 @@ export interface FlexProps extends ReactHTMLProps<HTMLDivElement> {
   paddingLeft?: number;
 }
 
-const FlexContainer = styled.div<FlexProps & {$wrap: boolean}>`
+const FlexContainer = styled.div<FlexProps>`
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -81,8 +81,8 @@ const FlexContainer = styled.div<FlexProps & {$wrap: boolean}>`
     (rowReverse && 'row-reverse') ||
     'initial'};
 
-  flex-wrap: ${({$wrap, wrapReverse}) =>
-    ($wrap && 'wrap') || (wrapReverse && 'wrap-reverse') || ''};
+  flex-wrap: ${({wrap, wrapReverse}) =>
+    (wrap && 'wrap') || (wrapReverse && 'wrap-reverse') || ''};
 
   width: ${({theme, width}) => theme.breakpoints.parse(width) || ''};
   height: ${({height}) => height || ''};
@@ -99,12 +99,12 @@ const FlexContainer = styled.div<FlexProps & {$wrap: boolean}>`
 `;
 
 export const Flex: React.FC<FlexProps> = forwardRef(
-  ({wrap, ...props}: FlexProps, ref: ForwardedRef<HTMLDivElement>) => {
+  (props: FlexProps, ref: ForwardedRef<HTMLDivElement>) => {
     return (
       <FlexContainer
         ref={ref}
         className="_Flex"
-        $wrap={wrap}
+        // wrap={wrap}
         {...props}
       ></FlexContainer>
     );
