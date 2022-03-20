@@ -1,8 +1,6 @@
-/** @jsx jsx */
-
 import React, {forwardRef} from 'react';
 import styled from '@emotion/styled';
-import {css, jsx, Theme} from '@emotion/react';
+import {css, Theme} from '@emotion/react';
 import {Ripple} from './Ripple';
 import {getMarginAndPadding, ReactHTMLProps} from '../core';
 import {ColorUtility} from '@themestress/core/classes/base/ColorUtility';
@@ -13,6 +11,8 @@ export interface FABProps extends ReactHTMLProps<HTMLButtonElement> {
   icon?: React.ReactNode;
   variant?: 'surface' | 'primary' | 'secondary' | 'tertiary';
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+  /** If true, the position will be fixed. Defaults to absolute. */
+  fixed?: boolean;
   small?: boolean;
   large?: boolean;
   open?: boolean;
@@ -43,6 +43,7 @@ const baseStyles = ({
   large,
   small,
   lowered,
+  fixed,
 }: FABProps & {theme: Theme}) => {
   let color = 'var(--sys-color-on-primary-container)';
   let bgColor = 'var(--sys-color-primary-container)';
@@ -97,7 +98,7 @@ const baseStyles = ({
   }
 
   return css`
-    position: absolute;
+    position: ${(fixed && 'fixed') ?? 'absolute'};
     z-index: var(--sys-z-index-fab);
     top: ${top};
     right: ${right};
@@ -203,7 +204,6 @@ const focusedStyle = ({theme, lowered, variant}: FABProps & {theme: Theme}) => {
 
   return css`
     outline: 2px solid var(--sys-color-outline);
-
     box-shadow: var(--sys-elevation-level-${lowered ? 1 : 3});
     background-image: ${createStateLayer(
       stateColor,

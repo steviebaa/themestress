@@ -31,9 +31,12 @@ export const FABPage = () => {
 
   return (
     <>
-      <div style={{position: 'fixed', bottom: '0px', right: '0px'}}>
-        <FAB position="bottom-right" icon={plusIcon} />
-      </div>
+      <Tooltip
+        direction="left"
+        tip={<Code>{`<FAB fixed position="bottom-right">...`}</Code>}
+      >
+        <FAB fixed position="bottom-right" icon={plusIcon} />
+      </Tooltip>
 
       <PageHeader />
 
