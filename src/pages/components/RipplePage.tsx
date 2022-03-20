@@ -12,14 +12,13 @@ export const RipplePage = () => {
     <>
       <PageHeader />
       <P>
-        The ripple effect used by the <Code>Button</Code> component. It can be
+        The ripple effect typically used by button style components. It can be
         added as a child to any element.
       </P>
 
       <SampleBox>
         <ElevatedButton>Create Ripple</ElevatedButton>
       </SampleBox>
-      {/* <TypeScript code={samples.ripple.overview} /> */}
 
       <Subheading>Use it anywhere</Subheading>
       <P>
