@@ -17,7 +17,7 @@ describe('Component ContextMenu', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <ContextMenu
-          items={[
+          menuItems={[
             <MenuItem key="Item 1" content="Item 1" />,
             <MenuItem key="Item 2" content="Item 2" />,
           ]}
@@ -35,7 +35,7 @@ describe('Component ContextMenu', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <ContextMenu
-          items={[
+          menuItems={[
             <MenuItem key="Item 1" content="Item 1" />,
             <MenuItem key="Item 2" content="Item 2" />,
           ]}
@@ -53,7 +53,7 @@ describe('Component ContextMenu', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <ContextMenu
-          items={[
+          menuItems={[
             <MenuItem key="Item 1" content="Item 1" />,
             <MenuItem key="Item 2" content="Item 2" />,
           ]}

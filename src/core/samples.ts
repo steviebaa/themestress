@@ -87,7 +87,7 @@ export const samples = {
   contextmenu: {
     overview: `<ContextMenu
   width="100px"
-  items={[
+  menuItems={[
     <MenuItem key={'a'} onClick={handleClick}>Open</MenuItem>,
     <MenuItem key={'b'} onClick={handleClick}>Save</MenuItem>,
   ]}
@@ -96,12 +96,15 @@ export const samples = {
       Right Click Me!
   </Card>
 
-  <Card
-    variant="outlined"
+  <Surface
+    variant="filled"
+    padding={3}
+    radius={2}
     onContextMenu={() =>
-      snackbar.queue({
+      snackbar.enqueue({
         content: 'The existing onContextMenu function was also called!',
         variant: 'info',
+        duration: 4000,
       })
     }
   >

@@ -42,7 +42,7 @@ export const ContextMenuPage = () => {
       <SampleBox>
         <ContextMenu
           width="100px"
-          items={[
+          menuItems={[
             <MenuItem key={'a'} onClick={handleClick}>
               Open
             </MenuItem>,
@@ -51,15 +51,16 @@ export const ContextMenuPage = () => {
             </MenuItem>,
           ]}
         >
-          <Surface variant="outlined" padding={3}>
-            <Typography variant="body1" fontSize="18px" margin={0}>
+          <Surface variant="filled" padding={3} radius={2}>
+            <Typography fontSize="18px" margin={0}>
               Right Click Me!
             </Typography>
           </Surface>
 
           <Surface
-            variant="outlined"
+            variant="filled"
             padding={3}
+            radius={2}
             onContextMenu={() =>
               snackbar.enqueue({
                 content: 'The existing onContextMenu function was also called!',
@@ -68,7 +69,7 @@ export const ContextMenuPage = () => {
               })
             }
           >
-            <Typography variant="body1" fontSize="18px" margin={0}>
+            <Typography fontSize="18px" margin={0}>
               I already have an <Code>onContextMenu</Code> prop.
             </Typography>
           </Surface>

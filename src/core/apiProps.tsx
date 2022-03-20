@@ -186,14 +186,24 @@ export const apiProps = {
   contextmenu: {
     props: [
       [
-        'items',
-        'any[ ]',
+        'menuItems',
+        'any[]',
         '',
         'An array of items, usually MenuItem components.',
       ],
       ['width', 'string', '', 'The width of the menu.'],
-      ['anchorOrigin', 'Transform', '', 'The width of the menu.'],
-      ['transformOrigin', 'Transform', '', 'The width of the menu.'],
+      [
+        'anchorOrigin',
+        'Transform',
+        '',
+        'The specific point of the anchor element to anchor to.',
+      ],
+      [
+        'transformOrigin',
+        'Transform',
+        '',
+        'The specific point of the menu to anchor to the anchor element.',
+      ],
     ],
   },
   divider: {
