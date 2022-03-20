@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import React, {forwardRef} from 'react';
 import styled from '@emotion/styled';
-import {css, jsx, Theme} from '@emotion/react';
+import {css, Theme} from '@emotion/react';
 import {Ripple} from './Ripple';
 import {getMarginAndPadding, ReactHTMLProps} from '../core';
 import {ColorUtility} from '../core/classes/base/ColorUtility';
@@ -36,6 +35,7 @@ const baseStyles = ({
   theme,
   startIcon,
   endIcon,
+  align,
 }: FilledTonalButtonProps & {theme: Theme}) => {
   return css`
     display: inline-flex;
@@ -87,6 +87,7 @@ const baseStyles = ({
       height: 100%;
       display: flex;
       align-items: center;
+      justify-content: ${align ?? 'center'};
       flex-grow: 1;
       color: var(--sys-color-on-secondary-container);
       font-family: var(--sys-typescale-label-large-font);
