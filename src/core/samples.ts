@@ -474,11 +474,11 @@ export const Dashboard = () => {
   <Typography>a 40px vertical spacer between them.</Typography>
 </Flex>`,
     breakpoints: `<>
-  <Typography bgColor="royalblue">
+  <Typography bgColor="lightblue">
     These spans have a varying vertical spacer
   </Typography>
   <Spacer size="40px" breakpoints={{sm: '3px', md: '100px'}} />
-  <Typography bgColor="royalblue">
+  <Typography bgColor="lightblue">
     between them depending on the current breakpoint.
   </Typography>
 </>`,

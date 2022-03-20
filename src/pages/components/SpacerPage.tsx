@@ -13,14 +13,13 @@ export const SpacerPage = () => {
       <PageHeader />
 
       <P>
-        A semantic means to provide spacing which might otherwise be difficult
-        or overly complex to achieve.
+        A spacing component to semantically provide spacing between elements.
       </P>
       <SampleBox>
         <Flex column>
-          <Typography bgColor="royalblue">These spans have</Typography>
+          <Typography bgColor="lightblue">These spans have</Typography>
           <Spacer size="40px" vertical />
-          <Typography bgColor="royalblue">
+          <Typography bgColor="lightblue">
             a 40px vertical spacer between them.
           </Typography>
         </Flex>
@@ -30,11 +29,11 @@ export const SpacerPage = () => {
       <Subheading>Breakpoints</Subheading>
       <P>Optionally set a different size for any breakpoint.</P>
       <SampleBox>
-        <Typography bgColor="royalblue">
+        <Typography bgColor="lightblue">
           These spans have a varying vertical spacer
         </Typography>
         <Spacer size="40px" breakpoints={{sm: '3px', md: '100px'}} />
-        <Typography bgColor="royalblue">
+        <Typography bgColor="lightblue">
           between them depending on the current breakpoint.
         </Typography>
       </SampleBox>
