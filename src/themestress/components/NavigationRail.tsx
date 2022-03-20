@@ -18,8 +18,8 @@ const Indicator = styled.span`
   display: flex;
   justify-content: center;
   background-color: rgb(0, 0, 40, 0.1);
-  margin-bottom: 4;
-  border-radius: 4px;
+  margin-bottom: 4px;
+  border-radius: 9999px;
   position: absolute;
 `;
 

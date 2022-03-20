@@ -14,8 +14,8 @@ const StyledMenuItem = styled(TextButton)<NavigationItemProps>`
   line-height: 1.75;
   letter-spacing: 0.02857em;
   max-width: 360px;
-  padding: 8px;
   margin: 0px 0px 2px 0px;
+  padding: 8px 16px;
 `;
 
 export const NavigationItem: React.FC<NavigationItemProps> = forwardRef(

@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
 import React, {ForwardedRef, forwardRef} from 'react';
+import styled from '@emotion/styled';
 
 export interface NavigationBarProps {
   children: React.ReactNode;

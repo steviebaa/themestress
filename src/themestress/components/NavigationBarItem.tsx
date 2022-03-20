@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import React, {ForwardedRef, forwardRef} from 'react';
 import styled from '@emotion/styled';
-import {css, jsx, Theme} from '@emotion/react';
+import {css, Theme} from '@emotion/react';
 import {ReactHTMLButtonProps} from '../core/definitions';
 import {Typography} from './Typography';
 import {createStateLayer} from '../core/md/color';
