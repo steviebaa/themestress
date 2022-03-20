@@ -7,8 +7,9 @@ export interface IconProps {
   fill?: string;
 }
 
-const StyledSvg = styled.svg<{_fill: string}>`
-  fill: ${({_fill}) => (_fill === undefined ? '' : _fill)};
+const StyledSvg = styled.svg<IconProps>`
+  fill: ${({fill}) =>
+    fill === undefined ? 'var(--sys-color-on-surface)' : fill};
 `;
 
 export const Icon: React.FC<IconProps> = ({
@@ -30,7 +31,6 @@ export const Icon: React.FC<IconProps> = ({
       focusable="false"
       viewBox="0 0 24 24"
       aria-hidden="true"
-      _fill={fill}
       {...props}
     >
       {children}

@@ -236,12 +236,7 @@ export const apiProps = {
   },
   icon: {
     props: [
-      [
-        'fill',
-        'TColor',
-        'neutral[800] | neutral[100]',
-        'Css fill property. Defaults are theme dependant',
-      ],
+      ['fill', 'string', 'on-surface', 'Css fill property.'],
       ['size', 'sm | md | lg | string', 'sm', 'Svg height property.'],
     ],
   },
