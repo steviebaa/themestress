@@ -24,7 +24,6 @@ const StyledDivider = styled.hr<DividerProps>`
   box-sizing: border-box;
   overflow: visible;
   align-self: stretch;
-
   background-color: ${({bgColor}) => bgColor ?? 'var(--sys-color-outline)'};
 `;
 

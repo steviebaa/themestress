@@ -210,7 +210,7 @@ export const apiProps = {
     props: [
       ['vertical', 'boolean', 'false', 'For a vertical divider.'],
       ['weight', 'number', '1', 'The thickness of the line (px).'],
-      ['bgColor', 'TColor', 'transparent', 'Css background-color property.'],
+      ['bgColor', 'string', 'transparent', 'Css background-color property.'],
       ...marginProps,
     ],
   },

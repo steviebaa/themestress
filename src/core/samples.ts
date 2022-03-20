@@ -113,7 +113,7 @@ export const samples = {
 </ContextMenu>`,
   },
   divider: {
-    overview: `<Divider vertical weight={2} bgColor={["primary", "main"]} />`,
+    overview: `<Divider vertical weight={2} bgColor="grey" />`,
   },
   flex: {
     overview: `<Flex column />`,
