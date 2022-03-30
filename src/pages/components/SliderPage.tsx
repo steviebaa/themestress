@@ -4,7 +4,7 @@ import {SampleBox} from '@components/SampleBox';
 import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
 import {Slider, Flex, SliderMark} from '@themestress/components';
-import {useSnackbar} from '../core/hooks';
+import {useSnackbar} from '@themestress/core/hooks';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 

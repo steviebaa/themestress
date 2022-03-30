@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
 import React, {ChangeEvent, MutableRefObject, useRef, useState} from 'react';
+import styled from '@emotion/styled';
 import {ReactHTMLProps} from '../core/definitions';
 import {InputBase} from './InputBase';
 import {Menu} from './Menu';

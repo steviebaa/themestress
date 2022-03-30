@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
 import React, {useEffect, useRef, useState} from 'react';
 import ReactDOM from 'react-dom';
+import styled from '@emotion/styled';
 
 interface Message {
   content: React.ReactNode;

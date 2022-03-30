@@ -5,7 +5,7 @@ import {SampleBox} from '@components/SampleBox';
 import {CodeBlock} from '@components/CodeBlock';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
-import {useSnackbar} from '../core/hooks';
+import {useSnackbar} from '@themestress/core/hooks';
 import {
   FullscreenDialog,
   Typography,
@@ -29,7 +29,7 @@ export const FullscreenDialogPage = () => {
       <SampleBox>
         <ElevatedButton onClick={toggleModal}>Change Plan</ElevatedButton>
 
-        <FullscreenDialog open={open} onClickAway={toggleModal}>
+        <FullscreenDialog open={open}>
           <Flex column width="md">
             <Typography variant="title-large">Change Plan</Typography>
 
@@ -78,7 +78,7 @@ export const ChangePayment = () => {
     <>
       <ElevatedButton onClick={toggleModal}>Change Plan</ElevatedButton>
 
-      <FullscreenDialog open={open} onClickAway={toggleModal}>
+      <FullscreenDialog open={open}>
         <Flex column width="md">
           <Typography variant="title-large">Change Plan</Typography>
 

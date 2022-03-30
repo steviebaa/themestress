@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {ThemeProvider as EmotionProvider} from '@emotion/react';
 import {Css} from '@core/styles/Css';
 import {settingsContext} from '@stores/SettingsContext';
-import {Theme} from '../core/classes/theme/Theme';
+import {Theme} from '@themestress/core/classes/theme/Theme';
 
 interface ThemeProps {
   children: React.ReactNode;

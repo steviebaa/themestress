@@ -24,12 +24,10 @@ export const GettingStartedPage = () => {
         Themestress uses <a href="https://emotion.sh/">Emotion</a> to provide an
         easy styling experience.
       </P>
-      The latest version of Themestress is not yet available on NPM. It will be
-      very soon.
-      {/* <CodeBlock
+      <CodeBlock
         lang="tsx"
         code="$ npm install themestress @emotion/styled @emotion/react"
-      /> */}
+      />
       <Subheading>Contributing</Subheading>
       <P>
         Pull requests are more than welcome{' '}

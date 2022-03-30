@@ -11,7 +11,7 @@ export const ThemeingPage = () => {
 
       {/* <PageHeader
         importCode={`import {ThemeProvider} from '@emotion/react'
-import {createTheme} from '../core';`}
+import {createTheme} from '@themestress/core';`}
       />
 
       <P>

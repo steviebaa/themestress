@@ -1,8 +1,7 @@
 import React, {useRef} from 'react';
-import {Link} from 'react-router-dom';
 import styled from '@emotion/styled';
 import {samples} from '@core/samples';
-import {Code, P, Subheading} from '@components/StyledTypography';
+import {Code, P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {CodeBlock} from '@components/CodeBlock';
 import {ApiTable} from '@components/ApiTable';

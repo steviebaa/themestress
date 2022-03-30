@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import React, {ForwardedRef, forwardRef, MutableRefObject, useRef} from 'react';
+import {createPortal} from 'react-dom';
 import styled from '@emotion/styled';
 import {ReactHTMLProps, Transform} from '../core/definitions';
 import {createStateLayer} from '../core/md/color';
 import {Surface} from './Surface';
 import {Backdrop} from './Backdrop';
 import {BackdropProps} from './Backdrop';
-import {createPortal} from 'react-dom';
 
 export interface MenuProps extends ReactHTMLProps<HTMLDivElement> {
   children: React.ReactNode;

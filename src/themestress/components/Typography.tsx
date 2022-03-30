@@ -1,8 +1,6 @@
-/** @jsx jsx */
-// https://material.io/design/typography/the-type-system.html#type-scale
 import React, {Ref} from 'react';
 import styled from '@emotion/styled';
-import {css, jsx, Theme} from '@emotion/react';
+import {css, Theme} from '@emotion/react';
 import {ReactHTMLProps} from '../core/definitions';
 import {getMarginAndPadding} from '../core/themeUtils';
 
