@@ -38,7 +38,7 @@ const StyledBackdrop = styled.div<BackdropProps>`
 `;
 
 export const Backdrop: React.FC<BackdropProps> = forwardRef(
-  (props, ref: ForwardedRef<HTMLDivElement>) => {
+  (props: BackdropProps, ref: ForwardedRef<HTMLDivElement>) => {
     return props.open ? (
       <StyledBackdrop ref={ref} className="_Backdrop" {...props} />
     ) : null;

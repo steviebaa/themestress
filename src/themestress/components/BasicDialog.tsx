@@ -43,7 +43,7 @@ const StyledSurface = styled(Surface)<Partial<BasicDialogProps>>`
 
 export const BasicDialog: React.FC<BasicDialogProps> = forwardRef(
   (
-    {children, open, onClickAway, backdropProps, ...props},
+    {children, open, onClickAway, backdropProps, ...props}: BasicDialogProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const backdropClick = useRef<boolean>(null);
@@ -53,7 +53,7 @@ export const BasicDialog: React.FC<BasicDialogProps> = forwardRef(
       backdropClick.current = e.target === e.currentTarget;
     };
 
-    const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleClose = () => {
       backdropClick.current && onClickAway && onClickAway();
     };
 

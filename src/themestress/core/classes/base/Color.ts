@@ -43,39 +43,80 @@ export class Color {
     return hsl.to.hex(this.hsla);
   }
 
-  // GET PROPERTIES
   /** Get the red of the color. */
   get red() {
     return rgb.get.red(hsl.to.rgb(this.hsl));
   }
+  /** Set the red value of the color [0,255]. */
+  set red(red: number) {
+    this.set(rgb.set.red(hsl.to.rgb(this.hsla), red));
+  }
+
   /** Get the green of the color. */
   get green() {
     return rgb.get.green(hsl.to.rgb(this.hsl));
   }
+
+  /** Set the green value of the color [0,255]. */
+  set green(green: number) {
+    this.set(rgb.set.green(hsl.to.rgb(this.hsla), green));
+  }
+
   /** Get the blue of the color. */
   get blue() {
     return rgb.get.blue(hsl.to.rgb(this.hsl));
   }
+
+  /** Set the blue value of the color [0,255]. */
+  set blue(blue: number) {
+    this.set(rgb.set.blue(hsl.to.rgb(this.hsla), blue));
+  }
+
   /** Get the hue of the color. */
   get hue() {
     return hsl.get.hue(this.hsl);
   }
+
+  /** Set the hue [0,360]. */
+  set hue(hue: number) {
+    this.set(hsl.set.hue(this.hsla, hue));
+  }
+
   /** Get the saturation of the color. */
   get saturation() {
     return hsl.get.saturation(this.hsl);
   }
+
+  /** Set the saturation [0,100]. */
+  set saturation(saturation: number) {
+    this.set(hsl.set.saturation(this.hsla, saturation));
+  }
+
   /** Get the lightness of the color. */
   get lightness() {
     return hsl.get.lightness(this.hsl);
   }
+
+  /** Set the lightness [0,100]. */
+  set lightness(lightness: number) {
+    this.set(hsl.set.lightness(this.hsla, lightness));
+  }
+
   /** Get the opacity. */
   get opacity() {
     return this._opacity;
   }
+
+  /** Set the opacity [0,1]. */
+  set opacity(opacity: number) {
+    this.set(hsl.set.opacity(this.hsla, opacity));
+  }
+
   /** Return the opacity in HEX representation. */
   get opacityAsHex() {
     return fractionToHex(this._opacity);
   }
+
   get on() {
     if (!this._on) {
       const onColor = get.onColor(this.hsl);
@@ -84,35 +125,6 @@ export class Color {
     return this._on;
   }
 
-  // SET PROPERTIES
-  /** Set the red value of the color [0,255]. */
-  set red(red: number) {
-    this.set(rgb.set.red(hsl.to.rgb(this.hsla), red));
-  }
-  /** Set the green value of the color [0,255]. */
-  set green(green: number) {
-    this.set(rgb.set.green(hsl.to.rgb(this.hsla), green));
-  }
-  /** Set the blue value of the color [0,255]. */
-  set blue(blue: number) {
-    this.set(rgb.set.blue(hsl.to.rgb(this.hsla), blue));
-  }
-  /** Set the hue [0,360]. */
-  set hue(hue: number) {
-    this.set(hsl.set.hue(this.hsla, hue));
-  }
-  /** Set the saturation [0,100]. */
-  set saturation(saturation: number) {
-    this.set(hsl.set.saturation(this.hsla, saturation));
-  }
-  /** Set the lightness [0,100]. */
-  set lightness(lightness: number) {
-    this.set(hsl.set.lightness(this.hsla, lightness));
-  }
-  /** Set the opacity [0,1]. */
-  set opacity(opacity: number) {
-    this.set(hsl.set.opacity(this.hsla, opacity));
-  }
   /** Manually set the on color. */
   set on(color: Color) {
     this._on = color;

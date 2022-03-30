@@ -6,7 +6,7 @@ import {samples} from '@core/samples';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {OutlinedButton, Typography} from '@themestress/components';
-import {useSnackbar} from '@themestress/core/hooks';
+import {useSnackbar} from '../core/hooks';
 
 export const SnackbarPage = () => {
   const snackbar = useSnackbar();
@@ -15,7 +15,7 @@ export const SnackbarPage = () => {
     <>
       <PageHeader
         importCode={`import {SnackbarProvider} from '@themestress/components/Snackbar'
-import {useSnackbar} from '@themestress/core/hooks'`}
+import {useSnackbar} from '../core/hooks'`}
       />
 
       <P>Provide notification-style feedback on the page.</P>

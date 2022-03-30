@@ -86,11 +86,7 @@ export class Theme implements ThemeProps {
     }
   };
 
-  private _addStyle = (
-    key: string,
-    value: string | number,
-    isVar: boolean = false,
-  ) => {
+  private _addStyle = (key: string, value: string | number, isVar = false) => {
     let style = `${String(isVar ? `var(--${value})` : value)}`;
     style = style.slice(-1) === ';' ? style : (style += ';');
     this._styles[`--${key}`] = style;

@@ -4,7 +4,7 @@ export interface ThemeSpacingProps {
   size: number;
 }
 
-export interface ThemeSpacingInitializer extends Partial<ThemeSpacingProps> {}
+export type ThemeSpacingInitializer = Partial<ThemeSpacingProps>;
 
 export class ThemeSpacing implements ThemeSpacingProps {
   public size: number;

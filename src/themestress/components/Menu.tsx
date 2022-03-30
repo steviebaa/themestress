@@ -1,10 +1,5 @@
-import React, {
-  ForwardedRef,
-  forwardRef,
-  MutableRefObject,
-  ReactNode,
-  useRef,
-} from 'react';
+/* eslint-disable react/prop-types */
+import React, {ForwardedRef, forwardRef, MutableRefObject, useRef} from 'react';
 import styled from '@emotion/styled';
 import {ReactHTMLProps, Transform} from '../core/definitions';
 import {createStateLayer} from '../core/md/color';
@@ -14,7 +9,7 @@ import {BackdropProps} from './Backdrop';
 import {createPortal} from 'react-dom';
 
 export interface MenuProps extends ReactHTMLProps<HTMLDivElement> {
-  children: ReactNode;
+  children: React.ReactNode;
   anchorElement?: MutableRefObject<HTMLElement>;
   open: boolean;
   onClose?: () => void;

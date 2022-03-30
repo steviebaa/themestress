@@ -6,7 +6,6 @@ import {getMarginAndPadding} from '../core/themeUtils';
 export interface FullscreenDialogProps extends SurfaceProps {
   children: React.ReactNode;
   open: boolean;
-  onClickAway?: () => void;
   zIndex?: number;
 
   margin?: number;
@@ -40,7 +39,7 @@ const StyledSurface = styled(Surface)<Partial<FullscreenDialogProps>>`
 
 export const FullscreenDialog: React.FC<FullscreenDialogProps> = forwardRef(
   (
-    {children, open, onClickAway, ...props},
+    {children, open, ...props}: FullscreenDialogProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const handleSurfaceClick = (e: React.MouseEvent) => e.stopPropagation();

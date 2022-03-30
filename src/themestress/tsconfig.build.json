@@ -10,7 +10,7 @@
 
     "outDir": "../../dist",
     "baseUrl": "./",
-    "types": ["node"]
+    "types": ["node", "jest"]
   },
-  "exclude": ["node_modules", ".git", "__tests__/**/*"]
+  "exclude": ["node_modules", ".git"]
 }

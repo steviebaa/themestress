@@ -12,8 +12,7 @@ export interface ThemeTypographyProps {
   medium?: {font?: string; weight?: number; fallback?: string};
 }
 
-export interface ThemeTypographyInitializer
-  extends Partial<ThemeTypographyProps> {}
+export type ThemeTypographyInitializer = Partial<ThemeTypographyProps>;
 
 export class ThemeTypography implements ThemeTypographyProps {
   public size: number;

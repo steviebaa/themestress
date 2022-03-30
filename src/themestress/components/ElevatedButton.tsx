@@ -192,7 +192,7 @@ const StyledButton = styled.button<ElevatedButtonProps>`
 `;
 
 export const ElevatedButton: React.FC<ElevatedButtonProps> = forwardRef(
-  ({children, disableRipple, ...props}, ref) => {
+  ({children, disableRipple, ...props}: ElevatedButtonProps, ref) => {
     props.elevation = props.elevation === undefined ? 1 : props.elevation;
 
     return (

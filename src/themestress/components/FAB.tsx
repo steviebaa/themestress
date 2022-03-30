@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import {css, Theme} from '@emotion/react';
 import {Ripple} from './Ripple';
 import {getMarginAndPadding, ReactHTMLProps} from '../core';
-import {ColorUtility} from '@themestress/core/classes/base/ColorUtility';
-import {createStateLayer} from '@themestress/core/md/color';
+import {ColorUtility} from '../core/classes/base/ColorUtility';
+import {createStateLayer} from '../core/md/color';
 
 export interface FABProps extends ReactHTMLProps<HTMLButtonElement> {
   disableRipple?: boolean;
@@ -265,21 +265,23 @@ const StyledButton = styled.button<FABProps>`
   ${props => getMarginAndPadding(props)};
 `;
 
-export const FAB: React.FC<FABProps> = forwardRef(({...props}, ref) => {
-  props.position = props.position ?? 'bottom-right';
+export const FAB: React.FC<FABProps> = forwardRef(
+  ({...props}: FABProps, ref) => {
+    props.position = props.position ?? 'bottom-right';
 
-  return (
-    <StyledButton
-      ref={ref}
-      disabled={props.disabled}
-      className="_FAB"
-      {...props}
-    >
-      {!props.disabled && <Ripple />}
+    return (
+      <StyledButton
+        ref={ref}
+        disabled={props.disabled}
+        className="_FAB"
+        {...props}
+      >
+        {!props.disabled && <Ripple />}
 
-      {props.icon && <span className="_FAB-icon">{props.icon}</span>}
+        {props.icon && <span className="_FAB-icon">{props.icon}</span>}
 
-      {props.children && <span className="_FAB-label">{props.children}</span>}
-    </StyledButton>
-  );
-});
+        {props.children && <span className="_FAB-label">{props.children}</span>}
+      </StyledButton>
+    );
+  },
+);

@@ -9,7 +9,7 @@ export interface ThemeZIndicesProps {
   tooltip: number;
 }
 
-export interface ThemeZIndicesInitializer extends Partial<ThemeZIndicesProps> {}
+export type ThemeZIndicesInitializer = Partial<ThemeZIndicesProps>;
 
 export class ThemeZIndices implements ThemeZIndicesProps {
   public fab: number = null;

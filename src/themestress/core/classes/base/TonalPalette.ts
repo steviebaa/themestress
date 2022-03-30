@@ -26,17 +26,16 @@ export class TonalPalette {
     this._set(color);
   }
 
-  // Getters
   get keyColor() {
     return this._keyColor;
   }
-  get tones() {
-    return this._tones;
-  }
 
-  // Setters
   set keyColor(color) {
     this._set(color);
+  }
+
+  get tones() {
+    return this._tones;
   }
 
   // Private methods

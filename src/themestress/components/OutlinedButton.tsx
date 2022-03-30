@@ -195,7 +195,7 @@ const StyledButton = styled.button<OutlinedButtonProps>`
 `;
 
 export const OutlinedButton: React.FC<OutlinedButtonProps> = forwardRef(
-  ({children, disableRipple, ...props}, ref) => {
+  ({children, disableRipple, ...props}: OutlinedButtonProps, ref) => {
     return (
       <StyledButton
         ref={ref}

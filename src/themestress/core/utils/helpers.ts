@@ -2,7 +2,7 @@
 export const applyStyleVar = (
   key: string,
   value: string | number,
-  isVar: boolean = false,
+  isVar = false,
 ) => {
   document.documentElement.style.setProperty(
     `--${key}`,

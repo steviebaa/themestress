@@ -40,7 +40,7 @@ const classMap = {
   error: {cls: AccentPalette, fallback: '#B3261E'},
 };
 
-export interface ThemePaletteInitializer extends Partial<ThemePaletteProps> {}
+export type ThemePaletteInitializer = Partial<ThemePaletteProps>;
 
 export class ThemePalette implements ThemePaletteInitializer {
   private _mode: ThemeMode;

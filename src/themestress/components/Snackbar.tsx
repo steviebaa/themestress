@@ -17,7 +17,7 @@ interface MessageQueue {
   main: _Message[];
 }
 
-interface SnackbarContextProps {
+export interface SnackbarContextProps {
   enqueue: (msg: Message) => void;
 }
 

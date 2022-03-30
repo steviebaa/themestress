@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import {css, Theme} from '@emotion/react';
 import {ReactHTMLProps} from '../core/definitions';
 import {getMarginAndPadding} from '../core/themeUtils';
-import {ColorUtility} from '@themestress/core/classes/base/ColorUtility';
-import {titleCase} from '@themestress/core/utils/helpers';
+import {ColorUtility} from '../core/classes/base/ColorUtility';
+import {titleCase} from '../core/utils/helpers';
 
 export interface InputBaseProps extends ReactHTMLProps<HTMLDivElement> {
   value?: string | number;

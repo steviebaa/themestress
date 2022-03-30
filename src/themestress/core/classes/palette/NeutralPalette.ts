@@ -5,7 +5,7 @@ import {TonalPalette} from '../base/TonalPalette';
 export class NeutralPalette extends TonalPalette {
   private _backgroundTone: number;
   private _surfaceTone: number;
-  private _shadowTone: number = 0;
+  private _shadowTone = 0;
   private _outlineTone: number;
 
   constructor(props: Color, mode: ThemeMode = 'light') {

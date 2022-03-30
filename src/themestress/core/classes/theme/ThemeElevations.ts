@@ -10,8 +10,7 @@ export interface ThemeElevationProps {
   level5: ElevationStyles;
 }
 
-export interface ThemeElevationInitializer
-  extends Partial<ThemeElevationProps> {}
+export type ThemeElevationInitializer = Partial<ThemeElevationProps>;
 
 export class ThemeElevations {
   public level0: ElevationStyles;

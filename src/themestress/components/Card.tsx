@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import {css, Theme} from '@emotion/react';
 import {getMarginAndPadding} from '../core/themeUtils';
 import {BreakPoint} from '../core/definitions';
-import {createStateLayer} from '@themestress/core/md/color';
+import {createStateLayer} from '../core/md/color';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;

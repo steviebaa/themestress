@@ -1,4 +1,4 @@
-import {addStyleHelper} from '@themestress/core';
+import {addStyleHelper} from '../../../core';
 import {mergeDeep} from '../../utils/helpers';
 
 interface StateLayerProps {
@@ -12,7 +12,7 @@ export interface ThemeStatesProps {
   drag: StateLayerProps;
 }
 
-export interface ThemeStatesInitializer extends Partial<ThemeStatesProps> {}
+export type ThemeStatesInitializer = Partial<ThemeStatesProps>;
 
 export class ThemeStates implements ThemeStatesProps {
   public hover = {opacity: 0.08};

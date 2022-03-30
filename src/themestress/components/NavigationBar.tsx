@@ -32,7 +32,7 @@ const StyledNavigationBar = styled.div`
 
 export const NavigationBar: React.FC<NavigationBarProps> = forwardRef(
   (
-    {children, selected, onSelectionChanged, ...props},
+    {children, selected, onSelectionChanged, ...props}: NavigationBarProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const handleSelectionChanged = (index: number) => {

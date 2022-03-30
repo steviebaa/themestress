@@ -49,15 +49,18 @@ export const Select: React.FC<SelectProps> = React.forwardRef(
       props.onClick && props.onClick(e);
     };
 
-    const clonedChildren = React.Children.map(props.children, (child: any) => {
-      return React.cloneElement(child, {
-        onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-          child.onClick && child.onClick(e);
-          props.onChange &&
-            props.onChange(e as unknown as ChangeEvent<HTMLInputElement>);
-        },
-      });
-    });
+    const clonedChildren = React.Children.map(
+      props.children,
+      (child: {onClick: (e: React.MouseEvent<HTMLButtonElement>) => void}) => {
+        return React.cloneElement(child as unknown as React.ReactElement, {
+          onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+            child.onClick && child.onClick(e);
+            props.onChange &&
+              props.onChange(e as unknown as ChangeEvent<HTMLInputElement>);
+          },
+        });
+      },
+    );
 
     const selectedItem = React.Children.toArray(props.children).filter(
       (child: React.ReactElement) => child.props.value === value,

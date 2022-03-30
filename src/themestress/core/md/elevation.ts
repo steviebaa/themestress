@@ -3,8 +3,8 @@ import {ElevationTokens, ThemeMode} from '../definitions';
 
 export const systemElevationStyles = (
   mode: ThemeMode = 'light',
-  overlayHexColor: string = '#6750A4',
-  shadowHexColor: string = '#000000',
+  overlayHexColor = '#6750A4',
+  shadowHexColor = '#000000',
 ): ElevationTokens => {
   const shadowRgb = ColorUtility.hex.to.rgb(shadowHexColor);
   const getShadow = (a: number) => ColorUtility.rgb.set.opacity(shadowRgb, a);

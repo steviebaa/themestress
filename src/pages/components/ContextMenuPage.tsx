@@ -9,7 +9,7 @@ import {
 } from '@themestress/components';
 import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
-import {useSnackbar} from '@themestress/core/hooks';
+import {useSnackbar} from '../core/hooks';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 

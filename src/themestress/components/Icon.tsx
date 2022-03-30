@@ -15,7 +15,6 @@ const StyledSvg = styled.svg<IconProps>`
 export const Icon: React.FC<IconProps> = ({
   children,
   size,
-  fill,
   ...props
 }: IconProps) => {
   let height = size || 'sm';

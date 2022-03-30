@@ -180,7 +180,7 @@ const StyledButton = styled.button<TextButtonProps>`
 `;
 
 export const TextButton: React.FC<TextButtonProps> = forwardRef(
-  ({children, disableRipple, ...props}, ref) => {
+  ({children, disableRipple, ...props}: TextButtonProps, ref) => {
     return (
       <StyledButton
         ref={ref}

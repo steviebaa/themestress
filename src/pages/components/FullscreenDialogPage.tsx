@@ -5,7 +5,7 @@ import {SampleBox} from '@components/SampleBox';
 import {CodeBlock} from '@components/CodeBlock';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
-import {useSnackbar} from '@themestress/core/hooks';
+import {useSnackbar} from '../core/hooks';
 import {
   FullscreenDialog,
   Typography,
