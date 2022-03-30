@@ -18,16 +18,18 @@ export const GettingStartedPage = () => {
         The code is{' '}
         <a href="https://github.com/steviebaa/themestress">open source</a>, so
         you can use the library by copying the <Code>src/themestress</Code>{' '}
-        directory to your project or by installing it via npm.
+        directory to your project or by installing it via NPM.
       </P>
       <P>
         Themestress uses <a href="https://emotion.sh/">Emotion</a> to provide an
         easy styling experience.
       </P>
-      <CodeBlock
+      The latest version of Themestress is not yet available on NPM. It will be
+      very soon.
+      {/* <CodeBlock
         lang="tsx"
         code="$ npm install themestress @emotion/styled @emotion/react"
-      />
+      /> */}
       <Subheading>Contributing</Subheading>
       <P>
         Pull requests are more than welcome{' '}
