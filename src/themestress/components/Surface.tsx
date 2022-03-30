@@ -31,27 +31,28 @@ export interface SurfaceProps extends ReactHTMLProps<HTMLDivElement> {
 const elevatedStyles = (props: SurfaceProps) => {
   return css`
     color: var(--sys-color-on-surface);
-    background-color: var(--sys-color-surface);
+    background-color: ${props.bgColor ?? 'var(--sys-color-surface)'};
     background-image: var(--sys-overlay-level-${props.elevation});
     box-shadow: var(--sys-elevation-level-${props.elevation});
   `;
 };
 
-const filledStyles = () => {
+const filledStyles = (props: SurfaceProps) => {
   return css`
     color: var(--sys-color-on-surface-variant);
-    background-color: var(--sys-color-surface-variant);
+    background-color: ${props.bgColor ?? 'var(--sys-color-surface-variant)'};
   `;
 };
 
-const outlinedStyles = () => {
+const outlinedStyles = (props: SurfaceProps) => {
   return css`
     color: var(--sys-color-on-surface);
-    background-color: var(--sys-color-surface);
+    background-color: ${props.bgColor ?? 'var(--sys-color-surface)'};
     border: 1px solid var(--sys-color-outline);
   `;
 };
 
+/* background-color: ${({bgColor}) => bgColor}; */
 const StyledDiv = styled.div<SurfaceProps>`
   ${props => getMarginAndPadding(props)}
   ${props => props.variant === 'elevated' && elevatedStyles}
@@ -60,7 +61,6 @@ const StyledDiv = styled.div<SurfaceProps>`
 	
 	color: ${({fontColor}) => fontColor ?? ''};
   border-color: ${({fontColor}) => fontColor ?? ''};
-  background-color: ${({bgColor}) => bgColor};
   height: ${({height}) => height ?? ''};
   width: ${({theme, width}) => theme.breakpoints.parse(width)};
   max-width: ${({theme, width}) => theme.breakpoints.parse(width)};

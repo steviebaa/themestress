@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import {samples} from '@core/samples';
 import {P, Code, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {Menu, MenuItem, ElevatedButton, Divider} from '@themestress/components';
@@ -48,7 +48,7 @@ export const MenuPage = () => {
           File
         </ElevatedButton>
       </SampleBox>
-      <TypeScript code={samples.menu.overview} />
+      <CodeBlock code={samples.menu.overview} />
 
       {/* ============================================================= */}
       {/* ============================================================= */}
@@ -84,7 +84,7 @@ export const MenuPage = () => {
           Transform Position
         </ElevatedButton>
       </SampleBox>
-      <TypeScript code={samples.menu.transform} />
+      <CodeBlock code={samples.menu.transform} />
 
       {/* ============================================================= */}
       {/* ============================================================= */}
@@ -110,7 +110,7 @@ export const MenuPage = () => {
           Position Override
         </ElevatedButton>
       </SampleBox>
-      <TypeScript code={samples.menu.positionOverride} />
+      <CodeBlock code={samples.menu.positionOverride} />
 
       <ApiTable />
     </>

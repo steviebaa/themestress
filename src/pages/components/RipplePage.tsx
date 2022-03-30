@@ -1,7 +1,7 @@
 import React from 'react';
 import {Code, P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
 import {Ripple, ElevatedButton} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
@@ -34,7 +34,7 @@ export const RipplePage = () => {
           <span>Click here</span>
         </div>
       </SampleBox>
-      <TypeScript code={samples.ripple.overview} />
+      <CodeBlock code={samples.ripple.overview} />
 
       <ApiTable />
     </>

@@ -2,7 +2,7 @@ import React from 'react';
 import {samples} from '@core/samples';
 import {P, Code, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {TextButton, Flex, Tooltip} from '@themestress/components';
@@ -29,7 +29,7 @@ export const TextButtonPage = () => {
         </Tooltip>
       </SampleBox>
 
-      <TypeScript code={samples.textbutton.overview} />
+      <CodeBlock code={samples.textbutton.overview} />
 
       <Subheading>Customizing</Subheading>
       <P>Hover a button to see the prop used.</P>

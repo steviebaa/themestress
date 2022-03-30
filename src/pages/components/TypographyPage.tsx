@@ -4,7 +4,7 @@ import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {Typography, TypographyRole} from '@themestress/components';
 import {samples} from '@core/samples';
 
@@ -72,7 +72,7 @@ export const TypographyPage = () => {
         </StyledTable>
       </SampleBox>
 
-      <TypeScript code={samples.typography.overview} />
+      <CodeBlock code={samples.typography.overview} />
 
       <ApiTable />
     </>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {samples} from '@core/samples';
 import {Code, P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {Select, MenuItem} from '@themestress/components';
@@ -44,7 +44,7 @@ export const SelectPage = () => {
           <MenuItem value="two">Item 2</MenuItem>
         </Select>
       </SampleBox>
-      <TypeScript code={samples.select.overview} />
+      <CodeBlock code={samples.select.overview} />
 
       <Subheading>API</Subheading>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {samples} from '@core/samples';
 import {P, Code, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {ElevatedButton, Flex, Tooltip} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
@@ -29,7 +29,7 @@ export const ElevatedButtonPage = () => {
         </Tooltip>
       </SampleBox>
 
-      <TypeScript code={samples.elevatedbutton.overview} />
+      <CodeBlock code={samples.elevatedbutton.overview} />
 
       <Subheading>Customizing</Subheading>
       <P>Hover a button to see the prop used.</P>

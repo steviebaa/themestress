@@ -3,7 +3,7 @@ import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {SampleBox} from '@components/SampleBox';
 import {Code, P, Subheading} from '@components/StyledTypography';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {
   Flex,
   MenuItem,
@@ -183,7 +183,7 @@ export const SwitchPage = () => {
           </Flex>
         </Flex>
       </SampleBox>
-      <TypeScript
+      <CodeBlock
         code={`const ThemeSwitch = () => {
   const [on, setOn] = useState(false);
 

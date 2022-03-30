@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Code, P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
@@ -25,7 +25,7 @@ export const NavigationItemPage = () => {
           <NavigationItem>Dashboard</NavigationItem>
         </Flex>
       </SampleBox>
-      <TypeScript code={samples.navigationitem.overview} />
+      <CodeBlock code={samples.navigationitem.overview} />
 
       <ApiTable />
     </>

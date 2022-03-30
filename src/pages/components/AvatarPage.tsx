@@ -2,7 +2,7 @@ import React from 'react';
 import {samples} from '@core/samples';
 import {P, Code} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {Avatar} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
@@ -21,7 +21,7 @@ export const AvatarPage = () => {
         <Avatar alt="Nicolas Cage" />
       </SampleBox>
 
-      <TypeScript code={samples.avatar.overview} />
+      <CodeBlock code={samples.avatar.overview} />
 
       <ApiTable />
     </>

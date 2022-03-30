@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router';
 
+// Component pages
 import {AvatarPage} from '@pages/components/AvatarPage';
 import {BackdropPage} from '@pages/components/BackdropPage';
 import {ContainerPage} from '@pages/components/ContainerPage';
@@ -31,14 +32,15 @@ import {FABPage} from '@pages/components/FABPage';
 import {NavigationBarPage} from '@pages/components/NavigationBarPage';
 import {FullscreenDialogPage} from '@pages/components/FullscreenDialogPage';
 import {SelectPage} from '@pages/components/SelectPage';
+import {TextFieldPage} from '@pages/components/TextFieldPage';
 
+// System pages
 import {GettingStartedPage} from '@pages/system/GettingStartedPage';
 import {ThemeingPage} from '@pages/system/ThemeingPage';
 import {TypesPage} from '@pages/system/TypesPage';
 import {PalettePage} from '@pages/system/PalettePage';
 
 import {Typography, NavigationItem} from '@themestress/components';
-import {TextFieldPage} from '@pages/components/TextFieldPage';
 
 export const getPageFromRoute = (
   route: string,
@@ -73,7 +75,11 @@ export const getRoutesList = () => {
 export const getMenuItems = (handleClick: (slug: string) => void) => {
   const items: React.ReactNode[] = [];
   componentsRouteMap.forEach(section => {
-    items.push(<Typography key={section.name}>{section.name}</Typography>);
+    items.push(
+      <Typography weight={500} key={section.name}>
+        {section.name}
+      </Typography>,
+    );
 
     Object.entries(section.pages).forEach(([pageSlug, info]) => {
       items.push(
@@ -106,7 +112,10 @@ export const componentsRouteMap = [
     name: 'System',
     route: 'system',
     pages: {
-      gettingstarted: {name: 'Getting Started', page: <GettingStartedPage />},
+      'getting-started': {
+        name: 'Getting Started',
+        page: <GettingStartedPage />,
+      },
       themeing: {name: 'Themeing', page: <ThemeingPage />},
       palette: {name: 'Palette', page: <PalettePage />},
       types: {name: 'Types', page: <TypesPage />},

@@ -4,7 +4,7 @@ import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {Code, P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {ElevatedButton, Tooltip} from '@themestress/components';
 
 export const TooltipPage = () => {
@@ -22,7 +22,7 @@ export const TooltipPage = () => {
           <ElevatedButton>Hover Me!</ElevatedButton>
         </Tooltip>
       </SampleBox>
-      <TypeScript code={samples.tooltip.overview} />
+      <CodeBlock code={samples.tooltip.overview} />
 
       <Subheading>Direction</Subheading>
       <P>Render the tooltip in various directions.</P>
@@ -40,7 +40,7 @@ export const TooltipPage = () => {
           <ElevatedButton>Bottom</ElevatedButton>
         </Tooltip>
       </SampleBox>
-      <TypeScript code={samples.tooltip.direction} />
+      <CodeBlock code={samples.tooltip.direction} />
 
       <Subheading>Delay</Subheading>
       <P>Add a delay before the tooltip shows.</P>
@@ -50,7 +50,7 @@ export const TooltipPage = () => {
           <ElevatedButton>Delayed Tooltip</ElevatedButton>
         </Tooltip>
       </SampleBox>
-      <TypeScript code={samples.tooltip.delay} />
+      <CodeBlock code={samples.tooltip.delay} />
 
       <ApiTable />
     </>

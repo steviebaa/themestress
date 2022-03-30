@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import styled from '@emotion/styled';
 import {Code, P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
@@ -56,7 +56,7 @@ export const NavigationBarPage = () => {
           </NavigationBarItem>
         </StyledNavBar>
       </SampleBox>
-      <TypeScript code={samples.navigationbar.overview} />
+      <CodeBlock code={samples.navigationbar.overview} />
 
       <ApiTable />
     </>

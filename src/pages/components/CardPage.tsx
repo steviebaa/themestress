@@ -1,7 +1,7 @@
 import React from 'react';
 import {P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
 import {Card, Flex} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
@@ -43,13 +43,13 @@ export const CardPage = () => {
           </Flex>
         </Card>
       </SampleBox>
-      <TypeScript code={samples.card.overview} />
+      <CodeBlock code={samples.card.overview} />
 
       <Subheading>Elevation</Subheading>
       <SampleBox>
         <Flex wrap>{cards}</Flex>
       </SampleBox>
-      <TypeScript code={samples.card.elevation} />
+      <CodeBlock code={samples.card.elevation} />
 
       <ApiTable />
     </>

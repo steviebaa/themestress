@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {samples} from '@core/samples';
 import {Code, P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {
   Typography,
   Backdrop,
@@ -53,7 +53,7 @@ export const BackdropPage = () => {
         </Backdrop>
       </SampleBox>
 
-      <TypeScript code={samples.backdrop.overview} />
+      <CodeBlock code={samples.backdrop.overview} />
 
       <ApiTable />
     </>

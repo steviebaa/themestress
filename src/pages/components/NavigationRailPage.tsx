@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Code, P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
 import {
   NavigationRail,
@@ -44,7 +44,7 @@ export const NavigationRailPage = () => {
           <NavigationItem>Account</NavigationItem>
         </NavigationRail>
       </SampleBox>
-      <TypeScript code={samples.navigationrail.overview} />
+      <CodeBlock code={samples.navigationrail.overview} />
 
       <ApiTable />
     </>

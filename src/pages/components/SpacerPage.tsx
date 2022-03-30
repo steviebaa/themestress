@@ -4,7 +4,7 @@ import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {Flex, Spacer, Typography} from '@themestress/components';
 
 export const SpacerPage = () => {
@@ -24,7 +24,7 @@ export const SpacerPage = () => {
           </Typography>
         </Flex>
       </SampleBox>
-      <TypeScript code={samples.spacer.overview} />
+      <CodeBlock code={samples.spacer.overview} />
 
       <Subheading>Breakpoints</Subheading>
       <P>Optionally set a different size for any breakpoint.</P>
@@ -37,7 +37,7 @@ export const SpacerPage = () => {
           between them depending on the current breakpoint.
         </Typography>
       </SampleBox>
-      <TypeScript code={samples.spacer.breakpoints} />
+      <CodeBlock code={samples.spacer.breakpoints} />
 
       <ApiTable />
     </>

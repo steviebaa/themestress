@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import {samples} from '@core/samples';
 import {Code, P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {MenuItem, Menu, Divider} from '@themestress/components';
@@ -44,7 +44,7 @@ export const MenuItemPage = () => {
           <MenuItem endIcon={'⌘C'}>Copy</MenuItem>
         </StyledMenu>
       </SampleBox>
-      <TypeScript code={samples.menuitem.overview} />
+      <CodeBlock code={samples.menuitem.overview} />
 
       <ApiTable />
     </>

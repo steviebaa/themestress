@@ -2,7 +2,7 @@ import React from 'react';
 import {P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
 import {Divider, Flex, Typography} from '@themestress/components';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
@@ -38,7 +38,7 @@ export const DividerPage = () => {
           </Typography>
         </Flex>
       </SampleBox>
-      <TypeScript code={samples.divider.overview} />
+      <CodeBlock code={samples.divider.overview} />
 
       <ApiTable />
     </>

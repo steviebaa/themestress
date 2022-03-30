@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import {Link, useLocation} from 'react-router-dom';
-import {Spacer} from '@themestress/components';
 import {apiProps} from '@core/apiProps';
+import {cleanRoute} from '@core/routeMap';
 import {Code, P, Subheading} from '@components/StyledTypography';
-import {cleanRoute} from '../core/routeMap';
-import {TypeScript} from './TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
+import {Spacer} from '@themestress/components';
 
-const CodeBlock = styled(TypeScript)`
+const StyledCodeBlock = styled(CodeBlock)`
   display: inline-block;
   padding: 4px !important;
   > code {
@@ -17,7 +17,7 @@ const CodeBlock = styled(TypeScript)`
   }
 `;
 
-const Column2 = styled.pre`
+const StyledColumn = styled.pre`
   white-space: pre-wrap;
   margin: 0;
 `;
@@ -85,11 +85,11 @@ export const ApiTable: React.FC<ApiTableProps> = ({heading, lookup}) => {
                 {item.map((entry, i) => (
                   <td key={i}>
                     {i === 0 ? (
-                      <CodeBlock noCopy code={entry} />
+                      <StyledCodeBlock noCopy code={entry} />
                     ) : i === 1 ? (
-                      <Column2>{entry}</Column2>
+                      <StyledColumn>{entry}</StyledColumn>
                     ) : i === 2 ? (
-                      entry && <CodeBlock noCopy code={entry} />
+                      entry && <StyledCodeBlock noCopy code={entry} />
                     ) : (
                       entry
                     )}

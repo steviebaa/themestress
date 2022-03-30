@@ -2,7 +2,7 @@ import React from 'react';
 import {samples} from '@core/samples';
 import {Code, P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {TextField} from '@themestress/components';
@@ -49,7 +49,7 @@ export const TextFieldPage = () => {
           disabled
         />
       </SampleBox>
-      <TypeScript code={samples.textfield.overview} />
+      <CodeBlock code={samples.textfield.overview} />
 
       <ApiTable />
     </>

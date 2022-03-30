@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import styled from '@emotion/styled';
-import config from '@config/constants.json';
 import {settingsContext} from '@stores/SettingsContext';
 import {
   Flex,
@@ -11,8 +10,9 @@ import {
 } from '@themestress/components';
 
 const StyledNavbar = styled(Surface)`
-  height: ${config.navHeight}px;
+  height: 60px;
   z-index: var(--sys-z-index-navbar);
+  border-bottom: 1px solid var(--sys-color-primary-container);
 `;
 
 export const Navbar = () => {
@@ -28,7 +28,7 @@ export const Navbar = () => {
   };
 
   return (
-    <StyledNavbar variant="filled">
+    <StyledNavbar bgColor="var(--sys-color-surface)">
       <Flex
         height="100%"
         row
@@ -48,10 +48,7 @@ export const Navbar = () => {
         <Flex alignItems="center" marginRight={4}>
           <Typography>Dark Mode</Typography>
           <Spacer size="8px" />
-          <Switch
-            checked={darkMode}
-            onChange={handleSwitchToggle}
-          />
+          <Switch checked={darkMode} onChange={handleSwitchToggle} />
         </Flex>
       </Flex>
     </StyledNavbar>

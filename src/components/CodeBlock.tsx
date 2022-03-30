@@ -1,17 +1,19 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styled from '@emotion/styled';
-import {Flex, ElevatedButton} from '@themestress/components';
+import {Flex, OutlinedButton} from '@themestress/components';
 
 import Prism from 'prismjs';
 import '@core/styles/prism.css';
-import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-jsx'; // required for TSX highlighting
 import 'prismjs/components/prism-tsx';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-bash';
 
-interface TypeScriptProps {
+interface CodeBlockProps {
   code?: string;
   collapsable?: boolean;
   noCopy?: boolean;
+  lang?: 'tsx' | 'typescript' | 'bash';
 }
 
 const Pre = styled.pre<{restrictHeight: number}>`
@@ -22,8 +24,8 @@ const Pre = styled.pre<{restrictHeight: number}>`
   transition: max-height 300ms ease-in-out;
 `;
 
-export const TypeScript = React.memo(
-  ({code, collapsable, noCopy, ...props}: TypeScriptProps) => {
+export const CodeBlock = React.memo(
+  ({code, collapsable, noCopy, lang = 'tsx', ...props}: CodeBlockProps) => {
     const ref = useRef(null);
     const [isCollapsed, setIsCollapsed] = useState<boolean>(collapsable);
 
@@ -46,19 +48,22 @@ export const TypeScript = React.memo(
       <>
         <Flex justifyContent="flex-end" height="fit-content">
           {collapsable && (
-            <ElevatedButton onClick={toggleCollapse}>
+            <OutlinedButton onClick={toggleCollapse}>
               {isCollapsed ? 'Expand' : 'Collapse'}
-            </ElevatedButton>
+            </OutlinedButton>
           )}
 
           {!noCopy && (
-            <ElevatedButton onClick={() => navigator.clipboard.writeText(code)}>
+            <OutlinedButton
+              onClick={() => navigator.clipboard.writeText(code)}
+              marginTop={4}
+            >
               Copy
-            </ElevatedButton>
+            </OutlinedButton>
           )}
         </Flex>
         <Pre restrictHeight={restrictHeight ? 1 : 0} {...props}>
-          <code className="language-tsx" ref={ref}>
+          <code className={`language-${lang}`} ref={ref}>
             {code}
           </code>
         </Pre>

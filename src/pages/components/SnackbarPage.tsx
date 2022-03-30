@@ -1,7 +1,7 @@
 import React from 'react';
 import {SampleBox} from '@components/SampleBox';
 import {Code, P, Subheading} from '@components/StyledTypography';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
@@ -62,7 +62,7 @@ import {useSnackbar} from '@themestress/core/hooks'`}
           Info
         </OutlinedButton>
       </SampleBox>
-      <TypeScript code={samples.snackbar.overview} />
+      <CodeBlock code={samples.snackbar.overview} />
 
       <Subheading>Roadmap</Subheading>
       <ul>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {P} from '@components/StyledTypography';
 import {samples} from '@core/samples';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {useSnackbar} from '@themestress/core/hooks';
@@ -62,7 +62,7 @@ export const FullscreenDialogPage = () => {
         </FullscreenDialog>
       </SampleBox>
 
-      <TypeScript collapsable code={samples.basicdialog.overview} />
+      <CodeBlock collapsable code={samples.basicdialog.overview} />
 
       <ApiTable />
     </>

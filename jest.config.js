@@ -17,7 +17,6 @@ module.exports = {
   moduleNameMapper: {
     '\\.css': '<rootDir>/__mocks__/css.tsx',
     '^@assets/(.*)$': resolve(__dirname, './src/assets/$1'),
-    '^@config/(.*)$': resolve(__dirname, './src/config/$1'),
     '^@core/(.*)$': resolve(__dirname, './src/core/$1'),
     '^@components/(.*)$': resolve(__dirname, './src/components/$1'),
     '^@controllers/(.*)$': resolve(__dirname, './src/controllers/$1'),

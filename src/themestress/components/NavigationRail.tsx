@@ -1,4 +1,4 @@
-import React, {MutableRefObject, useEffect, useRef} from 'react';
+import React, {MutableRefObject, useRef} from 'react';
 import styled from '@emotion/styled';
 import {NavigationItem} from './NavigationItem';
 
@@ -14,15 +14,6 @@ const StyledMenu = styled.div`
   flex-direction: column;
 `;
 
-const Indicator = styled.span`
-  display: flex;
-  justify-content: center;
-  background-color: rgb(0, 0, 40, 0.1);
-  margin-bottom: 4px;
-  border-radius: 9999px;
-  position: absolute;
-`;
-
 export const NavigationRail: React.FC<NavigationRailProps> = ({
   selected,
   onTabChanged,
@@ -30,7 +21,6 @@ export const NavigationRail: React.FC<NavigationRailProps> = ({
   ...props
 }: NavigationRailProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
-  const indicatorRef = useRef<HTMLSpanElement>(null);
   const refs: MutableRefObject<HTMLButtonElement>[] = [];
 
   let menuItemsCount = -1;
@@ -58,34 +48,8 @@ export const NavigationRail: React.FC<NavigationRailProps> = ({
     },
   );
 
-  useEffect(() => {
-    const ref = refs[selected];
-    if (!ref) return;
-    const buttonRect = ref.current.getBoundingClientRect();
-    const menuRect = menuRef.current.getBoundingClientRect();
-
-    // Animate indicator
-    indicatorRef.current.animate(
-      [
-        {
-          height: buttonRect.height + 'px',
-          width: buttonRect.width + 'px',
-          left: buttonRect.left - menuRect.x + 'px',
-          top: buttonRect.top - menuRect.y + 'px',
-        },
-      ],
-      {
-        duration: 400,
-        iterations: 1,
-        easing: 'ease-in-out',
-        fill: 'forwards',
-      },
-    );
-  }, [refs, selected]);
-
   return (
     <StyledMenu className="_NavigationRail" ref={menuRef} {...props}>
-      {<Indicator className="_NavigationRail-Indicator" ref={indicatorRef} />}
       {referencedChildren}
     </StyledMenu>
   );

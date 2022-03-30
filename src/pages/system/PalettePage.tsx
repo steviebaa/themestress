@@ -1,17 +1,15 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import {Code, P} from '@components/StyledTypography';
-import ThemeOutImage from '@assets/img/theme-out.png';
-import {Surface} from '@themestress/components';
 
-const ClippedPaper = styled(Surface)`
-  overflow: hidden;
-`;
+// const ClippedPaper = styled(Surface)`
+//   overflow: hidden;
+// `;
 
 export const PalettePage = () => {
   return (
     <>
-      <P>
+      <h2>Documentation in progress</h2>
+
+      {/* <P>
         The Palette is where you can define your color scheme and set the
         baseline as Light Mode or Dark Mode.
       </P>
@@ -44,7 +42,7 @@ export const PalettePage = () => {
           style={{marginBottom: '-4px', marginRight: '-8px'}}
           src={ThemeOutImage}
         />
-      </ClippedPaper>
+      </ClippedPaper> */}
     </>
   );
 };

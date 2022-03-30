@@ -7,7 +7,7 @@ import {
   MenuItem,
   Surface,
 } from '@themestress/components';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
 import {useSnackbar} from '@themestress/core/hooks';
 import {ApiTable} from '@components/ApiTable';
@@ -75,7 +75,7 @@ export const ContextMenuPage = () => {
           </Surface>
         </ContextMenu>
       </SampleBox>
-      <TypeScript code={samples.contextmenu.overview} />
+      <CodeBlock code={samples.contextmenu.overview} />
 
       <ApiTable />
     </>

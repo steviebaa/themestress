@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import React, {ForwardedRef, forwardRef, useState} from 'react';
 import styled from '@emotion/styled';
-import {css, jsx, Theme} from '@emotion/react';
+import {css, Theme} from '@emotion/react';
 import {getMarginAndPadding} from '../core/themeUtils';
 import {BreakPoint} from '../core/definitions';
 import {createStateLayer} from '@themestress/core/md/color';

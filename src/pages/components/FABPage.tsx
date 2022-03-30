@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import {samples} from '@core/samples';
 import {P, Code, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {FAB, Flex, Tooltip} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
@@ -56,7 +56,7 @@ export const FABPage = () => {
         </Flex>
       </SampleBox>
 
-      <TypeScript code={samples.fab.overview} />
+      <CodeBlock code={samples.fab.overview} />
 
       <Subheading>Customizing</Subheading>
       <P>Hover a button to see the prop used.</P>

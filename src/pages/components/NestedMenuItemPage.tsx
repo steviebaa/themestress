@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import {samples} from '@core/samples';
 import {P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 import {
@@ -42,7 +42,7 @@ export const NestedMenuItemPage = () => {
           Open Menu
         </OutlinedButton>
       </SampleBox>
-      <TypeScript code={samples.nestedmenuitem.overview} />
+      <CodeBlock code={samples.nestedmenuitem.overview} />
 
       <Subheading>Reversal</Subheading>
 
