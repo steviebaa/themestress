@@ -1,0 +1,20 @@
+{
+  "name": "themestress",
+  "version": "0.1.1",
+  "description": "A react component library for creating beautiful and interactive UI components using Material Design 3",
+  "keywords": [
+    "theme",
+    "material",
+    "design",
+    "ui",
+    "react"
+  ],
+  "author": "Steve Richardson",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1"
+  }
+}

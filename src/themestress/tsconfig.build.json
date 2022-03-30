@@ -12,5 +12,6 @@
     "baseUrl": "./",
     "types": ["node", "jest"]
   },
-  "exclude": ["node_modules", ".git"]
+  "exclude": ["node_modules", ".git"],
+  "include": ["components", "core", "icons"]
 }

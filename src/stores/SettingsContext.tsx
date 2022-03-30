@@ -1,10 +1,9 @@
 import React, {Dispatch, SetStateAction, useState} from 'react';
-import {ThemeType} from '@core/definitions';
 import {useMediaQuery} from '../themestress/core';
 import {useEffect} from 'react';
 
 interface SettingsProps {
-  mode: ThemeType;
+  mode: 'dark' | 'light';
 }
 
 type SettingsContextProps = [
@@ -23,7 +22,6 @@ export const SettingsProvider = (props: {children: React.ReactNode}) => {
   useEffect(() => {
     setState({mode: prefersDark ? 'dark' : 'light'});
   }, [prefersDark]);
-
 
   return (
     <settingsContext.Provider value={[state, setState]}>
