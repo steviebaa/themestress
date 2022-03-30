@@ -3,8 +3,13 @@ import {Link} from 'react-router-dom';
 import {samples} from '@core/samples';
 import {Code, P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
-import {Typography, Backdrop, Button, Flex} from '@themestress/components';
+import {CodeBlock} from '@components/CodeBlock';
+import {
+  Typography,
+  Backdrop,
+  Flex,
+  ElevatedButton,
+} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 
@@ -20,8 +25,8 @@ export const BackdropPage = () => {
       <PageHeader />
       <P>
         Made for internal use such as in the{' '}
-        <Link to="components/modal">
-          <Code>{'<Modal/>'}</Code>
+        <Link to="/components/basicdialog">
+          <Code>{'<BasicDialog/>'}</Code>
         </Link>{' '}
         component however, it might be helpful when creating custom components.
       </P>
@@ -29,9 +34,7 @@ export const BackdropPage = () => {
       <P>It is only intended to be used to add an overlay to the viewport.</P>
 
       <SampleBox>
-        <Button variant="contained" onClick={toggleBackdrop}>
-          Open Backdrop
-        </Button>
+        <ElevatedButton onClick={toggleBackdrop}>Open Backdrop</ElevatedButton>
         <Backdrop
           open={open}
           onClick={toggleBackdrop}
@@ -43,14 +46,14 @@ export const BackdropPage = () => {
             height="100vh"
             justifyContent="center"
           >
-            <Typography fontSize="18px" bold>
+            <Typography fontSize="24px" bold fontColor="white">
               Now Click Me!
             </Typography>
           </Flex>
         </Backdrop>
       </SampleBox>
 
-      <TypeScript code={samples.backdrop.overview} />
+      <CodeBlock code={samples.backdrop.overview} />
 
       <ApiTable />
     </>

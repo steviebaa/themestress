@@ -1,24 +1,30 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Outlet, useNavigate, useLocation} from 'react-router-dom';
 import styled from '@emotion/styled';
 import {cleanRoute, getMenuItems, getRoutesList} from '@core/routeMap';
-import config from '@config/constants.json';
 import {Navbar} from '@components/Navbar';
-import {SideNav, Paper, Flex, Spacer, Container} from '@themestress/components';
+import {
+  NavigationRail,
+  Surface,
+  Flex,
+  Spacer,
+  Container,
+} from '@themestress/components';
 
-const Page = styled(Paper)`
-  height: calc(100vh - ${config.navHeight}px);
+const StyledPage = styled(Surface)`
+  height: calc(100vh - 60px);
   width: 100vw;
   display: flex;
   flex-direction: row;
 `;
 
-const Scrollable = styled(Flex)`
+const StyledScrollable = styled(Surface)`
   overflow: auto;
 `;
 
-const MenuPaper = styled(Paper)`
+const StyledMenuSurface = styled(Surface)`
   overflow: auto;
+  background-image: var(--sys-overlay-level-1);
 `;
 
 export const Home = () => {
@@ -31,23 +37,37 @@ export const Home = () => {
 
   const handleClick = (tab: string) => navigate(tab);
 
+  // Set getting started as default page
+  useEffect(() => {
+    if (location.pathname === '/') {
+      navigate('system/getting-started');
+    }
+  }, [location.pathname]);
+
   return (
     <Flex column>
       <Navbar />
-      <Page square>
-        <MenuPaper padding={2} elevation={1} square>
-          <SideNav selected={menuIndex} onTabChanged={i => setMenuIndex(i)}>
+      <StyledPage>
+        <StyledMenuSurface padding={6} bgColor="var(--sys-color-surface)">
+          <NavigationRail
+            selected={menuIndex}
+            onTabChanged={i => setMenuIndex(i)}
+          >
             <Spacer size={'220px'} />
             {getMenuItems(handleClick)}
-          </SideNav>
-        </MenuPaper>
+          </NavigationRail>
+        </StyledMenuSurface>
 
-        <Scrollable column width="100%">
-          <Container maxWidth="md">
+        <StyledScrollable
+          width="100%"
+          padding={10}
+          bgColor="var(--sys-color-surface)"
+        >
+          <Container>
             <Outlet />
           </Container>
-        </Scrollable>
-      </Page>
+        </StyledScrollable>
+      </StyledPage>
     </Flex>
   );
 };

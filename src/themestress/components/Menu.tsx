@@ -5,30 +5,41 @@ import React, {
   ReactNode,
   useRef,
 } from 'react';
-import {createPortal} from 'react-dom';
 import styled from '@emotion/styled';
 import {ReactHTMLProps, Transform} from '../core/definitions';
-import {Paper} from './Paper';
+import {createStateLayer} from '../core/md/color';
+import {Surface} from './Surface';
 import {Backdrop} from './Backdrop';
+import {BackdropProps} from './Backdrop';
+import {createPortal} from 'react-dom';
 
 export interface MenuProps extends ReactHTMLProps<HTMLDivElement> {
   children: ReactNode;
-  anchorElement?: MutableRefObject<any>;
+  anchorElement?: MutableRefObject<HTMLElement>;
   open: boolean;
   onClose?: () => void;
   width?: string;
   anchorOrigin?: Transform;
   transformOrigin?: Transform;
   positionOverride?: {x: number; y: number};
+  _nested?: boolean;
+  backdropProps?: Partial<BackdropProps>;
 }
 
-const StyledMenu = styled(Paper)<MenuProps & {pos?: DOMRect | null}>`
+const StyledMenu = styled(Surface)<MenuProps & {pos?: DOMRect | null}>`
   position: fixed;
   width: ${({width}) => width};
   z-index: 2000;
   min-height: 10px;
-  min-width: 10px;
+  min-width: 112px;
+  max-width: 280px;
+  display: flex;
   border-radius: 4px;
+  box-shadow: var(--sys-elevation-level-2);
+  background-color: var(--sys-color-surface);
+  background-image: ${({theme}) =>
+    createStateLayer(theme.palette.primary.main, 0.08)};
+
   left: ${({pos, anchorOrigin, positionOverride}) => {
     if (positionOverride) return positionOverride.x;
     if (!pos || pos.x === undefined) return 0;
@@ -74,6 +85,12 @@ const UnorderedList = styled.ul`
   display: flex;
   flex-direction: column;
   color: inherit;
+  flex-grow: 1;
+
+  > ._Divider {
+    background-color: var(--sys-color-surface-variant);
+    margin: 4px 0px;
+  }
 `;
 
 export const Menu: React.FC<MenuProps> = forwardRef(
@@ -87,9 +104,7 @@ export const Menu: React.FC<MenuProps> = forwardRef(
     };
 
     const position = props.anchorElement?.current?.getBoundingClientRect();
-
-    const isNested =
-      props.anchorElement?.current?.className.includes('_NestedMenuItem');
+    const isNested = props._nested;
 
     const handleClick = (e: React.MouseEvent) => {
       const element = e.target as HTMLDivElement;
@@ -99,29 +114,74 @@ export const Menu: React.FC<MenuProps> = forwardRef(
       if (!isNestedItem) props.onClose();
     };
 
+    /* 
+			Groups are defined by dividers. Handle indentation from icons in same 
+			group. If item 1 has a start icon and item 2 (in the same group) 
+			doesn't, then it should be indented for the text to align. 
+		*/
+    const groups: {[key: number]: {hasStart?: boolean; hasEnd?: boolean}} = {};
+    let iGroup = 1;
+    React.Children.forEach(children, (child: React.ReactElement) => {
+      const isDivider = child.type['name'] === 'Divider';
+      if (isDivider) {
+        iGroup++;
+        return;
+      }
+      groups[iGroup] = groups[iGroup] ?? {hasStart: false, hasEnd: false};
+
+      if (child.props.startIcon) {
+        groups[iGroup] = {...groups[iGroup], hasStart: true};
+      }
+
+      if (child.props.endIcon) {
+        groups[iGroup] = {...groups[iGroup], hasEnd: true};
+      }
+    });
+
+    // Add padding prop if required
+    let jGroup = 1;
+    const clonedChildren = React.Children.map(
+      children,
+      (child: React.ReactElement) => {
+        const isDivider = child.type['name'] === 'Divider';
+        if (isDivider) {
+          jGroup++;
+          return child;
+        }
+
+        return React.cloneElement(child, {
+          padStart: groups[jGroup].hasStart && !child.props.startIcon,
+          padEnd: groups[jGroup].hasEnd && !child.props.endIcon,
+        });
+      },
+    );
+
     return (
-      <>
-        {props.open &&
-          createPortal(
-            <>
-              {!isNested && (
-                <Backdrop open={props.open} onClick={handleClickAway} />
-              )}
-              <StyledMenu
-                ref={menuRef}
-                className="_Menu"
-                pos={position}
-                onClick={handleClick}
-                {...props}
-              >
-                <UnorderedList className="_Menu-UnorderedList">
-                  {children}
-                </UnorderedList>
-              </StyledMenu>
-            </>,
-            document.body,
+      props.open &&
+      createPortal(
+        <>
+          {!isNested && (
+            <Backdrop
+              open={props.open}
+              onClick={handleClickAway}
+              bgColor="transparent"
+              {...props.backdropProps}
+            />
           )}
-      </>
+          <StyledMenu
+            ref={menuRef}
+            className="_Menu"
+            pos={position}
+            onClick={handleClick}
+            {...props}
+          >
+            <UnorderedList className="_Menu-UnorderedList">
+              {clonedChildren}
+            </UnorderedList>
+          </StyledMenu>
+        </>,
+        document.body,
+      )
     );
   },
 );

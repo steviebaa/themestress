@@ -1,9 +1,8 @@
 import React, {Ref, useEffect, useMemo, useRef, useState} from 'react';
 import styled from '@emotion/styled';
 import {Tooltip} from './Tooltip';
-import {withOpacity} from '../core/themeUtils';
 import {MutableRefObject} from 'react';
-import {colorFromTheme, TColor} from '../core';
+import {ColorUtility} from '../core/classes/base/ColorUtility';
 
 export interface SliderMark {
   value: number;
@@ -26,16 +25,16 @@ export interface SliderProps {
   markerFrequency?: {start?: number; stop?: number; step?: number};
   onChange?: (value: number) => void;
   onChangeCommitted?: (value: number) => void;
-  handlePrimaryColor?: TColor;
-  handleSecondaryColor?: TColor;
-  trackPrimaryColor?: TColor;
-  trackSecondaryColor?: TColor;
-  markPrimaryColor?: TColor;
-  markSecondaryColor?: TColor;
+  handlePrimaryColor?: string;
+  handleSecondaryColor?: string;
+  trackPrimaryColor?: string;
+  trackSecondaryColor?: string;
+  markPrimaryColor?: string;
+  markSecondaryColor?: string;
+  hideTooltip?: boolean;
 }
 
-/* Styled Components */
-const SliderGroup = styled.span<SliderProps>`
+const StyledSliderGroup = styled.span<SliderProps>`
   width: ${({width}) => width ?? '300px'};
   height: 4px;
   border-radius: 12px;
@@ -46,86 +45,81 @@ const SliderGroup = styled.span<SliderProps>`
   touch-action: none;
   color: inherit;
   padding: 13px 0;
-  margin-bottom: 20px;
+  margin-bottom: ${({hideLabels}) => !hideLabels && '20px'};
   user-select: none;
 `;
-const Track = React.memo(styled.span<{sColor: TColor}>`
+const StyledTrack = React.memo(styled.span<{sColor: string}>`
   position: absolute;
   display: block;
   border-radius: inherit;
   width: 100%;
   height: inherit;
-  background-color: ${({theme, sColor}) =>
-    sColor === undefined
-      ? withOpacity(theme.palette.primary.main, 0.3)
-      : colorFromTheme(theme, sColor)};
+  background-color: ${({sColor}) =>
+    sColor ?? 'var(--sys-color-inverse-primary)'};
 `);
-const Progress = styled.span<{progress: number; pColor: TColor}>`
+
+const StyledProgress = styled.span<{progress: number; pColor: string}>`
   position: absolute;
   display: block;
   border-radius: inherit;
   width: ${({progress}) => progress}%;
   height: inherit;
-  background-color: ${({theme, pColor}) =>
-    pColor === undefined
-      ? theme.palette.primary.main
-      : colorFromTheme(theme, pColor)};
+  background-color: ${({pColor}) => pColor ?? 'var(--sys-color-primary)'};
 `;
-const Handle = styled.span<{progress: number; pColor: TColor; sColor: TColor}>`
+
+const StyledHandle = styled.span<{
+  progress: number;
+  pColor: string;
+  sColor: string;
+}>`
   position: absolute;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  box-sizing: border-box;
-  background-color: ${({theme, pColor}) =>
-    pColor === undefined
-      ? theme.palette.primary.main
-      : colorFromTheme(theme, pColor)};
   transform: translate(-50%, -50%);
+  box-sizing: border-box;
   top: 50%;
   left: ${({progress}) => progress}%;
   transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
     0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+  background-color: ${({pColor}) => pColor ?? 'var(--sys-color-primary)'};
   &:hover {
     box-shadow: 0px 0px 0px 5px
       ${({theme, sColor}) =>
-        sColor === undefined
-          ? withOpacity(theme.palette.primary.main, 0.3)
-          : colorFromTheme(theme, sColor)};
+        sColor ??
+        ColorUtility.rgb.set.opacity(theme.palette.primary.main.rgb, 0.3)};
   }
   &:active {
     box-shadow: 0px 0px 0px 8px
       ${({theme, sColor}) =>
-        sColor === undefined
-          ? withOpacity(theme.palette.primary.main, 0.3)
-          : colorFromTheme(theme, sColor)};
+        sColor ??
+        ColorUtility.rgb.set.opacity(theme.palette.primary.main.rgb, 0.3)};
   }
 `;
-const Marker = React.memo(styled.span<{
+
+const StyledMarker = React.memo(styled.span<{
   progress: number;
   position: number;
-  pColor: TColor;
-  sColor: TColor;
+  pColor: string;
+  sColor: string;
 }>`
   position: absolute;
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background-color: ${({theme, progress, position, pColor, sColor}) => {
-    return progress > position
-      ? (pColor === undefined
-        ? theme.palette.primary.on
-        : colorFromTheme(theme, pColor))
-      : (sColor === undefined
-      ? theme.palette.primary.main
-      : colorFromTheme(theme, sColor));
-  }};
   transform: translate(-50%, -50%);
   top: 50%;
   left: ${({position}) => position}%;
+
+  background-color: ${({progress, position, pColor, sColor}) => {
+    return progress > position
+      ? pColor ?? 'var(--sys-color-on-primary)'
+      : sColor ?? 'var(--sys-color-primary)';
+  }};
 `);
-const Label = React.memo(styled.span<{position: number}>`
+
+const StyledLabel = React.memo(styled.span<{position: number}>`
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
@@ -164,6 +158,7 @@ export const Slider: React.FC<SliderProps> = React.forwardRef(
       trackSecondaryColor,
       markPrimaryColor,
       markSecondaryColor,
+      hideTooltip,
       ...props
     }: SliderProps,
     ref: MutableRefObject<HTMLSpanElement>,
@@ -218,7 +213,7 @@ export const Slider: React.FC<SliderProps> = React.forwardRef(
     };
 
     const handleChangeCommitted = (newValue: number) => {
-      onChangeCommitted(newValue);
+      onChangeCommitted && onChangeCommitted(newValue);
       setIsHandleDown(false);
     };
 
@@ -264,7 +259,7 @@ export const Slider: React.FC<SliderProps> = React.forwardRef(
     ) {
       const mark = _marks[i];
       markers.push(
-        <Marker
+        <StyledMarker
           key={mark.dist}
           progress={handlePosition}
           position={mark.dist}
@@ -283,22 +278,23 @@ export const Slider: React.FC<SliderProps> = React.forwardRef(
     ) {
       const mark = _marks[i];
       labels.push(
-        <Label key={mark.label} position={mark.dist}>
+        <StyledLabel key={mark.label} position={mark.dist}>
           {mark.label}
-        </Label>,
+        </StyledLabel>,
       );
     }
 
     return (
-      <SliderGroup
+      <StyledSliderGroup
         className="_Slider-Group"
         ref={sliderGroupRef}
         onClick={handleSliderClick}
+        hideLabels={hideLabels}
         {...props}
       >
-        <Track className="_Slider-Track" sColor={trackSecondaryColor} />
+        <StyledTrack className="_Slider-Track" sColor={trackSecondaryColor} />
 
-        <Progress
+        <StyledProgress
           pColor={trackPrimaryColor}
           progress={handlePosition}
           className="_Slider-Progress"
@@ -306,8 +302,8 @@ export const Slider: React.FC<SliderProps> = React.forwardRef(
         {!hideMarkers && markers}
         {!hideLabels && labels}
 
-        <Tooltip className="_Slider-Tooltip" tip={value}>
-          <Handle
+        <Tooltip className="_Slider-Tooltip" tip={value} hide={hideTooltip}>
+          <StyledHandle
             ref={handleRef}
             onMouseDown={() => setIsHandleDown(true)}
             progress={handlePosition}
@@ -316,7 +312,7 @@ export const Slider: React.FC<SliderProps> = React.forwardRef(
             sColor={handleSecondaryColor}
           />
         </Tooltip>
-      </SliderGroup>
+      </StyledSliderGroup>
     );
   },
 );

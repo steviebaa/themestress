@@ -1,11 +1,11 @@
 import React from 'react';
-import {Code, P, Subheading} from '@components/StyledTypography';
-import {TypeScript} from '../../components/TypeScript';
 
 export const TypesPage = () => {
   return (
     <>
-      <P>
+      <h2>Documentation in progress</h2>
+
+      {/* <P>
         You can find some of the important type definition for many of the types
         specified in the API tables below.
       </P>
@@ -16,7 +16,8 @@ export const TypesPage = () => {
       </P>
 
       <Subheading>BreakPointEnum</Subheading>
-      <TypeScript noCopy
+      <CodeBlock
+        noCopy
         code={`enum BreakPointEnum {
   'xs' = 'xs',
   'sm' = 'sm',
@@ -29,7 +30,8 @@ type BreakPoint = keyof typeof BreakPointEnum | string`}
       />
 
       <Subheading>Transform</Subheading>
-      <TypeScript noCopy
+      <CodeBlock
+        noCopy
         code={`interface Transform {
   vertical?: 'top' | 'center' | 'bottom' | (string & {});
   horizontal?: 'left' | 'center' | 'right' | (string & {});
@@ -38,7 +40,8 @@ type BreakPoint = keyof typeof BreakPointEnum | string`}
 
       <Subheading>TColor</Subheading>
       <P>TColor can be a few things.</P>
-      <TypeScript noCopy
+      <CodeBlock
+        noCopy
         code={`// Any html color
 "red"
 
@@ -50,7 +53,7 @@ type BreakPoint = keyof typeof BreakPointEnum | string`}
 ["secondary", "light"]
 ["neutral", 200, "on"]
 ["outline", "dark"]`}
-      />
+      /> */}
     </>
   );
 };

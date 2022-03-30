@@ -1,18 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {colorFromTheme, TColor} from '../core';
 
 export interface IconProps {
   children?: React.ReactNode;
   size?: 'sm' | 'md' | 'lg' | string;
-  fill?: TColor;
+  fill?: string;
 }
 
-const StyledSvg = styled.svg<{_fill: TColor}>`
-  fill: ${({theme, _fill}) =>
-    _fill === undefined
-      ? theme.palette.neutral[theme.palette.mode === 'light' ? 800 : 100].main
-      : colorFromTheme(theme, _fill)};
+const StyledSvg = styled.svg<IconProps>`
+  fill: ${({fill}) =>
+    fill === undefined ? 'var(--sys-color-on-surface)' : fill};
 `;
 
 export const Icon: React.FC<IconProps> = ({
@@ -34,7 +31,6 @@ export const Icon: React.FC<IconProps> = ({
       focusable="false"
       viewBox="0 0 24 24"
       aria-hidden="true"
-      _fill={fill}
       {...props}
     >
       {children}

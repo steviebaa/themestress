@@ -41,11 +41,11 @@ const Snackbar = styled.div<SnackbarProviderProps>`
   flex-direction: ${({position}) =>
     position.includes('top') ? 'column' : 'column-reverse'};
   display: flex;
-  z-index: ${({theme}) => theme.zIndex.snackbar};
   min-width: ${({minWidth}) => minWidth};
   min-height: fit-content;
   transition: min-height;
   transition-duration: 500ms;
+  z-index: var(--sys-z-index-snackbar);
 `;
 
 export const SnackbarContext = React.createContext<SnackbarContextProps>(null);
@@ -111,18 +111,14 @@ export const SnackbarProvider = ({
 };
 
 const StyledSnack = styled.div<Partial<SnackProps>>`
+  margin-top: calc(var(--sys-spacing) * 2);
   width: ${({msg}) => msg.width ?? ''};
   overflow: hidden;
   box-sizing: border-box;
   padding: 12px;
   box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
     rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
-  background: ${({theme: {palette}}) =>
-    palette.neutral[palette.mode === 'light' ? 100 : 900].main};
-  color: ${({theme: {palette}}) =>
-    palette.neutral[palette.mode === 'light' ? 100 : 900].on};
   border-radius: ${({theme}) => `${theme.spacing}px`};
-  margin-top: ${({theme}) => `${theme.spacing * 2}px`};
   animation-timing-function: ease-in-out;
   transform: ${({position, margin}) => {
     if (position.includes('left')) {
@@ -132,8 +128,13 @@ const StyledSnack = styled.div<Partial<SnackProps>>`
     }
   }};
 
-  border-left: ${({theme: {palette}, msg: {variant}}) =>
-    `3px solid ${palette[variant]?.main ?? palette.neutral[400].main}`};
+  background: var(--sys-color-surface);
+  color: var(--sys-color-on-surface);
+  border-left: 3px solid var(--sys-color-primary);
+
+  ._Snack-Icon {
+    margin-right: 4px;
+  }
 `;
 
 interface SnackProps {
@@ -187,8 +188,11 @@ const Snack = ({msg, ...props}: SnackProps) => {
   };
   return (
     <StyledSnack msg={msg} ref={ref} key={msg.id} {...props}>
-      {msg.variant ? icons[msg.variant] : null}
-      {msg.content}
+      {msg.variant ? (
+        <span className="_Snack-Icon">{icons[msg.variant]}</span>
+      ) : null}
+
+      <span className="_Snack-Message">{msg.content}</span>
     </StyledSnack>
   );
 };

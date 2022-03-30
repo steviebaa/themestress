@@ -6,7 +6,7 @@ import {createTheme} from '@themestress/core/themeUtils';
 import {Menu, MenuItem, Backdrop} from '@themestress/components';
 
 describe('Component Menu', () => {
-  it('Should render', () => {
+  it('should render', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Menu open={true} onClose={jest.fn()}>
@@ -19,7 +19,7 @@ describe('Component Menu', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should call onClose prop', () => {
+  it('should call onClose prop', () => {
     const onClose = jest.fn();
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
@@ -34,7 +34,7 @@ describe('Component Menu', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('Should not call onClose prop', () => {
+  it('should not call onClose prop', () => {
     const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValue(null);
 
     const onClose = jest.fn();
@@ -52,7 +52,7 @@ describe('Component Menu', () => {
     expect(useRefSpy).toBeCalledWith(null);
   });
 
-  it('Should click backdrop', () => {
+  it('should click backdrop', () => {
     const mockEvent = {
       target: {parentElement: {className: ''}},
     } as any;
@@ -70,7 +70,7 @@ describe('Component Menu', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should handle nested menu item', () => {
+  it('should handle nested menu item', () => {
     const mockEvent = {
       target: {parentElement: {className: '_NestedMenuItem'}},
     } as any;
@@ -88,7 +88,7 @@ describe('Component Menu', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should use anchorElement position', () => {
+  it('should use anchorElement position', () => {
     const getBoundingClientRect = jest.fn(() => ({x: 0, y: 0}));
 
     const mockAnchorEl = {
@@ -132,7 +132,7 @@ describe('Component Menu', () => {
     expect(component).toHaveLength(3);
   });
 
-  it('Should use position override', () => {
+  it('should use position override', () => {
     const getBoundingClientRect = jest.fn(() => ({x: 0, y: 0}));
 
     const mockAnchorEl = {
@@ -159,7 +159,7 @@ describe('Component Menu', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should use fallback ref', () => {
+  it('should use fallback ref', () => {
     const getBoundingClientRect = jest.fn(() => ({x: 0, y: 0}));
 
     const mockAnchorEl = {

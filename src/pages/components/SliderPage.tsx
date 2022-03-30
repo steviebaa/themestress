@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Code, P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
 import {Slider, Flex, SliderMark} from '@themestress/components';
 import {useSnackbar} from '@themestress/core/hooks';
@@ -42,7 +42,7 @@ export const SliderPage = () => {
           />
         </Flex>
       </SampleBox>
-      <TypeScript code={samples.slider.overview} />
+      <CodeBlock code={samples.slider.overview} />
 
       <Subheading>Range</Subheading>
       <P>
@@ -70,7 +70,7 @@ export const SliderPage = () => {
           />
         </Flex>
       </SampleBox>
-      <TypeScript code={samples.slider.range} />
+      <CodeBlock code={samples.slider.range} />
 
       <Subheading>Custom Points</Subheading>
       <P>
@@ -88,10 +88,11 @@ export const SliderPage = () => {
             onChangeCommitted={v => {
               snackbar.enqueue({content: `Slider changed to ${v}`});
             }}
+            hideTooltip
           />
         </Flex>
       </SampleBox>
-      <TypeScript code={samples.slider.custom} />
+      <CodeBlock code={samples.slider.custom} />
 
       <Subheading>Colors</Subheading>
       <P>
@@ -106,16 +107,16 @@ export const SliderPage = () => {
             onChangeCommitted={v => {
               snackbar.enqueue({content: `Slider changed to ${v}`});
             }}
-            handlePrimaryColor={'purple'}
-            handleSecondaryColor={['neutral', '500', 'main']}
-            trackPrimaryColor={['accent', 'main']}
-            trackSecondaryColor={'blue'}
-            markPrimaryColor={'green'}
-            markSecondaryColor={'orange'}
+            handlePrimaryColor="var(--sys-color-tertiary)"
+            handleSecondaryColor="rgb(100,100,100,0.5)"
+            trackPrimaryColor="var(--sys-color-tertiary)"
+            trackSecondaryColor="var(--sys-color-tertiary-container)"
+            markPrimaryColor="white"
+            markSecondaryColor="orange"
           />
         </Flex>
       </SampleBox>
-      <TypeScript code={samples.slider.colors} />
+      <CodeBlock code={samples.slider.colors} />
 
       <ApiTable />
     </>

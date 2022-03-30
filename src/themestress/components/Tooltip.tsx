@@ -10,6 +10,7 @@ export interface TooltipProps extends ReactHTMLProps<HTMLDivElement> {
   tip: React.ReactNode;
   delay?: number;
   direction?: TDirection;
+  hide?: boolean;
 }
 
 const getWrapperTranslation = (direction: TDirection, bounds: DOMRect) => {
@@ -44,8 +45,8 @@ const getTipTranslation = (direction: TDirection) => {
 const Wrapper = styled.div<{bounds: DOMRect; direction: TDirection}>`
   position: fixed;
   z-index: 1500;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   top: ${({bounds}) => bounds.top}px;
   left: ${({bounds}) => bounds.left}px;
   display: flex;
@@ -69,8 +70,8 @@ const Tip = styled.div<{direction: TDirection}>`
   font-weight: bold;
   padding: 2px 8px;
   text-align: center;
-  color: ${({theme}) => theme.palette.secondary.on};
-  background-color: ${({theme}) => theme.palette.secondary.main};
+  color: var(--sys-color-on-secondary);
+  background-color: var(--sys-color-secondary);
   box-sizing: border-box;
   white-space: nowrap;
   transform: ${props => getTipTranslation(props.direction)};
@@ -80,6 +81,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   children,
   tip,
   direction,
+  hide,
   ...props
 }: TooltipProps) => {
   // This ref will be used if there isnt an existing one on the child
@@ -106,7 +108,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     if (originalFn) originalFn();
   };
 
-  const handlePointerLeave = (e: React.MouseEvent, originalFn: () => void) => {
+  const handlePointerLeave = (_: React.MouseEvent, originalFn: () => void) => {
     setActive(false);
     clearInterval(timeout);
     if (originalFn) originalFn();
@@ -145,6 +147,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
       {child}
       {active &&
         bounds &&
+        !hide &&
         ReactDOM.createPortal(
           <Wrapper
             className="_Tooltip-Wrapper"

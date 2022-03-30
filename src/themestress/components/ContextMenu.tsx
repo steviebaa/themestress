@@ -4,7 +4,7 @@ import {ReactHTMLProps, Transform} from '../core/definitions';
 
 export interface ContextMenuProps extends ReactHTMLProps<HTMLDivElement> {
   children: React.ReactNode;
-  items: React.ReactNode[];
+  menuItems: React.ReactNode[];
   width?: string;
   anchorOrigin?: Transform;
   transformOrigin?: Transform;
@@ -12,7 +12,7 @@ export interface ContextMenuProps extends ReactHTMLProps<HTMLDivElement> {
 
 export const ContextMenu: React.FC<ContextMenuProps> = ({
   children,
-  items,
+  menuItems: items,
   ...props
 }: ContextMenuProps) => {
   const [position, setPosition] = useState(null);

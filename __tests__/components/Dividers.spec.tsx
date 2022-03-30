@@ -5,7 +5,7 @@ import {createTheme} from '@themestress/core';
 import {Hr, WideHr} from '@themestress/components';
 
 describe('Component Dividers', () => {
-  it('Should render an Hr component', () => {
+  it('should render an Hr component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Hr />
@@ -16,7 +16,7 @@ describe('Component Dividers', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('Should render a WideHr component', () => {
+  it('should render a WideHr component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <WideHr />

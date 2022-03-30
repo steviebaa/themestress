@@ -1,14 +1,18 @@
 import React, {useContext} from 'react';
 import styled from '@emotion/styled';
-import config from '@config/constants.json';
 import {settingsContext} from '@stores/SettingsContext';
-import {Flex, Paper, Spacer, Switch, Typography} from '@themestress/components';
+import {
+  Flex,
+  Surface,
+  Spacer,
+  Switch,
+  Typography,
+} from '@themestress/components';
 
-const StyledNavbar = styled(Paper)`
-  height: ${config.navHeight}px;
-  z-index: ${({theme}) => theme.zIndex.navbar};
-  border-bottom: 1px solid
-    ${({theme}) => theme.palette.outline[theme.palette.mode]};
+const StyledNavbar = styled(Surface)`
+  height: 60px;
+  z-index: var(--sys-z-index-navbar);
+  border-bottom: 1px solid var(--sys-color-primary-container);
 `;
 
 export const Navbar = () => {
@@ -24,7 +28,7 @@ export const Navbar = () => {
   };
 
   return (
-    <StyledNavbar square elevation={0}>
+    <StyledNavbar bgColor="var(--sys-color-surface)">
       <Flex
         height="100%"
         row
@@ -33,10 +37,11 @@ export const Navbar = () => {
         justifyContent="space-between"
       >
         <Typography
-          variant="overline"
-          fontSize="1.4rem"
-          lineHeight=""
+          variant="headline-small"
+          element="span"
           margin={0}
+          fontColor="var(--sys-color-tertiary)"
+          weight={500}
         >
           Themestress
         </Typography>

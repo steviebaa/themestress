@@ -1,11 +1,10 @@
 import React, {useState, useLayoutEffect} from 'react';
 import styled from '@emotion/styled';
-import {colorFromTheme} from '../core/themeUtils';
-import {TColor, ReactHTMLProps} from '../core/definitions';
+import {ReactHTMLProps} from '../core/definitions';
 
 export interface RippleProps extends ReactHTMLProps<HTMLDivElement> {
   duration?: number;
-  bgColor?: TColor;
+  bgColor?: string;
 }
 
 const RippleContainer = styled.div<RippleProps>`
@@ -20,9 +19,9 @@ const RippleContainer = styled.div<RippleProps>`
     border-radius: 100%;
     position: absolute;
     opacity: 1;
-    background-color: ${({theme, bgColor}) => colorFromTheme(theme, bgColor)};
     animation-name: ripple;
     animation-duration: ${({duration}) => duration}ms;
+    background-color: ${({theme}) => theme.palette.neutralVariant.outline.hex};
   }
 
   @keyframes ripple {
@@ -79,7 +78,7 @@ export const Ripple: React.FC<RippleProps> = ({
       className="_Ripple"
       duration={duration}
       bgColor={color}
-      onMouseDown={addRipple}
+      onMouseUp={addRipple}
     >
       {rippleArray.length > 0 &&
         rippleArray.map((ripple, index) => {

@@ -3,7 +3,7 @@ import {samples} from '@core/samples';
 import styled from '@emotion/styled';
 import {P, Code} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {Flex} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
@@ -49,7 +49,7 @@ export const ContainerPage = () => {
           <Margin />
         </Flex>
       </SampleBox>
-      <TypeScript code={samples.container.overview} />
+      <CodeBlock code={samples.container.overview} />
 
       <ApiTable />
     </>

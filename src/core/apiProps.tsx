@@ -1,5 +1,6 @@
 import React from 'react';
 import {Code} from '../components/StyledTypography';
+
 const marginProps = [
   ['margin', 'number', '', 'Multiplied by theme.spacing (px).'],
   ['marginLeft', 'number', '', 'Multiplied by theme.spacing (px).'],
@@ -8,7 +9,7 @@ const marginProps = [
   ['marginBottom', 'number', '', 'Multiplied by theme.spacing (px).'],
 ];
 const paddingProps = [
-  ['padding', 'number', '10px 16px', 'Multiplied by theme.spacing (px).'],
+  ['padding', 'number', '', 'Multiplied by theme.spacing (px).'],
   ['paddingLeft', 'number', '', 'Multiplied by theme.spacing (px).'],
   ['paddingRight', 'number', '', 'Multiplied by theme.spacing (px).'],
   ['paddingTop', 'number', '', 'Multiplied by theme.spacing (px).'],
@@ -18,18 +19,7 @@ const paddingProps = [
 export const apiProps = {
   avatar: {
     props: [
-      [
-        'borderColor',
-        'TColor',
-        'neutral[50] | neutral[900]',
-        'The border color of the status badge and the avatar.',
-      ],
-      [
-        'statusColor',
-        'TColor',
-        'success.main',
-        'The color of the status badge.',
-      ],
+      ['statusColor', 'string', '#44b700', 'The color of the status badge.'],
       ['noPulse', 'boolean', 'false', 'Disable the badge animation.'],
       ['noStatus', 'boolean', 'false', 'Hide the status badge.'],
       ['alt', 'string', '', 'The image alt text, also used for initials.'],
@@ -39,23 +29,143 @@ export const apiProps = {
   backdrop: {
     props: [
       ['onClick', 'Function', '', 'Invoked when the backdrop is clicked.'],
-      ['zIndex', 'number', '1300', 'Uses theme.zIndex.backdrop if defined.'],
-      ['bgColor', 'TColor', 'transparent', 'Css background-color property.'],
-      ['fontColor', 'TColor', '', 'Css color property.'],
+      [
+        'zIndex',
+        'number',
+        'var(--sys-z-index-backdrop)',
+        'Css z-index property.',
+      ],
+      ['bgColor', 'string', 'transparent', 'Css background-color property.'],
+      ['fontColor', 'string', '', 'Css color property.'],
     ],
   },
-  button: {
+  elevatedbutton: {
     props: [
-      ['variant', 'contained | outlined | text', 'text', 'The button style.'],
       ['disableRipple', 'boolean', 'false', 'Disable the ripple effect.'],
+      ['startIcon', '<svg/>', '', 'The icon on the left side.'],
+      ['endIcon', '<svg/>', '', 'The icon on the right side.'],
+      ['disabled', 'boolean', 'false', 'Disable the element.'],
+      ['elevation', 'string | number', '1', 'Between 0 and 5 inclusive.'],
       ['align', 'left | center | right', 'center', 'Css text-align property.'],
-      ['noTransform', 'boolean', 'false', 'Removes uppercase default of text.'],
-      ['fontColor', 'TColor', '', 'Css color property.'],
-      ['bgColor', 'TColor', '', 'Css background-color property.'],
-      ['borderColor', 'TColor', '', 'Css border-color property.'],
-      ['noElevation', 'boolean', 'false', 'Remove the shadow.'],
-      ['radius', 'number', '1', 'Multiplied by theme.spacing (px).'],
+      ['fontColor', 'string', '', 'Css color property.'],
+      ['bgColor', 'string', '', 'Css background-color property.'],
+      ['radius', 'number', '', 'Multiplied by theme.spacing (px).'],
       ['width', 'string', '', 'Css width property.'],
+      ['height', 'string', '40px', 'Css height property.'],
+      ...marginProps,
+      ...paddingProps,
+    ],
+  },
+  filledbutton: {
+    props: [
+      ['disableRipple', 'boolean', 'false', 'Disable the ripple effect.'],
+      ['startIcon', '<svg/>', '', 'The icon on the left side.'],
+      ['endIcon', '<svg/>', '', 'The icon on the right side.'],
+      ['disabled', 'boolean', 'false', 'Disable the element.'],
+      ['elevation', 'string | number', '0', 'Between 0 and 5 inclusive.'],
+      ['align', 'left | center | right', 'center', 'Css text-align property.'],
+      ['fontColor', 'string', '', 'Css color property.'],
+      ['bgColor', 'string', '', 'Css background-color property.'],
+      ['radius', 'number', '', 'Multiplied by theme.spacing (px).'],
+      ['width', 'string', '', 'Css width property.'],
+      ['height', 'string', '40px', 'Css height property.'],
+      ...marginProps,
+      ...paddingProps,
+    ],
+  },
+  filledtonalbutton: {
+    props: [
+      ['disableRipple', 'boolean', 'false', 'Disable the ripple effect.'],
+      ['startIcon', '<svg/>', '', 'The icon on the left side.'],
+      ['endIcon', '<svg/>', '', 'The icon on the right side.'],
+      ['disabled', 'boolean', 'false', 'Disable the element.'],
+      ['elevation', 'string | number', '0', 'Between 0 and 5 inclusive.'],
+      ['align', 'left | center | right', 'center', 'Css text-align property.'],
+      ['fontColor', 'string', '', 'Css color property.'],
+      ['bgColor', 'string', '', 'Css background-color property.'],
+      ['radius', 'number', '', 'Multiplied by theme.spacing (px).'],
+      ['width', 'string', '', 'Css width property.'],
+      ['height', 'string', '40px', 'Css height property.'],
+      ...marginProps,
+      ...paddingProps,
+    ],
+  },
+  outlinedbutton: {
+    props: [
+      ['disableRipple', 'boolean', 'false', 'Disable the ripple effect.'],
+      ['startIcon', '<svg/>', '', 'The icon on the left side.'],
+      ['endIcon', '<svg/>', '', 'The icon on the right side.'],
+      ['disabled', 'boolean', 'false', 'Disable the element.'],
+      ['elevation', 'string | number', '0', 'Between 0 and 5 inclusive.'],
+      ['align', 'left | center | right', 'center', 'Css text-align property.'],
+      ['fontColor', 'string', '', 'Css color property.'],
+      ['bgColor', 'string', '', 'Css background-color property.'],
+      ['borderColor', 'string', '', 'Css border-color property.'],
+      ['borderWidth', 'string', '1px', 'Css border-width property.'],
+      ['radius', 'number', '', 'Multiplied by theme.spacing (px).'],
+      ['width', 'string', '', 'Css width property.'],
+      ['height', 'string', '40px', 'Css height property.'],
+      ...marginProps,
+      ...paddingProps,
+    ],
+  },
+  textbutton: {
+    props: [
+      ['startIcon', '<svg/>', '', 'The icon on the left side.'],
+      ['endIcon', '<svg/>', '', 'The icon on the right side.'],
+      ['disabled', 'boolean', 'false', 'Disable the element.'],
+      ['align', 'left | center | right', 'center', 'Css text-align property.'],
+      ['fontColor', 'string', '', 'Css color property.'],
+      ['bgColor', 'string', '', 'Css background-color property.'],
+      ['radius', 'number', '', 'Multiplied by theme.spacing (px).'],
+      ['width', 'string', '', 'Css width property.'],
+      ['height', 'string', '40px', 'Css height property.'],
+      ...marginProps,
+      ...paddingProps,
+    ],
+  },
+  fab: {
+    props: [
+      ['disableRipple', 'boolean', 'false', 'Disable the ripple effect.'],
+      ['icon', '<svg/>', '', 'The icon to display.'],
+      [
+        'variant',
+        `  surface 
+| primary 
+| secondary 
+| tertiary`,
+        'primary',
+        'The icon to display.',
+      ],
+      ['small', 'boolean', 'false', 'Transform the FAB to a small size.'],
+      ['large', 'boolean', 'false', 'Transform the FAB to a large size.'],
+      ['lowered', 'boolean', 'false', 'Reduce the elevation to level 1.'],
+      ['disabled', 'boolean', 'false', 'Disable the element.'],
+      ['elevation', 'string | number', '3', 'Between 0 and 5 inclusive.'],
+      ['fontColor', 'string', '', 'Css color property.'],
+      ['bgColor', 'string', '', 'Css background-color property.'],
+      ['radius', 'number', '', 'Multiplied by theme.spacing (px).'],
+      ['width', 'string', '', 'Css width property.'],
+      ['height', 'string', '', 'Css height property.'],
+      ...marginProps,
+      ...paddingProps,
+    ],
+  },
+  card: {
+    props: [
+      ['variant', 'elevated | filled | outlined', 'filled', 'Card style.'],
+      ['elevation', 'number', '1', 'From 0 to 5 inclusive.'],
+      ['square', 'boolean', 'false', 'Square the corners.'],
+      ['fontColor', 'string', '', 'Css color property.'],
+      ['bgColor', 'string', '', 'Css background-color property.'],
+      ['borderColor', 'string', '', 'Css border-color property.'],
+      [
+        'radius',
+        'number',
+        '12px',
+        'Css border-radius. Multiplied by theme.spacing (px).',
+      ],
+      ['width', 'BreakPoin | string', '', 'Css width and max-width property.'],
       ['height', 'string', '', 'Css height property.'],
       ...marginProps,
       ...paddingProps,
@@ -76,21 +186,31 @@ export const apiProps = {
   contextmenu: {
     props: [
       [
-        'items',
-        'any[ ]',
+        'menuItems',
+        'any[]',
         '',
         'An array of items, usually MenuItem components.',
       ],
       ['width', 'string', '', 'The width of the menu.'],
-      ['anchorOrigin', 'Transform', '', 'The width of the menu.'],
-      ['transformOrigin', 'Transform', '', 'The width of the menu.'],
+      [
+        'anchorOrigin',
+        'Transform',
+        '',
+        'The specific point of the anchor element to anchor to.',
+      ],
+      [
+        'transformOrigin',
+        'Transform',
+        '',
+        'The specific point of the menu to anchor to the anchor element.',
+      ],
     ],
   },
   divider: {
     props: [
       ['vertical', 'boolean', 'false', 'For a vertical divider.'],
       ['weight', 'number', '1', 'The thickness of the line (px).'],
-      ['bgColor', 'TColor', 'transparent', 'Css background-color property.'],
+      ['bgColor', 'string', 'transparent', 'Css background-color property.'],
       ...marginProps,
     ],
   },
@@ -102,8 +222,8 @@ export const apiProps = {
       ['rowReverse', 'boolean', 'false', 'Css flex-direction property.'],
       ['wrap', 'boolean', 'false', 'Css flex-wrap property.'],
       ['wrapReverse', 'boolean', 'false', 'Css flex-wrap property.'],
-      ['fontColor', 'TColor', 'inherit', 'Css color property.'],
-      ['bgColor', 'TColor', 'transparent', 'Css background-color property.'],
+      ['fontColor', 'string', 'inherit', 'Css color property.'],
+      ['bgColor', 'string', 'transparent', 'Css background-color property.'],
       ['width', 'string', '', 'Css width property.'],
       ['height', 'string', '', 'Css height property.'],
       ['justifyContent', 'JustifyProps', 'default', 'Css height property.'],
@@ -116,12 +236,7 @@ export const apiProps = {
   },
   icon: {
     props: [
-      [
-        'fill',
-        'TColor',
-        'neutral[800] | neutral[100]',
-        'Css fill property. Defaults are theme dependant',
-      ],
+      ['fill', 'string', 'on-surface', 'Css fill property.'],
       ['size', 'sm | md | lg | string', 'sm', 'Svg height property.'],
     ],
   },
@@ -161,7 +276,7 @@ export const apiProps = {
     ],
   },
   menuitem: {
-    extends: ['Button'],
+    extends: ['TextButton'],
   },
   nestedmenuitem: {
     props: [
@@ -171,35 +286,50 @@ export const apiProps = {
       ['menuProps', 'MenuProps', '', 'Pass props to the Menu.'],
     ],
   },
-  modal: {
+  basicdialog: {
     props: [
-      ['open', 'boolean', 'false', 'If the menu should be open.'],
+      ['open', 'boolean', 'false', 'If the dialog should be open.'],
       ['onClickAway', 'Function', '', 'Executes when the backdrop is clicked.'],
       ['backdropProps', 'BackdropProps', '', 'Pass props to the backdrop.'],
-      ['fullScreen', 'boolean', 'false', 'Make the modal 100vw x 100vh.'],
-      ['width', 'BreakPoint', 'md', 'Css width property.'],
-      ['height', 'string', '', 'Css height property.'],
-    ],
-  },
-  paper: {
-    props: [
-      ['variant', 'elevated | outlined', 'elevated', 'Paper style.'],
-      ['elevation', 'number', '1', 'From 0 to 24 inclusive.'],
-      ['square', 'boolean', 'false', 'Square the corners.'],
-      ['fontColor', 'TColor', '', 'Css color property.'],
-      ['bgColor', 'TColor', '', 'Css background-color property.'],
-      ['borderColor', 'TColor', '', 'Css border-color property.'],
-      [
-        'radius',
-        'number',
-        '1',
-        'Css border-radius. Multiplied by theme.spacing (px).',
-      ],
-      ['width', 'BreakPoint', 'md', 'Css width property.'],
+      ['width', 'BreakPoint', 'sm', 'Css width property.'],
       ['height', 'string', '', 'Css height property.'],
       ...marginProps,
       ...paddingProps,
     ],
+  },
+  fullscreendialog: {
+    props: [
+      ['open', 'boolean', 'false', 'If the dialog should be open.'],
+      ['onClickAway', 'Function', '', 'Executes when the backdrop is clicked.'],
+      ['zIndex', 'number', 'var(--sys-z-index-modal)', 'Css z-index property.'],
+      ...marginProps,
+      ...paddingProps,
+    ],
+  },
+  navigationbar: {
+    props: [
+      ['selected', 'number', '', 'The index of the selected item.'],
+      [
+        'onSelectionChanged',
+        'Function(selectedIndex: number)',
+        '',
+        'Triggered when another NavigationBarItem is clicked.',
+      ],
+    ],
+  },
+  navigationrail: {
+    props: [
+      ['selected', 'number', '', 'The index of the selected item.'],
+      [
+        'onTabChanged',
+        'Function(selectedIndex: number)',
+        '',
+        'Triggered when another NavigationItem is clicked.',
+      ],
+    ],
+  },
+  navigationitem: {
+    extends: ['TextButton'],
   },
   ripple: {
     props: [
@@ -212,24 +342,43 @@ export const apiProps = {
       ],
     ],
   },
-  sidenav: {
+  select: {
     props: [
-      ['selected', 'number', '', 'The index of the selected item.'],
+      ['variant', 'outlined | filled', 'outlined', 'The input style.'],
+      ['value', 'string | number', '', 'The current value of the textfield.'],
       [
-        'onTabChanged',
-        'Function(selectedIndex: number)',
+        'onChange',
+        'Function',
         '',
-        'Triggered when another SideNavItem is clicked.',
+        <span>
+          Callback for when the selected item changes. Access the{' '}
+          <Code>MenuItem</Code> value via <Code>e.target.value</Code>.`
+        </span>,
       ],
+      [
+        'defaultValue',
+        'string | number',
+        '',
+        'Forward a default value to the input element.',
+      ],
+      ['label', 'string', '', 'The fieldset label.'],
+      ['startIcon', 'ReactNode', '', 'The icon on the left side.'],
+      ['endIcon', 'ReactNode', '', 'The icon on the right side.'],
+      [
+        'noEndIconRotate',
+        'boolean',
+        '',
+        'Prevent the endIcon from rotating on menu open.',
+      ],
+      ['disabled', 'boolean', '', 'If the field is disabled.'],
+      ['inputProps', 'React.InputHTMLAttributes<HTMLInputElement>', '', 'P.'],
+      ['disabled', 'boolean', 'false', 'Disable the element.'],
     ],
-  },
-
-  sidenavitem: {
-    extends: ['Button'],
   },
   slider: {
     props: [
       ['width', 'string', '', 'Css width property.'],
+      ['hideTooltip', 'boolean', 'false', 'Hide the handle tooltip.'],
       [
         'marks',
         'SliderMark[]',
@@ -295,62 +444,58 @@ export const apiProps = {
           <strong>not</strong> be connected to the state for the value prop.
         </span>,
       ],
-      [
-        'handlePrimaryColor',
-        'TColor',
-        'primary.main',
-        'The color of the handle.',
-      ],
+      ['handlePrimaryColor', 'string', 'primary', 'The color of the handle.'],
       [
         'handleSecondaryColor',
-        'TColor',
-        'primary.main',
-        'The color of the handle shadow.',
+        'string',
+        'primary (30% opacity)',
+        'The color of the handle hover effect.',
       ],
       [
         'trackPrimaryColor',
-        'TColor',
-        'primary.main',
+        'string',
+        'primary',
         'The color of the track to the left of the handle.',
       ],
       [
         'trackSecondaryColor',
-        'TColor',
-        'primary.main (0.3 opacity)',
+        'string',
+        'inverse-primary',
         'The color of the track to the right of the handle.',
       ],
       [
         'markPrimaryColor',
-        'TColor',
-        'primary.on',
+        'string',
+        'on-primary',
         'The color of the markers to the left of the handle.',
       ],
       [
         'markSecondaryColor',
-        'TColor',
-        'primary.main',
+        'string',
+        'primary',
         'The color of the markers to the right of the handle.',
       ],
     ],
   },
-
   snackbar: {
     props: [
       [
         'margin',
         `{
- left?:number;
- right?:number;
- top?:number;
- bottom?:number
+left?:number;
+right?:number;
+top?:number;
+bottom?:number
 }`,
         '',
         'Set margin to the edge of the screen (depends on position prop).',
       ],
       [
         'position',
-        `top-left | top-right | 
-bottom-left | bottom-right`,
+        `top-left    | 
+top-right   | 
+bottom-left |
+bottom-right`,
         'bottom-left',
         'The corner to display the snacks.',
       ],
@@ -362,13 +507,16 @@ bottom-left | bottom-right`,
       ],
     ],
   },
-
   usesnackbar: {
     props: [
       ['content', 'any', '', 'Inserted into the snack.'],
       [
         'variant',
-        'null | success | warning | error | info',
+        `null    | 
+success | 
+warning | 
+error   | 
+info`,
         '',
         'The styling variant.',
       ],
@@ -376,7 +524,6 @@ bottom-left | bottom-right`,
       ['duration', 'number', '', 'Time to show the snack.'],
     ],
   },
-
   spacer: {
     props: [
       [
@@ -400,52 +547,69 @@ bottom-left | bottom-right`,
       ],
     ],
   },
-
   switch: {
     props: [
-      ['on', 'boolean', '', 'If the switch is on.'],
-      [
-        'noIcon',
-        'boolean',
-        '',
-        'Removes the checkmark and cross from the handle.',
-      ],
+      ['checked', 'boolean', '', 'The input state.'],
       [
         'onChange',
-        'Function(checked:boolean)',
+        'Function(e: React. ChangeEvent< HTMLInputElement>)',
         '',
-        'A callback for when the button is toggled.',
+        'A callback for when the switch is toggled.',
       ],
-      [
-        'smallTrack',
-        'boolean',
-        'false',
-        'Reduce the height of the track to match the handle.',
-      ],
+      ['trackWidth', 'string', '', 'The width of the track.'],
+      ['trackHeight', 'string', '', 'The height of the track.'],
+      ['trackBorderRadius', 'string', '', 'The border radius of the track.'],
       [
         'trackColor',
-        `{on?: TColor; off?: TColor;}`,
-        `{
- on: success.main; 
- off: neutral[100 | 700].main;
-}`,
-        'Customize the color of the track for both states. Defaults depend on theme.',
-      ],
-      [
-        'handleColor',
-        `{on?: TColor; off?: TColor}`,
-        `{
- on: 'white'; 
- off: 'white';
-}`,
+        `{on?: string; 
+off?: string}`,
+        `inverse-primary;
+outline;`,
         'Customize the color of the track for both states.',
       ],
+      ['handleDiameter', 'string', '', 'The diameter of the handle.'],
+      ['handleBorderRadius', 'string', '', 'The border radius of the handle.'],
+      ['handleInset', 'string', '', 'The inset of the handle from the track.'],
+      [
+        'handleColor',
+        `{on?: string;
+off?: string}`,
+        `primary; 
+surface-variant;`,
+        'Customize the color of the handle for both states.',
+      ],
+      ['noHandleShadow', 'string', '', 'Turn off the handle shadow.'],
+      ['noHoverEffect', 'string', '', 'Turn off the handle outline on hover.'],
+      ['disabled', 'string', '', 'If the switch is disabled.'],
     ],
   },
-
+  textfield: {
+    props: [
+      ['variant', 'outlined | filled', 'outlined', 'The input style.'],
+      ['value', 'string | number', '', 'The current value of the textfield.'],
+      ['onChange', 'Function', '', 'Receives the input event on value change.'],
+      [
+        'defaultValue',
+        'string | number',
+        '',
+        'Forward a default value to the input element.',
+      ],
+      ['label', 'string', '', 'The fieldset label.'],
+      ['startIcon', 'ReactNode', '', 'The icon on the left side.'],
+      ['endIcon', 'ReactNode', '', 'The icon on the right side.'],
+      [
+        'inputProps',
+        'React.InputHTMLAttributes<HTMLInputElement>',
+        '',
+        'Props passed to the input element.',
+      ],
+      ['disabled', 'boolean', 'false', 'Disable the element.'],
+    ],
+  },
   tooltip: {
     props: [
       ['tip', 'ReactNode', '', 'The content of the tooltip.'],
+      ['hide', 'boolean', 'false', 'Hide the tooltip.'],
       [
         'direction',
         'top | bottom | left | right',
@@ -460,16 +624,26 @@ bottom-left | bottom-right`,
       ],
     ],
   },
-
   typography: {
     props: [
       [
         'variant',
-        `h1 | h2 | h3 | h4 | h5 | h6 | 
-subtitle1 | subtitle2 | body1 |
-body2 | button | caption |
-overline | code | inherit`,
-        'body1',
+        `  display-large
+| display-medium
+| display-small
+| headline-large
+| headline-medium
+| headline-small
+| title-large
+| title-medium
+| title-small
+| label-large
+| label-medium
+| label-small
+| body-large
+| body-medium
+| body-small`,
+        'body-large',
         'The style of the typography.',
       ],
       ['fontSize', 'string', '', 'Default font size depends on variant.'],
@@ -480,16 +654,23 @@ left | right`,
         '',
         'Css text-align property.',
       ],
-      ['paragraph', 'boolean', 'false', 'Use a <p/> tag.'],
+      [
+        'element',
+        'string',
+        '',
+        <span>
+          Specify the html tag to use. E.g. <Code>span</Code>
+        </span>,
+      ],
       ['capitalize', 'boolean', 'false', 'Css text-transform property.'],
       ['uppercase', 'boolean', 'false', 'Css text-transform property.'],
       [
         'fontColor',
-        'TColor',
+        'string',
         'inherit',
         'Auto adjusts if only bgColor is provided.',
       ],
-      ['bgColor', 'TColor', 'transparent', 'Css background-color property.'],
+      ['bgColor', 'string', 'transparent', 'Css background-color property.'],
       ['weight', 'number | string', '', 'Css font-weight property.'],
       ['bold', 'boolean', 'false', 'Applies a font-weight of bold.'],
       ['lineHeight', 'string', '', 'Css line-height property.'],

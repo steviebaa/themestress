@@ -7,7 +7,6 @@
         "root": ["./src"],
         "alias": {
           "@assets": "./src/assets",
-          "@config": "./src/config",
           "@controllers": "./src/controllers",
           "@components": "./src/components",
           "@composites": "./src/composites",

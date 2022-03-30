@@ -1,9 +1,9 @@
 import React from 'react';
 import {Code, P, Subheading} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
-import {Ripple, Button} from '@themestress/components';
+import {Ripple, ElevatedButton} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
 import {PageHeader} from '@components/ImportSample';
 
@@ -12,14 +12,13 @@ export const RipplePage = () => {
     <>
       <PageHeader />
       <P>
-        The ripple effect used by the <Code>Button</Code> component. It can be
+        The ripple effect typically used by button style components. It can be
         added as a child to any element.
       </P>
 
       <SampleBox>
-        <Button variant="contained">Create Ripple</Button>
+        <ElevatedButton>Create Ripple</ElevatedButton>
       </SampleBox>
-      {/* <TypeScript code={samples.ripple.overview} /> */}
 
       <Subheading>Use it anywhere</Subheading>
       <P>
@@ -35,7 +34,7 @@ export const RipplePage = () => {
           <span>Click here</span>
         </div>
       </SampleBox>
-      <TypeScript code={samples.ripple.overview} />
+      <CodeBlock code={samples.ripple.overview} />
 
       <ApiTable />
     </>

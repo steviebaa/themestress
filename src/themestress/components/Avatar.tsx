@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import {Typography} from './Typography';
-import {colorFromTheme} from '../core/themeUtils';
-import {TColor} from '../core/definitions';
 
 export interface AvatarProps {
-  borderColor?: TColor;
+  borderColor?: string;
   noPulse?: boolean;
   noStatus?: boolean;
-  statusColor?: TColor;
+  statusColor?: string;
   alt?: string;
   src?: string;
 }
@@ -17,36 +15,36 @@ const StyledAvatar = styled.div<AvatarProps>`
   position: relative;
   width: 80px;
   height: 80px;
-  border-radius: 50%;
-  background-color: ${({theme}) =>
-    colorFromTheme(theme, ['neutral', 500, 'main'])};
-  border: 4px solid
-    ${({theme, borderColor}) =>
-      borderColor
-        ? colorFromTheme(theme, borderColor)
-        : theme.palette.neutral[theme.palette.mode === 'light' ? 50 : 850]
-            .main};
-  display: flex;
-  align-items: center;
   user-select: none;
 `;
 
-const StatusBadge = styled.div<AvatarProps>`
+const StyledAvatarBackground = styled.div<{noStatus: boolean}>`
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--sys-color-surface-variant);
+  display: flex;
+  align-items: center;
+
+  ${({noStatus}) =>
+    !noStatus &&
+    `
+    mask-image: radial-gradient(
+      circle at calc(100% - 12px) calc(100% - 12px),
+      rgba(255, 255, 255, 0) 12px,
+      rgba(0, 0, 0, 1) 12px
+    )
+  `};
+`;
+
+const StatusBadge = styled.div<{statusColor: string; noPulse: boolean}>`
   position: absolute;
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: ${({theme, statusColor}) =>
-    statusColor
-      ? colorFromTheme(theme, statusColor)
-      : theme.palette.success.main};
-  bottom: -4px;
-  right: -4px;
-  border: 4px solid
-    ${({theme, borderColor}) =>
-      borderColor
-        ? colorFromTheme(theme, borderColor)
-        : theme.palette.neutral[theme.palette.mode === 'light' ? 50 : 850].main};
+  background-color: ${({statusColor}) => statusColor ?? '#44b700'};
+  bottom: 4px;
+  right: 4px;
   display: flex;
   justify-content: center;
 
@@ -55,9 +53,7 @@ const StatusBadge = styled.div<AvatarProps>`
     height: 100%;
     border-radius: 50%;
     box-sizing: border-box;
-    border: 1px solid
-      ${({theme, statusColor}) =>
-        statusColor ? colorFromTheme(theme, statusColor) : '#44b700'};
+    border: 1px solid ${({statusColor}) => statusColor ?? '#44b700'};
     content: '';
     align-self: center;
 
@@ -112,18 +108,28 @@ export const Avatar: React.FC<AvatarProps> = (props: AvatarProps) => {
 
   return (
     <StyledAvatar className="_Avatar" {...props}>
-      {!props.noStatus && <StatusBadge {...props} />}
-
-      {props.src ? (
-        <ProfilePicture
-          className="_Avatar-ProfilePicture"
-          alt={props.alt ? props.alt : 'avatar'}
-          src={props.src}
+      <StyledAvatarBackground
+        className="_Avatar-Background"
+        noStatus={props.noStatus}
+      >
+        {props.src ? (
+          <ProfilePicture
+            className="_Avatar-Profile-Picture"
+            alt={props.alt ? props.alt : 'avatar'}
+            src={props.src}
+          />
+        ) : initials ? (
+          <AltText className="_Avatar-Alt-Text">{initials}</AltText>
+        ) : (
+          <PersonSvg className="_Avatar-Person-Svg" />
+        )}
+      </StyledAvatarBackground>
+      {!props.noStatus && (
+        <StatusBadge
+          className="_Avatar-Status-Badge"
+          statusColor={props.statusColor}
+          noPulse={props.noPulse}
         />
-      ) : initials ? (
-        <AltText className="_Avatar-AltText">{initials}</AltText>
-      ) : (
-        <PersonSvg className="_Avatar-PersonSvg" />
       )}
     </StyledAvatar>
   );

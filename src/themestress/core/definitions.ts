@@ -1,4 +1,46 @@
-import {ClassAttributes, HTMLAttributes} from 'react';
+import {ButtonHTMLAttributes, ClassAttributes, HTMLAttributes} from 'react';
+import {ThemeProps} from './classes/theme/Theme';
+import {TonalPalette} from './classes/base/TonalPalette';
+
+export type addStyleHelper = (
+  key: string,
+  value: string | number,
+  isVar?: boolean,
+) => void;
+
+export interface SystemColorTokens {
+  [key: string]: {light: string; dark: string};
+}
+
+export interface TypographyTokenPropAttributes {
+  refToken?: string;
+  value?: string | number;
+}
+
+export interface TypographySystemToken {
+  font: TypographyTokenPropAttributes;
+  'line-height': TypographyTokenPropAttributes;
+  size: TypographyTokenPropAttributes;
+  tracking: TypographyTokenPropAttributes;
+  weight: TypographyTokenPropAttributes;
+}
+
+export interface TypographyRefTokens {
+  regular: {font: string; weight: string};
+  medium: {font: string; weight: string};
+}
+
+export interface TypographySystemTokens {
+  [key: string]: TypographySystemToken;
+}
+
+export interface ElevationStyles {
+  elevation?: string;
+  overlay?: string;
+}
+export interface ElevationTokens {
+  [key: string]: ElevationStyles;
+}
 
 export interface Transform {
   vertical?: 'top' | 'center' | 'bottom' | (string & {});
@@ -22,7 +64,11 @@ export type NeutralColorPath = ['neutral', string | number, TColorDesignation];
 
 export type ReactHTMLProps<T> = ClassAttributes<T> & HTMLAttributes<T>;
 
-export type ThemeString = 'light' | 'dark';
+export interface ReactHTMLButtonProps
+  extends ReactHTMLProps<HTMLButtonElement>,
+    ButtonHTMLAttributes<HTMLButtonElement> {}
+
+export type ThemeMode = 'light' | 'dark';
 
 export type TColor =
   | TLimitedColorCategory
@@ -39,17 +85,23 @@ interface IColorDesignation {
 }
 type TColorDesignation = keyof IColorDesignation;
 
-export interface IPalette {
+interface KeyColorProps {
+  keyColor: string;
+  tones: TonalPalette;
+}
+export interface PaletteProps {
   mode?: 'light' | 'dark';
-  primary?: IColorDesignation;
-  secondary?: IColorDesignation;
-  accent?: IColorDesignation;
-  success?: IColorDesignation;
-  warning?: IColorDesignation;
-  info?: IColorDesignation;
-  error?: IColorDesignation;
-  neutral?: INeutral;
-  outline?: {light: TColor; dark: TColor};
+
+  primary: KeyColorProps;
+  secondary: KeyColorProps;
+  tertiary: KeyColorProps;
+  neutral: KeyColorProps;
+  neutralVariant: KeyColorProps;
+
+  success?: KeyColorProps;
+  warning?: KeyColorProps;
+  info?: KeyColorProps;
+  error?: KeyColorProps;
 }
 
 export enum ELimitedColorCategory {
@@ -87,29 +139,7 @@ interface INeutral {
 }
 type TNeutral = keyof INeutral;
 
-export interface ITheme {
-  palette?: IPalette;
-  font?: {
-    size?: number;
-  };
-  spacing?: number;
-  zIndex?: {
-    navbar?: number;
-    backdrop?: number;
-    modal?: number;
-    tooltip?: number;
-    snackbar?: number;
-  };
-  breakpoints?: {
-    xs?: string;
-    sm?: string;
-    md?: string;
-    lg?: string;
-    xl?: string;
-  };
-}
-
 declare module '@emotion/react' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface Theme extends ITheme {}
+  interface Theme extends ThemeProps {}
 }

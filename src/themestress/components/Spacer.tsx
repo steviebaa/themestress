@@ -39,5 +39,5 @@ const SpacerStyled = styled.div<SpacerProps>`
 `;
 
 export const Spacer: React.FC<SpacerProps> = ({...props}: SpacerProps) => {
-  return <SpacerStyled {...props} />;
+  return <SpacerStyled className="_Spacer" {...props} />;
 };

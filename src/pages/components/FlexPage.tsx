@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import {P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {samples} from '@core/samples';
 import {Flex, Typography, Spacer} from '@themestress/components';
 import {ApiTable} from '@components/ApiTable';
@@ -10,7 +10,7 @@ import {PageHeader} from '@components/ImportSample';
 
 const Text = styled(({...props}) => (
   <Typography
-    variant="body1"
+    variant="body-medium"
     fontSize="18px"
     bgColor="royalblue"
     padding={2}
@@ -44,7 +44,7 @@ export const FlexPage = () => {
 
         <Demo />
       </SampleBox>
-      <TypeScript code={samples.flex.overview} />
+      <CodeBlock code={samples.flex.overview} />
 
       <ApiTable />
     </>

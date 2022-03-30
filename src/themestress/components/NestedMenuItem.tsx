@@ -19,7 +19,13 @@ const Content = styled.div`
   flex-wrap: nowrap;
   justify-content: space-between;
   width: 100%;
+  height: 100%;
   align-items: center;
+
+  svg {
+    min-width: 24px;
+    min-height: 24px;
+  }
 `;
 
 const isInside = ({x, y}: {x: number; y: number}, rect: DOMRect) => {
@@ -105,6 +111,9 @@ export const NestedMenuItem: React.FC<NestedMenuItemProps> = ({
         onClose={handleClose}
         anchorOrigin={anchorOrigin}
         transformOrigin={transformOrigin}
+        _nested
+        width="max-content"
+        onMouseLeave={handleMouseLeave}
         {...menuProps}
       >
         {children}

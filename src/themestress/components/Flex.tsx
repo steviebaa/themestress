@@ -1,11 +1,7 @@
-import React from 'react';
+import React, {ForwardedRef, forwardRef} from 'react';
 import styled from '@emotion/styled';
-import {
-  colorFromTheme,
-  onColorFromTheme,
-  getMarginAndPadding,
-} from '../core/themeUtils';
-import {ReactHTMLProps, TColor} from '../core/definitions';
+import {getMarginAndPadding} from '../core/themeUtils';
+import {BreakPoint, ReactHTMLProps} from '../core/definitions';
 
 type JustifyProps =
   | 'flex-start'
@@ -49,10 +45,10 @@ export interface FlexProps extends ReactHTMLProps<HTMLDivElement> {
   wrap?: boolean;
   wrapReverse?: boolean;
 
-  fontColor?: TColor;
-  bgColor?: TColor;
+  fontColor?: string;
+  bgColor?: string;
 
-  width?: string;
+  width?: BreakPoint;
   height?: string;
 
   justifyContent?: JustifyProps;
@@ -73,7 +69,7 @@ export interface FlexProps extends ReactHTMLProps<HTMLDivElement> {
   paddingLeft?: number;
 }
 
-const FlexContainer = styled.div<FlexProps & {$wrap: boolean}>`
+const FlexContainer = styled.div<FlexProps>`
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -85,10 +81,10 @@ const FlexContainer = styled.div<FlexProps & {$wrap: boolean}>`
     (rowReverse && 'row-reverse') ||
     'initial'};
 
-  flex-wrap: ${({$wrap, wrapReverse}) =>
-    ($wrap && 'wrap') || (wrapReverse && 'wrap-reverse') || ''};
+  flex-wrap: ${({wrap, wrapReverse}) =>
+    (wrap && 'wrap') || (wrapReverse && 'wrap-reverse') || ''};
 
-  width: ${({width}) => width || ''};
+  width: ${({theme, width}) => theme.breakpoints.parse(width) || ''};
   height: ${({height}) => height || ''};
 
   align-items: ${({alignItems}) => alignItems || ''};
@@ -98,19 +94,19 @@ const FlexContainer = styled.div<FlexProps & {$wrap: boolean}>`
 
   ${props => getMarginAndPadding(props)}
 
-  background-color: ${({theme, bgColor: bg}) =>
-    bg === undefined ? 'transparent' : colorFromTheme(theme, bg)};
-
-  color: ${({theme, fontColor: fc, bgColor: bg}) => {
-    let color = 'inherit';
-    if (bg && !fc) color = onColorFromTheme(theme, bg);
-    else if (fc) color = colorFromTheme(theme, fc);
-    return color;
-  }};
+  color: ${({fontColor}) => fontColor || 'inherit'};
+  background-color: ${({bgColor}) => bgColor || ''};
 `;
 
-export const Flex: React.FC<FlexProps> = ({wrap, ...props}: FlexProps) => {
-  return (
-    <FlexContainer className="_Flex" $wrap={wrap} {...props}></FlexContainer>
-  );
-};
+export const Flex: React.FC<FlexProps> = forwardRef(
+  (props: FlexProps, ref: ForwardedRef<HTMLDivElement>) => {
+    return (
+      <FlexContainer
+        ref={ref}
+        className="_Flex"
+        // wrap={wrap}
+        {...props}
+      ></FlexContainer>
+    );
+  },
+);

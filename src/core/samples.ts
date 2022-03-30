@@ -4,9 +4,9 @@ export const samples = {
     overview: `export const ProfilePicture = () => {
   return (
     <>
-      <Avatar noPulse statusColor={['error', 'main']} />
+      <Avatar noPulse statusColor="blue" />
       <Avatar src="https://www.placecage.com/c/460/300" noStatus />
-      <Avatar alt="Nicolas Cage" borderColor={'grey'} />
+      <Avatar alt="Nicolas Cage" />
     </>
   )
 }`,
@@ -19,9 +19,9 @@ export const samples = {
 
   return (
     <>
-      <Button variant="contained" onClick={toggleBackdrop}>
+      <ElevatedButton variant="contained" onClick={toggleBackdrop}>
         Open Backdrop
-      </Button>
+      </ElevatedButton>
 
       <Backdrop open={open} onClick={toggleBackdrop} bgColor={'rgb(0,0,0,0.8)'}>
         Optional content here
@@ -30,14 +30,56 @@ export const samples = {
   )
 }`,
   },
-  button: {
-    overview: '<Button>Button</Button>',
-    variant: `<Button variant="contained">Contained</Button>
-<Button variant="outlined">Outlined</Button>
-<Button variant="text">Text</Button>`,
-    icon: `<Button variant="outlined" padding={1}>
-  <CheckRounded fill={['primary', 'main']} />
-</Button>`,
+  elevatedbutton: {
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
+
+<ElevatedButton startIcon={<PlusIcon/>}>
+  Elevated Icon Button
+</ElevatedButton>`,
+  },
+  filledbutton: {
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
+
+<FilledButton startIcon={<PlusIcon/>}>
+  Filled Icon Button
+</FilledButton>`,
+  },
+  filledtonalbutton: {
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
+
+<FilledTonalButton startIcon={<PlusIcon/>}>
+  Filled Tonal Icon Button
+</FilledTonalButton>`,
+  },
+  outlinedbutton: {
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
+
+<OutlinedButton startIcon={<PlusIcon/>}>
+  Outlined Icon Button
+</OutlinedButton>`,
+  },
+  textbutton: {
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
+
+<TextButton startIcon={<PlusIcon/>}>
+  Text Icon Button
+</TextButton>`,
+  },
+  fab: {
+    overview: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
+
+<FAB icon={<PlusIcon/>} position="bottom-left"/>`,
+    extendedfab: `const startIcon = <svg viewBox="0 0 24 24"><path d="M16 13H13V20H11V13H4V11H11V4H13V11H20V13Z"/></svg>
+
+<FAB icon={<PlusIcon/>} position="bottom-left">Extended</FAB>`,
+  },
+  card: {
+    overview: `<Card variant="outlined">
+  Outlined
+</Card>`,
+    elevation: `<Card padding={3} elevation={3}>
+  Card with elevation={3}
+</Card>`,
   },
   container: {
     overview: '<Container maxWidth="xs">Container</Container>',
@@ -45,30 +87,33 @@ export const samples = {
   contextmenu: {
     overview: `<ContextMenu
   width="100px"
-  items={[
+  menuItems={[
     <MenuItem key={'a'} onClick={handleClick}>Open</MenuItem>,
     <MenuItem key={'b'} onClick={handleClick}>Save</MenuItem>,
   ]}
 >
-  <Paper variant="outlined">
+  <Card variant="outlined">
       Right Click Me!
-  </Paper>
+  </Card>
 
-  <Paper
-    variant="outlined"
+  <Surface
+    variant="filled"
+    padding={3}
+    radius={2}
     onContextMenu={() =>
-      snackbar.queue({
+      snackbar.enqueue({
         content: 'The existing onContextMenu function was also called!',
         variant: 'info',
+        duration: 4000,
       })
     }
   >
     I already have an onContextMenu prop.
-  </Paper>
+  </Card>
 </ContextMenu>`,
   },
   divider: {
-    overview: `<Divider vertical weight={2} bgColor={["primary", "main"]} />`,
+    overview: `<Divider vertical weight={2} bgColor="grey" />`,
   },
   flex: {
     overview: `<Flex column />`,
@@ -88,12 +133,18 @@ export const samples = {
   return (
     <>
       <Menu open={open} onClose={toggleMenu} anchorElement={anchorElRef}>
-        <MenuItem>New File</MenuItem>
+        <MenuItem startIcon={FolderIcon}>Open</MenuItem>
+        <MenuItem>Save as</MenuItem>
+        <MenuItem startIcon={ImportIcon} endIcon={SmallRightArrowIcon}>
+          Import
+        </MenuItem>
+        <Divider menu />
+        <MenuItem endIcon={'⌘C'}>Copy</MenuItem>
       </Menu>
-			
-      <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
-        Open Menu
-      </Button>
+      
+      <ElevatedButton variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
+        File
+      </ElevatedButton>
     </>
   )
 }`,
@@ -107,9 +158,9 @@ export const samples = {
   >
     <MenuItem>New File</MenuItem>
   </Menu>
-  <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
+  <ElevatedButton variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
     Transform Position
-  </Button>
+  </ElevatedButton>
 </>`,
     positionOverride: `<>
   <Menu
@@ -120,13 +171,21 @@ export const samples = {
   >
     <MenuItem>New File</MenuItem>
   </Menu>
-  <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
+  <ElevatedButton variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
     Position Override
-  </Button>
+  </ElevatedButton>
 </>`,
   },
   menuitem: {
-    overview: `<MenuItem onClick={handleClick}>New File</MenuItem>`,
+    overview: `<StyledMenu open={true} onClose={handleClose} anchorElement={anchorEl}>
+  <MenuItem startIcon={FolderIcon}>Open</MenuItem>
+  <MenuItem>Save as</MenuItem>
+  <MenuItem startIcon={ImportIcon} endIcon={SmallRightArrowIcon}>
+    Import
+  </MenuItem>
+  <Divider menu />
+  <MenuItem endIcon={'⌘C'}>Copy</MenuItem>
+</StyledMenu>`,
   },
   nestedmenuitem: {
     overview: `const FileMenu = () => {
@@ -145,14 +204,14 @@ export const samples = {
         </NestedMenuItem>
       </Menu>
 
-      <Button variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
+      <ElevatedButton variant="outlined" ref={anchorElRef} onClick={toggleMenu}>
         Open Menu
-      </Button>
+      </ElevatedButton>
     </>
   )
 }`,
   },
-  modal: {
+  basicdialog: {
     overview: `export const ChangePayment = () => {
   const [open, setOpen] = useState(false)
   const toggleModal = () => setOpen(prev => !prev)
@@ -160,55 +219,123 @@ export const samples = {
 
   return (
     <>
-      <Button variant="contained" onClick={toggleModal}>
-        Change Plan
-      </Button>
+      <ElevatedButton onClick={toggleModal}>Change Plan</ElevatedButton>
 
-      <Modal open={open} onClickAway={toggleModal} width={'xs'}>
+      <BasicDialog open={open} onClickAway={toggleModal} width={'xs'}>
         <Flex column>
-          <Typography variant="h5" margin={4}>
-            Change Plan
-          </Typography>
+          <Typography variant="title-large">Change Plan</Typography>
 
           <Divider margin={0} />
 
-          <Typography fontSize="16px" margin={4}>
+          <Typography variant="body-large">
             Are you sure you want to update you plan details?
           </Typography>
 
           <Flex justifyContent="flex-end">
-            <Button
+            <FilledButton
               onClick={() => {
                 toggleModal()
-                snackbar.queue({
+                snackbar.enqueue({
                   content: 'Details updated 🎉',
                   variant: 'success',
                 })
               }}
-              variant="contained"
               margin={2}
               marginRight={0}
             >
               Confirm
-            </Button>
+            </FilledButton>
 
-            <Button onClick={() => toggleModal()} variant="outlined" margin={2}>
+            <OutlinedButton onClick={() => toggleModal()} margin={2}>
               Cancel
-            </Button>
+            </OutlinedButton>
           </Flex>
         </Flex>
-      </Modal>
+      </BasicDialog>
     </>
   )
 }`,
   },
-  paper: {
-    overview: `<Paper padding={3} variant="outlined">
-	Paper with variant="outlined"
-</Paper>`,
-    elevation: `<Paper padding={3} elevation={3}>
-	Paper with elevation={3}
-</Paper>`,
+  fullscreenDialog: {
+    overview: `export const ChangePayment = () => {
+  const [open, setOpen] = useState(false)
+  const toggleModal = () => setOpen(prev => !prev)
+  const snackbar = useSnackbar()
+
+  return (
+    <>
+      <ElevatedButton onClick={toggleModal}>Change Plan</ElevatedButton>
+
+      <FullscreenDialog open={open} onClickAway={toggleModal}>
+        <Flex column width="md">
+          <Typography variant="title-large">Change Plan</Typography>
+
+          <Divider margin={0} />
+
+          <Typography variant="body-large">
+            Are you sure you want to update you plan details?
+          </Typography>
+
+          <Flex justifyContent="flex-end">
+            <FilledButton
+              onClick={() => {
+                toggleModal()
+                snackbar.enqueue({
+                  content: 'Details updated 🎉',
+                  variant: 'success',
+                })
+              }}
+              margin={2}
+              marginRight={0}
+            >
+              Confirm
+            </FilledButton>
+
+            <OutlinedButton onClick={() => toggleModal()} margin={2}>
+              Cancel
+            </OutlinedButton>
+          </Flex>
+        </Flex>
+      </FullscreenDialog>
+    </>
+  )
+}`,
+  },
+  navigationbar: {
+    overview: `export const NavMenu = () => {
+  const [selected, setSelected] = useState(0)
+
+  return (
+    <NavigationBar selected={selected} onSelectionChanged={i => setSelected(i)}>
+      <NavigationBarItem label="Label"><Icon>{ImportIcon}</Icon></NavigationBarItem>
+      <NavigationBarItem label="Label"><Icon>{ImportIcon}</Icon></NavigationBarItem>
+      <NavigationBarItem label="Label"><Icon>{ImportIcon}</Icon></NavigationBarItem>
+      <NavigationBarItem label="Label"><Icon>{ImportIcon}</Icon></NavigationBarItem>
+    </NavigationBar>
+  )
+}`,
+  },
+  navigationrail: {
+    overview: `export const SideMenu = () => {
+  const [selected, setSelected] = useState(0)
+
+  return (
+    <NavigationRail selected={selected} onTabChanged={i => setSelected(i)}>
+      <Typography>Overview</Typography>
+      <NavigationItem>Dashboard</NavigationItem>
+
+      <Typography>Reports</Typography>
+      <NavigationItem>Annual</NavigationItem>
+      <NavigationItem>Monthly</NavigationItem>
+
+      <Typography>Settings</Typography>
+      <NavigationItem>Account</NavigationItem>
+    </NavigationRail>
+  )
+}`,
+  },
+  navigationitem: {
+    overview: `<NavigationItem>Dashboard</NavigationItem>`,
   },
   ripple: {
     overview: `<div>
@@ -216,27 +343,24 @@ export const samples = {
   <span>Click here</span>
 </div>`,
   },
-  sidenav: {
-    overview: `export const SideMenu = () => {
-  const [selected, setSelected] = useState(0)
+  select: {
+    overview: `export const SelectOption = () => {
+  const [value, setValue] = useState<string>('one');
 
   return (
-    <SideNav selected={selected} onTabChanged={i => setSelected(i)}>
-      <Typography>Overview</Typography>
-      <SideNavItem>Dashboard</SideNavItem>
-
-      <Typography>Reports</Typography>
-      <SideNavItem>Annual</SideNavItem>
-      <SideNavItem>Monthly</SideNavItem>
-
-      <Typography>Settings</Typography>
-      <SideNavItem>Account</SideNavItem>
-    </SideNav>
-  )
-}`,
-  },
-  sidenavitem: {
-    overview: `<SideNavItem>Dashboard</SideNavItem>`,
+    <Select
+      label="Select"
+      variant="filled"
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    >
+      <MenuItem value="one" startIcon={ImportIcon}>
+        Item 1
+      </MenuItem>
+      <MenuItem value="two">Item 2</MenuItem>
+    </Select>
+  );
+};`,
   },
   slider: {
     overview: `export const VolumeController = () => {
@@ -283,6 +407,7 @@ export const samples = {
       value={value}
       onChange={v => setValue(v)}
       onChangeCommitted={handleCommit}
+      hideTooltip
     />
   )
 }`,
@@ -298,12 +423,12 @@ export const samples = {
       value={value}
       onChange={v => setValue(v)}
       onChangeCommitted={handleCommit}
-      handlePrimaryColor={'purple'}
-      handleSecondaryColor={'black'}
-      trackPrimaryColor={['accent', 'main']}
-      trackSecondaryColor={'blue'}
-      markPrimaryColor={'green'}
-      markSecondaryColor={'orange'}
+      handlePrimaryColor="var(--sys-color-tertiary)"
+      handleSecondaryColor="rgb(100,100,100,0.5)"
+      trackPrimaryColor="var(--sys-color-tertiary)"
+      trackSecondaryColor="var(--sys-color-tertiary-container)"
+      markPrimaryColor="white"
+      markSecondaryColor="orange"
     />
   )
 }`,
@@ -327,8 +452,7 @@ export const Dashboard = () => {
   const snackbar = useSnackbar()
 
   return (
-    <Button
-      bgColor={'success'}
+    <OutlinedButton
       onClick={() =>
         snackbar.enqueue({
           content: 'Great Job!',
@@ -338,7 +462,7 @@ export const Dashboard = () => {
       }
     >
       Success
-    </Button>
+    </OutlinedButton>
   )
 }
 `,
@@ -350,41 +474,44 @@ export const Dashboard = () => {
   <Typography>a 40px vertical spacer between them.</Typography>
 </Flex>`,
     breakpoints: `<>
-  <Typography bgColor="royalblue">
+  <Typography bgColor="lightblue">
     These spans have a varying vertical spacer
   </Typography>
   <Spacer size="40px" breakpoints={{sm: '3px', md: '100px'}} />
-  <Typography bgColor="royalblue">
+  <Typography bgColor="lightblue">
     between them depending on the current breakpoint.
   </Typography>
 </>`,
   },
-  switch: {
-    overview: `export const ToggleTheme = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  textfield: {
+    overview: `export const WeightField = () => {
+  const [value, setValue] = useState<string>('');
 
-  return <Switch checked={darkMode} onChange={value => setDarkMode(value)} />;
+  return (
+    <TextField
+      variant="filled"
+      label="Weight"
+      startIcon={ImportIcon}
+      endIcon={'KG'}
+      inputProps={{type: 'number'}}
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    />
+  );
 }`,
-    colors: `<Switch
-  checked={on}
-  onChange={value => setOn(value)}
-  trackColor={{on: 'info', off: 'secondary'}}
-  handleColor={{on: 'royalblue', off: ['error', 'main']}}
-/>;`,
   },
-
   tooltip: {
     overview: `<Tooltip tip="Is it me you're looking for?">
-  <Button variant="outlined">Hover Me!</Button>
+  <ElevatedButton variant="outlined">Hover Me!</ElevatedButton>
 </Tooltip>`,
     direction: `<Tooltip tip="Hello from the other side." direction="right">
-  <Button variant="outlined">Right</Button>
+  <ElevatedButton variant="outlined">Right</ElevatedButton>
 </Tooltip>`,
     delay: `<Tooltip tip="That was 2 seconds!" delay={2000}>
-  <Button variant="outlined">Delayed Tooltip</Button>
+  <ElevatedButton variant="outlined">Delayed Tooltip</ElevatedButton>
 </Tooltip>`,
   },
   typography: {
-    overview: `<Typography variant="h1">Big Heading!</Typography>`,
+    overview: `<Typography variant="display-large">Big Heading!</Typography>`,
   },
 };

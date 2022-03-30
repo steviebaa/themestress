@@ -1,7 +1,7 @@
 import React from 'react';
 import {useLocation} from 'react-router-dom';
 import {getPageFromRoute} from '@core/routeMap';
-import {TypeScript} from '@components/TypeScript';
+import {CodeBlock} from '@components/CodeBlock';
 import {Subheading} from '@components/StyledTypography';
 
 interface ImportSampleProps {
@@ -16,7 +16,7 @@ export const PageHeader = ({importCode: code}: ImportSampleProps) => {
     <>
       <Subheading>Import</Subheading>
 
-      <TypeScript
+      <CodeBlock
         code={code ?? `import {${info.name}} from 'themestress/components';`}
       />
 

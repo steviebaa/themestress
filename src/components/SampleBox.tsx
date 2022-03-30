@@ -1,20 +1,27 @@
 import React from 'react';
-import {Paper, Flex} from '@themestress/components';
+import {Surface, Flex} from '@themestress/components';
 
 interface SampleBoxProps {
   children?: React.ReactNode;
+  contrast?: boolean;
 }
 
 export const SampleBox: React.FC<SampleBoxProps> = ({
   children,
+  contrast,
   ...props
 }: SampleBoxProps) => {
-
   return (
-    <Paper variant="outlined" padding={6}>
+    <Surface
+      variant="outlined"
+      padding={6}
+      radius={4}
+      bgColor={contrast ? 'var(--sys-color-inverse-on-surface)' : ''}
+      {...props}
+    >
       <Flex justifyContent="space-around" {...props}>
         {children}
       </Flex>
-    </Paper>
+    </Surface>
   );
 };

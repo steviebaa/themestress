@@ -5,7 +5,7 @@ import {createTheme} from '@themestress/core/themeUtils';
 import {Container} from '@themestress/components/Container';
 
 describe('Component Container', () => {
-  it('Should render a Container component', () => {
+  it('should render a Container component', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Container maxWidth="lg">Test Container</Container>

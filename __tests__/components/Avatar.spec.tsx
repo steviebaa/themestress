@@ -5,7 +5,7 @@ import {Avatar} from '@themestress/components/Avatar';
 import {createTheme} from '@themestress/core/themeUtils';
 
 describe('Component Avatar', () => {
-  it('Should render an Avatar component with initials', () => {
+  it('should render an Avatar component with initials', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Avatar borderColor={['neutral', 3, 'main']} alt="Test Initials" />
@@ -18,7 +18,7 @@ describe('Component Avatar', () => {
     expect(wrapper.find(Avatar)).toHaveLength(1);
   });
 
-  it('Should render an Avatar component with person SVG', () => {
+  it('should render an Avatar component with person SVG', () => {
     const wrapper = mount(
       <ThemeProvider theme={createTheme}>
         <Avatar borderColor={['neutral', 3, 'main']} />
@@ -28,7 +28,7 @@ describe('Component Avatar', () => {
     expect(wrapper.find('path')).toBeTruthy();
   });
 
-  it('Should render an Avatar component with src', () => {
+  it('should render an Avatar component with src', () => {
     const url = 'https://example.com/';
 
     const wrapper = mount(

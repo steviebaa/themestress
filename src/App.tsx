@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import {SettingsProvider} from '@stores/SettingsContext';
-import {Theme} from '@core/Theme';
+import {ThemeProvider} from '@core/Theme';
 import {createSectionRoutes} from '@core/routeMap';
 import {System} from '@controllers/System';
 import {Home} from '@controllers/Home';
@@ -13,10 +13,10 @@ import {SnackbarProvider} from '@themestress/components/Snackbar';
 export const App: React.FC = () => {
   return (
     <SettingsProvider>
-      <Theme>
+      <ThemeProvider>
         <SnackbarProvider>
           <Router>
-            <Routes>
+            <Routes >
               <Route path={'*'} element={<Home />}>
                 <Route path={'system/'} element={<System />}>
                   {createSectionRoutes('system')}
@@ -29,7 +29,7 @@ export const App: React.FC = () => {
             </Routes>
           </Router>
         </SnackbarProvider>
-      </Theme>
+      </ThemeProvider>
     </SettingsProvider>
   );
 };

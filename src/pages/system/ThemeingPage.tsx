@@ -1,19 +1,15 @@
 import React from 'react';
-import {PageHeader} from '@components/ImportSample';
-import {Code, P} from '../../components/StyledTypography';
-import {Paper} from '../../themestress/components';
-import ThemeInImage from '@assets/img/theme-in.png';
-import ThemeOutImage from '@assets/img/theme-out.png';
-import styled from '@emotion/styled';
 
-const ClippedPaper = styled(Paper)`
-  overflow: hidden;
-`;
+// const ClippedPaper = styled(Surface)`
+//   overflow: hidden;
+// `;
 
 export const ThemeingPage = () => {
   return (
     <>
-      <PageHeader
+      <h2>Documentation in progress</h2>
+
+      {/* <PageHeader
         importCode={`import {ThemeProvider} from '@emotion/react'
 import {createTheme} from '@themestress/core';`}
       />
@@ -49,7 +45,7 @@ import {createTheme} from '@themestress/core';`}
           style={{marginBottom: '-4px', marginRight: '-8px'}}
           src={ThemeOutImage}
         />
-      </ClippedPaper>
+      </ClippedPaper> */}
     </>
   );
 };
