@@ -1,6 +1,6 @@
 {
   "name": "themestress",
-  "version": "0.1.1",
+  "version": "",
   "description": "A react component library for creating beautiful and interactive UI components using Material Design 3",
   "keywords": [
     "theme",
@@ -12,9 +12,9 @@
   "author": "Steve Richardson",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router": "^6.2.1",
-    "react-router-dom": "^6.2.1"
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   }
 }
