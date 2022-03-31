@@ -24,7 +24,7 @@
     "package:build": "parcel build src/index.html -d dist --no-source-maps",
     "package:format": "prettier --write \"src/themestress/**/*.{ts,js,tsx,jsx}\"",
     "package:lint": "eslint ./src/themestress --ext .ts,.tsx",
-    "pack": "npm run package:format && npm run package:lint && cd src/themestress && tsc -p tsconfig.build.json && cd ../.."
+    "pack": "npm run package:format && npm run package:lint && cd src/themestress && tsc -p tsconfig.build.json && cd ../.. && cp ./README.md ./dist/README.md"
   },
   "dependencies": {
     "prismjs": "^1.26.0",

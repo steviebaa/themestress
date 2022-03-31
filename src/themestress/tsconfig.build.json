@@ -13,5 +13,5 @@
     "types": ["node", "jest"]
   },
   "exclude": ["node_modules", ".git"],
-  "include": ["components", "core", "icons"]
+  "include": ["components", "core", "icons", "README.md"]
 }
