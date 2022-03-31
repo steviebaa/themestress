@@ -6,10 +6,6 @@ export const GettingStartedPage = () => {
   return (
     <>
       <P>The material design 3 library.</P>
-      <Subheading>
-        📚 Check out the{' '}
-        <a href="https://themestress.vercel.app/">documentation</a> here.
-      </Subheading>
       {/*  */}
       <Subheading>🤔 Purpose</Subheading>
       <P>
