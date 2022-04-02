@@ -256,7 +256,7 @@ const StyledTextField = styled.div<InputBaseProps>`
   ${props => getMarginAndPadding(props)}
 `;
 
-export const InputBase: React.FC<InputBaseProps> = React.forwardRef(
+export const InputBase = React.forwardRef<HTMLDivElement, InputBaseProps>(
   (
     {
       value,
@@ -266,7 +266,7 @@ export const InputBase: React.FC<InputBaseProps> = React.forwardRef(
       inputProps,
       ...props
     }: InputBaseProps,
-    ref: MutableRefObject<HTMLDivElement>,
+    ref,
   ) => {
     const className = `_${titleCase(props.variant)}${props.componentName}`;
 

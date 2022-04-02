@@ -110,11 +110,8 @@ const StyledLabel = styled(Typography)<{padStart?: boolean; padEnd?: boolean}>`
   align-items: center;
 `;
 
-export const MenuItem: React.FC<MenuItemProps> = React.forwardRef(
-  (
-    {startIcon, endIcon, children, ...props}: MenuItemProps,
-    ref: MutableRefObject<HTMLButtonElement>,
-  ) => {
+export const MenuItem = React.forwardRef<HTMLButtonElement, MenuItemProps>(
+  ({startIcon, endIcon, children, ...props}: MenuItemProps, ref) => {
     return (
       <StyledMenuItem
         ref={ref}
