@@ -14,7 +14,7 @@ const StyledNavigationItem = styled(TextButton)<NavigationItemProps>`
   padding: 0px 16px;
   ${({__selected: s}) => s && 'background-image: var(--sys-overlay-level-4)'};
 
-  :hover {
+  & :hover {
     ${({__selected: s}) => s && 'background-image: var(--sys-overlay-level-2)'};
   }
 `;
