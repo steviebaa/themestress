@@ -106,7 +106,11 @@ export class Theme implements ThemeProps {
     this.spacing = new ThemeSpacing(theme?.spacing);
     this.zIndices = new ThemeZIndices(theme?.zIndices);
     this.breakpoints = new ThemeBreakpoints(theme?.breakpoints);
-    this.elevations = new ThemeElevations({mode: this.palette.mode});
     this.states = new ThemeStates(theme?.states);
+    this.elevations = new ThemeElevations({
+      mode: this.palette.mode,
+      overlayHexColor: this.palette.primary.main.hex,
+      shadowHexColor: this.palette.neutral.shadow.hex,
+    });
   };
 }
