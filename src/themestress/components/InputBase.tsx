@@ -1,4 +1,4 @@
-import React, {MutableRefObject} from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import {css, Theme} from '@emotion/react';
 import {ReactHTMLProps} from '../core/definitions';
