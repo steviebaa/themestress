@@ -69,7 +69,11 @@ export interface FlexProps extends ReactHTMLProps<HTMLDivElement> {
   paddingLeft?: number;
 }
 
-const FlexContainer = styled.div<FlexProps>`
+interface FlexPropsNoBoolean extends Omit<FlexProps, 'wrap'> {
+  wrap: number;
+}
+
+const FlexContainer = styled.div<FlexPropsNoBoolean>`
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -99,12 +103,12 @@ const FlexContainer = styled.div<FlexProps>`
 `;
 
 export const Flex: React.FC<FlexProps> = forwardRef(
-  (props: FlexProps, ref: ForwardedRef<HTMLDivElement>) => {
+  ({wrap, ...props}: FlexProps, ref: ForwardedRef<HTMLDivElement>) => {
     return (
       <FlexContainer
         ref={ref}
         className="_Flex"
-        // wrap={wrap}
+        wrap={wrap ? 1 : 0}
         {...props}
       ></FlexContainer>
     );

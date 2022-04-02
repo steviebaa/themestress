@@ -61,8 +61,8 @@ export const ApiTable: React.FC<ApiTableProps> = ({heading, lookup}) => {
       {extensions && (
         <P>
           Extends{' '}
-          {extensions.map(v => (
-            <Link to={`/components/${v.toString().toLowerCase()}`}>
+          {extensions.map((v, i) => (
+            <Link key={i} to={`/components/${v.toString().toLowerCase()}`}>
               <Code>{v}</Code>
             </Link>
           ))}
