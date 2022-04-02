@@ -1,5 +1,4 @@
 import React, {useRef, useState} from 'react';
-import styled from '@emotion/styled';
 import {samples} from '@core/samples';
 import {Code, P} from '@components/StyledTypography';
 import {SampleBox} from '@components/SampleBox';
