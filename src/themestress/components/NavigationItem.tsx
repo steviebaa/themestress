@@ -11,10 +11,11 @@ export interface NavigationItemProps extends TextButtonProps {
 const StyledNavigationItem = styled(TextButton)<NavigationItemProps>`
   color: var(--sys-color-on-surface);
   background-color: transparent;
+  padding: 0px 16px;
   ${({__selected: s}) => s && 'background-image: var(--sys-overlay-level-4)'};
 
   :hover {
-    ${({__selected: s}) => s && 'background-image: var(--sys-overlay-level-4)'};
+    ${({__selected: s}) => s && 'background-image: var(--sys-overlay-level-2)'};
   }
 `;
 
