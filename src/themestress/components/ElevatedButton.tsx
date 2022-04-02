@@ -191,29 +191,30 @@ const StyledButton = styled.button<ElevatedButtonProps>`
   ${props => getMarginAndPadding(props)};
 `;
 
-export const ElevatedButton: React.FC<ElevatedButtonProps> = forwardRef(
-  ({children, disableRipple, ...props}: ElevatedButtonProps, ref) => {
-    props.elevation = props.elevation === undefined ? 1 : props.elevation;
+export const ElevatedButton = forwardRef<
+  HTMLButtonElement,
+  ElevatedButtonProps
+>(({children, disableRipple, ...props}, ref) => {
+  props.elevation = props.elevation === undefined ? 1 : props.elevation;
 
-    return (
-      <StyledButton
-        ref={ref}
-        disabled={props.disabled}
-        className="_ElevatedButton"
-        {...props}
-      >
-        {!props.disabled && !disableRipple && <Ripple />}
+  return (
+    <StyledButton
+      ref={ref}
+      disabled={props.disabled}
+      className="_ElevatedButton"
+      {...props}
+    >
+      {!props.disabled && !disableRipple && <Ripple />}
 
-        {props.startIcon && (
-          <span className="_ElevatedButton-StartIcon">{props.startIcon}</span>
-        )}
+      {props.startIcon && (
+        <span className="_ElevatedButton-StartIcon">{props.startIcon}</span>
+      )}
 
-        <span className="_ElevatedButton-Label">{children}</span>
+      <span className="_ElevatedButton-Label">{children}</span>
 
-        {props.endIcon && (
-          <span className="_ElevatedButton-EndIcon">{props.endIcon}</span>
-        )}
-      </StyledButton>
-    );
-  },
-);
+      {props.endIcon && (
+        <span className="_ElevatedButton-EndIcon">{props.endIcon}</span>
+      )}
+    </StyledButton>
+  );
+});

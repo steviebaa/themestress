@@ -33,6 +33,7 @@
         "argsIgnorePattern": "^_"
       }
     ],
+    "react/prop-types": "off",
     "react/display-name": "off",
     "@typescript-eslint/ban-types": "off"
   },

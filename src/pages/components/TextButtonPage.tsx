@@ -59,25 +59,25 @@ export const TextButtonPage = () => {
             </TextButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>radius="4px"</Code>}>
+          <Tooltip tip={<Code>{'radius="4px"'}</Code>}>
             <TextButton margin={2} radius="4px">
               Border Radius
             </TextButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>height="50px"</Code>}>
+          <Tooltip tip={<Code>{'height="50px"'}</Code>}>
             <TextButton margin={2} height="50px">
               Height
             </TextButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>width="100px"</Code>}>
+          <Tooltip tip={<Code>{'width="100px"'}</Code>}>
             <TextButton margin={2} width="300px">
               Width
             </TextButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>align="right"</Code>}>
+          <Tooltip tip={<Code>{'align="right"'}</Code>}>
             <TextButton margin={2} align="right" width="150px">
               Text Align
             </TextButton>

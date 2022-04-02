@@ -1,5 +1,11 @@
-/* eslint-disable react/prop-types */
-import React, {ForwardedRef, forwardRef, MutableRefObject, useRef} from 'react';
+import React, {
+  forwardRef,
+  MutableRefObject,
+  RefObject,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import {createPortal} from 'react-dom';
 import styled from '@emotion/styled';
 import {ReactHTMLProps, Transform} from '../core/definitions';
@@ -88,17 +94,21 @@ const UnorderedList = styled.ul`
   }
 `;
 
-export const Menu: React.FC<MenuProps> = forwardRef(
-  ({children, ...props}: MenuProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const menuRef: MutableRefObject<HTMLDivElement> =
-      (ref as MutableRefObject<HTMLDivElement>) || useRef<HTMLDivElement>(null);
+export const Menu = forwardRef<HTMLDivElement, MenuProps>(
+  ({children, ...props}, ref) => {
+    const [position, setPosition] = useState<DOMRect>(null);
+    const menuRef = (ref ||
+      useRef<HTMLDivElement>(null)) as RefObject<HTMLDivElement>;
+
+    useEffect(() => {
+      setPosition(props.anchorElement?.current?.getBoundingClientRect());
+    }, [props.anchorElement?.current]);
 
     const handleClickAway = () => {
       if (!props.open || !menuRef || !menuRef.current) return;
       props.onClose && props.onClose();
     };
 
-    const position = props.anchorElement?.current?.getBoundingClientRect();
     const isNested = props._nested;
 
     const handleClick = (e: React.MouseEvent) => {

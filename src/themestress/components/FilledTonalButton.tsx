@@ -192,29 +192,28 @@ const StyledButton = styled.button<FilledTonalButtonProps>`
   ${props => getMarginAndPadding(props)};
 `;
 
-export const FilledTonalButton: React.FC<FilledTonalButtonProps> = forwardRef(
-  ({children, disableRipple, ...props}: FilledTonalButtonProps, ref) => {
-    return (
-      <StyledButton
-        ref={ref}
-        disabled={props.disabled}
-        className="_FilledTonalButton"
-        {...props}
-      >
-        {!props.disabled && !disableRipple && <Ripple />}
+export const FilledTonalButton = forwardRef<
+  HTMLButtonElement,
+  FilledTonalButtonProps
+>(({children, disableRipple, ...props}, ref) => {
+  return (
+    <StyledButton
+      ref={ref}
+      disabled={props.disabled}
+      className="_FilledTonalButton"
+      {...props}
+    >
+      {!props.disabled && !disableRipple && <Ripple />}
 
-        {props.startIcon && (
-          <span className="_FilledTonalButton-StartIcon">
-            {props.startIcon}
-          </span>
-        )}
+      {props.startIcon && (
+        <span className="_FilledTonalButton-StartIcon">{props.startIcon}</span>
+      )}
 
-        <span className="_FilledTonalButton-Label">{children}</span>
+      <span className="_FilledTonalButton-Label">{children}</span>
 
-        {props.endIcon && (
-          <span className="_FilledTonalButton-EndIcon">{props.endIcon}</span>
-        )}
-      </StyledButton>
-    );
-  },
-);
+      {props.endIcon && (
+        <span className="_FilledTonalButton-EndIcon">{props.endIcon}</span>
+      )}
+    </StyledButton>
+  );
+});

@@ -45,7 +45,7 @@ export const ElevatedButtonPage = () => {
             </ElevatedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>{`elevation="5"`}</Code>}>
+          <Tooltip tip={<Code>{'elevation="5"'}</Code>}>
             <ElevatedButton margin={2} elevation="5">
               Elevation
             </ElevatedButton>
@@ -68,25 +68,25 @@ export const ElevatedButtonPage = () => {
             </ElevatedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>radius="4px"</Code>}>
+          <Tooltip tip={<Code>{'radius="4px"'}</Code>}>
             <ElevatedButton margin={2} radius="4px">
               Border Radius
             </ElevatedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>height="50px"</Code>}>
+          <Tooltip tip={<Code>{'height="50px"'}</Code>}>
             <ElevatedButton margin={2} height="50px">
               Height
             </ElevatedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>width="100px"</Code>}>
+          <Tooltip tip={<Code>{'width="100px"'}</Code>}>
             <ElevatedButton margin={2} width="300px">
               Width
             </ElevatedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>align="right"</Code>}>
+          <Tooltip tip={<Code>{'align="right"'}</Code>}>
             <ElevatedButton margin={2} align="right" width="150px">
               Text Align
             </ElevatedButton>

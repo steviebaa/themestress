@@ -191,7 +191,7 @@ const StyledButton = styled.button<FilledButtonProps>`
   ${props => getMarginAndPadding(props)};
 `;
 
-export const FilledButton: React.FC<FilledButtonProps> = forwardRef(
+export const FilledButton = forwardRef<HTMLButtonElement, FilledButtonProps>(
   ({children, disableRipple, ...props}: FilledButtonProps, ref) => {
     return (
       <StyledButton

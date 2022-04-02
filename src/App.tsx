@@ -16,7 +16,7 @@ export const App: React.FC = () => {
       <ThemeProvider>
         <SnackbarProvider>
           <Router>
-            <Routes >
+            <Routes>
               <Route path={'*'} element={<Home />}>
                 <Route path={'system/'} element={<System />}>
                   {createSectionRoutes('system')}

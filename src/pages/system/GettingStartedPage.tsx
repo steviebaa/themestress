@@ -10,7 +10,7 @@ export const GettingStartedPage = () => {
       <Subheading>🤔 Purpose</Subheading>
       <P>
         The intention of Themestress is to be a baseline of components built to{' '}
-        <a href="https://material.io">Google's Material Design 3</a>{' '}
+        <a href="https://material.io">Google{"'"}s Material Design 3</a>{' '}
         specification. The library is inspired by{' '}
         <a href="https://mui.com">Material UI</a> which follows the Material
         Design 2 guideline.
@@ -21,8 +21,8 @@ export const GettingStartedPage = () => {
         The code is{' '}
         <a href="https://github.com/steviebaa/themestress">open source</a>, so
         you can use the library by copying the <Code>src/themestress</Code>{' '}
-        directory to your project (if you'd like to adapt the components) or by
-        installing it via NPM.
+        directory to your project (if you{"'"}d like to adapt the components) or
+        by installing it via NPM.
       </P>
       <P>
         Themestress uses <a href="https://emotion.sh/">Emotion</a> to provide an

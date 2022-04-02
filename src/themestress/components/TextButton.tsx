@@ -179,8 +179,8 @@ const StyledButton = styled.button<TextButtonProps>`
   ${props => getMarginAndPadding(props)};
 `;
 
-export const TextButton: React.FC<TextButtonProps> = forwardRef(
-  ({children, disableRipple, ...props}: TextButtonProps, ref) => {
+export const TextButton = forwardRef<HTMLButtonElement, TextButtonProps>(
+  ({children, disableRipple, ...props}, ref) => {
     return (
       <StyledButton
         ref={ref}

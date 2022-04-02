@@ -1,4 +1,4 @@
-import React, {ForwardedRef, forwardRef} from 'react';
+import React, {forwardRef} from 'react';
 import styled from '@emotion/styled';
 import {css} from '@emotion/react';
 import {getMarginAndPadding} from '../core/themeUtils';
@@ -68,8 +68,8 @@ const StyledDiv = styled.div<SurfaceProps>`
     `${radius === undefined ? 0 : theme.spacing.size * radius}px`};
 `;
 
-export const Surface: React.FC<SurfaceProps> = forwardRef(
-  ({children, ...props}: SurfaceProps, ref: ForwardedRef<HTMLDivElement>) => {
+export const Surface = forwardRef<HTMLDivElement, SurfaceProps>(
+  ({children, ...props}, ref) => {
     if (props.variant === undefined) props.variant = 'filled';
     if (props.elevation === undefined) props.elevation = 1;
 

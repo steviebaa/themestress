@@ -68,37 +68,37 @@ export const OutlinedButtonPage = () => {
             </OutlinedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>radius="4px"</Code>}>
+          <Tooltip tip={<Code>{'radius="4px"'}</Code>}>
             <OutlinedButton margin={2} radius="4px">
               Border Radius
             </OutlinedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>height="50px"</Code>}>
+          <Tooltip tip={<Code>{'height="50px"'}</Code>}>
             <OutlinedButton margin={2} height="50px">
               Height
             </OutlinedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>width="100px"</Code>}>
+          <Tooltip tip={<Code>{'width="100px"'}</Code>}>
             <OutlinedButton margin={2} width="300px">
               Width
             </OutlinedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>align="right"</Code>}>
+          <Tooltip tip={<Code>{'align="right"'}</Code>}>
             <OutlinedButton margin={2} align="right" width="150px">
               Text Align
             </OutlinedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>borderWidth="3px"</Code>}>
+          <Tooltip tip={<Code>{'borderWidth="3px"'}</Code>}>
             <OutlinedButton margin={2} borderWidth="3px">
               Border Width
             </OutlinedButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>borderColor="red"</Code>}>
+          <Tooltip tip={<Code>{'borderColor="red"'}</Code>}>
             <OutlinedButton margin={2} borderColor="red">
               Border Color
             </OutlinedButton>

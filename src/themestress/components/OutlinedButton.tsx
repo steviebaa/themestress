@@ -194,27 +194,28 @@ const StyledButton = styled.button<OutlinedButtonProps>`
   ${props => getMarginAndPadding(props)};
 `;
 
-export const OutlinedButton: React.FC<OutlinedButtonProps> = forwardRef(
-  ({children, disableRipple, ...props}: OutlinedButtonProps, ref) => {
-    return (
-      <StyledButton
-        ref={ref}
-        disabled={props.disabled}
-        className="_OutlinedButton"
-        {...props}
-      >
-        {!props.disabled && !disableRipple && <Ripple />}
+export const OutlinedButton = forwardRef<
+  HTMLButtonElement,
+  OutlinedButtonProps
+>(({children, disableRipple, ...props}, ref) => {
+  return (
+    <StyledButton
+      ref={ref}
+      disabled={props.disabled}
+      className="_OutlinedButton"
+      {...props}
+    >
+      {!props.disabled && !disableRipple && <Ripple />}
 
-        {props.startIcon && (
-          <span className="_OutlinedButton-StartIcon">{props.startIcon}</span>
-        )}
+      {props.startIcon && (
+        <span className="_OutlinedButton-StartIcon">{props.startIcon}</span>
+      )}
 
-        <span className="_OutlinedButton-Label">{children}</span>
+      <span className="_OutlinedButton-Label">{children}</span>
 
-        {props.endIcon && (
-          <span className="_OutlinedButton-EndIcon">{props.endIcon}</span>
-        )}
-      </StyledButton>
-    );
-  },
-);
+      {props.endIcon && (
+        <span className="_OutlinedButton-EndIcon">{props.endIcon}</span>
+      )}
+    </StyledButton>
+  );
+});

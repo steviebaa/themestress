@@ -45,7 +45,7 @@ export const FilledButtonPage = () => {
             </FilledButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>{`elevation="5"`}</Code>}>
+          <Tooltip tip={<Code>{'elevation="5"'}</Code>}>
             <FilledButton margin={2} elevation="5">
               Elevation
             </FilledButton>
@@ -65,25 +65,25 @@ export const FilledButtonPage = () => {
             </FilledButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>radius="4px"</Code>}>
+          <Tooltip tip={<Code>{'radius="4px"'}</Code>}>
             <FilledButton margin={2} radius="4px">
               Border Radius
             </FilledButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>height="50px"</Code>}>
+          <Tooltip tip={<Code>{'height="50px"'}</Code>}>
             <FilledButton margin={2} height="50px">
               Height
             </FilledButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>width="100px"</Code>}>
+          <Tooltip tip={<Code>{'width="100px"'}</Code>}>
             <FilledButton margin={2} width="300px">
               Width
             </FilledButton>
           </Tooltip>
           <br />
-          <Tooltip tip={<Code>align="right"</Code>}>
+          <Tooltip tip={<Code>{'align="right"'}</Code>}>
             <FilledButton margin={2} align="right" width="150px">
               Text Align
             </FilledButton>
