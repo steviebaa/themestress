@@ -1,26 +1,26 @@
 import {addStyleHelper} from '../../definitions';
 
-export interface BreakPoint {
+export interface ThemeBreakPoint {
   size: number;
   unit: string;
 }
 
 export interface ThemeBreakpointsProps {
-  xs: BreakPoint;
-  sm: BreakPoint;
-  md: BreakPoint;
-  lg: BreakPoint;
-  xl: BreakPoint;
+  xs: ThemeBreakPoint;
+  sm: ThemeBreakPoint;
+  md: ThemeBreakPoint;
+  lg: ThemeBreakPoint;
+  xl: ThemeBreakPoint;
 }
 
 export type ThemeBreakpointsInitializer = Partial<ThemeBreakpointsProps>;
 
 export class ThemeBreakpoints implements ThemeBreakpointsProps {
-  public xs: BreakPoint = {size: null, unit: null};
-  public sm: BreakPoint = {size: null, unit: null};
-  public md: BreakPoint = {size: null, unit: null};
-  public lg: BreakPoint = {size: null, unit: null};
-  public xl: BreakPoint = {size: null, unit: null};
+  public xs: ThemeBreakPoint = {size: null, unit: null};
+  public sm: ThemeBreakPoint = {size: null, unit: null};
+  public md: ThemeBreakPoint = {size: null, unit: null};
+  public lg: ThemeBreakPoint = {size: null, unit: null};
+  public xl: ThemeBreakPoint = {size: null, unit: null};
 
   constructor(breakpoints: ThemeBreakpointsInitializer = {}) {
     this._setProperties(breakpoints);

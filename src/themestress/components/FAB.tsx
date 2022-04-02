@@ -265,8 +265,8 @@ const StyledButton = styled.button<FABProps>`
   ${props => getMarginAndPadding(props)};
 `;
 
-export const FAB: React.FC<FABProps> = forwardRef(
-  ({...props}: FABProps, ref) => {
+export const FAB = forwardRef<HTMLButtonElement, FABProps>(
+  ({...props}, ref) => {
     props.position = props.position ?? 'bottom-right';
 
     return (
