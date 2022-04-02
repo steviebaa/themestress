@@ -1,14 +1,5 @@
 {
   "name": "themestress",
-  "version": "0.1.0",
-  "description": "",
-  "keywords": [
-    "theme",
-    "material",
-    "design",
-    "ui",
-    "react"
-  ],
   "author": "Steve Richardson",
   "license": "MIT",
   "scripts": {
@@ -24,7 +15,8 @@
     "package:build": "parcel build src/index.html -d dist --no-source-maps",
     "package:format": "prettier --write \"src/themestress/**/*.{ts,js,tsx,jsx}\"",
     "package:lint": "eslint ./src/themestress --ext .ts,.tsx",
-    "pack": "npm run package:format && npm run package:lint && cd src/themestress && tsc -p tsconfig.build.json && cd ../.. && cp ./README.md ./dist/README.md"
+    "pack:copy-files": "cp ./README.md ./dist/README.md && cp ./src/themestress/template-package.json ./dist/package.json",
+    "pack": "npm run package:format && npm run package:lint && cd src/themestress && tsc -p tsconfig.build.json && cd ../.. && npm run pack:copy-files"
   },
   "dependencies": {
     "prismjs": "^1.26.0",
@@ -66,6 +58,6 @@
     "ts-jest": "^27.1.3",
     "ts-node": "^10.4.0",
     "ttypescript": "^1.5.13",
-    "typescript": "^4.5.4"
+    "typescript": "^4.6.3"
   }
 }
