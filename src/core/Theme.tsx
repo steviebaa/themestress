@@ -12,7 +12,7 @@ export const ThemeProvider = ({children}: ThemeProps) => {
   const [settings] = useContext(settingsContext);
 
   const theme = new Theme({
-    palette: {mode: settings.mode, primary: '#6750A4' /*neutral: '#FFFBFE'*/},
+    palette: {mode: settings.mode, primary: '#6750A4'},
     typography: {regular: {font: 'Montserrat'}, medium: {font: 'Montserrat'}},
   });
 
